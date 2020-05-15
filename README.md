@@ -776,5 +776,20 @@ This module requires special support for each included module. Here are the supp
  - Audio Morse
  - Palindromes
  - Pow
+ - Type Racer
+ - Chicken Nuggets
+ - Badugi
+ - Tetriamonds
+ - Spot The Difference
+ - Negativity
+ - Masher The Bottun
+ - Yes and No
+ - M&Ns
+ - Plant Identification
+ - Integer Trees
+ - Goofy's Game
+ - Module Rick
+ - Pickup Identification
+ - 3 LEDs
 
 Support for needies and ignoreds as well as colorblind support will come at a later date.
