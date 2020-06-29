@@ -28,6 +28,8 @@ public class iconicScript : MonoBehaviour {
     private bool QueuedUp = false;
     private bool FoundAModule = false;
     private bool IgnoredsAdded = false;
+    private bool ModuleReady = false;
+    private bool StopLogging = false;
     private int NumberOfIconics = 0;
     private int NumberOfOptions = 0;
     private int SelectedOption = 0;
@@ -60,15 +62,17 @@ public class iconicScript : MonoBehaviour {
 
         Module.OnActivate += delegate () {
             NonBosses = Bomb.GetSolvableModuleNames().Where(a => !IgnoredModules.Contains(a)).ToList().Count;
-            if (NonBosses == 0)
-            {
-                Debug.LogFormat("[Iconic #{0}] Autosolving as there are no non-boss modules on the bomb.", ModuleId);
-                GetComponent<KMBombModule>().HandlePass();
-            }
         };
 
         AddNeedies();
+
+        StartCoroutine(Delay());
 	}
+
+    private IEnumerator Delay () {
+        yield return new WaitForSeconds(1f);
+        ModuleReady = true;
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -81,7 +85,7 @@ public class iconicScript : MonoBehaviour {
                     Queue.Add(MostRecent);
                     SolveList.Add(MostRecent);
                 } else {
-                    Debug.LogFormat("[Iconic #{0}] The following ignored module has solved: {1}", ModuleId, MostRecent);
+                    if (!StopLogging) {Debug.LogFormat("[Iconic #{0}] The following ignored module has solved: {1}", ModuleId, MostRecent);}
                     SolveList.Add(MostRecent);
                     IgnoredSolved += 1;
                 }
@@ -137,10 +141,10 @@ public class iconicScript : MonoBehaviour {
                 }
 
             }
-            if (SolveList.Count() - IgnoredSolved == NonBosses && Queue.Count() == 0) {
+            if ((SolveList.Count() - IgnoredSolved == NonBosses && Queue.Count() == 0) && ModuleReady) {
                 Phrase.text = "GG!";
                 Audio.PlaySoundAtTransform("GoodGame", transform);
-                Debug.LogFormat("[Iconic #{0}] All icons shown, Module solved.", ModuleId);
+                if (!StopLogging) {Debug.LogFormat("[Iconic #{0}] All icons shown, Module solved.", ModuleId);}
                 TheIcon.GetComponent<MeshRenderer>().material = IconMats[2];
                 GetComponent<KMBombModule>().HandlePass();
                 ModuleSolved = true;
