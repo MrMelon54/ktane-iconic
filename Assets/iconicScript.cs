@@ -29,6 +29,7 @@ public class iconicScript : MonoBehaviour {
     private bool FoundAModule = false;
     private bool IgnoredsAdded = false;
     private bool ModuleReady = false;
+    private bool TPCorrect = false;
     private int NumberOfIconics = 0;
     private int NumberOfOptions = 0;
     private int SelectedOption = 0;
@@ -199,6 +200,7 @@ public class iconicScript : MonoBehaviour {
                         QueuedUp = false;
                         Phrase.transform.localScale = new Vector3(0.001f, 0.001f, 0.01f);
                         Phrase.text = "Iconic";
+                        TPCorrect = true;
                     } else {
                         Debug.LogFormat("[Iconic #{0}] Incorrect part of {1} selected, \"{2}\" at {3}. Strike!", ModuleId, CurrentModule, ModulePart, ConvertToCoordinate(p));
                         GetComponent<KMBombModule>().HandleStrike();
@@ -1181,8 +1183,9 @@ public class iconicScript : MonoBehaviour {
                 if (index != -1)
                 {
                     Pixels[index].OnInteract();
-                    if (CharacterList[SelectedOption] == CurrentData[0][index]) {
+                    if (TPCorrect) {
                       yield return "awardpoints 1";
+                      TPCorrect = false;
                     }
                 }
                 else
