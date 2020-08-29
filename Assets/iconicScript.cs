@@ -13,12 +13,13 @@ public class iconicScript : MonoBehaviour {
     public KMAudio Audio;
     public KMBossModule Boss;
 
-    public GameObject TheIcon;
-    public Material[] IconMats; //0 = empty; 1 = blank, 2 = banana
+    public MeshRenderer TheIcon;
+    public Texture2D Empty, Blank, Banana, Modules;
     public TextMesh Phrase;
-    public KMSelectable[] Pixels;
+    public GameObject[] Rows;
 
     private string[] IgnoredModules;
+    private KMSelectable[] Pixels = new KMSelectable[] { };
 
     private int NonBosses = 1;
     private int Solves;
@@ -34,11 +35,13 @@ public class iconicScript : MonoBehaviour {
     private int NumberOfOptions = 0;
     private int SelectedOption = 0;
     private int IgnoredSolved = 0;
+    private int TopLeftModule;
     private string ModulePart = "";
     private string CurrentModule = "";
     private string CharacterList = ".0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private List<string> ModuleList = new List<string>{ "Wires", "The Button", "Keypad", "Simon Says", "Who's on First", "Memory", "Morse Code", "Complicated Wires", "Wire Sequence", "Maze", "Password", "Needy Vent Gas", "Needy Capacitor", "Needy Knob", "Colour Flash", "Piano Keys", "Semaphore", "Math", "Emoji Math", "Lights Out", "Switches", "Two Bits", "Word Scramble", "Anagrams", "Combination Lock", "Filibuster", "Motion Sense", "Square Button", "Simon States", "Round Keypad", "Listening", "Foreign Exchange Rates", "Answering Questions", "Orientation Cube", "Morsematics", "Connection Check", "Letter Keys", "Forget Me Not", "Rotary Phone", "Astrology", "Logic", "Crazy Talk", "Adventure Game", "Turn The Key", "Mystic Square", "Plumbing", "Cruel Piano Keys", "Safety Safe", "Tetris", "Cryptography", "Chess", "Turn The Keys", "Mouse In The Maze", "3D Maze", "Silly Slots", "Number Pad", "Laundry", "Probing", "Resistors", "Skewed Slots", "Caesar Cipher", "Perspective Pegs", "Microcontroller", "Murder", "The Gamepad", "Tic Tac Toe", "Who's That Monsplode", "Monsplode, Fight!", "Shape Shift", "Follow the Leader", "Friendship", "The Bulb", "Alphabet", "Blind Alley", "Sea Shells", "English Test", "Rock-Paper-Scissors-L.-Sp.", "Hexamaze", "Bitmaps", "Colored Squares", "Adjacent Letters", "Third Base", "Souvenir", "Word Search", "Broken Buttons", "Simon Screams", "Modules Against Humanity", "Complicated Buttons", "Battleship", "Text Field", "Symbolic Password", "Wire Placement", "Double-Oh", "Cheap Checkout", "Coordinates", "Light Cycle", "HTTP Response", "Rhythms", "Color Math", "Only Connect", "Neutralization", "Web Design", "Chord Qualities", "Creation", "Rubik's Cube", "FizzBuzz", "The Clock", "LED Encryption", "Edgework", "Bitwise Operations", "Fast Math", "Minesweeper", "Zoo", "Binary LEDs", "Boolean Venn Diagram", "Point of Order", "Ice Cream", "Hex To Decimal", "The Screw", "Yahtzee", "X-Ray", "QR Code", "Button Masher", "Random Number Generator", "Color Morse", "Mastermind Simple", "Mastermind Cruel", "Gridlock", "Big Circle", "Morse-A-Maze", "Colored Switches", "Perplexing Wires", "Monsplode Trading Cards", "Game of Life Simple", "Game of Life Cruel", "Nonogram", "S.E.T.", "Refill that Beer!", "Painting", "Color Generator", "Shape Memory", "Symbol Cycle", "Hunting", "Extended Password", "Curriculum", "Braille", "Mafia", "Festive Piano Keys", "Flags", "Timezone", "Polyhedral Maze", "Symbolic Coordinates", "Poker", "Sonic the Hedgehog", "Poetry", "Button Sequence", "Algebra", "Visual Impairment", "The Jukebox", "Identity Parade", "Maintenance", "Blind Maze", "Backgrounds", "Mortal Kombat", "Mashematics", "Faulty Backgrounds", "Radiator", "Modern Cipher", "LED Grid", "Sink", "The iPhone", "The Swan", "Waste Management", "Human Resources", "Skyrim", "Burglar Alarm", "Press X", "European Travel", "Error Codes", "Rapid Buttons", "LEGOs", "Rubik’s Clock", "Font Select", "The Stopwatch", "Pie", "The Wire", "The London Underground", "Logic Gates", "Forget Everything", "Grid Matching", "Color Decoding", "The Sun", "Playfair Cipher", "Tangrams", "The Number", "Cooking", "Superlogic", "The Moon", "The Cube", "Dr. Doctor", "Tax Returns", "The Jewel Vault", "Digital Root", "Graffiti Numbers", "Marble Tumble", "X01", "Logical Buttons", "The Code", "Tap Code", "Simon Sings", "Simon Sends", "Synonyms", "Greek Calculus", "Simon Shrieks", "Complex Keypad", "Subways", "Lasers", "Turtle Robot", "Guitar Chords", "Calendar", "USA Maze", "Binary Tree", "The Time Keeper", "Lightspeed", "Black Hole", "Simon's Star", "Morse War", "The Stock Market", "Mineseeker", "Maze Scrambler", "The Number Cipher", "Alphabet Numbers", "British Slang", "Double Color", "Maritime Flags", "Equations", "Determinants", "Pattern Cube", "Know Your Way", "Splitting The Loot", "Simon Samples", "Character Shift", "Uncolored Squares", "Dragon Energy", "Flashing Lights", "3D Tunnels", "Synchronization", "The Switch", "Reverse Morse", "Manometers", "Shikaku", "Wire Spaghetti", "Tennis", "Module Homework", "Benedict Cumberbatch", "Signals", "Horrible Memory", "Boggle", "Command Prompt", "Boolean Maze", "Sonic & Knuckles", "Quintuples", "The Sphere", "Coffeebucks", "Colorful Madness", "Bases", "Lion’s Share", "Snooker", "Blackjack", "Party Time", "Accumulation", "The Plunger Button", "The Digit", "The Jack-O'-Lantern", "T-Words", "Divided Squares", "Connection Device", "Instructions", "Valves", "Encrypted Morse", "The Crystal Maze", "Cruel Countdown", "Countdown", "Catchphrase", "Blockbusters", "IKEA", "Retirement", "Periodic Table", "101 Dalmatians", "Schlag den Bomb", "Mahjong", "Kudosudoku", "The Radio", "Modulo", "Number Nimbleness", "Pay Respects", "Challenge & Contact", "The Triangle", "Sueet Wall", "Hot Potato", "Christmas Presents", "Hieroglyphics", "Functions", "Scripting", "Needy Mrs Bob", "Simon Spins", "Ten-Button Color Code", "Cursed Double-Oh", "Crackbox", "Street Fighter", "The Labyrinth", "Spinning Buttons", "Color Match", "The Festive Jukebox", "Skinny Wires", "The Hangover", "Factory Maze", "Binary Puzzle", "Broken Guitar Chords", "Regular Crazy Talk", "Hogwarts", "Dominoes", "Simon Speaks", "Discolored Squares", "Krazy Talk", "Numbers", "Flip The Coin", "Varicolored Squares", "Simon's Stages", "Free Parking", "Cookie Jars", "Alchemy", "Zoni", "Simon Squawks", "Unrelated Anagrams", "Mad Memory", "Bartending", "Question Mark", "Shapes And Bombs", "Flavor Text EX", "Flavor Text", "Decolored Squares", "Homophones", "DetoNATO", "Air Traffic Controller", "SYNC-125 [3]", "Westeros", "Morse Identification", "Pigpen Rotations", "LED Math", "Alphabetical Order", "Simon Sounds", "The Fidget Spinner", "Simon's Sequence", "Simon Scrambles", "Harmony Sequence", "Unfair Cipher", "Melody Sequencer", "Colorful Insanity", "Passport Control", "Left and Right", "Gadgetron Vendor", "Wingdings", "The Hexabutton", "Genetic Sequence", "Micro-Modules", "Module Maze", "Elder Futhark", "Tasha Squeals", "Forget This", "Digital Cipher", "Subscribe to Pewdiepie", "Grocery Store", "Draw", "Burger Alarm", "Purgatory", "Mega Man 2", "Lombax Cubes", "The Stare", "Graphic Memory", "Quiz Buzz", "Wavetapping", "The Hypercube", "Speak English", "Stack'em", "Seven Wires", "Colored Keys", "The Troll", "Planets", "The Necronomicon", "Four-Card Monte", "Aa", "The Giant's Drink", "Digit String", "Alpha", "Snap!", "Hidden Colors", "Colour Code", "Vexillology", "Brush Strokes", "Odd One Out", "The Triangle Button", "Mazematics", "Equations X", "Maze³", "Gryphons", "Arithmelogic", "Roman Art", "Faulty Sink", "Simon Stops", "Morse Buttons", "Terraria Quiz", "Baba Is Who?", "Triangle Buttons", "Simon Stores", "Risky Wires", "Modulus Manipulation", "Daylight Directions", "Cryptic Password", "Stained Glass", "The Block", "Bamboozling Button", "Insane Talk", "Transmitted Morse", "A Mistake", "Red Arrows", "Green Arrows", "Yellow Arrows", "Encrypted Values", "Encrypted Equations", "Forget Them All", "Ordered Keys", "Blue Arrows", "Sticky Notes", "Unordered Keys", "Orange Arrows", "Hyperactive Numbers", "Reordered Keys", "Button Grid", "Find The Date", "Misordered Keys", "The Matrix", "Purple Arrows", "Bordered Keys", "The Dealmaker", "Seven Deadly Sins", "The Ultracube", "Symbolic Colouring", "Recorded Keys", "The Deck of Many Things", "Disordered Keys", "Character Codes", "Raiding Temples", "Bomb Diffusal", "Tallordered Keys", "Pong", "Ten Seconds", "Cruel Ten Seconds", "Double Expert", "Calculus", "Boolean Keypad", "Toon Enough", "Pictionary", "Qwirkle", "Antichamber", "Simon Simons", "Lucky Dice", "Forget Enigma", "Constellations", "Prime Checker", "Cruel Digital Root", "Faulty Digital Root", "The Crafting Table", "Boot Too Big", "Vigenère Cipher", "Langton's Ant", "Old Fogey", "Insanagrams", "Treasure Hunt", "Snakes and Ladders", "Module Movements", "Bamboozled Again", "Safety Square", "Roman Numerals", "Colo(u)r Talk", "Annoying Arrows", "Double Arrows", "Boolean Wires", "Block Stacks", "Vectors", "Partial Derivatives", "Caesar Cycle", "Needy Piano", "Forget Us Not", "Affine Cycle", "Pigpen Cycle", "Flower Patch", "Playfair Cycle", "Jumble Cycle", "Organization", "Forget Perspective", "Alpha-Bits", "Jack Attack", "Ultimate Cycle", "Hill Cycle", "Binary", "Chord Progressions", "Matchematics", "Bob Barks", "Simon's On First", "Weird Al Yankovic", "Forget Me Now", "Simon Selects", "The Witness", "Simon Literally Says", "Cryptic Cycle", "Bone Apple Tea", "Robot Programming", "Masyu", "Hold Ups", "Red Cipher", "Flash Memory", "A-maze-ing Buttons", "Desert Bus", "Orange Cipher", "Common Sense", "The Very Annoying Button", "Unown Cipher", "Needy Flower Mash", "TetraVex", "Meter", "Timing is Everything", "The Modkit", "Red Buttons", "The Rule", "Fruits", "Bamboozling Button Grid", "Footnotes", "Lousy Chess", "Module Listening", "Garfield Kart", "Yellow Cipher", "Kooky Keypad", "Green Cipher", "RGB Maze", "Blue Cipher", "The Legendre Symbol", "Keypad Lock", "Forget Me Later", "Übermodule", "Heraldry", "Faulty RGB Maze", "Indigo Cipher", "Violet Cipher", "Encryption Bingo", "Color Addition", "Chinese Counting", "Tower of Hanoi", "Keypad Combinations", "UltraStores", "Kanji", "Geometry Dash", "Ternary Converter", "N&Ms", "Eight Pages", "The Colored Maze", "White Cipher", "Gray Cipher", "The Hyperlink", "Black Cipher", "Loopover", "Divisible Numbers", "Corners", "The High Score", "Ingredients", "Jenga", "Intervals", "Cruel Boolean Maze", "Cheep Checkout", "Spelling Bee", "Memorable Buttons", "Thinking Wires", "Seven Choose Four", "Object Shows", "Lunchtime", "Natures", "Neutrinos", "Scavenger Hunt", "Polygons", "Ultimate Cipher", "Codenames", "Odd Mod Out", "Logic Statement", "Blinkstop", "Ultimate Custom Night", "Hinges", "Time Accumulation", "❖", "Forget It Not", "egg", "BuzzFizz", "Answering Can Be Fun", "3x3 Grid", "15 Mystic Lights", "14", "Rainbow Arrows", "Time Signatures", "Multi-Colored Switches", "Digital Dials", "Passcodes", "Hereditary Base Notation", "Lines of Code", "The cRule", "Prime Encryption", "Encrypted Dice", "Colorful Dials", "Naughty or Nice", "Following Orders", "Atbash Cipher", "Addition", "Binary Grid", "Matrices", "Cruel Keypads", "The Black Page", "64", "Simon Forgets", "Greek Letter Grid", "Bamboozling Time Keeper", "Going Backwards", "Scalar Dials", "The World's Largest Button", "Keywords", "State of Aggregation", "Dreamcipher", "Brainf---", "Rotating Squares", "Red Light Green Light", "Marco Polo", "Hyperneedy", "Echolocation", "Boozleglyph Identification", "Boxing", "Topsy Turvy", "Railway Cargo Loading", "Conditional Buttons", "ASCII Art", "Semamorse", "Hide and Seek", "Symbolic Tasha", "Alphabetical Ruling", "Microphone", "Widdershins", "Lockpick Maze", "Dimension Disruption", "V", "Silhouettes", "A Message", "Alliances", "Dungeon", "Unicode", "Password Generator", "Baccarat", "Guess Who?", "Reverse Alphabetize", "Alphabetize", "Gatekeeper", "Light Bulbs", "1000 Words", "Five Letter Words", "Settlers of KTaNE", "The Hidden Value", "Red", "Blue", "Directional Button", "...?", "The Simpleton", "Misery Squares", "Not Wiresword", "Not Wire Sequence", "Not Who's on First", "Not Simaze", "Not Password", "Not Morse Code", "Not Memory", "Not Maze", "Not Keypad", "Not Complicated Wires", "Not Capacitor Discharge", "Not the Button", "Sequences", "Dungeon 2nd Floor", "Wire Ordering", "Vcrcs", "Quaternions", "Abstract Sequences", "osu!", "Shifting Maze", "Banana", "Sorting", "Role Reversal", "Placeholder Talk", "Art Appreciation", "Cruel Boolean Math", "Boolean Math", "Shell Game", "Pattern Lock", "Quick Arithmetic", "Minecraft Cipher", "Cheat Checkout", "The Samsung", "Forget The Colors", "Etterna", "Recolored Switches", "Cruel Garfield Kart", "1D Maze", "Reverse Polish Notation", "Snowflakes", "Funny Numbers", "Label Priorities", "Numbered Buttons", "Exoplanets", "Simon Stages", "Not Venting Gas", "Forget Infinity", "Faulty Seven Segment Displays", "Stock Images", "Roger", "Malfunctions", "Minecraft Parody", "Shuffled Strings", "NumberWang", "Minecraft Survival", "RPS Judging", "Fencing", "Strike Solve", "Uncolored Switches", "The Twin", "Name Changer", "Just Numbers", "Lying Indicators", "Flag Identification", "Training Text", "Wonder Cipher", "Caesar's Maths", "Random Access Memory", "Triamonds", "Stars", "Button Order", "Jukebox.WAV", "Elder Password", "Switching Maze", "Iconic", "Mystery Module", "Ladder Lottery", "Co-op Harmony Sequence", "Standard Crazy Talk", "Quote Crazy Talk End Quote", "Kilo Talk", "KayMazey Talk", "Jaden Smith Talk", "Deck Creating", "Crazy Talk With A K", "BoozleTalk", "Arrow Talk", "Siffron", "Red Herring", "Audio Morse", "Palindromes", "Pow", "Type Racer", "Chicken Nuggets", "Badugi", "Tetriamonds", "Spot the Difference", "Negativity", "Masher The Bottun", "Yes and No", "M&Ns", "Plant Identification", "Integer Trees", "Goofy's Game", "Module Rick", "Pickup Identification", "Earthbound", "3 LEDs", "Life Iteration", "Thread the Needle", "Encrypted Hangman", "Accelerando", "Reaction", "The Heart", "Color Braille", "Remote Math", "Reflex", "Password Destroyer", "Typing Tutor", "Multitask", "hexOS", "Simon Stashes", "Kyudoku", "Brawler Database", "Shortcuts", "More Code", "7", "OmegaForget", "Needy Game of Life", "Mental Math", "Kugelblitz", "Dictation", "Bloxx", "Basic Morse", "The Arena", "IPA", "Emotiguy Identification", "Cookie Clicker", "Audio Keypad", "100 Levels of Defusal", "NeeDeez Nuts", "Jailbreak", "Dumb Waiters", "DACH Maze", "Birthdays", "Match 'em", "Navinums", "Gnomish Puzzle", "RGB Logic", "Bridges", "A>N<D", "Shifted Maze", "Juxtacolored Squares", "Wolf, Goat, and Cabbage", "The Missing Letter", "Amnesia", "Plug-Ins", "Synesthesia", "English Entries", "The Duck", "The Cruel Duck", "Identifying Soulless", "Ultimate Tic Tac Toe", "Factoring", "Lyrical Nonsense", "RGB Sequences", "Puzzword", "NOT NOT", "Repo Selector", "int##", "Deaf Alley", "Town of KTaNE", "Blind Arrows", "Sound Design", "RGB Arithmetic", "D-CODE", "Rapid Subtraction", "Fifteen", "Pixel Cipher", "Don't Touch Anything", "The Great Void", "21", "Prime Time", "Negation", "The Calculator", "SixTen", "ASCII Maze", "Ultralogic", "Spangled Stars", "Busy Beaver", "Digital Clock", "Cruel Match 'em", "Assembly Code", "Simon's Ultimate Showdown", "Boomdas", "Needlessly Complicated Button", "Color Numbers", "Chinese Strokes", "Chalices", "Reversed Edgework", "Pixel Art", "Faulty Accelerando", "0", "Increasing Indices", "Faulty Binary", "Cruel Binary", "Connected Monitors", "Broken Binary", "Totally Accurate Minecraft Simulator", "Tell Me When", "ReGret-B Filtering", "D-CRYPT", "Color-Cycle Button"};
     private string[] CurrentData = { };
+    private static Dictionary<string, Texture2D> LoadedTextures = new Dictionary<string, Texture2D>();
 
     //Logging
     static int ModuleIdCounter = 1;
@@ -47,9 +50,17 @@ public class iconicScript : MonoBehaviour {
 
     void Awake () {
         ModuleId = ModuleIdCounter++;
+        for (int i = 0; i < Rows.Length; i++)
+        {
+            Pixels = Pixels.Concat(Rows[i].GetComponentsInChildren<KMSelectable>()).ToArray();
+        }
+        var ModuleSelectable = GetComponent<KMSelectable>();
+        ModuleSelectable.Children = Pixels;
+        ModuleSelectable.UpdateChildren();
         foreach (KMSelectable ThePixel in Pixels) {
             ThePixel.OnInteract += delegate () { PixelPress(ThePixel); return false; };
         }
+        TopLeftModule = Modules.height - 32;
     }
 
     // Use this for initialization
@@ -95,15 +106,25 @@ public class iconicScript : MonoBehaviour {
                 Array.Clear(CurrentData, 0, CurrentData.Count());
                 for (int i = 0; i < ModuleList.Count(); i++) {
                     if (ModuleList[i] == Queue[0] && FoundAModule == false) {
-                        TheIcon.GetComponent<MeshRenderer>().material = IconMats[i + 3];
                         CurrentData = NameToData(ModuleList[i]).ToArray();
+                        if (!LoadedTextures.ContainsKey(ModuleList[i]))
+                        {
+                            int x = (i * 32) % Modules.width;
+                            int y = TopLeftModule - i / (Modules.height / 32) * 32;
+                            Color[] loadedPixels = Modules.GetPixels(x, y, 32, 32);
+                            Texture2D loadedTexture = new Texture2D(32, 32);
+                            loadedTexture.SetPixels(loadedPixels);
+                            loadedTexture.Apply();
+                            LoadedTextures.Add(ModuleList[i], loadedTexture);
+                        }
+                        TheIcon.material.mainTexture = LoadedTextures[ModuleList[i]];
                         CurrentModule = ModuleList[i];
                         FoundAModule = true;
                     }
                 }
                 if (FoundAModule == false) {
                     Debug.LogFormat("[Iconic #{0}] Adding blank because I don't recognize the following module: {1}", ModuleId, Queue[0]);
-                    TheIcon.GetComponent<MeshRenderer>().material = IconMats[1];
+                    TheIcon.material.mainTexture = Blank;
                     CurrentData = iconicData.BlankModule.ToArray();
                     CurrentModule = "(Blank)";
                     FoundAModule = true;
@@ -115,22 +136,30 @@ public class iconicScript : MonoBehaviour {
                 SelectedOption = UnityEngine.Random.Range(1, NumberOfOptions);
                 ModulePart = CurrentData[SelectedOption];
 
-                if (ModulePart == null) {
-                    Debug.LogFormat("[Iconic #{0}] A part of {1} cannot be found. Autosolving the module.", ModuleId, Queue[0]);
+                int length = CurrentData.Length < 1 ? -1 : CurrentData[0].Length;
+                bool[] conditions = new[]
+                {
+                    ModulePart == null,
+                    length != 1024,
+                    CurrentData.Length < 2
+                };
+
+                if (conditions.Any(x => x))
+                {
+                    int index = Array.IndexOf(conditions, true);
+                    string[] messages = new[]
+                    {
+                        "A part of " + Queue[0] + " cannot be found.",
+                        "The string for " + Queue[0] + "is not 1024 characters long. (It's " + length + "characters long)",
+                        "The string array for " + Queue[0] + "doesn't have enough arguments. (There's only " + CurrentData.Length +" strings.)"
+                    };
+                    Debug.LogFormat("[Iconic #{0}] {1} Autosolving the module.", ModuleId, messages[index]);
                     Phrase.text = Queue[0] + " error!";
                     ModuleSolved = true;
-                    GetComponent<KMBombModule>().HandlePass();
-                } else if (CurrentData[0].Length != 1024) {
-                    Debug.LogFormat("[Iconic #{0}] The string for {1} is not 1024 characters long. (It's {2} characters.) Autosolving the module.", ModuleId, Queue[0], CurrentData[0].Length);
-                    Phrase.text = Queue[0] + " error!";
-                    ModuleSolved = true;
-                    GetComponent<KMBombModule>().HandlePass();
-                } else if (CurrentData.Length < 2) {
-                    Debug.LogFormat("[Iconic #{0}] The string array for {1} doesn't have enough arguments. (There's only {2} strings.) Autosolving the module.", ModuleId, Queue[0], CurrentData.Length);
-                    Phrase.text = Queue[0] + " error!";
-                    ModuleSolved = true;
-                    GetComponent<KMBombModule>().HandlePass();
+                    Module.HandlePass();
+                    return;
                 }
+                Debug.LogFormat("[Iconic #{0}] Test6", ModuleId);
 
                 Phrase.text = ModulePart;
 
@@ -145,8 +174,8 @@ public class iconicScript : MonoBehaviour {
                 Phrase.text = "GG!";
                 Audio.PlaySoundAtTransform("GoodGame", transform);
                 Debug.LogFormat("[Iconic #{0}] All icons shown, Module solved.", ModuleId);
-                TheIcon.GetComponent<MeshRenderer>().material = IconMats[2];
-                GetComponent<KMBombModule>().HandlePass();
+                TheIcon.material.mainTexture = Banana;
+                Module.HandlePass();
                 ModuleSolved = true;
             } else if (SolveList.Count() - IgnoredSolved == NonBosses && IgnoredsAdded == false) {
                 AddIgnoreds();
@@ -193,23 +222,19 @@ public class iconicScript : MonoBehaviour {
             Audio.PlaySoundAtTransform("Blip", transform);
             for (int p = 0; p < 1024; p++) {
                 if (ThePixel == Pixels[p]) {
-                    if (CharacterList[SelectedOption] == CurrentData[0][p]) {
-                        Debug.LogFormat("[Iconic #{0}] Correct part of {1} selected, \"{2}\" at {3}.", ModuleId, CurrentModule, ModulePart, ConvertToCoordinate(p));
-                        Queue.RemoveAt(0);
-                        TheIcon.GetComponent<MeshRenderer>().material = IconMats[0];
-                        QueuedUp = false;
-                        Phrase.transform.localScale = new Vector3(0.001f, 0.001f, 0.01f);
-                        Phrase.text = "Iconic";
-                        TPCorrect = true;
-                    } else {
-                        Debug.LogFormat("[Iconic #{0}] Incorrect part of {1} selected, \"{2}\" at {3}. Strike!", ModuleId, CurrentModule, ModulePart, ConvertToCoordinate(p));
-                        GetComponent<KMBombModule>().HandleStrike();
-                        Queue.RemoveAt(0);
-                        TheIcon.GetComponent<MeshRenderer>().material = IconMats[0];
-                        QueuedUp = false;
-                        Phrase.transform.localScale = new Vector3(0.001f, 0.001f, 0.01f);
-                        Phrase.text = "Iconic";
+                    string debugMessage = string.Format("[Iconic #{0}] Correct part of {1} selected, \"{2}\" at {3}.", ModuleId, CurrentModule, ModulePart, ConvertToCoordinate(p));
+                    TPCorrect = CharacterList[SelectedOption] == CurrentData[0][p];
+                    if (!TPCorrect)
+                    {
+                        debugMessage = debugMessage.Replace("Correct", "Incorrect") + " Strike!";
+                        Module.HandleStrike();
                     }
+                    Debug.LogFormat(debugMessage);
+                    Queue.RemoveAt(0);
+                    TheIcon.material.mainTexture = Banana;
+                    QueuedUp = false;
+                    Phrase.transform.localScale = new Vector3(0.001f, 0.001f, 0.01f);
+                    Phrase.text = "Iconic";
                 }
             }
         }
