@@ -231,7 +231,7 @@ public class iconicScript : MonoBehaviour {
                     }
                     Debug.LogFormat(debugMessage);
                     Queue.RemoveAt(0);
-                    TheIcon.material.mainTexture = Banana;
+                    TheIcon.material.mainTexture = Empty;
                     QueuedUp = false;
                     Phrase.transform.localScale = new Vector3(0.001f, 0.001f, 0.01f);
                     Phrase.text = "Iconic";
