@@ -3,23 +3,67 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
 
 [CustomEditor(typeof(GenerateMasterSprite))]
 public class SpriteObject : Editor
 {
+    int _moduleChoiceIndex = 0;
+    int section = 0;
+    int iconChanged;
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
+        GenerateMasterSprite generateObject = target as GenerateMasterSprite;
+        if (generateObject.ModuleScript != null)
+        {
+            // This uses Reflection to grab the list of module names from the iconicScript
+            // Since you won't be using this gameobject in the module itself it shouldn't matter if it's inefficient (or lazier than just copying the list to this file)
+            generateObject.ModuleList = typeof(iconicScript).GetFields(BindingFlags.NonPublic | BindingFlags.Instance).First(x => x.Name == "ModuleList").GetValue(generateObject.ModuleScript) as List<string>;
+            var ModuleList = generateObject.ModuleList;
+            int sections = ModuleList.Count / 33;
+            List<string> moduleSections = new List<string>();
+            for (int i = 0; i <= sections; i++)
+            {
+                int max = i * 33 + 32;
+                if (i * 33 + 32 >= ModuleList.Count)
+                {
+                    max = ModuleList.Count - 1;
+                }
+                moduleSections.Add(ModuleList[i * 33] + " - " + ModuleList[max]);
+            }
+            section = EditorGUILayout.Popup(section, moduleSections.ToArray());
+            _moduleChoiceIndex = EditorGUILayout.Popup(_moduleChoiceIndex, ModuleList.Skip(section * 33).Take(33).ToArray());
+            generateObject.ModuleIndex = (section * 33) + _moduleChoiceIndex;
+
+
+            if (generateObject.ModuleIcon != null)
+            {
+                if (section * 33 + _moduleChoiceIndex != iconChanged)
+                {
+                    iconChanged = section * 33 + _moduleChoiceIndex;
+                    generateObject.Verify();
+                }
+            }
+        }
 
         if (GUILayout.Button("Generate Spritesheet"))
         {
-            ((GenerateMasterSprite)target).Generate();
+            if (generateObject.ModuleScript == null)
+                throw new System.Exception("Script of type \"iconicScript\" needed for Module List");
+            generateObject.Generate();
+        }
+
+        if (GUILayout.Button("Verify Sprites"))
+        {
+            generateObject.Verify();
+        }
+
+        if (GUILayout.Button("Destroy Clones"))
+        {
+            generateObject.DestroyClones();
         }
     }
 }
@@ -29,6 +73,11 @@ public class GenerateMasterSprite : MonoBehaviour
     public int cols = 21;
     public int w = 32;
     public int h = 32;
+    [HideInInspector]
+    public int ModuleIndex;
+    [HideInInspector]
+    public List<string> ModuleList;
+    public Texture2D ModuleIcon;
     public iconicScript ModuleScript;
     private static Dictionary<string, string> mismatchedNames = new Dictionary<string, string>
     {
@@ -46,11 +95,8 @@ public class GenerateMasterSprite : MonoBehaviour
     public void Generate()
     {
         var iconsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Assets" + Path.DirectorySeparatorChar + "Icons");
-        // This uses Reflection to grab the list of module names from the iconicScript
-        // Since you won't be using this gameobject in the module itself it shouldn't matter if it's inefficient (or lazier than just copying the list to this file)
-        List<string> ModuleNames = typeof(iconicScript).GetFields(BindingFlags.NonPublic | BindingFlags.Instance).First(x => x.Name == "ModuleList").GetValue(ModuleScript) as List<string>;
         // Switch out mismatched names with ones that will likely match
-        ModuleNames = ModuleNames.Select(x => misMatched(x)).ToList();
+        var ModuleNames = ModuleList.Select(x => misMatched(x)).ToList();
         
         // Grab all of the file paths from the icons directories and sort them by the order in ModuleNames.
         // It is important that the names in ModuleNames matches the names of the files.
@@ -127,6 +173,56 @@ public class GenerateMasterSprite : MonoBehaviour
         string notOriginal = original != "Jukebox.WAV" ? Path.GetFileNameWithoutExtension(original) : original;
         notOriginal = regex.Replace(notOriginal.ToLowerInvariant(), string.Empty);
         return notOriginal;
+    }
+
+    [HideInInspector]
+    public GameObject givenIcon;
+    [HideInInspector]
+    public GameObject generatedIcon;
+    public void Verify()
+    {
+        if (ModuleIcon == null)
+        {
+            throw new System.Exception("Please make sure an icon has been selected.");
+        }
+
+        if (ModuleScript == null)
+            throw new System.Exception("Script of type \"iconicScript\" necessary for verification");
+        GameObject TheIcon = ModuleScript.TheIcon.gameObject;
+
+        if (givenIcon == null)
+        {
+            givenIcon = Instantiate(TheIcon);
+            Vector3 p = givenIcon.transform.localPosition;
+            givenIcon.transform.localPosition = new Vector3(-.14f, p.y, p.z);
+        }
+        if (generatedIcon == null)
+        {
+            generatedIcon = Instantiate(TheIcon);
+            Vector3 p = generatedIcon.transform.localPosition;
+            generatedIcon.transform.localPosition = new Vector3(.1f, p.y, p.z);
+        }
+        MeshRenderer LeftIcon = givenIcon.GetComponent<MeshRenderer>();
+        MeshRenderer RightIcon = generatedIcon.GetComponent<MeshRenderer>();
+        LeftIcon.material.mainTexture = ModuleIcon;
+        int TopLeftModule = ModuleScript.Modules.height - 32;
+        int x = (ModuleIndex * 32) % ModuleScript.Modules.width;
+        int y = TopLeftModule - ModuleIndex / (ModuleScript.Modules.width / 32) * 32;
+        Color[] loadedPixels = ModuleScript.Modules.GetPixels(x, y, 32, 32);
+        Texture2D loadedTexture = new Texture2D(32, 32)
+        {
+            filterMode = FilterMode.Point
+        };
+        loadedTexture.SetPixels(loadedPixels);
+        loadedTexture.Apply();
+        RightIcon.material.mainTexture = loadedTexture;
+    }
+
+    public void DestroyClones()
+    {
+        DestroyImmediate(givenIcon);
+        DestroyImmediate(generatedIcon);
+        ModuleIcon = null;
     }
 }
 #endif

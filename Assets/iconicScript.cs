@@ -110,9 +110,12 @@ public class iconicScript : MonoBehaviour {
                         if (!LoadedTextures.ContainsKey(ModuleList[i]))
                         {
                             int x = (i * 32) % Modules.width;
-                            int y = TopLeftModule - i / (Modules.height / 32) * 32;
+                            int y = TopLeftModule - i / (Modules.width / 32) * 32;
                             Color[] loadedPixels = Modules.GetPixels(x, y, 32, 32);
-                            Texture2D loadedTexture = new Texture2D(32, 32);
+                            Texture2D loadedTexture = new Texture2D(32, 32)
+                            {
+                                filterMode = FilterMode.Point
+                            };
                             loadedTexture.SetPixels(loadedPixels);
                             loadedTexture.Apply();
                             LoadedTextures.Add(ModuleList[i], loadedTexture);
