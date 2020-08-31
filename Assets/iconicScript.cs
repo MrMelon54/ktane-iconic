@@ -162,7 +162,6 @@ public class iconicScript : MonoBehaviour {
                     Module.HandlePass();
                     return;
                 }
-                Debug.LogFormat("[Iconic #{0}] Test6", ModuleId);
 
                 Phrase.text = ModulePart;
 
