@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44658017, g: 0.49641502, b: 0.57482153, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -242,6 +242,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1001 &316060031
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400002, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
+      propertyPath: ModuleDisplayName
+      value: Maze Scrambler
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
+      propertyPath: ModuleType
+      value: v Change this
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
+      propertyPath: m_Name
+      value: Dummy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &775715395
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +408,7 @@ Prefab:
     - target: {fileID: 114848120511536268, guid: 8814ea52310d2614a9feda02ec355ae4,
         type: 2}
       propertyPath: TwitchPlaysActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114848120511536268, guid: 8814ea52310d2614a9feda02ec355ae4,
         type: 2}
@@ -1033,7 +1087,7 @@ MonoBehaviour:
   - Addition
   - Binary Grid
   - Matrices
-  - Cruel Keypads
+  - Cruel Keypad
   - The Black Page
   - 64
   - Simon Forgets
@@ -1225,7 +1279,6 @@ MonoBehaviour:
   - The Arena
   - IPA
   - Emotiguy Identification
-  - Cookie Clicker
   - Audio Keypad
   - 100 Levels of Defusal
   - NeeDeez Nuts
@@ -1259,7 +1312,6 @@ MonoBehaviour:
   - Repo Selector
   - int##
   - Deaf Alley
-  - Town of KTaNE
   - Blind Arrows
   - Sound Design
   - RGB Arithmetic
@@ -1301,6 +1353,63 @@ MonoBehaviour:
   - ReGret-B Filtering
   - D-CRYPT
   - Color-Cycle Button
+  - Alien Filing Colors
+  - Push The Button
+  - The Kanye Encounter
+  - Entry Number Four
+  - D-CIPHER
+  - 501
+  - 42
+  - Color One Two
+  - Toolmods
+  - Spelling Buzzed
+  - Burnout
+  - Mystic Maze
+  - Chinese Zodiac
+  - Four Lights
+  - Duck, Duck, Goose
+  - Not Knob
+  - Toolneedy
+  - One Links To All
+  - Rules
+  - Tenpins
+  - Double Listening
+  - Wack Game of Life
+  - Unfair's Revenge
+  - Unfair's Cruel Revenge
+  - Mindlock
+  - Golf
+  - Regular Hexpressions
+  - Literally Nothing
+  - Colored Buttons
+  - Censorship
+  - The Pentabutton
+  - Mechanus Cipher
+  - Digisibility
+  - Breaktime
+  - Space Invaders Extreme
+  - Mazery
+  - Kim's Game
+  - Three Cryptic Steps
+  - Popufur
+  - Tech Support
+  - Space
+  - 9-Ball
+  - Metamem
+  - M&Ms
+  - The Console
+  - Bridge
+  - Rotten Beans
+  - Long Beans
+  - Jellybeans
+  - Cool Beans
+  - Beans
+  - Beanboozled Again
+  - Brown Bricks
+  - The Dials
+  - Butterflies
+  - Broken Karaoke
+  - Chamber No. 5
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
@@ -1316,5 +1425,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
