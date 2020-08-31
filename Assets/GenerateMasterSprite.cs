@@ -17,16 +17,27 @@ public class SpriteObject : Editor
     {
         DrawDefaultInspector();
         GenerateMasterSprite generateObject = target as GenerateMasterSprite;
-        if (generateObject.ModuleScript != null)
+        if (GenerateMasterSprite.ModuleScriptPath == null)
+            GenerateMasterSprite.ModuleScriptPath = Path.Combine(Directory.GetParent(GenerateMasterSprite.iconsDirectory).FullName, "iconicScript.cs");
+        // Grab the module list from the file, as using reflection uses cached information
+        if (File.Exists(GenerateMasterSprite.ModuleScriptPath))
         {
-            // This uses Reflection to grab the list of module names from the iconicScript
-            // Since you won't be using this gameobject in the module itself it shouldn't matter if it's inefficient (or lazier than just copying the list to this file)
-            generateObject.ModuleList = typeof(iconicScript).GetFields(BindingFlags.NonPublic | BindingFlags.Instance).First(x => x.Name == "ModuleList").GetValue(generateObject.ModuleScript) as List<string>;
-            var ModuleList = generateObject.ModuleList;
+            string[] Script = File.ReadAllLines(GenerateMasterSprite.ModuleScriptPath);
+            string line = Script.FirstOrDefault(x => x.Contains("List<string> ModuleList = new List<string>{ "));
+            line = line.Substring(line.IndexOf("\""));
+            List<string> ModuleList = line.Split(new[] { "\"," }, System.StringSplitOptions.RemoveEmptyEntries).Select(x => x.StartsWith(" ") ? x.Substring(2) : x.Substring(1)).ToList();
+            string last = ModuleList.Last();
+            int lastIndex = last.IndexOf("\" }");
+            if (lastIndex == -1)
+                lastIndex = last.IndexOf("\"}");
+            ModuleList[ModuleList.Count() - 1] = last.Substring(0, lastIndex);
+            generateObject.ModuleList = ModuleList;
             int sections = ModuleList.Count / 33;
             List<string> moduleSections = new List<string>();
             for (int i = 0; i <= sections; i++)
             {
+                if (i * 33 == ModuleList.Count)
+                    break;
                 int max = i * 33 + 32;
                 if (i * 33 + 32 >= ModuleList.Count)
                 {
@@ -51,13 +62,13 @@ public class SpriteObject : Editor
 
         if (GUILayout.Button("Generate Spritesheet"))
         {
-            if (generateObject.ModuleScript == null)
-                throw new System.Exception("Script of type \"iconicScript\" needed for Module List");
             generateObject.Generate();
         }
 
         if (GUILayout.Button("Verify Sprites"))
         {
+            if (GenerateMasterSprite.MasterSheetPath == null)
+                throw new System.Exception("Generated master sheet is inaccessible, please try generating it again");
             generateObject.Verify();
         }
 
@@ -77,6 +88,9 @@ public class GenerateMasterSprite : MonoBehaviour
     public int ModuleIndex;
     [HideInInspector]
     public List<string> ModuleList;
+    public static string ModuleScriptPath;
+    public static string MasterSheetPath;
+    public static string iconsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Assets" + Path.DirectorySeparatorChar + "Icons");
     public Texture2D ModuleIcon;
     public iconicScript ModuleScript;
     private static Dictionary<string, string> mismatchedNames = new Dictionary<string, string>
@@ -94,7 +108,14 @@ public class GenerateMasterSprite : MonoBehaviour
     private static Regex regex = new Regex("[^a-zA-Z0-9❖]");
     public void Generate()
     {
-        var iconsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Assets" + Path.DirectorySeparatorChar + "Icons");
+        if (MasterSheetPath == null)
+            MasterSheetPath = Path.Combine(iconsDirectory, Path.Combine("Extras", "Master Sheet.png"));
+        // Unity will keep the image in memory if we change it, so delete the old file
+        if (File.Exists(MasterSheetPath))
+        {
+            File.Delete(MasterSheetPath);
+            File.Delete(MasterSheetPath + ".meta");
+        }
         // Switch out mismatched names with ones that will likely match
         var ModuleNames = ModuleList.Select(x => misMatched(x)).ToList();
         
@@ -154,7 +175,9 @@ public class GenerateMasterSprite : MonoBehaviour
         allColors.Reverse();
         fullImage.SetPixels(allColors.SelectMany(x => x).ToArray());
         var finalImage = fullImage.EncodeToPNG();
-        File.WriteAllBytes(Path.Combine(iconsDirectory, Path.Combine("Extras","Master Sheet.png")), finalImage);
+        File.WriteAllBytes(MasterSheetPath, finalImage);
+        // Tell Unity the old spritesheet is deleted and to reset the pixels in memory
+        AssetDatabase.Refresh();
     }
 
     // Change Module Names to match their file names
