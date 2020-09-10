@@ -283,7 +283,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Maze Scrambler
+      value: Regular Hexpressions
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -1251,7 +1251,6 @@ MonoBehaviour:
   - Earthbound
   - 3 LEDs
   - Life Iteration
-  - Thread the Needle
   - Encrypted Hangman
   - Accelerando
   - Reaction
