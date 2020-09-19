@@ -497,7 +497,7 @@ public class iconicScript : MonoBehaviour {
             case "The Moon":	return iconicData._TheMoon;
             case "The Cube":	return iconicData._TheCube;
             case "Dr. Doctor":	return iconicData._DrDoctor;
-            case "Tax 	returns":	return iconicData._TaxReturns;
+            case "Tax Returns":	return iconicData._TaxReturns;
             case "The Jewel Vault":	return iconicData._TheJewelVault;
             case "Digital Root":	return iconicData._DigitalRoot;
             case "Graffiti Numbers":	return iconicData._GraffitiNumbers;
@@ -1229,18 +1229,18 @@ public class iconicScript : MonoBehaviour {
             case "Metamem": return iconicData._Metamem;
             case "M&Ms": return iconicData._MMs;
             case "The Console": return iconicData._TheConsole;
-			case "Bridge": return iconicData._Bridge; 
-			case "Rotten Beans": return iconicData._RottenBeans;  
-			case "Long Beans": return iconicData._LongBeans;  
-			case "Jellybeans": return iconicData._Jellybeans;  
-			case "Cool Beans": return iconicData._CoolBeans;  
-			case "Beans": return iconicData._Beans; 
-			case "Beanboozled Again": return iconicData._BeanboozledAgain;  
-			case "Brown Bricks": return iconicData._BrownBricks;  
-			case "The Dials": return iconicData._TheDials;  
-			case "Butterflies": return iconicData._Butterflies;  
-			case "Broken Karaoke": return iconicData._BrokenKaraoke;  
-			case "Chamber No. 5": return iconicData._ChamberNo5; 
+			case "Bridge": return iconicData._Bridge;
+			case "Rotten Beans": return iconicData._RottenBeans;
+			case "Long Beans": return iconicData._LongBeans;
+			case "Jellybeans": return iconicData._Jellybeans;
+			case "Cool Beans": return iconicData._CoolBeans;
+			case "Beans": return iconicData._Beans;
+			case "Beanboozled Again": return iconicData._BeanboozledAgain;
+			case "Brown Bricks": return iconicData._BrownBricks;
+			case "The Dials": return iconicData._TheDials;
+			case "Butterflies": return iconicData._Butterflies;
+			case "Broken Karaoke": return iconicData._BrokenKaraoke;
+			case "Chamber No. 5": return iconicData._ChamberNo5;
             default: return iconicData.BlankModule;
         }
     }
