@@ -283,7 +283,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Tax Returns
+      value: Commuting
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -602,7 +602,7 @@ MonoBehaviour:
   - Game of Life Cruel
   - Nonogram
   - S.E.T.
-  - Refill that Beer!
+  - Needy Beer Refill Mod
   - Painting
   - Color Generator
   - Shape Memory
@@ -937,7 +937,7 @@ MonoBehaviour:
   - Prime Checker
   - Cruel Digital Root
   - Faulty Digital Root
-  - The Crafting Table
+  - Needy Crafting Table
   - Boot Too Big
   - "Vigen\xE8re Cipher"
   - Langton's Ant
@@ -1251,6 +1251,7 @@ MonoBehaviour:
   - Earthbound
   - 3 LEDs
   - Life Iteration
+  - Thread the Needle
   - Encrypted Hangman
   - Accelerando
   - Reaction
@@ -1268,7 +1269,6 @@ MonoBehaviour:
   - Shortcuts
   - More Code
   - 7
-  - OmegaForget
   - Needy Game of Life
   - Mental Math
   - Kugelblitz
@@ -1353,7 +1353,6 @@ MonoBehaviour:
   - D-CRYPT
   - Color-Cycle Button
   - Alien Filing Colors
-  - Push The Button
   - The Kanye Encounter
   - Entry Number Four
   - D-CIPHER
@@ -1409,6 +1408,39 @@ MonoBehaviour:
   - Butterflies
   - Broken Karaoke
   - Chamber No. 5
+  - Silenced Simon
+  - Teal Arrows
+  - Faulty Butterflies
+  - Keep Clicking
+  - "Frankenstein\u2019s Indicator"
+  - 16 Coins
+  - Sea Bear Attacks
+  - Alphabet Tiles
+  - Literally Crying
+  - Double Pitch
+  - Devilish Eggs
+  - h
+  - Rune Match I
+  - Rune Match II
+  - Rune Match III
+  - "I\xF1upiaq Numerals"
+  - The Bioscanner
+  - Ars Goetia Identification
+  - Silo Authorization
+  - Gradually Watermelon
+  - Mastermind Restricted
+  - Logical Operators
+  - Higher Or Lower
+  - Even Or Odd
+  - Digital Grid
+  - Reformed Role Reversal
+  - Whiteout
+  - N&Ns
+  - "Gettin\u2019 Funky"
+  - Cell Lab
+  - Lights On
+  - Color Hexagons
+  - Commuting
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}

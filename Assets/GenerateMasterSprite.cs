@@ -100,7 +100,9 @@ public class GenerateMasterSprite : MonoBehaviour
         { "Needy Knob", "Knob" },
         { "Rock-Paper-Scissors-L.-Sp.", "Rock-Paper-Scissors-Lizard-Spock" },
         { "Maze³", "Maze^3" },
-        { "...?", "puncuationMarks" }
+        { "...?", "puncuationMarks" },
+        { "Needy Crafting Table", "The Crafting Table" },
+        { "Needy Beer Refill Mod", "Refill that Beer!" }
     };
     private static Regex regex = new Regex("[^a-zA-Z0-9❖]");
     public void Generate()
@@ -115,13 +117,13 @@ public class GenerateMasterSprite : MonoBehaviour
         }
         // Switch out mismatched names with ones that will likely match
         var ModuleNames = ModuleList.Select(x => misMatched(x)).ToList();
-        
+
         // Grab all of the file paths from the icons directories and sort them by the order in ModuleNames.
         // It is important that the names in ModuleNames matches the names of the files.
         var iconFiles = new DirectoryInfo(iconsDirectory).GetFiles("*.png", SearchOption.TopDirectoryOnly).OrderBy(x => ModuleNames.IndexOf(punct(x.Name))).ToList();
         // Remove icons that are not included in ModuleNames
         iconFiles = iconFiles.Where(x => ModuleNames.Contains(punct(x.Name))).ToList();
-        
+
         // Determine the number of rows based on the number of columns
         var rows = (iconFiles.Count + cols - 1) / cols;
         // Create the Texture we'll use to make the final PNG
