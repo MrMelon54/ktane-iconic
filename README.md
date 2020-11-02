@@ -1,5 +1,9 @@
 # Iconic
 
-All modules up to Commuting chronologically on the [Repository of Manual Pages](https://ktane.timwi.de/) are supported by Iconic.
+All modules up to _Faulty Chinese Counting_ chronologically on the [Repository of Manual Pages](https://ktane.timwi.de/) are supported by Iconic.
 
-Colorblind support and a fix for the module being laggy with multiple instances will come at a later date.
+Credits:
+- String creators - TasThing, Danny7007, Deaf, draket333, Nico, MrPeanut, Crazycaleb, Timwi, mcd573, xmaster, Kiki, EpicToast
+- Website creator - MrMelon
+- Programming help - Riverbui
+- TP support & autosolver - eXish
