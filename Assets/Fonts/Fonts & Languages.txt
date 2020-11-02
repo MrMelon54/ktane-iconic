@@ -1,0 +1,10 @@
+AR	Cairo
+BG	Oswald
+BN	Baloo Da 2
+HE	Assistant
+HI	Noto Sans
+JA	Kosugi
+KO	Noto Sans KR
+ML	Baloo Chettan 2
+TH	Sarabun
+ZH-CN	Noto Sans SC
