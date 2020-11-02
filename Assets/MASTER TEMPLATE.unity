@@ -283,7 +283,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Commuting
+      value: OmegaForget
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -523,6 +523,7 @@ MonoBehaviour:
   - Number Pad
   - Laundry
   - Probing
+  - Alphabet
   - Resistors
   - Skewed Slots
   - Caesar Cipher
@@ -537,7 +538,6 @@ MonoBehaviour:
   - Follow the Leader
   - Friendship
   - The Bulb
-  - Alphabet
   - Blind Alley
   - Sea Shells
   - English Test
@@ -998,7 +998,6 @@ MonoBehaviour:
   - Meter
   - Timing is Everything
   - The Modkit
-  - Red Buttons
   - The Rule
   - Fruits
   - Bamboozling Button Grid
@@ -1083,8 +1082,6 @@ MonoBehaviour:
   - Colorful Dials
   - Naughty or Nice
   - Following Orders
-  - Atbash Cipher
-  - Addition
   - Binary Grid
   - Matrices
   - Cruel Keypad
@@ -1093,7 +1090,6 @@ MonoBehaviour:
   - Simon Forgets
   - Greek Letter Grid
   - Bamboozling Time Keeper
-  - Going Backwards
   - Scalar Dials
   - The World's Largest Button
   - Keywords
@@ -1106,8 +1102,8 @@ MonoBehaviour:
   - Hyperneedy
   - Echolocation
   - Boozleglyph Identification
-  - Boxing
   - Topsy Turvy
+  - Boxing
   - Railway Cargo Loading
   - Conditional Buttons
   - ASCII Art
@@ -1162,13 +1158,10 @@ MonoBehaviour:
   - Abstract Sequences
   - osu!
   - Shifting Maze
-  - Banana
   - Sorting
   - Role Reversal
   - Placeholder Talk
   - Art Appreciation
-  - Cruel Boolean Math
-  - Boolean Math
   - Shell Game
   - Pattern Lock
   - Quick Arithmetic
@@ -1183,8 +1176,6 @@ MonoBehaviour:
   - Reverse Polish Notation
   - Snowflakes
   - Funny Numbers
-  - Label Priorities
-  - Numbered Buttons
   - Exoplanets
   - Simon Stages
   - Not Venting Gas
@@ -1269,6 +1260,7 @@ MonoBehaviour:
   - Shortcuts
   - More Code
   - 7
+  - OmegaForget
   - Needy Game of Life
   - Mental Math
   - Kugelblitz
@@ -1278,7 +1270,6 @@ MonoBehaviour:
   - The Arena
   - IPA
   - Emotiguy Identification
-  - Audio Keypad
   - 100 Levels of Defusal
   - NeeDeez Nuts
   - Jailbreak
@@ -1342,6 +1333,7 @@ MonoBehaviour:
   - Pixel Art
   - Faulty Accelerando
   - 0
+  - Pitch Perfect
   - Increasing Indices
   - Faulty Binary
   - Cruel Binary
@@ -1362,11 +1354,13 @@ MonoBehaviour:
   - Toolmods
   - Spelling Buzzed
   - Burnout
+  - Brown Bricks
   - Mystic Maze
   - Chinese Zodiac
   - Four Lights
   - Duck, Duck, Goose
   - Not Knob
+  - Working Title
   - Toolneedy
   - One Links To All
   - Rules
@@ -1396,6 +1390,7 @@ MonoBehaviour:
   - Metamem
   - M&Ms
   - The Console
+  - Pocket Planes
   - Bridge
   - Rotten Beans
   - Long Beans
@@ -1403,7 +1398,6 @@ MonoBehaviour:
   - Cool Beans
   - Beans
   - Beanboozled Again
-  - Brown Bricks
   - The Dials
   - Butterflies
   - Broken Karaoke
@@ -1423,9 +1417,11 @@ MonoBehaviour:
   - Rune Match I
   - Rune Match II
   - Rune Match III
+  - Quick Time Events
   - "I\xF1upiaq Numerals"
   - The Bioscanner
   - Ars Goetia Identification
+  - Pixel Number Base
   - Silo Authorization
   - Gradually Watermelon
   - Mastermind Restricted
@@ -1436,11 +1432,34 @@ MonoBehaviour:
   - Reformed Role Reversal
   - Whiteout
   - N&Ns
-  - "Gettin\u2019 Funky"
+  - Gettin' Funky
   - Cell Lab
   - Lights On
   - Color Hexagons
   - Commuting
+  - Hole In One
+  - Melody Memory
+  - Symmetries Of A Square
+  - Look and Say
+  - Currents
+  - Partitions
+  - Telepathy
+  - Cruel Stars
+  - Button Messer
+  - Taco Tuesday
+  - The Overflow
+  - Nomai
+  - Forget Any Color
+  - Table Madness
+  - Melodic Message
+  - Sugar Skulls
+  - Colour Catch
+  - Semabols
+  - Mislocation
+  - Musher The Batten
+  - Shitass Says
+  - Outrageous
+  - Faulty Chinese Counting
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
