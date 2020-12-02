@@ -283,7 +283,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: OmegaForget
+      value: Wires
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -731,7 +731,7 @@ MonoBehaviour:
   - Coffeebucks
   - Colorful Madness
   - Bases
-  - "Lion\u2019s Share"
+  - Lion's Share
   - Snooker
   - Blackjack
   - Party Time
@@ -856,7 +856,7 @@ MonoBehaviour:
   - Planets
   - The Necronomicon
   - Four-Card Monte
-  - Aa
+  - aa
   - The Giant's Drink
   - Digit String
   - Alpha
@@ -1406,7 +1406,7 @@ MonoBehaviour:
   - Teal Arrows
   - Faulty Butterflies
   - Keep Clicking
-  - "Frankenstein\u2019s Indicator"
+  - Frankenstein's Indicator
   - 16 Coins
   - Sea Bear Attacks
   - Alphabet Tiles
@@ -1454,12 +1454,60 @@ MonoBehaviour:
   - Melodic Message
   - Sugar Skulls
   - Colour Catch
+  - Cosmic
   - Semabols
   - Mislocation
   - Musher The Batten
+  - Tribal Council
+  - SimpSquad
   - Shitass Says
   - Outrageous
   - Faulty Chinese Counting
+  - Press The Shape
+  - Baybayin Words
+  - OmegaDestroyer
+  - Going Backwards
+  - Atbash Cipher
+  - Venn Diagrams
+  - Numbered Buttons
+  - Colored Hexabuttons
+  - Video Poker
+  - White Arrows
+  - Johnson Solids
+  - Bottom Gear
+  - Two Persuasive Buttons
+  - Keypad Directionality
+  - '% Grey'
+  - Towers
+  - Letter Layers
+  - The Exploding Pen
+  - Snack Attack
+  - ReGrettaBle Relay
+  - '% Gary'
+  - Security Council
+  - Standard Button Masher
+  - Musical Transposition
+  - Jackbox.TV
+  - The Close Button
+  - Updog
+  - Saimoe Pad
+  - B-Machine
+  - Addition
+  - "What\u2019s on Second"
+  - Quaver
+  - Another Keypad Module
+  - Think Fast
+  - Shoddy Chess
+  - Rhythm Test
+  - Validation
+  - Bad Wording
+  - Zener Cards
+  - Diophantine Equations
+  - Ternary Tiles
+  - Striped Keys
+  - Rullo
+  - Tetris Sprint
+  - Double Screen
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
