@@ -1,8 +1,8 @@
 ﻿#if UNITY_EDITOR
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
@@ -12,13 +12,17 @@ public class SpriteObject : Editor
 {
     int _moduleChoiceIndex = 0;
     int section = 0;
+    int range = 0;
     int iconChanged;
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
         GenerateMasterSprite generateObject = target as GenerateMasterSprite;
+        MonoScript ms = MonoScript.FromMonoBehaviour(generateObject.ModuleScript);
+        GenerateMasterSprite.WorkingDirectory = Directory.GetParent(Application.dataPath).FullName;
+        var scriptDirectory = AssetDatabase.GetAssetPath(ms);
         if (GenerateMasterSprite.ModuleScriptPath == null)
-            GenerateMasterSprite.ModuleScriptPath = Path.Combine(Directory.GetParent(GenerateMasterSprite.iconsDirectory).FullName, "iconicScript.cs");
+            GenerateMasterSprite.ModuleScriptPath = Path.GetFullPath(Path.Combine(GenerateMasterSprite.WorkingDirectory, scriptDirectory));
         // Grab the module list from the file, as using reflection uses cached information
         if (File.Exists(GenerateMasterSprite.ModuleScriptPath))
         {
@@ -32,29 +36,41 @@ public class SpriteObject : Editor
                 lastIndex = last.IndexOf("\"}");
             ModuleList[ModuleList.Count() - 1] = last.Substring(0, lastIndex);
             generateObject.ModuleList = ModuleList;
-            int sections = ModuleList.Count / 33;
+            var ranges = new List<string>();
+            // We want to include object 1024 in the first list.
+            for (int i = 0; i < (ModuleList.Count - 1)/ 1024 + 1; i++)
+            {
+                ranges.Add((i * 1024 + 1) + "-" + Mathf.Min((i + 1) * 1024, ModuleList.Count));
+            }
+            if (ModuleList.Count > 1024)
+                range = EditorGUILayout.Popup(range, ranges.ToArray());
+            int sections = ModuleList.Count / 32;
             List<string> moduleSections = new List<string>();
             for (int i = 0; i <= sections; i++)
             {
-                if (i * 33 == ModuleList.Count)
+                if (i * 32 == ModuleList.Count)
                     break;
-                int max = i * 33 + 32;
-                if (i * 33 + 32 >= ModuleList.Count)
+                int max = i * 32 + 31;
+                if (i * 32 + 31 >= ModuleList.Count)
                 {
                     max = ModuleList.Count - 1;
                 }
-                moduleSections.Add(ModuleList[i * 33] + " - " + ModuleList[max]);
+                moduleSections.Add(ModuleList[i * 32] + " - " + ModuleList[max]);
             }
-            section = EditorGUILayout.Popup(section, moduleSections.ToArray());
-            _moduleChoiceIndex = EditorGUILayout.Popup(_moduleChoiceIndex, ModuleList.Skip(section * 33).Take(33).ToArray());
-            generateObject.ModuleIndex = (section * 33) + _moduleChoiceIndex;
+            if (range * 32 + section > moduleSections.Count)
+                section = 0;
+            if (range * 1024 + section * 32 + _moduleChoiceIndex > ModuleList.Count)
+                _moduleChoiceIndex = 0;
+            section = EditorGUILayout.Popup(section, moduleSections.Skip(range * 32).Take(32).ToArray());
+            _moduleChoiceIndex = EditorGUILayout.Popup(_moduleChoiceIndex, ModuleList.Skip((range * 1024) + section * 32).Take(32).ToArray());
+            generateObject.ModuleIndex = range * 1024 + section * 32 + _moduleChoiceIndex;
 
 
             if (generateObject.ModuleIcon != null)
             {
-                if (section * 33 + _moduleChoiceIndex != iconChanged)
+                if (section * 32 + _moduleChoiceIndex != iconChanged)
                 {
-                    iconChanged = section * 33 + _moduleChoiceIndex;
+                    iconChanged = section * 32 + _moduleChoiceIndex;
                     generateObject.Verify();
                 }
             }
@@ -67,8 +83,9 @@ public class SpriteObject : Editor
 
         if (GUILayout.Button("Verify Sprites"))
         {
-            if (GenerateMasterSprite.MasterSheetPath == null)
-                throw new System.Exception("Generated master sheet is inaccessible, please try generating it again");
+            var MasterSheets = Directory.GetFiles(Path.Combine(GenerateMasterSprite.iconsDirectory, "Extras"), "Master Sheet?.png");
+            if (MasterSheets.Length == 0)
+                throw new Exception("Generated master sheet is/are inaccessible, please try generating it again");
             generateObject.Verify();
         }
 
@@ -81,6 +98,11 @@ public class SpriteObject : Editor
 
 public class GenerateMasterSprite : MonoBehaviour
 {
+    // Allow this to be customizable
+    // Lower is more compatible with low end devices (such as mobile)
+    // Higher is less sheets but requires more resources.
+    // Make sure this value matches one of the possible values for the max size or else it will default to 4096.
+    public int maxSize = 4096;
     public int cols = 21;
     public int w = 32;
     public int h = 32;
@@ -90,6 +112,7 @@ public class GenerateMasterSprite : MonoBehaviour
     public List<string> ModuleList;
     public static string ModuleScriptPath;
     public static string MasterSheetPath;
+    public static string WorkingDirectory;
     public static string iconsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Assets" + Path.DirectorySeparatorChar + "Icons");
     public Texture2D ModuleIcon;
     public iconicScript ModuleScript;
@@ -107,13 +130,15 @@ public class GenerateMasterSprite : MonoBehaviour
     private static Regex regex = new Regex("[^a-zA-Z0-9❖]");
     public void Generate()
     {
-        if (MasterSheetPath == null)
-            MasterSheetPath = Path.Combine(iconsDirectory, Path.Combine("Extras", "Master Sheet.png"));
-        // Unity will keep the image in memory if we change it, so delete the old file
-        if (File.Exists(MasterSheetPath))
+        // MasterSheetPath will be changed for every sheet, so make sure to always reset it when generation begins.
+        MasterSheetPath = Path.Combine(iconsDirectory, "Extras");
+        // In case there is more than one sheet, use the wildcard to match 0 or 1 times.
+        var extras = Directory.GetFiles(MasterSheetPath, "Master Sheet?.png");
+        // Unity will keep the image in memory if we change it, so delete the old files
+        foreach (string sheet in extras)
         {
-            File.Delete(MasterSheetPath);
-            File.Delete(MasterSheetPath + ".meta");
+            File.Delete(sheet);
+            File.Delete(sheet + ".meta");
         }
         // Switch out mismatched names with ones that will likely match
         var ModuleNames = ModuleList.Select(x => misMatched(x)).ToList();
@@ -125,58 +150,89 @@ public class GenerateMasterSprite : MonoBehaviour
         iconFiles = iconFiles.Where(x => ModuleNames.Contains(punct(x.Name))).ToList();
 
         // Determine the number of rows based on the number of columns
-        var rows = (iconFiles.Count + cols - 1) / cols;
+        var rows = new List<int> { (iconFiles.Count + cols - 1) / cols };
+        while (rows.Last() * cols > maxSize)
+        {
+            var count = rows.Count;
+            rows[count - 1] = cols;
+            rows.Add((iconFiles.Count - (count * maxSize) + cols - 1) / cols);
+        }
         // Create the Texture we'll use to make the final PNG
         // The size must be predetermined according to Texture2D.SetPixels()
-        var fullImage = new Texture2D(cols * w, rows * h);
-        // Note, allColors may only contain 128x128 module icons. A new sheet will need to be made if this is ever met.
-        // We are currently at 32x32, so it will likely take a long time to hit this limit.
-        // If 128x128 is not the proper limit, it'll simply be necessary to make multiple sheets.
-        List<IEnumerable<Color>> allColors = new List<IEnumerable<Color>>();
-        for (int i = 0; i < rows; i++)
+        var fullImages = new List<Texture2D>();
+        for (int k = 0; k < rows.Count; k++)
         {
-            // Load the pixels for each icon
-            List<Color[]> eachColors = new List<Color[]>();
-            FileStream fs;
-            for (int j = 0; j < cols; j++)
+            fullImages.Add(new Texture2D(cols * w, rows[k] * h));
+            List<IEnumerable<Color>> allColors = new List<IEnumerable<Color>>();
+            for (int i = 0; i < rows[k]; i++)
             {
-                // Texture2D.SetPixels requires an exact size, so fill the rest of the pixels with white
-                if (i * cols + j >= iconFiles.Count)
+                // Load the pixels for each icon
+                List<Color[]> eachColors = new List<Color[]>();
+                FileStream fs;
+                for (int j = 0; j < cols; j++)
                 {
-                    eachColors.Add(Enumerable.Repeat(Color.white, 32 * 32).ToArray());
-                    continue;
+                    // Texture2D.SetPixels requires an exact size, so fill the rest of the pixels with white
+                    if (k * maxSize + i * cols + j >= iconFiles.Count)
+                    {
+                        eachColors.Add(Enumerable.Repeat(Color.white, w * h * (cols - j)).ToArray());
+                        continue;
+                    }
+                    // Grab the filestream from each fileinfo, and read the filestream to a byte array
+                    // Close the filestream so the file can be used by other programs if needed
+                    // Translate the image into a texture so that the pixels can be loaded from it
+                    // eachColors contains the pixels for each icon in a row
+                    fs = iconFiles[k * maxSize + i * cols + j].OpenRead();
+                    var imageBytes = new byte[fs.Length];
+                    fs.Read(imageBytes, 0, Convert.ToInt32(fs.Length));
+                    fs.Close();
+                    var image = new Texture2D(2, 2);
+                    image.LoadImage(imageBytes);
+                    eachColors.Add(image.GetPixels());
                 }
-                // Grab the filestream from each fileinfo, and read the filestream to a byte array
-                // Close the filestream so the file can be used by other programs if needed
-                // Translate the image into a texture so that the pixels can be loaded from it
-                // eachColors contains the pixels for each icon in a row
-                fs = iconFiles[i * cols + j].OpenRead();
-                var imageBytes = new byte[fs.Length];
-                fs.Read(imageBytes, 0, System.Convert.ToInt32(fs.Length));
-                fs.Close();
-                var image = new Texture2D(2, 2);
-                image.LoadImage(imageBytes);
-                eachColors.Add(image.GetPixels());
+                // Since the pixels are a single dimension array, there's no way to set each icon next to one another
+                // As such, take each row of icons and process them from top to bottom.
+                List<Color> rowColors = new List<Color>();
+                for (int j = 0; j < h; j++)
+                {
+                    // SelectMany joins an array with multiple options into a single option
+                    var eachImageRow = eachColors.Select(x => x.Skip(j * w).Take(w)).SelectMany(x => x);
+                    rowColors.AddRange(eachImageRow);
+                }
+                // allColors will be added to the main texture, so add each row of icons to this list
+                allColors.Add(rowColors);
             }
-            // Since the pixels are a single dimension array, there's no way to set each icon next to one another
-            // As such, take each row of icons and process them from top to bottom.
-            List<Color> rowColors = new List<Color>();
-            for (int j = 0; j < h; j++)
-            {
-                // SelectMany joins an array with multiple options into a single option
-                var eachImageRow = eachColors.Select(x => x.Skip(j * w).Take(w)).SelectMany(x => x);
-                rowColors.AddRange(eachImageRow);
-            }
-            // allColors will be added to the main texture, so add each row of icons to this list
-            allColors.Add(rowColors);
+            // SetPixels apparently apply from bottom to top for whatever reason. Reverse the rows so that they're from top to bottom
+            allColors.Reverse();
+            fullImages[k].SetPixels(allColors.SelectMany(x => x).ToArray());
+            var finalImage = fullImages[k].EncodeToPNG();
+            MasterSheetPath = Path.Combine(iconsDirectory, "Extras");
+            MasterSheetPath = Path.Combine(MasterSheetPath, "Master Sheet" + (k + 1) + ".png");
+            File.WriteAllBytes(MasterSheetPath, finalImage);
+            MasterSheetPath = MasterSheetPath.Replace(WorkingDirectory, "").Substring(1).Replace(Path.DirectorySeparatorChar, '/');
+            Func<Texture2D> tryloadingAsset = () => AssetDatabase.LoadAssetAtPath<Texture2D>(MasterSheetPath);
+            // If we're creating a new file, let Unity know it's been created.
+            // (This will also tell unity the old spreadsheet was deleted and that pixels should be reset)
+            if (tryloadingAsset() == null)
+                AssetDatabase.Refresh();
+            var loadedAsset = tryloadingAsset();
+            if (ModuleScript.Modules.Length <= k)
+                ModuleScript.Modules = ModuleScript.Modules.Concat(new[] { loadedAsset }).ToArray();
+            else
+                ModuleScript.Modules[k] = loadedAsset;
+            TextureImporter importer = AssetImporter.GetAtPath(MasterSheetPath) as TextureImporter;
+            importer.maxTextureSize = maxSize;
+            importer.isReadable = true;
+            importer.filterMode = FilterMode.Point;
+            AssetDatabase.ImportAsset(MasterSheetPath, ImportAssetOptions.ForceUpdate);
         }
-        // SetPixels apparently apply from bottom to top for whatever reason. Reverse the rows so that they're from top to bottom
-        allColors.Reverse();
-        fullImage.SetPixels(allColors.SelectMany(x => x).ToArray());
-        var finalImage = fullImage.EncodeToPNG();
-        File.WriteAllBytes(MasterSheetPath, finalImage);
+        // Backwards compatibility (merging two sheets into one)
+        if (ModuleScript.Modules.Length > rows.Count)
+            ModuleScript.Modules = ModuleScript.Modules.Take(rows.Count).ToArray();
         // Tell Unity the old spritesheet is deleted and to reset the pixels in memory
         AssetDatabase.Refresh();
+        // Dirty "Apply" button for updating the spritesheet in the iconic script.
+        // Keep in mind that this will save all changes made to the iconic prefab.
+        PrefabUtility.ReplacePrefab(ModuleScript.gameObject, AssetDatabase.LoadAssetAtPath<GameObject>("Assets/iconic.prefab"), ReplacePrefabOptions.ConnectToPrefab);
     }
 
     // Change Module Names to match their file names
@@ -205,11 +261,11 @@ public class GenerateMasterSprite : MonoBehaviour
     {
         if (ModuleIcon == null)
         {
-            throw new System.Exception("Please make sure an icon has been selected.");
+            throw new Exception("Please make sure an icon has been selected.");
         }
 
         if (ModuleScript == null)
-            throw new System.Exception("Script of type \"iconicScript\" necessary for verification");
+            throw new Exception("Script of type \"iconicScript\" necessary for verification");
         GameObject TheIcon = ModuleScript.TheIcon.gameObject;
 
         if (givenIcon == null)
@@ -227,13 +283,13 @@ public class GenerateMasterSprite : MonoBehaviour
         MeshRenderer LeftIcon = givenIcon.GetComponent<MeshRenderer>();
         MeshRenderer RightIcon = generatedIcon.GetComponent<MeshRenderer>();
         LeftIcon.material.mainTexture = ModuleIcon;
-        int TopLeftModule = ModuleScript.Modules.height - 32;
-        int x = (ModuleIndex * 32) % ModuleScript.Modules.width;
-        int y = TopLeftModule - ModuleIndex / (ModuleScript.Modules.width / 32) * 32;
-        Color[] loadedPixels = ModuleScript.Modules.GetPixels(x, y, 32, 32);
-        Texture2D loadedTexture = new Texture2D(32, 32)
+        int TopLeftModule = ModuleScript.Modules[ModuleIndex / maxSize].height - h;
+        int x = (ModuleIndex * 32) % ModuleScript.Modules[ModuleIndex / maxSize].width;
+        int y = TopLeftModule - (ModuleIndex % maxSize) / (ModuleScript.Modules[ModuleIndex / maxSize].width / 32) * 32;
+        Color[] loadedPixels = ModuleScript.Modules[ModuleIndex / maxSize].GetPixels(x, y, w, h);
+        Texture2D loadedTexture = new Texture2D(w, h)
         {
-            filterMode = FilterMode.Point
+            filterMode = FilterMode.Point,
         };
         loadedTexture.SetPixels(loadedPixels);
         loadedTexture.Apply();

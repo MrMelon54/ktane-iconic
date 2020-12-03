@@ -14,7 +14,8 @@ public class iconicScript : MonoBehaviour {
     public KMBossModule Boss;
 
     public MeshRenderer TheIcon;
-    public Texture2D Empty, Blank, Banana, Modules;
+    public Texture2D Empty, Blank, Banana;
+    public Texture2D[] Modules;
     public TextMesh Phrase;
     public GameObject[] Rows;
 
@@ -35,7 +36,7 @@ public class iconicScript : MonoBehaviour {
     private int NumberOfOptions = 0;
     private int SelectedOption = 0;
     private int IgnoredSolved = 0;
-    private int TopLeftModule;
+    private int[] TopLeftModule;
     private string ModulePart = "";
     private string CurrentModule = "";
     private string CharacterList = ".0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -60,7 +61,9 @@ public class iconicScript : MonoBehaviour {
         foreach (KMSelectable ThePixel in Pixels) {
             ThePixel.OnInteract += delegate () { PixelPress(ThePixel); return false; };
         }
-        TopLeftModule = Modules.height - 32;
+        TopLeftModule = new int[Modules.Length];
+        for (int i = 0; i < Modules.Length; i++)
+            TopLeftModule[i] = Modules[i].height - 32;
     }
 
     // Use this for initialization
@@ -110,9 +113,18 @@ public class iconicScript : MonoBehaviour {
                         CurrentData = NameToData(ModuleList[i]).ToArray();
                         if (!LoadedTextures.ContainsKey(ModuleList[i]))
                         {
-                            int x = (i * 32) % Modules.width;
-                            int y = TopLeftModule - i / (Modules.width / 32) * 32;
-                            Color[] loadedPixels = Modules.GetPixels(x, y, 32, 32);
+                            // It is assumed that the max width and height for each spritesheet is the same,
+                            // so assume we can get the max size by dividing my the width and height of the first master sheet.
+                            // The size is based on icon count as opposed to pixel count, so divide the pixels by the number of pixels in a single icon.
+                            // If the size of the icons are changed, this number will need to be adjusted accordingly.
+                            int maxSize = Modules[0].width * Modules[0].height / 1024;
+                            int index = i / maxSize;
+                            // Since x is modulo'd and the width is (should be) always the same, we don't need to alter it.
+                            int x = (i * 32) % Modules[index].width;
+                            // Since we're dividing the rows by the number in each row, we have to divide by the width here.
+                            // This should give us the row we're on.
+                            int y = TopLeftModule[index] - (i % maxSize) / (Modules[index].width / 32) * 32;
+                            Color[] loadedPixels = Modules[index].GetPixels(x, y, 32, 32);
                             Texture2D loadedTexture = new Texture2D(32, 32)
                             {
                                 filterMode = FilterMode.Point
