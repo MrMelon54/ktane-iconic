@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44658017, g: 0.49641502, b: 0.57482153, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Wires
+      value: Complicated Buttons
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -1442,7 +1442,6 @@ MonoBehaviour:
   - Lights On
   - Color Hexagons
   - Commuting
-  - Hole In One
   - Melody Memory
   - Symmetries Of A Square
   - Look and Say
@@ -1464,7 +1463,6 @@ MonoBehaviour:
   - Mislocation
   - Musher The Batten
   - Tribal Council
-  - SimpSquad
   - Shitass Says
   - Outrageous
   - Faulty Chinese Counting
@@ -1488,7 +1486,6 @@ MonoBehaviour:
   - The Exploding Pen
   - Snack Attack
   - ReGrettaBle Relay
-  - '% Gary'
   - Security Council
   - Standard Button Masher
   - Musical Transposition
@@ -1505,14 +1502,64 @@ MonoBehaviour:
   - Shoddy Chess
   - Rhythm Test
   - Validation
+  - Floor Lights
   - Bad Wording
+  - Etch-A-Sketch
   - Zener Cards
   - Diophantine Equations
   - Ternary Tiles
   - Striped Keys
   - Rullo
+  - Flashing Arrows
+  - Cruello
+  - Coloured Arrows
+  - Black Arrows
   - Tetris Sprint
+  - Forget Maze Not
   - Double Screen
+  - The Sequencyclopedia
+  - eeB gnillepS
+  - Pandemonium Cipher
+  - Mystery Widget
+  - Mineswapper
+  - Phosphorescence
+  - The Klaxon
+  - Valued Keys
+  - Numerical Knight Movement
+  - Bandboozled Again
+  - SpriteClub Betting Simulation
+  - Ramboozled Again
+  - Simon Subdivides
+  - Hole in One
+  - Hexiom
+  - Collapse
+  - Back Buttons
+  - Audio Keypad
+  - Saimoe Maze
+  - Kidney Beans
+  - Fake Beans
+  - Chilli Beans
+  - Big Bean
+  - Bean Sprouts
+  - Tell Me Why
+  - Quiplash
+  - Bowling
+  - Sporadic Segments
+  - Linq
+  - Entry Number One
+  - DNA Mutation
+  - RGB Hypermaze
+  - Boob Tube
+  - Regular Sudoku
+  - AAAAA
+  - Polyrhythms
+  - Drive-In Window
+  - The 12 Days of Christmas
+  - The Xenocryst
+  - Rebooting M-OS
+  - Stacked Sequences
+  - Complexity
+  - Small Circle
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
