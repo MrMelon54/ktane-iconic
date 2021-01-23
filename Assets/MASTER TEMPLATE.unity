@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Complicated Buttons
+      value: Astrological
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -1205,7 +1205,6 @@ MonoBehaviour:
   - Training Text
   - Wonder Cipher
   - Caesar's Maths
-  - Random Access Memory
   - Triamonds
   - Stars
   - Button Order
@@ -1442,7 +1441,6 @@ MonoBehaviour:
   - Lights On
   - Color Hexagons
   - Commuting
-  - Melody Memory
   - Symmetries Of A Square
   - Look and Say
   - Currents
@@ -1490,6 +1488,7 @@ MonoBehaviour:
   - Standard Button Masher
   - Musical Transposition
   - Jackbox.TV
+  - The Furloid Jukebox
   - The Close Button
   - Updog
   - Saimoe Pad
@@ -1555,11 +1554,31 @@ MonoBehaviour:
   - Polyrhythms
   - Drive-In Window
   - The 12 Days of Christmas
+  - X
+  - Y
   - The Xenocryst
   - Rebooting M-OS
   - Stacked Sequences
   - Complexity
   - Small Circle
+  - Pentris Sprint
+  - Fractal Maze
+  - Simon Stumbles
+  - Wild Side
+  - The Octadecayotton
+  - Colored Letters
+  - Kahoot!
+  - Forget's Ultimate Showdown
+  - Bomb Corp. Filing
+  - Ultra Digital Root
+  - Mii Identification
+  - 81
+  - Simon Swindles
+  - Next In Line
+  - Functional Mapping
+  - Stable Time Signatures
+  - Keypad Maze
+  - Astrological
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
