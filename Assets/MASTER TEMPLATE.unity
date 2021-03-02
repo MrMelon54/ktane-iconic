@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Astrological
+      value: Color Punch
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -487,7 +487,7 @@ MonoBehaviour:
   - Colour Flash
   - Piano Keys
   - Semaphore
-  - Math
+  - Needy Math
   - Emoji Math
   - Lights Out
   - Switches
@@ -1461,7 +1461,7 @@ MonoBehaviour:
   - Mislocation
   - Musher The Batten
   - Tribal Council
-  - Shitass Says
+  - Simon Smiles
   - Outrageous
   - Faulty Chinese Counting
   - Press The Shape
@@ -1494,7 +1494,7 @@ MonoBehaviour:
   - Saimoe Pad
   - B-Machine
   - Addition
-  - "What\u2019s on Second"
+  - What's on Second
   - Quaver
   - Another Keypad Module
   - Think Fast
@@ -1561,7 +1561,6 @@ MonoBehaviour:
   - Stacked Sequences
   - Complexity
   - Small Circle
-  - Pentris Sprint
   - Fractal Maze
   - Simon Stumbles
   - Wild Side
@@ -1579,6 +1578,49 @@ MonoBehaviour:
   - Stable Time Signatures
   - Keypad Maze
   - Astrological
+  - XmORse Code
+  - Corridors
+  - Decay
+  - Crazy Speak
+  - Large Password
+  - Large Free Password
+  - Free Password
+  - Not Timer
+  - The Burnt
+  - Access Codes
+  - Cistercian Numbers
+  - Brown Cipher
+  - Code Cracker
+  - Indentation
+  - One-Line
+  - The Speaker
+  - Interpunct
+  - Double Knob
+  - Name Codes
+  - The 1, 2, 3 Game
+  - Papa's Pizzeria
+  - Keypad Magnified
+  - Hold On
+  - Diffusion
+  - Soy Beans
+  - The Shaker
+  - Coffee Beans
+  - Newline
+  - Letter Grid
+  - Ghost Movement
+  - +
+  - Transmission Transposition
+  - Screensaver
+  - RSA Cipher
+  - Amusement Parks
+  - Literally Something
+  - Icon Reveal
+  - Solitaire Cipher
+  - hexOrbits
+  - Ladders
+  - Hearthur
+  - Decimation
+  - Color Punch
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
