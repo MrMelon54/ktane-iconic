@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Color Punch
+      value: amogus
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -1617,10 +1617,46 @@ MonoBehaviour:
   - Icon Reveal
   - Solitaire Cipher
   - hexOrbits
+  - Matchmaker
   - Ladders
   - Hearthur
   - Decimation
   - Color Punch
+  - Count to 69420
+  - Mssngv Wls
+  - Netherite
+  - Naming Conventions
+  - I'm Not a Robot
+  - Emoticon Math
+  - Coinage
+  - Simon Supports
+  - Identifrac
+  - 1D Chess
+  - 1-2-3-2-1
+  - Not Murder
+  - Not Morsematics
+  - Not Crazy Talk
+  - Not Coordinates
+  - Not Connection Check
+  - Not Colour Flash
+  - Cruel Colour Flash
+  - Numpath
+  - The Logan Parody Jukebox
+  - Factoring Maze
+  - Binary Buttons
+  - The Assorted Arrangement
+  - The Alteran Trail
+  - Pathfinder
+  - Needy Wires
+  - Turn Four
+  - nya~
+  - Llama, Llama, Alpaca
+  - Voltorb Flip
+  - Cruel Synesthesia
+  - Polygrid
+  - Mischmodul
+  - amogus
+  - Connect Four
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
