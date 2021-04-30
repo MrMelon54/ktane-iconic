@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: amogus
+      value: Roger
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -1208,7 +1208,6 @@ MonoBehaviour:
   - Triamonds
   - Stars
   - Button Order
-  - Jukebox.WAV
   - Elder Password
   - Switching Maze
   - Iconic
@@ -1225,7 +1224,6 @@ MonoBehaviour:
   - BoozleTalk
   - Arrow Talk
   - Siffron
-  - Red Herring
   - Audio Morse
   - Palindromes
   - Pow
@@ -1449,7 +1447,6 @@ MonoBehaviour:
   - Cruel Stars
   - Button Messer
   - Taco Tuesday
-  - The Overflow
   - Nomai
   - Forget Any Color
   - Table Madness
@@ -1519,7 +1516,6 @@ MonoBehaviour:
   - The Sequencyclopedia
   - eeB gnillepS
   - Pandemonium Cipher
-  - Mystery Widget
   - Mineswapper
   - Phosphorescence
   - The Klaxon
@@ -1657,6 +1653,46 @@ MonoBehaviour:
   - Mischmodul
   - amogus
   - Connect Four
+  - Macro Memory
+  - Directing Buttons
+  - Colors Maximization
+  - Anomia
+  - Uncoloured Buttons
+  - The Impostor
+  - Doomsday Button
+  - Blue Whale
+  - Antimatter Dimensions
+  - Watching Paint Dry
+  - Soulscream
+  - Dice Cipher
+  - Salts
+  - Mazeswapper
+  - Infinite Loop
+  - Face Recognition
+  - Stoichiometry
+  - Alfa-Bravo
+  - Dialtones
+  - Classical Order
+  - Needy Hotate
+  - Space Traders
+  - Cube Synchronization
+  - Cartinese
+  - Eight
+  - Fursona
+  - Notre-Dame Cipher
+  - Stupid Slots
+  - Kawaiitlyn
+  - Sysadmin
+  - Red Herring
+  - Binary Shift
+  - Rain Hell
+  - Rain
+  - Squeeze
+  - Parliament
+  - Meteor
+  - Pink Arrows
+  - Logging
+  - Anagraphy
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
