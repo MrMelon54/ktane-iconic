@@ -224,6 +224,7 @@ public class GenerateMasterSprite : MonoBehaviour
             importer.maxTextureSize = maxSize;
             importer.isReadable = true;
             importer.filterMode = FilterMode.Point;
+            importer.textureType = TextureImporterType.Sprite;
             AssetDatabase.ImportAsset(MasterSheetPath, ImportAssetOptions.ForceUpdate);
         }
         // Backwards compatibility (merging two sheets into one)
@@ -273,28 +274,21 @@ public class GenerateMasterSprite : MonoBehaviour
         {
             givenIcon = Instantiate(TheIcon);
             Vector3 p = givenIcon.transform.localPosition;
-            givenIcon.transform.localPosition = new Vector3(-.14f, p.y, p.z);
+            givenIcon.transform.localPosition = new Vector3(-.14f, p.y + .01f, p.z);
         }
         if (generatedIcon == null)
         {
             generatedIcon = Instantiate(TheIcon);
             Vector3 p = generatedIcon.transform.localPosition;
-            generatedIcon.transform.localPosition = new Vector3(.1f, p.y, p.z);
+            generatedIcon.transform.localPosition = new Vector3(.1f, p.y + .01f, p.z);
         }
-        MeshRenderer LeftIcon = givenIcon.GetComponent<MeshRenderer>();
-        MeshRenderer RightIcon = generatedIcon.GetComponent<MeshRenderer>();
-        LeftIcon.material.mainTexture = ModuleIcon;
+        SpriteRenderer LeftIcon = givenIcon.GetComponent<SpriteRenderer>();
+        SpriteRenderer RightIcon = generatedIcon.GetComponent<SpriteRenderer>();
+        LeftIcon.sprite = Sprite.Create(ModuleIcon, new Rect(0, 0, ModuleIcon.width, ModuleIcon.height), new Vector2(0.5f, 0.5f));
         int TopLeftModule = ModuleScript.Modules[ModuleIndex / maxSize].height - h;
         int x = (ModuleIndex * 32) % ModuleScript.Modules[ModuleIndex / maxSize].width;
         int y = TopLeftModule - (ModuleIndex % maxSize) / (ModuleScript.Modules[ModuleIndex / maxSize].width / 32) * 32;
-        Color[] loadedPixels = ModuleScript.Modules[ModuleIndex / maxSize].GetPixels(x, y, w, h);
-        Texture2D loadedTexture = new Texture2D(w, h)
-        {
-            filterMode = FilterMode.Point,
-        };
-        loadedTexture.SetPixels(loadedPixels);
-        loadedTexture.Apply();
-        RightIcon.material.mainTexture = loadedTexture;
+        RightIcon.sprite = Sprite.Create(ModuleScript.Modules[ModuleIndex / maxSize], new Rect(x, y, w, h), new Vector2(0.5f, 0.5f));
     }
 
     public void DestroyClones()
