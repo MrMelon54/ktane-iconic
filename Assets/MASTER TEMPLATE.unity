@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Wires
+      value: Insa Ilo
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -1113,7 +1113,7 @@ MonoBehaviour:
   - Conditional Buttons
   - ASCII Art
   - Semamorse
-  - Hide and Seek
+  - Hide And Seek
   - Symbolic Tasha
   - Alphabetical Ruling
   - Microphone
@@ -1180,7 +1180,6 @@ MonoBehaviour:
   - 1D Maze
   - Reverse Polish Notation
   - Snowflakes
-  - Funny Numbers
   - Exoplanets
   - Simon Stages
   - Not Venting Gas
@@ -1269,7 +1268,6 @@ MonoBehaviour:
   - Dictation
   - Bloxx
   - Basic Morse
-  - The Arena
   - IPA
   - Emotiguy Identification
   - 100 Levels of Defusal
@@ -1322,7 +1320,6 @@ MonoBehaviour:
   - Ultralogic
   - Spangled Stars
   - Busy Beaver
-  - Digital Clock
   - Cruel Match 'em
   - Assembly Code
   - Simon's Ultimate Showdown
@@ -1650,6 +1647,7 @@ MonoBehaviour:
   - Voltorb Flip
   - Cruel Synesthesia
   - Polygrid
+  - Dossier Modifier
   - Mischmodul
   - amogus
   - Connect Four
@@ -1670,6 +1668,7 @@ MonoBehaviour:
   - Infinite Loop
   - Face Recognition
   - Stoichiometry
+  - Hitman
   - Alfa-Bravo
   - Dialtones
   - Classical Order
@@ -1691,8 +1690,46 @@ MonoBehaviour:
   - Parliament
   - Meteor
   - Pink Arrows
+  - Maze Identification
   - Logging
   - Anagraphy
+  - Pawns
+  - SUSadmin
+  - Simply Simon
+  - Encrypted Maze
+  - Fire Diamonds
+  - Dimension King
+  - Puzzle Identification
+  - IKEA Plushies
+  - Face Perception
+  - Simon Shapes
+  - Breakfast Egg
+  - Literally Dying
+  - Literally Malding
+  - Simon Shouts
+  - Marquee Morse
+  - White Hole
+  - Starmap Reconstruction
+  - 2048
+  - Pointless Machines
+  - Stability
+  - Maritime Semaphore
+  - Warning Signs
+  - Mastermind Restricted Cruel
+  - Labeled Priorities Plus
+  - Coprime Checker
+  - Walking Cube
+  - Customer Identification
+  - Out of Time
+  - Words
+  - Skewers
+  - Scratch-Off
+  - Phones
+  - Mirror
+  - Mind Meld
+  - Custom Keys
+  - The Arena
+  - Insa Ilo
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
