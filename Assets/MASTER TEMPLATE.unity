@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Insa Ilo
+      value: Cruel Candy Land
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -1453,7 +1453,7 @@ MonoBehaviour:
   - Cosmic
   - Semabols
   - Mislocation
-  - Musher The Batten
+  - Musher the Batten
   - Tribal Council
   - Simon Smiles
   - Outrageous
@@ -1708,6 +1708,7 @@ MonoBehaviour:
   - Literally Malding
   - Simon Shouts
   - Marquee Morse
+  - Line Equations
   - White Hole
   - Starmap Reconstruction
   - 2048
@@ -1730,6 +1731,66 @@ MonoBehaviour:
   - Custom Keys
   - The Arena
   - Insa Ilo
+  - Placement Roulette
+  - Art Pricing
+  - Perceptron
+  - RGB Combination
+  - Coverage
+  - Wire Association
+  - The Icon Kit
+  - The Garnet Thief
+  - Ten Aliens
+  - Flyswatting
+  - Tetrahedron
+  - Simon Said
+  - Nonbinary Puzzle
+  - SQL - Basic
+  - M-Seq
+  - TV
+  - Touch Transmission
+  - MWISort
+  - Coordination
+  - SQL - Evil
+  - Kusa Nihonglish
+  - LEDs
+  - SQL - Cruel
+  - Quizbowl
+  - Superparsing
+  - Tripping Triangles
+  - Tipping Triangles
+  - Slipping Triangles
+  - Skipping Triangles
+  - Flipping Triangles
+  - Dripping Triangles
+  - Clipping Triangles
+  - Uncolour Flash
+  - Simpleton't
+  - Not X01
+  - Not Word Search
+  - Not The Bulb
+  - Not Symbolic Coordinates
+  - Not Emoji Math
+  - Go
+  - Discolour Flash
+  - The Tile Maze
+  - Shogi Identification
+  - Boozlesnap
+  - Shashki
+  - hexNull
+  - Shut-the-Box
+  - Logic Chess
+  - The Hypercolor
+  - Horsey
+  - Termite
+  - Sorry Sliders
+  - Simon
+  - Robit Programming
+  - Purchasing Properties
+  - Label Priorities
+  - Cruel Candy Land
+  - Congkak
+  - Candy Land
+  - The Board Walk
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
