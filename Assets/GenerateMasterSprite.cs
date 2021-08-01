@@ -126,7 +126,15 @@ public class GenerateMasterSprite : MonoBehaviour
         { "...?", "puncuationMarks" },
         { "Needy Crafting Table", "The Crafting Table" },
         { "Needy Beer Refill Mod", "Refill that Beer!" },
-        { "Needy Math", "Math" }
+        { "Needy Math", "Math" },
+
+        { "Needy Quiz", "Answering Questions" },
+        { "Needy Rotary Phone", "Rotary Phone" },
+        { "Needy Button Masher", "Button Masher" },
+        { "Needy Shape Memory", "Shape Memory" },
+        { "Alphebtic Order", "Alphabetical Order" },
+        { "Needy Wingdings", "Wingdings" },
+        { "Needy Pong", "Pong" }
     };
     private static Regex regex = new Regex("[^a-zA-Z0-9❖]");
     public void Generate()

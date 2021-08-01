@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Cruel Candy Land
+      value: Colored Hexabuttons 2
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -502,13 +502,13 @@ MonoBehaviour:
   - Round Keypad
   - Listening
   - Foreign Exchange Rates
-  - Answering Questions
+  - Needy Quiz
   - Orientation Cube
   - Morsematics
   - Connection Check
   - Letter Keys
   - Forget Me Not
-  - Rotary Phone
+  - Needy Rotary Phone
   - Astrology
   - Logic
   - Crazy Talk
@@ -537,7 +537,7 @@ MonoBehaviour:
   - Murder
   - The Gamepad
   - Tic Tac Toe
-  - Who's That Monsplode
+  - Who's That Monsplode?
   - Monsplode, Fight!
   - Shape Shift
   - Follow the Leader
@@ -566,7 +566,7 @@ MonoBehaviour:
   - Cheap Checkout
   - Coordinates
   - Light Cycle
-  - HTTP Response
+  - HTTP response
   - Rhythms
   - Color Math
   - Only Connect
@@ -592,7 +592,7 @@ MonoBehaviour:
   - Yahtzee
   - X-Ray
   - QR Code
-  - Button Masher
+  - Needy Button Masher
   - Random Number Generator
   - Color Morse
   - Mastermind Simple
@@ -610,7 +610,7 @@ MonoBehaviour:
   - Needy Beer Refill Mod
   - Painting
   - Color Generator
-  - Shape Memory
+  - Needy Shape Memory
   - Symbol Cycle
   - Hunting
   - Extended Password
@@ -796,7 +796,7 @@ MonoBehaviour:
   - Discolored Squares
   - Krazy Talk
   - Numbers
-  - Flip The Coin
+  - Flip the Coin
   - Varicolored Squares
   - Simon's Stages
   - Free Parking
@@ -820,7 +820,7 @@ MonoBehaviour:
   - Morse Identification
   - Pigpen Rotations
   - LED Math
-  - Alphabetical Order
+  - Alphebtic Order
   - Simon Sounds
   - The Fidget Spinner
   - Simon's Sequence
@@ -832,8 +832,9 @@ MonoBehaviour:
   - Passport Control
   - Left and Right
   - Gadgetron Vendor
-  - Wingdings
+  - Needy Wingdings
   - The Hexabutton
+  - The Plunger
   - Genetic Sequence
   - Micro-Modules
   - Module Maze
@@ -925,7 +926,7 @@ MonoBehaviour:
   - Raiding Temples
   - Bomb Diffusal
   - Tallordered Keys
-  - Pong
+  - Needy Pong
   - Ten Seconds
   - Cruel Ten Seconds
   - Double Expert
@@ -1403,7 +1404,6 @@ MonoBehaviour:
   - Chamber No. 5
   - Silenced Simon
   - Teal Arrows
-  - Faulty Butterflies
   - Keep Clicking
   - Frankenstein's Indicator
   - 16 Coins
@@ -1791,6 +1791,39 @@ MonoBehaviour:
   - Congkak
   - Candy Land
   - The Board Walk
+  - Melody Memory
+  - CA-RPS
+  - Aquarium
+  - Eight Tiles Panic
+  - Inselectables
+  - Spongebob Birthday Identification
+  - Not Poker
+  - 4D Maze
+  - Who's on Morse
+  - VTuber Identification
+  - Piece Identification
+  - Binary Tango
+  - Matching Morse
+  - Antistress
+  - Variety
+  - Exploding Mittens
+  - Not X-Ray
+  - Gemory
+  - Cursor Maze
+  - Wendithap'n
+  - Spinning Mazes
+  - Royal Piano Keys
+  - Prankster
+  - Not The Screw
+  - Birthday Cake
+  - Scrabble Scramble
+  - Gray Arrows
+  - Base-1
+  - Consonants
+  - Vector Addition
+  - Critters
+  - Voronoi Maze
+  - Colored Hexabuttons 2
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
