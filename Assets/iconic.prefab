@@ -85035,7 +85035,7 @@ MonoBehaviour:
   DefaultSelectableIndex: 0
   AllowSelectionWrapX: 0
   AllowSelectionWrapY: 0
-  ForceSelectionHighlight: 0
+  ForceSelectionHighlight: 1
   ForceInteractionHighlight: 0
 --- !u!114 &114140724158054506
 MonoBehaviour:
