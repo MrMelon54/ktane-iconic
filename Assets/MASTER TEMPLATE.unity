@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: RGB Combination
+      value: Masked Morse
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -1663,6 +1663,7 @@ MonoBehaviour:
   - Watching Paint Dry
   - Soulscream
   - Dice Cipher
+  - Weekdays
   - Salts
   - Mazeswapper
   - Infinite Loop
@@ -1706,6 +1707,7 @@ MonoBehaviour:
   - Breakfast Egg
   - Literally Dying
   - Literally Malding
+  - Cacti's Conundrum
   - Simon Shouts
   - Marquee Morse
   - Line Equations
@@ -1768,7 +1770,6 @@ MonoBehaviour:
   - Not X01
   - Not Word Search
   - Not The Bulb
-  - Not Symbolic Coordinates
   - Not Emoji Math
   - Go
   - Discolour Flash
@@ -1818,12 +1819,54 @@ MonoBehaviour:
   - Birthday Cake
   - Scrabble Scramble
   - Gray Arrows
+  - Derivatives
   - Base-1
   - Consonants
   - Vector Addition
   - Critters
+  - Mazeseeker
   - Voronoi Maze
+  - Simon's Satire
   - Colored Hexabuttons 2
+  - Duck Konundrum
+  - IKEA Documents
+  - Game of Colors
+  - Concentration
+  - Blaseball
+  - Spilling Paint
+  - Metapuzzle
+  - Zero, Zero
+  - Stellar
+  - Inner Connections
+  - Cryptic Keypad
+  - Metamorse
+  - Historical Phrases
+  - Simon Signals
+  - Piragua
+  - UNO!
+  - Simon Secures
+  - That's The Mole
+  - That's The Fox
+  - That's The Beaver
+  - Over Kilo
+  - XO
+  - Trick Or Treat
+  - My Mom
+  - 3N+1
+  - Signal Scope
+  - Order Picking
+  - Mayhem
+  - Barcode Cipher
+  - Obama Grocery Store
+  - Binary Morse
+  - Sprouts
+  - Extended Boolean Venn Diagram
+  - Cruel Modulo
+  - Flipping Squares
+  - Simon Stacks
+  - Charge
+  - Memory Poker
+  - Masked Morse
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
