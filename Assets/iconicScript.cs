@@ -1662,7 +1662,7 @@ public class iconicScript : MonoBehaviour {
             case "Critters": return iconicData._Critters;
             case "Mazeseeker": return iconicData._Mazeseeker;
             case "Voronoi Maze": return iconicData._VoronoiMaze;
-            case "Simon’s Satire": return iconicData._SimonsSatire;
+            case "Simon's Satire": return iconicData._SimonsSatire;
             case "Colored Hexabuttons 2": return iconicData._ColoredHexabuttons2;
             case "Duck Konundrum": return iconicData._DuckKonundrum;
             case "IKEA Documents": return iconicData._IKEADocuments;
@@ -1681,9 +1681,9 @@ public class iconicScript : MonoBehaviour {
             case "Piragua": return iconicData._Piragua;
             case "UNO!": return iconicData._UNO;
             case "Simon Secures": return iconicData._SimonSecures;
-            case "That’s The Mole": return iconicData._ThatsTheMole;
-            case "That’s The Fox": return iconicData._ThatsTheFox;
-            case "That’s The Beaver": return iconicData._ThatsTheBeaver;
+            case "That's The Mole": return iconicData._ThatsTheMole;
+            case "That's The Fox": return iconicData._ThatsTheFox;
+            case "That's The Beaver": return iconicData._ThatsTheBeaver;
             case "Over Kilo": return iconicData._OverKilo;
             case "XO": return iconicData._XO;
             case "Trick Or Treat": return iconicData._TrickOrTreat;
