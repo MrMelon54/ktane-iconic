@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Masked Morse
+      value: Lempel-Ziv Cipher
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -1867,6 +1867,46 @@ MonoBehaviour:
   - Charge
   - Memory Poker
   - Masked Morse
+  - Letter Math
+  - Invisymbol
+  - Gendercipher
+  - Fishing
+  - Double Digits
+  - The Yellow Button
+  - The White Button
+  - The Teal Button
+  - The Red Button
+  - The Purple Button
+  - The Pink Button
+  - The Orange Button
+  - The Green Button
+  - The Gray Button
+  - The Glitched Button
+  - The Cyan Button
+  - The Brown Button
+  - The Blue Button
+  - The Black Button
+  - Simon Shuffles
+  - Faulty Buttons
+  - Dot
+  - The Nixie Code
+  - Identification Crisis
+  - Digit Sum
+  - Twister
+  - Omni-Man
+  - Forget Our Voices
+  - Yellow Huffman Cipher
+  - Blue Huffman Cipher
+  - Lempel-Ziv Cipher
+  - Extended Button Order
+  - Soulsong
+  - Not Kanji
+  - Shape Cipher
+  - Talking Points
+  - Boolean Network
+  - Presidential Elections
+  - Maroon Cipher
+  - Reversed Boolean Network
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}

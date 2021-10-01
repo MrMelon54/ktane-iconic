@@ -122,7 +122,6 @@ public class GenerateMasterSprite : MonoBehaviour
         { "Needy Capacitor", "Capacitor Discharge" },
         { "Needy Knob", "Knob" },
         { "Rock-Paper-Scissors-L.-Sp.", "Rock-Paper-Scissors-Lizard-Spock" },
-        { "Maze³", "Maze^3" },
         { "...?", "puncuationMarks" },
         { "Needy Crafting Table", "The Crafting Table" },
         { "Needy Beer Refill Mod", "Refill that Beer!" },
