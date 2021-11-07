@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Lempel-Ziv Cipher
+      value: Clumsy Loopover
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -480,6 +480,7 @@ MonoBehaviour:
   - Complicated Wires
   - Wire Sequence
   - Maze
+  - "Maze\xB3"
   - Password
   - Needy Vent Gas
   - Needy Capacitor
@@ -875,7 +876,6 @@ MonoBehaviour:
   - The Triangle Button
   - Mazematics
   - Equations X
-  - "Maze\xB3"
   - Gryphons
   - Arithmelogic
   - Roman Art
@@ -1090,7 +1090,7 @@ MonoBehaviour:
   - Following Orders
   - Binary Grid
   - Matrices
-  - Cruel Keypad
+  - Cruel Keypads
   - The Black Page
   - 64
   - Simon Forgets
@@ -1904,9 +1904,63 @@ MonoBehaviour:
   - Shape Cipher
   - Talking Points
   - Boolean Network
+  - Understand
   - Presidential Elections
   - Maroon Cipher
+  - Tasque Managing
   - Reversed Boolean Network
+  - Quilting
+  - Character Slots
+  - Forget Morse Not
+  - Blananas2
+  - "Math \u2019em"
+  - Money Game
+  - Surrounding Buttons
+  - Imbalance
+  - Switch Placement
+  - Cornflower Cipher
+  - Time Machine
+  - Multitracking
+  - Factory Code
+  - Baffling Box
+  - Rule of Three
+  - Ro
+  - Gyromaze
+  - ID Exchange
+  - Clumsy Loopover
+  - Puzzle Panel
+  - Not Text Field
+  - Not Probing
+  - Not Piano Keys
+  - Not Number Pad
+  - Forget Me
+  - Boomtar the Great
+  - A Square
+  - Tachycardia
+  - Trajectory
+  - Look, Look Away
+  - Forest Cipher
+  - Untouchable
+  - Backdoor Hacking
+  - Abyss
+  - Supermassive Black Hole
+  - Finite Loop
+  - Steam Selector
+  - The Navy Button
+  - The Amber Button
+  - Algorithmia
+  - Sign Language
+  - Hidden In Plain Sight
+  - Double Defuser
+  - Parallel Mazes
+  - The Cornflower Button
+  - Bakery
+  - Simon Shifts
+  - Buttonage
+  - Unpleasant Squares
+  - Shape Fill
+  - Blank Card
+  - 3D Tap Code
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
