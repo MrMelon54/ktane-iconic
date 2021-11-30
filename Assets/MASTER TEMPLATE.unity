@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Clumsy Loopover
+      value: Marco Polo
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -1104,7 +1104,6 @@ MonoBehaviour:
   - Brainf---
   - Rotating Squares
   - Red Light Green Light
-  - Marco Polo
   - Hyperneedy
   - Echolocation
   - Boozleglyph Identification
@@ -1883,7 +1882,6 @@ MonoBehaviour:
   - The Gray Button
   - The Glitched Button
   - The Cyan Button
-  - The Brown Button
   - The Blue Button
   - The Black Button
   - Simon Shuffles
@@ -1927,6 +1925,7 @@ MonoBehaviour:
   - Ro
   - Gyromaze
   - ID Exchange
+  - Marco Polo
   - Clumsy Loopover
   - Puzzle Panel
   - Not Text Field
@@ -1961,6 +1960,21 @@ MonoBehaviour:
   - Shape Fill
   - Blank Card
   - 3D Tap Code
+  - Charms
+  - Occult Manuscripts
+  - Enigma Cycle
+  - Mister Softee
+  - Not The Plunger Button
+  - X-Rotor
+  - Basegate
+  - Bamboozling Directional Button
+  - Face Off
+  - Prison Break
+  - Military Encryption
+  - USA Cycle
+  - Hand Turkey
+  - Sensor Maze
+  - Not Colored Squares
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
