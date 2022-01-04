@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Not Colored Squares
+      value: Secret Santa
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -1887,7 +1887,7 @@ MonoBehaviour:
   - Simon Shuffles
   - Faulty Buttons
   - Dot
-  - The Nixie Code
+  - Nixie Code
   - Identification Crisis
   - Digit Sum
   - Twister
@@ -1911,7 +1911,7 @@ MonoBehaviour:
   - Character Slots
   - Forget Morse Not
   - Blananas2
-  - "Math \u2019em"
+  - Math 'em
   - Money Game
   - Surrounding Buttons
   - Imbalance
@@ -1919,7 +1919,6 @@ MonoBehaviour:
   - Cornflower Cipher
   - Time Machine
   - Multitracking
-  - Factory Code
   - Baffling Box
   - Rule of Three
   - Ro
@@ -1975,6 +1974,46 @@ MonoBehaviour:
   - Hand Turkey
   - Sensor Maze
   - Not Colored Squares
+  - The Neutral Button
+  - Red Light Green Light
+  - Faulty 14 Segment Display
+  - 4 Buttons
+  - Whack The Cops
+  - Halli Galli
+  - Scramboozled Eggain
+  - Doofenshmirtz Evil Inc.
+  - Z
+  - Symbstructions
+  - Add Nauseam
+  - Deceptive Rainbow Arrows
+  - Varicolour Flash
+  - Recolour Flash
+  - Hypermatch
+  - Simon Shines
+  - Sign Alphabet
+  - Notes
+  - Two-Factor Authentication
+  - Juxtacolour Flash
+  - Faulty Colour Flash
+  - Magenta Arrows
+  - 8
+  - X-Ring
+  - Simon Swizzles
+  - Secret Santa
+  - Factory Cubes
+  - Encryption Lingo
+  - Levenshtein Distance
+  - Faerie Fires
+  - Crimson Cipher
+  - X-Radar
+  - Tell Me Where
+  - Magenta Cipher
+  - Triple Traversal
+  - Simon Shorts
+  - Off-White Cipher
+  - Goofier Game
+  - Simplified Keypad
+  - Coral Cipher
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
