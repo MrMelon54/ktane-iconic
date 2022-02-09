@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Secret Santa
+      value: Ultra Custom Night
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -2011,9 +2011,34 @@ MonoBehaviour:
   - Triple Traversal
   - Simon Shorts
   - Off-White Cipher
-  - Goofier Game
   - Simplified Keypad
+  - Goofier Game
   - Coral Cipher
+  - Knot Wires
+  - LOOK AT ME
+  - Cream Cipher
+  - Pie Flash
+  - Magic Square
+  - Magic Cube
+  - Ghost
+  - Quadruple Simpleton
+  - Atlantis
+  - Quadruple Simpleton't
+  - Ultra Custom Night
+  - Pattern Hypercube
+  - Multi-Buttons
+  - Feature Cryptography
+  - '[BIG SHOT]'
+  - The Door
+  - Wordle
+  - Triple Vision
+  - Double Maze
+  - Pseudocrypt
+  - Keyed Buttons
+  - Black Screens
+  - Not Black Screens
+  - Logic Plumbing
+  - Blind Circle
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
