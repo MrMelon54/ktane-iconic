@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Ultra Custom Night
+      value: LEAN!!!
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -1769,6 +1769,7 @@ MonoBehaviour:
   - Not X01
   - Not Word Search
   - Not The Bulb
+  - Not Symbolic Coordinates
   - Not Emoji Math
   - Go
   - Discolour Flash
@@ -1800,8 +1801,6 @@ MonoBehaviour:
   - Not Poker
   - 4D Maze
   - Who's on Morse
-  - VTuber Identification
-  - Piece Identification
   - Binary Tango
   - Matching Morse
   - Antistress
@@ -1919,6 +1918,7 @@ MonoBehaviour:
   - Cornflower Cipher
   - Time Machine
   - Multitracking
+  - Factory Code
   - Baffling Box
   - Rule of Three
   - Ro
@@ -2039,6 +2039,55 @@ MonoBehaviour:
   - Not Black Screens
   - Logic Plumbing
   - Blind Circle
+  - Moved
+  - Speedrun
+  - Remember Simple
+  - Simon Smothers
+  - JacknJellify
+  - The Year
+  - Matching Signs
+  - The Stampycat
+  - Eavesdropping
+  - zzz
+  - Remembern't Simple
+  - Simon's Statement
+  - The Temple Run
+  - The Grand Prix
+  - Matrix Mapping
+  - Again
+  - Not Symbolic Password
+  - Not Perspective Pegs
+  - Not Double-Oh
+  - Not Colored Switches
+  - Not Bitmaps
+  - Maze 'em
+  - Lolbit
+  - Pollux
+  - Castor
+  - Three-Way Gates
+  - Missing Sequence
+  - Latin Hypercube
+  - UIN(+L)
+  - Inverse
+  - Peek-A-Boo
+  - Wave Collapse
+  - Dual Sequences
+  - Battle of Wits
+  - SI-HTS
+  - Parity
+  - Paperweights
+  - Anti-Memory
+  - Double-On
+  - One Item One Meal
+  - Forget Me Maybe
+  - Subtract Nauseam
+  - Timed Out
+  - Pigfair Cipher
+  - LEAN!!!
+  - Channel Surfing
+  - Roguelike Game
+  - Widgetry
+  - Nifty Number
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
