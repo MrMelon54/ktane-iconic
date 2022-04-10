@@ -133,9 +133,10 @@ public class GenerateMasterSprite : MonoBehaviour
         { "Needy Shape Memory", "Shape Memory" },
         { "Alphebtic Order", "Alphabetical Order" },
         { "Needy Wingdings", "Wingdings" },
-        { "Needy Pong", "Pong" }
+        { "Needy Pong", "Pong" },
+        { "A>N<D", "A_N_D" }
     };
-    private static Regex regex = new Regex("[^a-zA-Z0-9❖]");
+    private static Regex regex = new Regex("[/<>:\"\\|?*'’]");
     public void Generate()
     {
         // MasterSheetPath will be changed for every sheet, so make sure to always reset it when generation begins.
@@ -254,12 +255,10 @@ public class GenerateMasterSprite : MonoBehaviour
     }
 
     // Remove file extension and punctuation when comparing file names with module names
-    static string punct(string original)
+    static string punct(string name)
     {
-        // .WAV could be detected as a file extension, so exclude that
-        string notOriginal = original != "Jukebox.WAV" ? Path.GetFileNameWithoutExtension(original) : original;
-        notOriginal = regex.Replace(notOriginal.ToLowerInvariant(), string.Empty);
-        return notOriginal;
+        name = regex.Replace(Path.GetFileNameWithoutExtension(name).ToLowerInvariant(), string.Empty);
+        return name;
     }
 
     [HideInInspector]
