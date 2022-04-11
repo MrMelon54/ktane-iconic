@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Specialized;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -40,7 +41,1648 @@ public class iconicScript : MonoBehaviour {
     private string ModulePart = "";
     private string CurrentModule = "";
     private string CharacterList = ".0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	private List<string> ModuleList = new List<string>{ "Wires", "The Button", "Keypad", "Simon Says", "Who's on First", "Memory", "Morse Code", "Complicated Wires", "Wire Sequence", "Maze", "Password", "Needy Vent Gas", "Needy Capacitor", "Needy Knob", "Colour Flash", "Piano Keys", "Semaphore", "Needy Math", "Emoji Math", "Lights Out", "Switches", "Two Bits", "Word Scramble", "Anagrams", "Combination Lock", "Filibuster", "Motion Sense", "Square Button", "Simon States", "Round Keypad", "Listening", "Foreign Exchange Rates", "Needy Quiz", "Orientation Cube", "Morsematics", "Connection Check", "Letter Keys", "Forget Me Not", "Needy Rotary Phone", "Astrology", "Logic", "Crazy Talk", "Adventure Game", "Turn The Key", "Mystic Square", "Plumbing", "Cruel Piano Keys", "Safety Safe", "Tetris", "Cryptography", "Chess", "Turn The Keys", "Mouse In The Maze", "3D Maze", "Silly Slots", "Number Pad", "Laundry", "Probing", "Alphabet", "Resistors", "Skewed Slots", "Caesar Cipher", "Perspective Pegs", "Microcontroller", "Murder", "The Gamepad", "Tic Tac Toe", "Who's That Monsplode?", "Monsplode, Fight!", "Shape Shift", "Follow the Leader", "Friendship", "The Bulb", "Blind Alley", "Sea Shells", "English Test", "Rock-Paper-Scissors-L.-Sp.", "Hexamaze", "Bitmaps", "Colored Squares", "Adjacent Letters", "Third Base", "Souvenir", "Word Search", "Broken Buttons", "Simon Screams", "Modules Against Humanity", "Complicated Buttons", "Battleship", "Text Field", "Symbolic Password", "Wire Placement", "Double-Oh", "Cheap Checkout", "Coordinates", "Light Cycle", "HTTP response", "Rhythms", "Color Math", "Only Connect", "Neutralization", "Web Design", "Chord Qualities", "Creation", "Rubik's Cube", "FizzBuzz", "The Clock", "LED Encryption", "Edgework", "Bitwise Operations", "Fast Math", "Minesweeper", "Zoo", "Binary LEDs", "Boolean Venn Diagram", "Point of Order", "Ice Cream", "Hex To Decimal", "The Screw", "Yahtzee", "X-Ray", "QR Code", "Needy Button Masher", "Random Number Generator", "Color Morse", "Mastermind Simple", "Mastermind Cruel", "Gridlock", "Big Circle", "Morse-A-Maze", "Colored Switches", "Perplexing Wires", "Monsplode Trading Cards", "Game of Life Simple", "Game of Life Cruel", "Nonogram", "S.E.T.", "Needy Beer Refill Mod", "Painting", "Color Generator", "Needy Shape Memory", "Symbol Cycle", "Hunting", "Extended Password", "Curriculum", "Braille", "Mafia", "Festive Piano Keys", "Flags", "Timezone", "Polyhedral Maze", "Symbolic Coordinates", "Poker", "Sonic the Hedgehog", "Poetry", "Button Sequence", "Algebra", "Visual Impairment", "The Jukebox", "Identity Parade", "Maintenance", "Blind Maze", "Backgrounds", "Mortal Kombat", "Mashematics", "Faulty Backgrounds", "Radiator", "Modern Cipher", "LED Grid", "Sink", "The iPhone", "The Swan", "Waste Management", "Human Resources", "Skyrim", "Burglar Alarm", "Press X", "European Travel", "Error Codes", "Rapid Buttons", "LEGOs", "Rubik’s Clock", "Font Select", "The Stopwatch", "Pie", "The Wire", "The London Underground", "Logic Gates", "Forget Everything", "Grid Matching", "Color Decoding", "The Sun", "Playfair Cipher", "Tangrams", "The Number", "Cooking", "Superlogic", "The Moon", "The Cube", "Dr. Doctor", "Tax Returns", "The Jewel Vault", "Digital Root", "Graffiti Numbers", "Marble Tumble", "X01", "Logical Buttons", "The Code", "Tap Code", "Simon Sings", "Simon Sends", "Synonyms", "Greek Calculus", "Simon Shrieks", "Complex Keypad", "Subways", "Lasers", "Turtle Robot", "Guitar Chords", "Calendar", "USA Maze", "Binary Tree", "The Time Keeper", "Lightspeed", "Black Hole", "Simon's Star", "Morse War", "The Stock Market", "Mineseeker", "Maze Scrambler", "The Number Cipher", "Alphabet Numbers", "British Slang", "Double Color", "Maritime Flags", "Equations", "Determinants", "Pattern Cube", "Know Your Way", "Splitting The Loot", "Simon Samples", "Character Shift", "Uncolored Squares", "Dragon Energy", "Flashing Lights", "3D Tunnels", "Synchronization", "The Switch", "Reverse Morse", "Manometers", "Shikaku", "Wire Spaghetti", "Tennis", "Module Homework", "Benedict Cumberbatch", "Signals", "Horrible Memory", "Boggle", "Command Prompt", "Boolean Maze", "Sonic & Knuckles", "Quintuples", "The Sphere", "Coffeebucks", "Colorful Madness", "Bases", "Lion's Share", "Snooker", "Blackjack", "Party Time", "Accumulation", "The Plunger Button", "The Digit", "The Jack-O'-Lantern", "T-Words", "Divided Squares", "Connection Device", "Instructions", "Valves", "Encrypted Morse", "The Crystal Maze", "Cruel Countdown", "Countdown", "Catchphrase", "Blockbusters", "IKEA", "Retirement", "Periodic Table", "101 Dalmatians", "Schlag den Bomb", "Mahjong", "Kudosudoku", "The Radio", "Modulo", "Number Nimbleness", "Pay Respects", "Challenge & Contact", "The Triangle", "Sueet Wall", "Hot Potato", "Christmas Presents", "Hieroglyphics", "Functions", "Scripting", "Needy Mrs Bob", "Simon Spins", "Ten-Button Color Code", "Cursed Double-Oh", "Crackbox", "Street Fighter", "The Labyrinth", "Spinning Buttons", "Color Match", "The Festive Jukebox", "Skinny Wires", "The Hangover", "Factory Maze", "Binary Puzzle", "Broken Guitar Chords", "Regular Crazy Talk", "Hogwarts", "Dominoes", "Simon Speaks", "Discolored Squares", "Krazy Talk", "Numbers", "Flip the Coin", "Varicolored Squares", "Simon's Stages", "Free Parking", "Cookie Jars", "Alchemy", "Zoni", "Simon Squawks", "Unrelated Anagrams", "Mad Memory", "Bartending", "Question Mark", "Shapes And Bombs", "Flavor Text EX", "Flavor Text", "Decolored Squares", "Homophones", "DetoNATO", "Air Traffic Controller", "SYNC-125 [3]", "Westeros", "Morse Identification", "Pigpen Rotations", "LED Math", "Alphabetical Order", "Simon Sounds", "The Fidget Spinner", "Simon's Sequence", "Simon Scrambles", "Harmony Sequence", "Unfair Cipher", "Melody Sequencer", "Colorful Insanity", "Passport Control", "Left and Right", "Gadgetron Vendor", "Needy Wingdings", "The Hexabutton", "The Plunger", "Genetic Sequence", "Micro-Modules", "Module Maze", "Elder Futhark", "Tasha Squeals", "Forget This", "Digital Cipher", "Subscribe to Pewdiepie", "Grocery Store", "Draw", "Burger Alarm", "Purgatory", "Mega Man 2", "Lombax Cubes", "The Stare", "Graphic Memory", "Quiz Buzz", "Wavetapping", "The Hypercube", "Speak English", "Stack'em", "Seven Wires", "Colored Keys", "The Troll", "Planets", "The Necronomicon", "Four-Card Monte", "aa", "The Giant's Drink", "Digit String", "Alpha", "Snap!", "Hidden Colors", "Colour Code", "Vexillology", "Brush Strokes", "Odd One Out", "The Triangle Button", "Mazematics", "Equations X", "Maze³", "Gryphons", "Arithmelogic", "Roman Art", "Faulty Sink", "Simon Stops", "Morse Buttons", "Terraria Quiz", "Baba Is Who?", "Triangle Buttons", "Simon Stores", "Risky Wires", "Modulus Manipulation", "Daylight Directions", "Cryptic Password", "Stained Glass", "The Block", "Bamboozling Button", "Insane Talk", "Transmitted Morse", "A Mistake", "Red Arrows", "Green Arrows", "Yellow Arrows", "Encrypted Values", "Encrypted Equations", "Forget Them All", "Ordered Keys", "Blue Arrows", "Sticky Notes", "Unordered Keys", "Orange Arrows", "Hyperactive Numbers", "Reordered Keys", "Button Grid", "Find The Date", "Misordered Keys", "The Matrix", "Purple Arrows", "Bordered Keys", "The Dealmaker", "Seven Deadly Sins", "The Ultracube", "Symbolic Colouring", "Recorded Keys", "The Deck of Many Things", "Disordered Keys", "Character Codes", "Raiding Temples", "Bomb Diffusal", "Tallordered Keys", "Needy Pong", "Ten Seconds", "Cruel Ten Seconds", "Double Expert", "Calculus", "Boolean Keypad", "Toon Enough", "Pictionary", "Qwirkle", "Antichamber", "Simon Simons", "Lucky Dice", "Forget Enigma", "Constellations", "Prime Checker", "Cruel Digital Root", "Faulty Digital Root", "Needy Crafting Table", "Boot Too Big", "Vigenère Cipher", "Langton's Ant", "Old Fogey", "Insanagrams", "Treasure Hunt", "Snakes and Ladders", "Module Movements", "Bamboozled Again", "Safety Square", "Roman Numerals", "Colo(u)r Talk", "Annoying Arrows", "Double Arrows", "Boolean Wires", "Block Stacks", "Vectors", "Partial Derivatives", "Caesar Cycle", "Needy Piano", "Forget Us Not", "Affine Cycle", "Pigpen Cycle", "Flower Patch", "Playfair Cycle", "Jumble Cycle", "Organization", "Forget Perspective", "Alpha-Bits", "Jack Attack", "Ultimate Cycle", "Hill Cycle", "Binary", "Chord Progressions", "Matchematics", "Bob Barks", "Simon's On First", "Weird Al Yankovic", "Forget Me Now", "Simon Selects", "The Witness", "Simon Literally Says", "Cryptic Cycle", "Bone Apple Tea", "Robot Programming", "Masyu", "Hold Ups", "Red Cipher", "Flash Memory", "A-maze-ing Buttons", "Desert Bus", "Orange Cipher", "Common Sense", "The Very Annoying Button", "Unown Cipher", "Needy Flower Mash", "TetraVex", "Meter", "Timing is Everything", "The Modkit", "The Rule", "Fruits", "Bamboozling Button Grid", "Footnotes", "Lousy Chess", "Module Listening", "Garfield Kart", "Yellow Cipher", "Kooky Keypad", "Green Cipher", "RGB Maze", "Blue Cipher", "The Legendre Symbol", "Keypad Lock", "Forget Me Later", "Übermodule", "Heraldry", "Faulty RGB Maze", "Indigo Cipher", "Violet Cipher", "Encryption Bingo", "Color Addition", "Chinese Counting", "Tower of Hanoi", "Keypad Combinations", "UltraStores", "Kanji", "Geometry Dash", "Ternary Converter", "N&Ms", "Eight Pages", "The Colored Maze", "White Cipher", "Gray Cipher", "The Hyperlink", "Black Cipher", "Loopover", "Divisible Numbers", "Corners", "The High Score", "Ingredients", "Jenga", "Intervals", "Cruel Boolean Maze", "Cheep Checkout", "Spelling Bee", "Memorable Buttons", "Thinking Wires", "Seven Choose Four", "Object Shows", "Lunchtime", "Natures", "Neutrinos", "Scavenger Hunt", "Polygons", "Ultimate Cipher", "Codenames", "Odd Mod Out", "Logic Statement", "Blinkstop", "Ultimate Custom Night", "Hinges", "Time Accumulation", "❖", "Forget It Not", "egg", "BuzzFizz", "Answering Can Be Fun", "3x3 Grid", "15 Mystic Lights", "14", "Rainbow Arrows", "Time Signatures", "Multicolored Switches", "Digital Dials", "Passcodes", "Hereditary Base Notation", "Lines of Code", "The cRule", "Prime Encryption", "Encrypted Dice", "Colorful Dials", "Naughty or Nice", "Following Orders", "Binary Grid", "Matrices", "Cruel Keypads", "The Black Page", "64", "Simon Forgets", "Greek Letter Grid", "Bamboozling Time Keeper", "Scalar Dials", "The World's Largest Button", "Keywords", "State of Aggregation", "Dreamcipher", "Brainf---", "Rotating Squares", "Patience", "Hyperneedy", "Echolocation", "Boozleglyph Identification", "Topsy Turvy", "Boxing", "Railway Cargo Loading", "Conditional Buttons", "ASCII Art", "Semamorse", "Hide And Seek", "Symbolic Tasha", "Alphabetical Ruling", "Microphone", "Widdershins", "Lockpick Maze", "Dimension Disruption", "V", "Silhouettes", "A Message", "Alliances", "Dungeon", "Unicode", "Password Generator", "Baccarat", "Guess Who?", "Reverse Alphabetize", "Alphabetize", "Gatekeeper", "Light Bulbs", "1000 Words", "Five Letter Words", "Settlers of KTaNE", "The Hidden Value", "Red", "Blue", "Directional Button", "...?", "The Simpleton", "Misery Squares", "Not Wiresword", "Not Wire Sequence", "Not Who's on First", "Not Simaze", "Not Password", "Not Morse Code", "Not Memory", "Not Maze", "Not Keypad", "Not Complicated Wires", "Not Capacitor Discharge", "Not the Button", "Sequences", "Dungeon 2nd Floor", "Wire Ordering", "Vcrcs", "Quaternions", "Abstract Sequences", "osu!", "Shifting Maze", "Sorting", "Role Reversal", "Placeholder Talk", "Art Appreciation", "Shell Game", "Pattern Lock", "Quick Arithmetic", "Minecraft Cipher", "Cheat Checkout", "The Samsung", "Forget The Colors", "Etterna", "Recolored Switches", "Cruel Garfield Kart", "1D Maze", "Reverse Polish Notation", "Snowflakes", "Exoplanets", "Simon Stages", "Not Venting Gas", "Forget Infinity", "Faulty Seven Segment Displays", "Stock Images", "Roger", "Malfunctions", "Minecraft Parody", "Shuffled Strings", "NumberWang", "Minecraft Survival", "RPS Judging", "Fencing", "Strike/Solve", "Uncolored Switches", "The Twin", "Name Changer", "Just Numbers", "Lying Indicators", "Flag Identification", "Training Text", "Wonder Cipher", "Caesar's Maths", "Triamonds", "Stars", "Button Order", "Elder Password", "Switching Maze", "Iconic", "Mystery Module", "Ladder Lottery", "Co-op Harmony Sequence", "Standard Crazy Talk", "Quote Crazy Talk End Quote", "Kilo Talk", "KayMazey Talk", "Jaden Smith Talk", "Deck Creating", "Crazy Talk With A K", "BoozleTalk", "Arrow Talk", "Siffron", "Audio Morse", "Palindromes", "Pow", "Type Racer", "Chicken Nuggets", "Badugi", "Tetriamonds", "Spot the Difference", "Negativity", "Masher The Bottun", "Yes and No", "M&Ns", "Plant Identification", "Integer Trees", "Goofy's Game", "Module Rick", "Pickup Identification", "Earthbound", "3 LEDs", "Life Iteration", "Thread the Needle", "Encrypted Hangman", "Accelerando", "Reaction", "The Heart", "Color Braille", "Remote Math", "Reflex", "Password Destroyer", "Typing Tutor", "Multitask", "hexOS", "Simon Stashes", "Kyudoku", "Brawler Database", "Shortcuts", "More Code", "7", "OmegaForget", "Needy Game of Life", "Mental Math", "Kugelblitz", "Dictation", "Bloxx", "Basic Morse", "IPA", "Emotiguy Identification", "100 Levels of Defusal", "NeeDeez Nuts", "Jailbreak", "Dumb Waiters", "DACH Maze", "Birthdays", "Match 'em", "Navinums", "Gnomish Puzzle", "RGB Logic", "Bridges", "A>N<D", "Shifted Maze", "Juxtacolored Squares", "Wolf, Goat, and Cabbage", "The Missing Letter", "Amnesia", "Plug-Ins", "Synesthesia", "English Entries", "The Duck", "The Cruel Duck", "Identifying Soulless", "Ultimate Tic Tac Toe", "Factoring", "Lyrical Nonsense", "RGB Sequences", "Puzzword", "NOT NOT", "Repo Selector", "int##", "Deaf Alley", "Blind Arrows", "Sound Design", "RGB Arithmetic", "D-CODE", "Rapid Subtraction", "Fifteen", "Pixel Cipher", "Don't Touch Anything", "The Great Void", "21", "Prime Time", "Negation", "The Calculator", "SixTen", "ASCII Maze", "Ultralogic", "Spangled Stars", "Busy Beaver", "Cruel Match 'em", "Assembly Code", "Simon's Ultimate Showdown", "Boomdas", "Needlessly Complicated Button", "Color Numbers", "Chinese Strokes", "Chalices", "Reversed Edgework", "Pixel Art", "Faulty Accelerando", "0", "Pitch Perfect", "Increasing Indices", "Faulty Binary", "Cruel Binary", "Connected Monitors", "Broken Binary", "Totally Accurate Minecraft Simulator", "Tell Me When", "ReGret-B Filtering", "D-CRYPT", "Color-Cycle Button", "Alien Filing Colors", "The Kanye Encounter", "Entry Number Four", "D-CIPHER", "501", "42", "Color One Two", "Toolmods", "Spelling Buzzed", "Burnout", "Brown Bricks", "Mystic Maze", "Chinese Zodiac", "Four Lights", "Duck, Duck, Goose", "Not Knob", "Working Title", "Toolneedy", "One Links To All", "Rules", "Tenpins", "Double Listening", "Wack Game of Life", "Unfair's Revenge", "Unfair's Cruel Revenge", "Mindlock", "Golf", "Regular Hexpressions", "Literally Nothing", "Colored Buttons", "Censorship", "The Pentabutton", "Mechanus Cipher", "Digisibility", "Breaktime", "Space Invaders Extreme", "Mazery", "Kim's Game", "Three Cryptic Steps", "Popufur", "Tech Support", "Space", "9-Ball", "Metamem", "M&Ms", "The Console", "Pocket Planes", "Bridge", "Rotten Beans", "Long Beans", "Jellybeans", "Cool Beans", "Beans", "Beanboozled Again", "The Dials", "Butterflies", "Broken Karaoke", "Chamber No. 5", "Silenced Simon", "Teal Arrows", "Keep Clicking", "Frankenstein's Indicator", "16 Coins", "Sea Bear Attacks", "Alphabet Tiles", "Literally Crying", "Double Pitch", "Devilish Eggs", "h", "Rune Match I", "Rune Match II", "Rune Match III", "Quick Time Events", "Iñupiaq Numerals", "The Bioscanner", "Ars Goetia Identification", "Pixel Number Base", "Silo Authorization", "Gradually Watermelon", "Mastermind Restricted", "Logical Operators", "Higher Or Lower", "Even Or Odd", "Digital Grid", "Reformed Role Reversal", "Whiteout", "N&Ns", "Gettin' Funky", "Cell Lab", "Lights On", "Color Hexagons", "Commuting", "Symmetries Of A Square", "Look and Say", "Currents", "Partitions", "Telepathy", "Cruel Stars", "Button Messer", "Taco Tuesday", "Nomai", "Forget Any Color", "Table Madness", "Melodic Message", "Sugar Skulls", "Colour Catch", "Cosmic", "Semabols", "Mislocation", "Musher the Batten", "Tribal Council", "Simon Smiles", "Outrageous", "Faulty Chinese Counting", "Press The Shape", "Baybayin Words", "OmegaDestroyer", "Going Backwards", "Atbash Cipher", "Venn Diagrams", "Numbered Buttons", "Colored Hexabuttons", "Video Poker", "White Arrows", "Johnson Solids", "Bottom Gear", "Two Persuasive Buttons", "Keypad Directionality", "% Grey", "Towers", "Letter Layers", "The Exploding Pen", "Snack Attack", "ReGrettaBle Relay", "Security Council", "Standard Button Masher", "Musical Transposition", "Jackbox.TV", "The Furloid Jukebox", "The Close Button", "Updog", "Saimoe Pad", "B-Machine", "Addition", "What's on Second", "Quaver", "Another Keypad Module", "Think Fast", "Shoddy Chess", "Rhythm Test", "Validation", "Floor Lights", "Bad Wording", "Etch-A-Sketch", "Zener Cards", "Diophantine Equations", "Ternary Tiles", "Striped Keys", "Rullo", "Flashing Arrows", "Cruello", "Coloured Arrows", "Black Arrows", "Tetris Sprint", "Forget Maze Not", "Double Screen", "The Sequencyclopedia", "eeB gnillepS", "Pandemonium Cipher", "Mineswapper", "Phosphorescence", "The Klaxon", "Valued Keys", "Numerical Knight Movement", "Bandboozled Again", "SpriteClub Betting Simulation", "Ramboozled Again", "Simon Subdivides", "Hole in One", "Hexiom", "Collapse", "Back Buttons", "Audio Keypad", "Saimoe Maze", "Kidney Beans", "Fake Beans", "Chilli Beans", "Big Bean", "Bean Sprouts", "Tell Me Why", "Quiplash", "Bowling", "Sporadic Segments", "Linq", "Entry Number One", "DNA Mutation", "RGB Hypermaze", "Boob Tube", "Regular Sudoku", "AAAAA", "Polyrhythms", "Drive-In Window", "The 12 Days of Christmas", "X", "Y", "The Xenocryst", "Rebooting M-OS", "Stacked Sequences", "Complexity", "Small Circle", "Fractal Maze", "Simon Stumbles", "Wild Side", "The Octadecayotton", "Colored Letters", "Kahoot!", "Forget's Ultimate Showdown", "Bomb Corp. Filing", "Ultra Digital Root", "Mii Identification", "81", "Simon Swindles", "Next In Line", "Functional Mapping", "Stable Time Signatures", "Keypad Maze", "Astrological", "XmORse Code", "Corridors", "Decay", "Crazy Speak", "Large Password", "Large Free Password", "Free Password", "Not Timer", "The Burnt", "Access Codes", "Cistercian Numbers", "Brown Cipher", "Code Cracker", "Indentation", "One-Line", "The Speaker", "Interpunct", "Double Knob", "Name Codes", "The 1, 2, 3 Game", "Papa's Pizzeria", "Keypad Magnified", "Hold On", "Diffusion", "Soy Beans", "The Shaker", "Coffee Beans", "Newline", "Letter Grid", "Ghost Movement", "+", "Transmission Transposition", "Screensaver", "RSA Cipher", "Amusement Parks", "Literally Something", "Icon Reveal", "Solitaire Cipher", "hexOrbits", "Matchmaker", "Ladders", "Hearthur", "Decimation", "Color Punch", "Count to 69420", "Mssngv Wls", "Netherite", "Naming Conventions", "I'm Not a Robot", "Emoticon Math", "Coinage", "Simon Supports", "Identifrac", "1D Chess", "1-2-3-2-1", "Not Murder", "Not Morsematics", "Not Crazy Talk", "Not Coordinates", "Not Connection Check", "Not Colour Flash", "Cruel Colour Flash", "Numpath", "The Logan Parody Jukebox", "Factoring Maze", "Binary Buttons", "The Assorted Arrangement", "The Alteran Trail", "Pathfinder", "Needy Wires", "Turn Four", "nya~", "Llama, Llama, Alpaca", "Voltorb Flip", "Cruel Synesthesia", "Polygrid", "Dossier Modifier", "Mischmodul", "amogus", "Connect Four", "Macro Memory", "Directing Buttons", "Colors Maximization", "Anomia", "Uncoloured Buttons", "The Impostor", "Doomsday Button", "Blue Whale", "Antimatter Dimensions", "Watching Paint Dry", "Soulscream", "Dice Cipher", "Weekdays", "Salts", "Mazeswapper", "Infinite Loop", "Face Recognition", "Stoichiometry", "Hitman", "Alfa-Bravo", "Dialtones", "Classical Order", "Needy Hotate", "Space Traders", "Cube Synchronization", "Cartinese", "Eight", "Fursona", "Notre-Dame Cipher", "Stupid Slots", "Kawaiitlyn", "Sysadmin", "Red Herring", "Binary Shift", "Rain Hell", "Rain", "Squeeze", "Parliament", "Meteor", "Pink Arrows", "Maze Identification", "Logging", "Anagraphy", "Pawns", "SUSadmin", "Simply Simon", "Encrypted Maze", "Fire Diamonds", "Dimension King", "Puzzle Identification", "IKEA Plushies", "Face Perception", "Simon Shapes", "Breakfast Egg", "Literally Dying", "Literally Malding", "Cacti's Conundrum", "Simon Shouts", "Marquee Morse", "Line Equations", "White Hole", "Starmap Reconstruction", "2048", "Pointless Machines", "Stability", "Maritime Semaphore", "Warning Signs", "Mastermind Restricted Cruel", "Labeled Priorities Plus", "Coprime Checker", "Walking Cube", "Customer Identification", "Out of Time", "Words", "Skewers", "Scratch-Off", "Phones", "Mirror", "Mind Meld", "Custom Keys", "The Arena", "Insa Ilo", "Placement Roulette", "Art Pricing", "Perceptron", "RGB Combination", "Coverage", "Wire Association", "The Icon Kit", "The Garnet Thief", "Ten Aliens", "Flyswatting", "Tetrahedron", "Simon Said", "Nonbinary Puzzle", "SQL - Basic", "M-Seq", "TV", "Touch Transmission", "MWISort", "Coordination", "SQL - Evil", "Kusa Nihonglish", "LEDs", "SQL - Cruel", "Quizbowl", "Superparsing", "Tripping Triangles", "Tipping Triangles", "Slipping Triangles", "Skipping Triangles", "Flipping Triangles", "Dripping Triangles", "Clipping Triangles", "Uncolour Flash", "Simpleton't", "Not X01", "Not Word Search", "Not The Bulb", "Not Symbolic Coordinates", "Not Emoji Math", "Go", "Discolour Flash", "The Tile Maze", "Shogi Identification", "Boozlesnap", "Shashki", "hexNull", "Shut-the-Box", "Logic Chess", "The Hypercolor", "Horsey", "Termite", "Sorry Sliders", "Simon", "Robit Programming", "Purchasing Properties", "Label Priorities", "Cruel Candy Land", "Congkak", "Candy Land", "The Board Walk", "Melody Memory", "CA-RPS", "Aquarium", "Eight Tiles Panic", "Inselectables", "Spongebob Birthday Identification", "Not Poker", "4D Maze", "Who's on Morse", "Binary Tango", "Matching Morse", "Antistress", "Variety", "Exploding Mittens", "Not X-Ray", "Gemory", "Cursor Maze", "Wendithap'n", "Spinning Mazes", "Royal Piano Keys", "Prankster", "Not The Screw", "Birthday Cake", "Scrabble Scramble", "Gray Arrows", "Derivatives", "Base-1", "Consonants", "Vector Addition", "Critters", "Mazeseeker", "Voronoi Maze", "Simon's Satire", "Colored Hexabuttons 2", "Duck Konundrum", "IKEA Documents", "Game of Colors", "Concentration", "Blaseball", "Spilling Paint", "Metapuzzle", "Zero, Zero", "Stellar", "Inner Connections", "Cryptic Keypad", "Metamorse", "Historical Phrases", "Simon Signals", "Piragua", "UNO!", "Simon Secures", "That's The Mole", "That's The Fox", "That's The Beaver", "Over Kilo", "XO", "Trick Or Treat", "My Mom", "3N+1", "Signal Scope", "Order Picking", "Mayhem", "Barcode Cipher", "Obama Grocery Store", "Binary Morse", "Sprouts", "Extended Boolean Venn Diagram", "Cruel Modulo", "Flipping Squares", "Simon Stacks", "Charge", "Memory Poker", "Masked Morse", "Letter Math", "Invisymbol", "Gendercipher", "Fishing", "Double Digits", "The Yellow Button", "The White Button", "The Teal Button", "The Red Button", "The Purple Button", "The Pink Button", "The Orange Button", "The Green Button", "The Gray Button", "The Glitched Button", "The Cyan Button", "The Blue Button", "The Black Button", "Simon Shuffles", "Faulty Buttons", "Dot", "Nixie Code", "Identification Crisis", "Digit Sum", "Twister", "Omni-Man", "Forget Our Voices", "Yellow Huffman Cipher", "Blue Huffman Cipher", "Lempel-Ziv Cipher", "Extended Button Order", "Soulsong", "Not Kanji", "Shape Cipher", "Talking Points", "Boolean Network", "Understand", "Presidential Elections", "Maroon Cipher", "Tasque Managing", "Reversed Boolean Network", "Quilting", "Character Slots", "Forget Morse Not", "Blananas2", "Math 'em", "Money Game", "Surrounding Buttons", "Imbalance", "Switch Placement", "Cornflower Cipher", "Time Machine", "Multitracking", "Factory Code", "Baffling Box", "Rule of Three", "Ro", "Gyromaze", "ID Exchange", "Marco Polo", "Clumsy Loopover", "Puzzle Panel", "Not Text Field", "Not Probing", "Not Piano Keys", "Not Number Pad", "Forget Me", "Boomtar the Great", "A Square", "Tachycardia", "Trajectory", "Look, Look Away", "Forest Cipher", "Untouchable", "Backdoor Hacking", "Abyss", "Supermassive Black Hole", "Finite Loop", "Steam Selector", "The Navy Button", "The Amber Button", "Algorithmia", "Sign Language", "Hidden In Plain Sight", "Double Defuser", "Parallel Mazes", "The Cornflower Button", "Bakery", "Simon Shifts", "Buttonage", "Unpleasant Squares", "Shape Fill", "Blank Card", "3D Tap Code", "Charms", "Occult Manuscripts", "Enigma Cycle", "Mister Softee", "Not The Plunger Button", "X-Rotor", "Basegate", "Bamboozling Directional Button", "Face Off", "Prison Break", "Military Encryption", "USA Cycle", "Hand Turkey", "Sensor Maze", "Not Colored Squares", "The Neutral Button", "Red Light Green Light", "Faulty 14 Segment Display", "4 Buttons", "Whack The Cops", "Halli Galli", "Scramboozled Eggain", "Doofenshmirtz Evil Inc.", "Z", "Symbstructions", "Add Nauseam", "Deceptive Rainbow Arrows", "Varicolour Flash", "Recolour Flash", "Hypermatch", "Simon Shines", "Sign Alphabet", "Notes", "Two-Factor Authentication", "Juxtacolour Flash", "Faulty Colour Flash", "Magenta Arrows", "8", "X-Ring", "Simon Swizzles", "Secret Santa", "Factory Cubes", "Encryption Lingo", "Levenshtein Distance", "Faerie Fires", "Crimson Cipher", "X-Radar", "Tell Me Where", "Magenta Cipher", "Triple Traversal", "Simon Shorts", "Off-White Cipher", "Simplified Keypad", "Goofier Game", "Coral Cipher", "Knot Wires", "LOOK AT ME", "Cream Cipher", "Pie Flash", "Magic Square", "Magic Cube", "Ghost", "Quadruple Simpleton", "Atlantis", "Quadruple Simpleton't", "Ultra Custom Night", "Pattern Hypercube", "Multi-Buttons", "Feature Cryptography", "[BIG SHOT]", "The Door", "Wordle", "Triple Vision", "Double Maze", "Pseudocrypt", "Keyed Buttons", "Black Screens", "Not Black Screens", "Logic Plumbing", "Blind Circle", "Moved", "Speedrun", "Remember Simple", "Simon Smothers", "JacknJellify", "The Year", "Matching Signs", "The Stampycat", "Eavesdropping", "zzz", "Remembern't Simple", "Simon's Statement", "The Temple Run", "The Grand Prix", "Matrix Mapping", "Again", "Not Symbolic Password", "Not Perspective Pegs", "Not Double-Oh", "Not Colored Switches", "Not Bitmaps", "Maze 'em", "Lolbit", "Pollux", "Castor", "Three-Way Gates", "Missing Sequence", "Latin Hypercube", "UIN(+L)", "Inverse", "Peek-A-Boo", "Wave Collapse", "Dual Sequences", "Battle of Wits", "SI-HTS", "Parity", "Paperweights", "Anti-Memory", "Double-On", "One Item One Meal", "Forget Me Maybe", "Subtract Nauseam", "Timed Out", "Pigfair Cipher", "LEAN!!!", "Channel Surfing", "Roguelike Game", "Widgetry", "Nifty Number" }; 
+    private OrderedDictionary ModuleList = new OrderedDictionary {
+        
+            { "Wires", iconicData._Wires },
+            { "The Button", iconicData._TheButton },
+            { "Keypad", iconicData._Keypad },
+            { "Simon Says", iconicData._SimonSays },
+            { "Who's on First", iconicData._WhosOnFirst },
+            { "Memory", iconicData._Memory },
+            { "Morse Code", iconicData._MorseCode },
+            { "Complicated Wires", iconicData._ComplicatedWires },
+            { "Wire Sequence", iconicData._WireSequence },
+            { "Maze", iconicData._Maze },
+            { "Password", iconicData._Password },
+            { "Needy Vent Gas", iconicData._VentingGas },
+            { "Needy Capacitor", iconicData._CapacitorDischarge },
+            { "Needy Knob", iconicData._Knob },
+            { "Colour Flash", iconicData._ColourFlash },
+            { "Piano Keys", iconicData._PianoKeys },
+            { "Semaphore", iconicData._Semaphore },
+            { "Needy Math", iconicData._Math },
+            { "Emoji Math", iconicData._EmojiMath },
+            { "Lights Out", iconicData._LightsOut },
+            { "Switches", iconicData._Switches },
+            { "Two Bits", iconicData._TwoBits },
+            { "Word Scramble", iconicData._WordScramble },
+            { "Anagrams", iconicData._Anagrams },
+            { "Combination Lock", iconicData._CombinationLock },
+            { "Filibuster", iconicData._Filibuster },
+            { "Motion Sense", iconicData._MotionSense },
+            { "Square Button", iconicData._SquareButton },
+            { "Simon States", iconicData._SimonStates },
+            { "Round Keypad", iconicData._RoundKeypad },
+            { "Listening", iconicData._Listening },
+            { "Foreign Exchange Rates", iconicData._ForeignExchangeRates },
+            { "Needy Quiz", iconicData._AnsweringQuestions },
+            { "Orientation Cube", iconicData._OrientationCube },
+            { "Morsematics", iconicData._Morsematics },
+            { "Connection Check", iconicData._ConnectionCheck },
+            { "Letter Keys", iconicData._LetterKeys },
+            { "Forget Me Not", iconicData._ForgetMeNot },
+            { "Needy Rotary Phone", iconicData._RotaryPhone },
+            { "Astrology", iconicData._Astrology },
+            { "Logic", iconicData._Logic },
+            { "Crazy Talk", iconicData._CrazyTalk },
+            { "Adventure Game", iconicData._AdventureGame },
+            { "Turn The Key", iconicData._TurnTheKey },
+            { "Mystic Square", iconicData._MysticSquare },
+            { "Plumbing", iconicData._Plumbing },
+            { "Cruel Piano Keys", iconicData._CruelPianoKeys },
+            { "Safety Safe", iconicData._SafetySafe },
+            { "Tetris", iconicData._Tetris },
+            { "Cryptography", iconicData._Cryptography },
+            { "Chess", iconicData._Chess },
+            { "Turn The Keys", iconicData._TurnTheKeys },
+            { "Mouse In The Maze", iconicData._MouseInTheMaze },
+            { "3D Maze", iconicData._3DMaze },
+            { "Silly Slots", iconicData._SillySlots },
+            { "Number Pad", iconicData._NumberPad },
+            { "Laundry", iconicData._Laundry },
+            { "Probing", iconicData._Probing },
+            { "Alphabet", iconicData._Alphabet },
+            { "Resistors", iconicData._Resistors },
+            { "Skewed Slots", iconicData._SkewedSlots },
+            { "Caesar Cipher", iconicData._CaesarCipher },
+            { "Perspective Pegs", iconicData._PerspectivePegs },
+            { "Microcontroller", iconicData._Microcontroller },
+            { "Murder", iconicData._Murder },
+            { "The Gamepad", iconicData._TheGamepad },
+            { "Tic Tac Toe", iconicData._TicTacToe },
+            { "Who's That Monsplode?", iconicData._WhosThatMonsplode },
+            { "Monsplode, Fight!", iconicData._MonsplodeFight },
+            { "Shape Shift", iconicData._ShapeShift },
+            { "Follow the Leader", iconicData._FollowTheLeader },
+            { "Friendship", iconicData._Friendship },
+            { "The Bulb", iconicData._TheBulb },
+            { "Blind Alley", iconicData._BlindAlley },
+            { "Sea Shells", iconicData._SeaShells },
+            { "English Test", iconicData._EnglishTest },
+            { "Rock-Paper-Scissors-L.-Sp.", iconicData._RockPaperScissorsLizardSpock },
+            { "Hexamaze", iconicData._Hexamaze },
+            { "Bitmaps", iconicData._Bitmaps },
+            { "Colored Squares", iconicData._ColoredSquares },
+            { "Adjacent Letters", iconicData._AdjacentLetters },
+            { "Third Base", iconicData._ThirdBase },
+            { "Souvenir", iconicData._Souvenir },
+            { "Word Search", iconicData._WordSearch },
+            { "Broken Buttons", iconicData._BrokenButtons },
+            { "Simon Screams", iconicData._SimonScreams },
+            { "Modules Against Humanity", iconicData._ModulesAgainstHumanity },
+            { "Complicated Buttons", iconicData._ComplicatedButtons },
+            { "Battleship", iconicData._Battleship },
+            { "Text Field", iconicData._TextField },
+            { "Symbolic Password", iconicData._SymbolicPassword },
+            { "Wire Placement", iconicData._WirePlacement },
+            { "Double-Oh", iconicData._DoubleOh },
+            { "Cheap Checkout", iconicData._CheapCheckout },
+            { "Coordinates", iconicData._Coordinates },
+            { "Light Cycle", iconicData._LightCycle },
+            { "HTTP response", iconicData._HTTPResponse },
+            { "Rhythms", iconicData._Rhythms },
+            { "Color Math", iconicData._ColorMath },
+            { "Only Connect", iconicData._OnlyConnect },
+            { "Neutralization", iconicData._Neutralization },
+            { "Web Design", iconicData._WebDesign },
+            { "Chord Qualities", iconicData._ChordQualities },
+            { "Creation", iconicData._Creation },
+            { "Rubik's Cube", iconicData._RubiksCube },
+            { "FizzBuzz", iconicData._FizzBuzz },
+            { "The Clock", iconicData._TheClock },
+            { "LED Encryption", iconicData._LEDEncryption },
+            { "Edgework", iconicData._Edgework },
+            { "Bitwise Operations", iconicData._BitwiseOperations },
+            { "Fast Math", iconicData._FastMath },
+            { "Minesweeper", iconicData._Minesweeper },
+            { "Zoo", iconicData._Zoo },
+            { "Binary LEDs", iconicData._BinaryLEDs },
+            { "Boolean Venn Diagram", iconicData._BooleanVennDiagram },
+            { "Point of Order", iconicData._PointOfOrder },
+            { "Ice Cream", iconicData._IceCream },
+            { "Hex To Decimal", iconicData._HexToDecimal },
+            { "The Screw", iconicData._TheScrew },
+            { "Yahtzee", iconicData._Yahtzee },
+            { "X-Ray", iconicData._XRay },
+            { "QR Code", iconicData._QRCode },
+            { "Needy Button Masher", iconicData._ButtonMasher },
+            { "Random Number Generator", iconicData._RandomNumberGenerator },
+            { "Color Morse", iconicData._ColorMorse },
+            { "Mastermind Simple", iconicData._MastermindSimple },
+            { "Mastermind Cruel", iconicData._MastermindCruel },
+            { "Gridlock", iconicData._Gridlock },
+            { "Big Circle", iconicData._BigCircle },
+            { "Morse-A-Maze", iconicData._MorseAMaze },
+            { "Colored Switches", iconicData._ColoredSwitches },
+            { "Perplexing Wires", iconicData._PerplexingWires },
+            { "Monsplode Trading Cards", iconicData._MonsplodeTradingCards },
+            { "Game of Life Simple", iconicData._GameOfLifeSimple },
+            { "Game of Life Cruel", iconicData._GameOfLifeCruel },
+            { "Nonogram", iconicData._Nonogram },
+            { "S.E.T.", iconicData._SET },
+            { "Needy Beer Refill Mod", iconicData._RefillThatBeer },
+            { "Painting", iconicData._Painting },
+            { "Color Generator", iconicData._ColorGenerator },
+            { "Needy Shape Memory", iconicData._ShapeMemory },
+            { "Symbol Cycle", iconicData._SymbolCycle },
+            { "Hunting", iconicData._Hunting },
+            { "Extended Password", iconicData._ExtendedPassword },
+            { "Curriculum", iconicData._Curriculum },
+            { "Braille", iconicData._Braille },
+            { "Mafia", iconicData._Mafia },
+            { "Festive Piano Keys", iconicData._FestivePianoKeys },
+            { "Flags", iconicData._Flags },
+            { "Timezone", iconicData._Timezone },
+            { "Polyhedral Maze", iconicData._PolyhedralMaze },
+            { "Symbolic Coordinates", iconicData._SymbolicCoordinates },
+            { "Poker", iconicData._Poker },
+            { "Sonic the Hedgehog", iconicData._SonicTheHedgehog },
+            { "Poetry", iconicData._Poetry },
+            { "Button Sequence", iconicData._ButtonSequence },
+            { "Algebra", iconicData._Algebra },
+            { "Visual Impairment", iconicData._VisualImpairment },
+            { "The Jukebox", iconicData._TheJukebox },
+            { "Identity Parade", iconicData._IdentityParade },
+            { "Maintenance", iconicData._Maintenance },
+            { "Blind Maze", iconicData._BlindMaze },
+            { "Backgrounds", iconicData._Backgrounds },
+            { "Mortal Kombat", iconicData._MortalKombat },
+            { "Mashematics", iconicData._Mashematics },
+            { "Faulty Backgrounds", iconicData._FaultyBackgrounds },
+            { "Radiator", iconicData._Radiator },
+            { "Modern Cipher", iconicData._ModernCipher },
+            { "LED Grid", iconicData._LEDGrid },
+            { "Sink", iconicData._Sink },
+            { "The iPhone", iconicData._TheiPhone },
+            { "The Swan", iconicData._TheSwan },
+            { "Waste Management", iconicData._WasteManagement },
+            { "Human Resources", iconicData._HumanResources },
+            { "Skyrim", iconicData._Skyrim },
+            { "Burglar Alarm", iconicData._BurglarAlarm },
+            { "Press X", iconicData._PressX },
+            { "European Travel", iconicData._EuropeanTravel },
+            { "Error Codes", iconicData._ErrorCodes },
+            { "Rapid Buttons", iconicData._RapidButtons },
+            { "LEGOs", iconicData._LEGOs },
+            { "Rubik’s Clock", iconicData._RubiksClock },
+            { "Font Select", iconicData._FontSelect },
+            { "The Stopwatch", iconicData._TheStopwatch },
+            { "Pie", iconicData._Pie },
+            { "The Wire", iconicData._TheWire },
+            { "The London Underground", iconicData._TheLondonUnderground },
+            { "Logic Gates", iconicData._LogicGates },
+            { "Forget Everything", iconicData._ForgetEverything },
+            { "Grid Matching", iconicData._GridMatching },
+            { "Color Decoding", iconicData._ColorDecoding },
+            { "The Sun", iconicData._TheSun },
+            { "Playfair Cipher", iconicData._PlayfairCipher },
+            { "Tangrams", iconicData._Tangrams },
+            { "The Number", iconicData._TheNumber },
+            { "Cooking", iconicData._Cooking },
+            { "Superlogic", iconicData._Superlogic },
+            { "The Moon", iconicData._TheMoon },
+            { "The Cube", iconicData._TheCube },
+            { "Dr. Doctor", iconicData._DrDoctor },
+            { "Tax Returns", iconicData._TaxReturns },
+            { "The Jewel Vault", iconicData._TheJewelVault },
+            { "Digital Root", iconicData._DigitalRoot },
+            { "Graffiti Numbers", iconicData._GraffitiNumbers },
+            { "Marble Tumble", iconicData._MarbleTumble },
+            { "X01", iconicData._X01 },
+            { "Logical Buttons", iconicData._LogicalButtons },
+            { "The Code", iconicData._TheCode },
+            { "Tap Code", iconicData._TapCode },
+            { "Simon Sings", iconicData._SimonSings },
+            { "Simon Sends", iconicData._SimonSends },
+            { "Synonyms", iconicData._Synonyms },
+            { "Greek Calculus", iconicData._GreekCalculus },
+            { "Simon Shrieks", iconicData._SimonShrieks },
+            { "Complex Keypad", iconicData._ComplexKeypad },
+            { "Subways", iconicData._Subways },
+            { "Lasers", iconicData._Lasers },
+            { "Turtle Robot", iconicData._TurtleRobot },
+            { "Guitar Chords", iconicData._GuitarChords },
+            { "Calendar", iconicData._Calendar },
+            { "USA Maze", iconicData._USAMaze },
+            { "Binary Tree", iconicData._BinaryTree },
+            { "The Time Keeper", iconicData._TheTimeKeeper },
+            { "Lightspeed", iconicData._Lightspeed },
+            { "Black Hole", iconicData._BlackHole },
+            { "Simon's Star", iconicData._SimonsStar },
+            { "Morse War", iconicData._MorseWar },
+            { "The Stock Market", iconicData._TheStockMarket },
+            { "Mineseeker", iconicData._Mineseeker },
+            { "Maze Scrambler", iconicData._MazeScrambler },
+            { "The Number Cipher", iconicData._TheNumberCipher },
+            { "Alphabet Numbers", iconicData._AlphabetNumbers },
+            { "British Slang", iconicData._BritishSlang },
+            { "Double Color", iconicData._DoubleColor },
+            { "Maritime Flags", iconicData._MaritimeFlags },
+            { "Equations", iconicData._Equations },
+            { "Determinants", iconicData._Determinants },
+            { "Pattern Cube", iconicData._PatternCube },
+            { "Know Your Way", iconicData._KnowYourWay },
+            { "Splitting The Loot", iconicData._SplittingTheLoot },
+            { "Simon Samples", iconicData._SimonSamples },
+            { "Character Shift", iconicData._CharacterShift },
+            { "Uncolored Squares", iconicData._UncoloredSquares },
+            { "Dragon Energy", iconicData._DragonEnergy },
+            { "Flashing Lights", iconicData._FlashingLights },
+            { "3D Tunnels", iconicData._3DTunnels },
+            { "Synchronization", iconicData._Synchronization },
+            { "The Switch", iconicData._TheSwitch },
+            { "Reverse Morse", iconicData._ReverseMorse },
+            { "Manometers", iconicData._Manometers },
+            { "Shikaku", iconicData._Shikaku },
+            { "Wire Spaghetti", iconicData._WireSpaghetti },
+            { "Tennis", iconicData._Tennis },
+            { "Module Homework", iconicData._ModuleHomework },
+            { "Benedict Cumberbatch", iconicData._BenedictCumberbatch },
+            { "Signals", iconicData._Signals },
+            { "Horrible Memory", iconicData._HorribleMemory },
+            { "Boggle", iconicData._Boggle },
+            { "Command Prompt", iconicData._CommandPrompt },
+            { "Boolean Maze", iconicData._BooleanMaze },
+            { "Sonic & Knuckles", iconicData._SonicKnuckles },
+            { "Quintuples", iconicData._Quintuples },
+            { "The Sphere", iconicData._TheSphere },
+            { "Coffeebucks", iconicData._Coffeebucks },
+            { "Colorful Madness", iconicData._ColorfulMadness },
+            { "Bases", iconicData._Bases },
+            { "Lion's Share", iconicData._LionsShare },
+            { "Snooker", iconicData._Snooker },
+            { "Blackjack", iconicData._Blackjack },
+            { "Party Time", iconicData._PartyTime },
+            { "Accumulation", iconicData._Accumulation },
+            { "The Plunger Button", iconicData._ThePlungerButton },
+            { "The Digit", iconicData._TheDigit },
+            { "The Jack-O'-Lantern", iconicData._TheJackOLantern },
+            { "T-Words", iconicData._TWords },
+            { "Divided Squares", iconicData._DividedSquares },
+            { "Connection Device", iconicData._ConnectionDevice },
+            { "Instructions", iconicData._Instructions },
+            { "Valves", iconicData._Valves },
+            { "Encrypted Morse", iconicData._EncryptedMorse },
+            { "The Crystal Maze", iconicData._TheCrystalMaze },
+            { "Cruel Countdown", iconicData._CruelCountdown },
+            { "Countdown", iconicData._Countdown },
+            { "Catchphrase", iconicData._Catchphrase },
+            { "Blockbusters", iconicData._Blockbusters },
+            { "IKEA", iconicData._IKEA },
+            { "Retirement", iconicData._Retirement },
+            { "Periodic Table", iconicData._PeriodicTable },
+            { "101 Dalmatians", iconicData._101Dalmatians },
+            { "Schlag den Bomb", iconicData._SchlagDenBomb },
+            { "Mahjong", iconicData._Mahjong },
+            { "Kudosudoku", iconicData._Kudosudoku },
+            { "The Radio", iconicData._TheRadio },
+            { "Modulo", iconicData._Modulo },
+            { "Number Nimbleness", iconicData._NumberNimbleness },
+            { "Pay Respects", iconicData._PayRespects },
+            { "Challenge & Contact", iconicData._ChallengeContact },
+            { "The Triangle", iconicData._TheTriangle },
+            { "Sueet Wall", iconicData._SueetWall },
+            { "Hot Potato", iconicData._HotPotato },
+            { "Christmas Presents", iconicData._ChristmasPresents },
+            { "Hieroglyphics", iconicData._Hieroglyphics },
+            { "Functions", iconicData._Functions },
+            { "Scripting", iconicData._Scripting },
+            { "Needy Mrs Bob", iconicData._NeedyMrsBob },
+            { "Simon Spins", iconicData._SimonSpins },
+            { "Ten-Button Color Code", iconicData._TenButtonColorCode },
+            { "Cursed Double-Oh", iconicData._CursedDoubleOh },
+            { "Crackbox", iconicData._Crackbox },
+            { "Street Fighter", iconicData._StreetFighter },
+            { "The Labyrinth", iconicData._TheLabyrinth },
+            { "Spinning Buttons", iconicData._SpinningButtons },
+            { "Color Match", iconicData._ColorMatch },
+            { "The Festive Jukebox", iconicData._TheFestiveJukebox },
+            { "Skinny Wires", iconicData._SkinnyWires },
+            { "The Hangover", iconicData._TheHangover },
+            { "Factory Maze", iconicData._FactoryMaze },
+            { "Binary Puzzle", iconicData._BinaryPuzzle },
+            { "Broken Guitar Chords", iconicData._BrokenGuitarChords },
+            { "Regular Crazy Talk", iconicData._RegularCrazyTalk },
+            { "Hogwarts", iconicData._Hogwarts },
+            { "Dominoes", iconicData._Dominoes },
+            { "Simon Speaks", iconicData._SimonSpeaks },
+            { "Discolored Squares", iconicData._DiscoloredSquares },
+            { "Krazy Talk", iconicData._KrazyTalk },
+            { "Numbers", iconicData._Numbers },
+            { "Flip the Coin", iconicData._FlipTheCoin },
+            { "Varicolored Squares", iconicData._VaricoloredSquares },
+            { "Simon's Stages", iconicData._SimonsStages },
+            { "Free Parking", iconicData._FreeParking },
+            { "Cookie Jars", iconicData._CookieJars },
+            { "Alchemy", iconicData._Alchemy },
+            { "Zoni", iconicData._Zoni },
+            { "Simon Squawks", iconicData._SimonSquawks },
+            { "Unrelated Anagrams", iconicData._UnrelatedAnagrams },
+            { "Mad Memory", iconicData._MadMemory },
+            { "Bartending", iconicData._Bartending },
+            { "Question Mark", iconicData._QuestionMark },
+            { "Shapes And Bombs", iconicData._ShapesAndBombs },
+            { "Flavor Text EX", iconicData._FlavorTextEX },
+            { "Flavor Text", iconicData._FlavorText },
+            { "Decolored Squares", iconicData._DecoloredSquares },
+            { "Homophones", iconicData._Homophones },
+            { "DetoNATO", iconicData._DetoNATO },
+            { "Air Traffic Controller", iconicData._AirTrafficController },
+            { "SYNC-125 [3]", iconicData._SYNC1253 },
+            { "Westeros", iconicData._Westeros },
+            { "Morse Identification", iconicData._MorseIdentification },
+            { "Pigpen Rotations", iconicData._PigpenRotations },
+            { "LED Math", iconicData._LEDMath },
+            { "Alphabetical Order", iconicData._AlphabeticalOrder },
+            { "Simon Sounds", iconicData._SimonSounds },
+            { "The Fidget Spinner", iconicData._TheFidgetSpinner },
+            { "Simon's Sequence", iconicData._SimonsSequence },
+            { "Simon Scrambles", iconicData._SimonScrambles },
+            { "Harmony Sequence", iconicData._HarmonySequence },
+            { "Unfair Cipher", iconicData._UnfairCipher },
+            { "Melody Sequencer", iconicData._MelodySequencer },
+            { "Colorful Insanity", iconicData._ColorfulInsanity },
+            { "Passport Control", iconicData._PassportControl },
+            { "Left and Right", iconicData._LeftandRight },
+            { "Gadgetron Vendor", iconicData._GadgetronVendor },
+            { "Needy Wingdings", iconicData._Wingdings },
+            { "The Hexabutton", iconicData._TheHexabutton },
+            { "The Plunger", iconicData._ThePlunger },
+            { "Genetic Sequence", iconicData._GeneticSequence },
+            { "Micro-Modules", iconicData._MicroModules },
+            { "Module Maze", iconicData._ModuleMaze },
+            { "Elder Futhark", iconicData._ElderFuthark },
+            { "Tasha Squeals", iconicData._TashaSqueals },
+            { "Forget This", iconicData._ForgetThis },
+            { "Digital Cipher", iconicData._DigitalCipher },
+            { "Subscribe to Pewdiepie", iconicData._SubscribetoPewdiepie },
+            { "Grocery Store", iconicData._GroceryStore },
+            { "Draw", iconicData._Draw },
+            { "Burger Alarm", iconicData._BurgerAlarm },
+            { "Purgatory", iconicData._Purgatory },
+            { "Mega Man 2", iconicData._MegaMan2 },
+            { "Lombax Cubes", iconicData._LombaxCubes },
+            { "The Stare", iconicData._TheStare },
+            { "Graphic Memory", iconicData._GraphicMemory },
+            { "Quiz Buzz", iconicData._QuizBuzz },
+            { "Wavetapping", iconicData._Wavetapping },
+            { "The Hypercube", iconicData._TheHypercube },
+            { "Speak English", iconicData._SpeakEnglish },
+            { "Stack'em", iconicData._Stackem },
+            { "Seven Wires", iconicData._SevenWires },
+            { "Colored Keys", iconicData._ColoredKeys },
+            { "The Troll", iconicData._TheTroll },
+            { "Planets", iconicData._Planets },
+            { "The Necronomicon", iconicData._TheNecronomicon },
+            { "Four-Card Monte", iconicData._FourCardMonte },
+            { "aa", iconicData._Aa },
+            { "The Giant's Drink", iconicData._TheGiantsDrink },
+            { "Digit String", iconicData._DigitString },
+            { "Alpha", iconicData._Alpha },
+            { "Snap!", iconicData._Snap },
+            { "Hidden Colors", iconicData._HiddenColors },
+            { "Colour Code", iconicData._ColourCode },
+            { "Vexillology", iconicData._Vexillology },
+            { "Brush Strokes", iconicData._BrushStrokes },
+            { "Odd One Out", iconicData._OddOneOut },
+            { "The Triangle Button", iconicData._TheTriangleButton },
+            { "Mazematics", iconicData._Mazematics },
+            { "Equations X", iconicData._EquationsX },
+            { "Maze³", iconicData._Maze3 },
+            { "Gryphons", iconicData._Gryphons },
+            { "Arithmelogic", iconicData._Arithmelogic },
+            { "Roman Art", iconicData._RomanArt },
+            { "Faulty Sink", iconicData._FaultySink },
+            { "Simon Stops", iconicData._SimonStops },
+            { "Morse Buttons", iconicData._MorseButtons },
+            { "Terraria Quiz", iconicData._TerrariaQuiz },
+            { "Baba Is Who?", iconicData._BabaIsWho },
+            { "Triangle Buttons", iconicData._TriangleButtons },
+            { "Simon Stores", iconicData._SimonStores },
+            { "Risky Wires", iconicData._RiskyWires },
+            { "Modulus Manipulation", iconicData._ModulusManipulation },
+            { "Daylight Directions", iconicData._DaylightDirections },
+            { "Cryptic Password", iconicData._CrypticPassword },
+            { "Stained Glass", iconicData._StainedGlass },
+            { "The Block", iconicData._TheBlock },
+            { "Bamboozling Button", iconicData._BamboozlingButton },
+            { "Insane Talk", iconicData._InsaneTalk },
+            { "Transmitted Morse", iconicData._TransmittedMorse },
+            { "A Mistake", iconicData._AMistake },
+            { "Red Arrows", iconicData._RedArrows },
+            { "Green Arrows", iconicData._GreenArrows },
+            { "Yellow Arrows", iconicData._YellowArrows },
+            { "Encrypted Values", iconicData._EncryptedValues },
+            { "Encrypted Equations", iconicData._EncryptedEquations },
+            { "Forget Them All", iconicData._ForgetThemAll },
+            { "Ordered Keys", iconicData._OrderedKeys },
+            { "Blue Arrows", iconicData._BlueArrows },
+            { "Sticky Notes", iconicData._StickyNotes },
+            { "Unordered Keys", iconicData._UnorderedKeys },
+            { "Orange Arrows", iconicData._OrangeArrows },
+            { "Hyperactive Numbers", iconicData._HyperactiveNumbers },
+            { "Reordered Keys", iconicData._ReorderedKeys },
+            { "Button Grid", iconicData._ButtonGrid },
+            { "Find The Date", iconicData._FindTheDate },
+            { "Misordered Keys", iconicData._MisorderedKeys },
+            { "The Matrix", iconicData._TheMatrix },
+            { "Purple Arrows", iconicData._PurpleArrows },
+            { "Bordered Keys", iconicData._BorderedKeys },
+            { "The Dealmaker", iconicData._TheDealmaker },
+            { "Seven Deadly Sins", iconicData._SevenDeadlySins },
+            { "The Ultracube", iconicData._TheUltracube },
+            { "Symbolic Colouring", iconicData._SymbolicColouring },
+            { "Recorded Keys", iconicData._RecordedKeys },
+            { "The Deck of Many Things", iconicData._TheDeckofManyThings },
+            { "Disordered Keys", iconicData._DisorderedKeys },
+            { "Character Codes", iconicData._CharacterCodes },
+            { "Raiding Temples", iconicData._RaidingTemples },
+            { "Bomb Diffusal", iconicData._BombDiffusal },
+            { "Tallordered Keys", iconicData._TallorderedKeys },
+            { "Needy Pong", iconicData._Pong },
+            { "Ten Seconds", iconicData._TenSeconds },
+            { "Cruel Ten Seconds", iconicData._CruelTenSeconds },
+            { "Double Expert", iconicData._DoubleExpert },
+            { "Calculus", iconicData._Calculus },
+            { "Boolean Keypad", iconicData._BooleanKeypad },
+            { "Toon Enough", iconicData._ToonEnough },
+            { "Pictionary", iconicData._Pictionary },
+            { "Qwirkle", iconicData._Qwirkle },
+            { "Antichamber", iconicData._Antichamber },
+            { "Simon Simons", iconicData._SimonSimons },
+            { "Lucky Dice", iconicData._LuckyDice },
+            { "Forget Enigma", iconicData._ForgetEnigma },
+            { "Constellations", iconicData._Constellations },
+            { "Prime Checker", iconicData._PrimeChecker },
+            { "Cruel Digital Root", iconicData._CruelDigitalRoot },
+            { "Faulty Digital Root", iconicData._FaultyDigitalRoot },
+            { "Needy Crafting Table", iconicData._TheCraftingTable },
+            { "Boot Too Big", iconicData._BootTooBig },
+            { "Vigenère Cipher", iconicData._VigenereCipher },
+            { "Langton's Ant", iconicData._LangtonsAnt },
+            { "Old Fogey", iconicData._OldFogey },
+            { "Insanagrams", iconicData._Insanagrams },
+            { "Treasure Hunt", iconicData._TreasureHunt },
+            { "Snakes and Ladders", iconicData._SnakesandLadders },
+            { "Module Movements", iconicData._ModuleMovements },
+            { "Bamboozled Again", iconicData._BamboozledAgain },
+            { "Safety Square", iconicData._SafetySquare },
+            { "Roman Numerals", iconicData._RomanNumerals },
+            { "Colo(u)r Talk", iconicData._ColourTalk },
+            { "Annoying Arrows", iconicData._AnnoyingArrows },
+            { "Double Arrows", iconicData._DoubleArrows },
+            { "Boolean Wires", iconicData._BooleanWires },
+            { "Block Stacks", iconicData._BlockStacks },
+            { "Vectors", iconicData._Vectors },
+            { "Partial Derivatives", iconicData._PartialDerivatives },
+            { "Caesar Cycle", iconicData._CaesarCycle },
+            { "Needy Piano", iconicData._NeedyPiano },
+            { "Forget Us Not", iconicData._ForgetUsNot },
+            { "Affine Cycle", iconicData._AffineCycle },
+            { "Pigpen Cycle", iconicData._PigpenCycle },
+            { "Flower Patch", iconicData._FlowerPatch },
+            { "Playfair Cycle", iconicData._PlayfairCycle },
+            { "Jumble Cycle", iconicData._JumbleCycle },
+            { "Organization", iconicData._Organization },
+            { "Forget Perspective", iconicData._ForgetPerspective },
+            { "Alpha-Bits", iconicData._AlphaBits },
+            { "Jack Attack", iconicData._JackAttack },
+            { "Ultimate Cycle", iconicData._UltimateCycle },
+            { "Hill Cycle", iconicData._HillCycle },
+            { "Binary", iconicData._Binary },
+            { "Chord Progressions", iconicData._ChordProgressions },
+            { "Matchematics", iconicData._Matchematics },
+            { "Bob Barks", iconicData._BobBarks },
+            { "Simon's On First", iconicData._SimonsOnFirst },
+            { "Weird Al Yankovic", iconicData._WeirdAlYankovic },
+            { "Forget Me Now", iconicData._ForgetMeNow },
+            { "Simon Selects", iconicData._SimonSelects },
+            { "The Witness", iconicData._TheWitness },
+            { "Simon Literally Says", iconicData._SimonLiterallySays },
+            { "Cryptic Cycle", iconicData._CrypticCycle },
+            { "Bone Apple Tea", iconicData._BoneAppleTea },
+            { "Robot Programming", iconicData._RobotProgramming },
+            { "Masyu", iconicData._Masyu },
+            { "Hold Ups", iconicData._HoldUps },
+            { "Red Cipher", iconicData._RedCipher },
+            { "Flash Memory", iconicData._FlashMemory },
+            { "A-maze-ing Buttons", iconicData._AmazeingButtons },
+            { "Desert Bus", iconicData._DesertBus },
+            { "Orange Cipher", iconicData._OrangeCipher },
+            { "Common Sense", iconicData._CommonSense },
+            { "The Very Annoying Button", iconicData._TheVeryAnnoyingButton },
+            { "Unown Cipher", iconicData._UnownCipher },
+            { "Needy Flower Mash", iconicData._NeedyFlowerMash },
+            { "TetraVex", iconicData._TetraVex },
+            { "Meter", iconicData._Meter },
+            { "Timing is Everything", iconicData._TimingIsEverything },
+            { "The Modkit", iconicData._TheModkit },
+            { "The Rule", iconicData._TheRule },
+            { "Fruits", iconicData._Fruits },
+            { "Bamboozling Button Grid", iconicData._BamboozlingButtonGrid },
+            { "Footnotes", iconicData._Footnotes },
+            { "Lousy Chess", iconicData._LousyChess },
+            { "Module Listening", iconicData._ModuleListening },
+            { "Garfield Kart", iconicData._GarfieldKart },
+            { "Yellow Cipher", iconicData._YellowCipher },
+            { "Kooky Keypad", iconicData._KookyKeypad },
+            { "Green Cipher", iconicData._GreenCipher },
+            { "RGB Maze", iconicData._RGBMaze },
+            { "Blue Cipher", iconicData._BlueCipher },
+            { "The Legendre Symbol", iconicData._TheLegendreSymbol },
+            { "Keypad Lock", iconicData._KeypadLock },
+            { "Forget Me Later", iconicData._ForgetMeLater },
+            { "Übermodule", iconicData._Ubermodule },
+            { "Heraldry", iconicData._Heraldry },
+            { "Faulty RGB Maze", iconicData._FaultyRGBMaze },
+            { "Indigo Cipher", iconicData._IndigoCipher },
+            { "Violet Cipher", iconicData._VioletCipher },
+            { "Encryption Bingo", iconicData._EncryptionBingo },
+            { "Color Addition", iconicData._ColorAddition },
+            { "Chinese Counting", iconicData._ChineseCounting },
+            { "Tower of Hanoi", iconicData._TowerofHanoi },
+            { "Keypad Combinations", iconicData._KeypadCombinations },
+            { "UltraStores", iconicData._UltraStores },
+            { "Kanji", iconicData._Kanji },
+            { "Geometry Dash", iconicData._GeometryDash },
+            { "Ternary Converter", iconicData._TernaryConverter },
+            { "N&Ms", iconicData._NMs },
+            { "Eight Pages", iconicData._EightPages },
+            { "The Colored Maze", iconicData._TheColoredMaze },
+            { "White Cipher", iconicData._WhiteCipher },
+            { "Gray Cipher", iconicData._GrayCipher },
+            { "The Hyperlink", iconicData._TheHyperlink },
+            { "Black Cipher", iconicData._BlackCipher },
+            { "Loopover", iconicData._Loopover },
+            { "Divisible Numbers", iconicData._DivisibleNumbers },
+            { "Corners", iconicData._Corners },
+            { "The High Score", iconicData._TheHighScore },
+            { "Ingredients", iconicData._Ingredients },
+            { "Jenga", iconicData._Jenga },
+            { "Intervals", iconicData._Intervals },
+            { "Cruel Boolean Maze", iconicData._CruelBooleanMaze },
+            { "Cheep Checkout", iconicData._CheepCheckout },
+            { "Spelling Bee", iconicData._SpellingBee },
+            { "Memorable Buttons", iconicData._MemorableButtons },
+            { "Thinking Wires", iconicData._ThinkingWires },
+            { "Seven Choose Four", iconicData._SevenChooseFour },
+            { "Object Shows", iconicData._ObjectShows },
+            { "Lunchtime", iconicData._Lunchtime },
+            { "Natures", iconicData._Natures },
+            { "Neutrinos", iconicData._Neutrinos },
+            { "Scavenger Hunt", iconicData._ScavengerHunt },
+            { "Polygons", iconicData._Polygons },
+            { "Ultimate Cipher", iconicData._UltimateCipher },
+            { "Codenames", iconicData._Codenames },
+            { "Odd Mod Out", iconicData._OddModOut },
+            { "Logic Statement", iconicData._LogicStatement },
+            { "Blinkstop", iconicData._Blinkstop },
+            { "Ultimate Custom Night", iconicData._UltimateCustomNight },
+            { "Hinges", iconicData._Hinges },
+            { "Time Accumulation", iconicData._TimeAccumulation },
+            { "❖", iconicData._nonverbalSimon },
+            { "Forget It Not", iconicData._ForgetItNot },
+            { "egg", iconicData._egg },
+            { "BuzzFizz", iconicData._BuzzFizz },
+            { "Answering Can Be Fun", iconicData._AnsweringCanBeFun },
+            { "3x3 Grid", iconicData._3x3Grid },
+            { "15 Mystic Lights", iconicData._15MysticLights },
+            { "14", iconicData._14 },
+            { "Rainbow Arrows", iconicData._RainbowArrows },
+            { "Time Signatures", iconicData._TimeSignatures },
+            { "Multicolored Switches", iconicData._MultiColoredSwitches },
+            { "Digital Dials", iconicData._DigitalDials },
+            { "Passcodes", iconicData._Passcodes },
+            { "Hereditary Base Notation", iconicData._HereditaryBaseNotation },
+            { "Lines of Code", iconicData._LinesOfCode },
+            { "The cRule", iconicData._TheCRule },
+            { "Prime Encryption", iconicData._PrimeEncryption },
+            { "Encrypted Dice", iconicData._EncryptedDice },
+            { "Colorful Dials", iconicData._ColorfulDials },
+            { "Naughty or Nice", iconicData._NaughtyOrNice },
+            { "Following Orders", iconicData._FollowingOrders },
+            { "Binary Grid", iconicData._BinaryGrid },
+            { "Matrices", iconicData._Matrices },
+            { "Cruel Keypads", iconicData._CruelKeypad },
+            { "The Black Page", iconicData._TheBlackPage },
+            { "64", iconicData._64 },
+            { "Simon Forgets", iconicData._SimonForgets },
+            { "Greek Letter Grid", iconicData._GreekLetterGrid },
+            { "Bamboozling Time Keeper", iconicData._BamboozlingTimeKeeper },
+            { "Scalar Dials", iconicData._ScalarDials },
+            { "The World's Largest Button", iconicData._TheWorldsLargestButton },
+            { "Keywords", iconicData._Keywords },
+            { "State of Aggregation", iconicData._StateofAggregation },
+            { "Dreamcipher", iconicData._Dreamcipher },
+            { "Brainf---", iconicData._Brainf },
+            { "Rotating Squares", iconicData._RotatingSquares },
+            { "Patience", iconicData._Patience },
+            { "Hyperneedy", iconicData._Hyperneedy },
+            { "Echolocation", iconicData._Echolocation },
+            { "Boozleglyph Identification", iconicData._BoozleglyphIdentification },
+            { "Topsy Turvy", iconicData._TopsyTurvy },
+            { "Boxing", iconicData._Boxing },            
+            { "Railway Cargo Loading", iconicData._RailwayCargoLoading },
+            { "Conditional Buttons", iconicData._ConditionalButtons },
+            { "ASCII Art", iconicData._ASCIIArt },
+            { "Semamorse", iconicData._Semamorse },
+            { "Hide And Seek", iconicData._HideandSeek },
+            { "Symbolic Tasha", iconicData._SymbolicTasha },
+            { "Alphabetical Ruling", iconicData._AlphabeticalRuling },
+            { "Microphone", iconicData._Microphone },
+            { "Widdershins", iconicData._Widdershins },
+            { "Lockpick Maze", iconicData._LockpickMaze },
+            { "Dimension Disruption", iconicData._DimensionDisruption },
+            { "V", iconicData._V },
+            { "Silhouettes", iconicData._Silhouettes },
+            { "A Message", iconicData._AMessage },
+            { "Alliances", iconicData._Alliances },
+            { "Dungeon", iconicData._Dungeon },
+            { "Unicode", iconicData._Unicode },
+            { "Password Generator", iconicData._PasswordGenerator },
+            { "Baccarat", iconicData._Baccarat },
+            { "Guess Who?", iconicData._GuessWho },
+            { "Reverse Alphabetize", iconicData._ReverseAlphabetize },
+            { "Alphabetize", iconicData._Alphabetize },
+            { "Gatekeeper", iconicData._Gatekeeper },
+            { "Light Bulbs", iconicData._LightBulbs },
+            { "1000 Words", iconicData._1000Words },
+            { "Five Letter Words", iconicData._FiveLetterWords },
+            { "Settlers of KTaNE", iconicData._SettlersofKTaNE },
+            { "The Hidden Value", iconicData._TheHiddenValue },
+            { "Red", iconicData._Red },
+            { "Blue", iconicData._Blue },
+            { "Directional Button", iconicData._DirectionalButton },
+            { "...?", iconicData._dotDotDotQuestionMark },
+            { "The Simpleton", iconicData._TheSimpleton },
+            { "Misery Squares", iconicData._MiserySquares },
+            { "Not Wiresword", iconicData._NotWiresword },
+            { "Not Wire Sequence", iconicData._NotWireSequence },
+            { "Not Who's on First", iconicData._NotWhosOnFirst },
+            { "Not Simaze", iconicData._NotSimaze },
+            { "Not Password", iconicData._NotPassword },
+            { "Not Morse Code", iconicData._NotMorseCode },
+            { "Not Memory", iconicData._NotMemory },
+            { "Not Maze", iconicData._NotMaze },
+            { "Not Keypad", iconicData._NotKeypad },
+            { "Not Complicated Wires", iconicData._NotComplicatedWires },
+            { "Not Capacitor Discharge", iconicData._NotCapacitorDischarge },
+            { "Not the Button", iconicData._NotTheButton },
+            { "Sequences", iconicData._Sequences },
+            { "Dungeon 2nd Floor", iconicData._Dungeon2ndFloor },
+            { "Wire Ordering", iconicData._WireOrdering },
+            { "Vcrcs", iconicData._Vcrcs },
+            { "Quaternions", iconicData._Quaternions },
+            { "Abstract Sequences", iconicData._AbstractSequences },
+            { "osu!", iconicData._osu },
+            { "Shifting Maze", iconicData._ShiftingMaze },
+            { "Sorting", iconicData._Sorting },
+            { "Role Reversal", iconicData._RoleReversal },
+            { "Placeholder Talk", iconicData._PlaceholderTalk },
+            { "Art Appreciation", iconicData._ArtAppreciation },
+            { "Shell Game", iconicData._ShellGame },
+            { "Pattern Lock", iconicData._PatternLock },
+            { "Quick Arithmetic", iconicData._QuickArithmetic },
+            { "Minecraft Cipher", iconicData._MinecraftCipher },
+            { "Cheat Checkout", iconicData._CheatCheckout },
+            { "The Samsung", iconicData._TheSamsung },
+            { "Forget The Colors", iconicData._ForgetTheColors },
+            { "Etterna", iconicData._Etterna },
+            { "Recolored Switches", iconicData._RecoloredSwitches },
+            { "Cruel Garfield Kart", iconicData._CruelGarfieldKart },
+            { "1D Maze", iconicData._1DMaze },
+            { "Reverse Polish Notation", iconicData._ReversePolishNotation },
+            { "Snowflakes", iconicData._Snowflakes },
+            { "Exoplanets", iconicData._Exoplanets },
+            { "Simon Stages", iconicData._SimonStages },
+            { "Not Venting Gas", iconicData._NotVentingGas },
+            { "Forget Infinity", iconicData._ForgetInfinity },
+            { "Faulty Seven Segment Displays", iconicData._FaultySevenSegmentDisplays },
+            { "Stock Images", iconicData._StockImages },
+            { "Roger", iconicData._Roger },
+            { "Malfunctions", iconicData._Malfunctions },
+            { "Minecraft Parody", iconicData._MinecraftParody },
+            { "Shuffled Strings", iconicData._ShuffledStrings },
+            { "NumberWang", iconicData._NumberWang },
+            { "Minecraft Survival", iconicData._MinecraftSurvival },
+            { "RPS Judging", iconicData._RPSJudging },
+            { "Fencing", iconicData._Fencing },
+            { "Strike/Solve", iconicData._StrikeSolve },
+            { "Uncolored Switches", iconicData._UncoloredSwitches },
+            { "The Twin", iconicData._TheTwin },
+            { "Name Changer", iconicData._NameChanger },
+            { "Just Numbers", iconicData._JustNumbers },
+            { "Lying Indicators", iconicData._LyingIndicators },
+            { "Flag Identification", iconicData._FlagIdentification },
+            { "Training Text", iconicData._TrainingText },
+            { "Wonder Cipher", iconicData._WonderCipher },
+            { "Caesar's Maths", iconicData._CaesarsMaths },
+            { "Triamonds", iconicData._Triamonds },
+            { "Stars", iconicData._Stars },
+            { "Button Order", iconicData._ButtonOrder },
+            { "Elder Password", iconicData._ElderPassword },
+            { "Switching Maze", iconicData._SwitchingMaze },
+            { "Iconic", iconicData._Iconic },
+            { "Mystery Module", iconicData._MysteryModule },
+            { "Ladder Lottery", iconicData._LadderLottery },
+            { "Co-op Harmony Sequence", iconicData._CoopHarmonySequence },
+            { "Standard Crazy Talk", iconicData._StandardCrazyTalk },
+            { "Quote Crazy Talk End Quote", iconicData._QuoteCrazyTalkEndQuote },
+            { "Kilo Talk", iconicData._KiloTalk },
+            { "KayMazey Talk", iconicData._KayMazeyTalk },
+            { "Jaden Smith Talk", iconicData._JadenSmithTalk },
+            { "Deck Creating", iconicData._DeckCreating },
+            { "Crazy Talk With A K", iconicData._CrazyTalkWithAK },
+            { "BoozleTalk", iconicData._BoozleTalk },
+            { "Arrow Talk", iconicData._ArrowTalk },
+            { "Siffron", iconicData._Siffron },
+            { "Audio Morse", iconicData._AudioMorse },
+            { "Palindromes", iconicData._Palindromes },
+            { "Pow", iconicData._Pow },
+            { "Type Racer", iconicData._TypeRacer },
+            { "Chicken Nuggets", iconicData._ChickenNuggets },
+            { "Badugi", iconicData._Badugi },
+            { "Tetriamonds", iconicData._Tetriamonds },
+            { "Spot the Difference", iconicData._SpotTheDifference },
+            { "Negativity", iconicData._Negativity },
+            { "Masher The Bottun", iconicData._MasherTheBottun },
+            { "Yes and No", iconicData._YesAndNo },
+            { "M&Ns", iconicData._MNs },
+            { "Plant Identification", iconicData._PlantIdentification },
+            { "Integer Trees", iconicData._IntegerTrees },
+            { "Goofy's Game", iconicData._GoofysGame },
+            { "Module Rick", iconicData._ModuleRick },
+            { "Pickup Identification", iconicData._PickupIdentification },
+            { "Earthbound", iconicData._Earthbound },
+            { "3 LEDs", iconicData._3LEDs },
+            { "Life Iteration", iconicData._LifeIteration },
+            { "Thread the Needle", iconicData._ThreadTheNeedle },
+            { "Encrypted Hangman", iconicData._EncryptedHangman },
+            { "Accelerando", iconicData._Accelerando },
+            { "Reaction", iconicData._Reaction },
+            { "The Heart", iconicData._TheHeart },
+            { "Color Braille", iconicData._ColorBraille },
+            { "Remote Math", iconicData._RemoteMath },
+            { "Reflex", iconicData._Reflex },
+            { "Password Destroyer", iconicData._PasswordDestroyer },
+            { "Typing Tutor", iconicData._TypingTutor },
+            { "Multitask", iconicData._Multitask },
+            { "hexOS", iconicData._hexOS },
+            { "Simon Stashes", iconicData._SimonStashes },
+            { "Kyudoku", iconicData._Kyudoku },
+            { "Brawler Database", iconicData._BrawlerDatabase },
+            { "Shortcuts", iconicData._Shortcuts },
+            { "More Code", iconicData._MoreCode },
+            { "7", iconicData._7 },
+            { "OmegaForget", iconicData._OmegaForget },
+            { "Needy Game of Life", iconicData._NeedyGameOfLife },
+            { "Mental Math", iconicData._MentalMath },
+            { "Kugelblitz", iconicData._Kugelblitz },
+            { "Dictation", iconicData._Dictation },
+            { "Bloxx", iconicData._Bloxx },
+            { "Basic Morse", iconicData._BasicMorse },
+            { "IPA", iconicData._IPA },
+            { "Emotiguy Identification", iconicData._EmotiguyIdentification },
+            { "100 Levels of Defusal", iconicData._100LevelsOfDefusal },
+            { "NeeDeez Nuts", iconicData._NeeDeezNuts },
+            { "Jailbreak", iconicData._Jailbreak },
+            { "Dumb Waiters", iconicData._DumbWaiters },
+            { "DACH Maze", iconicData._DACHMaze },
+            { "Birthdays", iconicData._Birthdays },
+            { "Match 'em", iconicData._MatchEm },
+            { "Navinums", iconicData._Navinums },
+            { "Gnomish Puzzle", iconicData._GnomishPuzzle },
+            { "RGB Logic", iconicData._RGBLogic },
+            { "Bridges", iconicData._Bridges },
+            { "A>N<D", iconicData._ARightNLeftD },
+            { "Shifted Maze", iconicData._ShiftedMaze },
+            { "Juxtacolored Squares", iconicData._JuxtacoloredSquares },
+            { "Wolf, Goat, and Cabbage", iconicData._WolfGoatAndCabbage },
+            { "The Missing Letter", iconicData._TheMissingLetter },
+            { "Amnesia", iconicData._Amnesia },
+            { "Plug-Ins", iconicData._PlugIns },
+            { "Synesthesia", iconicData._Synesthesia },
+            { "English Entries", iconicData._EnglishEntries },
+            { "The Duck", iconicData._TheDuck },
+            { "The Cruel Duck", iconicData._TheCruelDuck },
+            { "Identifying Soulless", iconicData._IdentifyingSoulless },
+            { "Ultimate Tic Tac Toe", iconicData._UltimateTicTacToe },
+            { "Factoring", iconicData._Factoring },
+            { "Lyrical Nonsense", iconicData._LyricalNonsense },
+            { "RGB Sequences", iconicData._RGBSequences },
+            { "Puzzword", iconicData._Puzzword },
+            { "NOT NOT", iconicData._NOTNOT },
+            { "Repo Selector", iconicData._RepoSelector },
+            { "int##", iconicData._intHashHash },
+            { "Deaf Alley", iconicData._DeafAlley },
+            { "Blind Arrows", iconicData._BlindArrows },
+            { "Sound Design", iconicData._SoundDesign },
+            { "RGB Arithmetic", iconicData._RGBArithmetic },
+            { "D-CODE", iconicData._DCODE },
+            { "Rapid Subtraction", iconicData._RapidSubtraction },
+            { "Fifteen", iconicData._Fifteen },
+            { "Pixel Cipher", iconicData._PixelCipher },
+            { "Don't Touch Anything", iconicData._DontTouchAnything },
+            { "The Great Void", iconicData._TheGreatVoid },
+            { "21", iconicData._21 },
+            { "Prime Time", iconicData._PrimeTime },
+            { "Negation", iconicData._Negation },
+            { "The Calculator", iconicData._TheCalculator },
+            { "SixTen", iconicData._SixTen },
+            { "ASCII Maze", iconicData._ASCIIMaze },
+            { "Ultralogic", iconicData._Ultralogic },
+            { "Spangled Stars", iconicData._SpangledStars },
+            { "Busy Beaver", iconicData._BusyBeaver },
+            { "Cruel Match 'em", iconicData._CruelMatchEm },
+            { "Assembly Code", iconicData._AssemblyCode },
+            { "Simon's Ultimate Showdown", iconicData._SimonsUltimateShowdown },
+            { "Boomdas", iconicData._Boomdas },
+            { "Needlessly Complicated Button", iconicData._NeedlesslyComplicatedButton },
+            { "Color Numbers", iconicData._ColorNumbers },
+            { "Chinese Strokes", iconicData._ChineseStrokes },
+            { "Chalices", iconicData._Chalices },
+            { "Reversed Edgework", iconicData._ReversedEdgework },
+            { "Pixel Art", iconicData._PixelArt },
+            { "Faulty Accelerando", iconicData._FaultyAccelerando },
+            { "0", iconicData._0 },
+            { "Pitch Perfect", iconicData._PitchPerfect },
+            { "Increasing Indices", iconicData._IncreasingIndices },
+            { "Faulty Binary", iconicData._FaultyBinary },
+            { "Cruel Binary", iconicData._CruelBinary },
+            { "Connected Monitors", iconicData._ConnectedMonitors },
+            { "Broken Binary", iconicData._BrokenBinary },
+            { "Totally Accurate Minecraft Simulator", iconicData._TotallyAccurateMinecraftSimulator },
+            { "Tell Me When", iconicData._TellMeWhen },
+            { "ReGret-B Filtering", iconicData._ReGretBFiltering },
+            { "D-CRYPT", iconicData._DCRYPT },
+            { "Color-Cycle Button", iconicData._ColorCycleButton },
+            { "Alien Filing Colors", iconicData._AlienFilingColors },
+            { "The Kanye Encounter", iconicData._TheKanyeEncounter },
+            { "Entry Number Four", iconicData._EntryNumberFour },
+            { "D-CIPHER", iconicData._DCIPHER },
+            { "501", iconicData._501 },
+            { "42", iconicData._42 },
+            { "Color One Two", iconicData._ColorOneTwo },
+            { "Toolmods", iconicData._Toolmods },
+            { "Spelling Buzzed", iconicData._SpellingBuzzed },
+            { "Burnout", iconicData._Burnout },
+            { "Brown Bricks", iconicData._BrownBricks },
+            { "Mystic Maze", iconicData._MysticMaze },
+            { "Chinese Zodiac", iconicData._ChineseZodiac },
+            { "Four Lights", iconicData._FourLights },
+            { "Duck, Duck, Goose", iconicData._DuckDuckGoose },
+            { "Not Knob", iconicData._NotKnob },
+            { "Working Title", iconicData._WorkingTitle },
+            { "Toolneedy", iconicData._Toolneedy },
+            { "One Links To All", iconicData._OneLinksToAll },
+            { "Rules", iconicData._Rules },
+            { "Tenpins", iconicData._Tenpins },
+            { "Double Listening", iconicData._DoubleListening },
+            { "Wack Game of Life", iconicData._WackGameOfLife },
+            { "Unfair's Revenge", iconicData._UnfairsRevenge },
+            { "Unfair's Cruel Revenge", iconicData._UnfairsCruelRevenge },
+            { "Mindlock", iconicData._Mindlock },
+            { "Golf", iconicData._Golf },
+            { "Regular Hexpressions", iconicData._RegularHexpressions },
+            { "Literally Nothing", iconicData._LiterallyNothing },
+            { "Colored Buttons", iconicData._ColoredButtons },
+            { "Censorship", iconicData._Censorship },
+            { "The Pentabutton", iconicData._ThePentabutton },
+            { "Mechanus Cipher", iconicData._MechanusCipher },
+            { "Digisibility", iconicData._Digisibility },
+            { "Breaktime", iconicData._Breaktime },
+            { "Space Invaders Extreme", iconicData._SpaceInvadersExtreme },
+            { "Mazery", iconicData._Mazery },
+            { "Kim's Game", iconicData._KimsGame },
+            { "Three Cryptic Steps", iconicData._ThreeCrypticSteps },
+            { "Popufur", iconicData._Popufur },
+            { "Tech Support", iconicData._TechSupport },
+            { "Space", iconicData._Space },
+            { "9-Ball", iconicData._9Ball },
+            { "Metamem", iconicData._Metamem },
+            { "M&Ms", iconicData._MMs },
+            { "The Console", iconicData._TheConsole },
+            { "Pocket Planes", iconicData._PocketPlanes },
+            { "Bridge", iconicData._Bridge },
+            { "Rotten Beans", iconicData._RottenBeans },
+            { "Long Beans", iconicData._LongBeans },
+            { "Jellybeans", iconicData._Jellybeans },
+            { "Cool Beans", iconicData._CoolBeans },
+            { "Beans", iconicData._Beans },
+            { "Beanboozled Again", iconicData._BeanboozledAgain },
+            { "The Dials", iconicData._TheDials },
+            { "Butterflies", iconicData._Butterflies },
+            { "Broken Karaoke", iconicData._BrokenKaraoke },
+            { "Chamber No. 5", iconicData._ChamberNo5 },
+            { "Silenced Simon", iconicData._SilencedSimon },
+            { "Teal Arrows", iconicData._TealArrows },
+            { "Keep Clicking", iconicData._KeepClicking },
+            { "Frankenstein's Indicator", iconicData._FrankensteinsIndicator },
+            { "16 Coins", iconicData._16Coins },
+            { "Sea Bear Attacks", iconicData._SeaBearAttacks },
+            { "Alphabet Tiles", iconicData._AlphabetTiles },
+            { "Literally Crying", iconicData._LiterallyCrying },
+            { "Double Pitch", iconicData._DoublePitch },
+            { "Devilish Eggs", iconicData._DevilishEggs },
+            { "h", iconicData._h },
+            { "Rune Match I", iconicData._RuneMatchI },
+            { "Rune Match II", iconicData._RuneMatchII },
+            { "Rune Match III", iconicData._RuneMatchIII },
+            { "Quick Time Events", iconicData._QuickTimeEvents },
+            { "Iñupiaq Numerals", iconicData._InupiaqNumerals },
+            { "The Bioscanner", iconicData._TheBioscanner },
+            { "Ars Goetia Identification", iconicData._ArsGoetiaIdentification },
+            { "Pixel Number Base", iconicData._PixelNumberBase },
+            { "Silo Authorization", iconicData._SiloAuthorization },
+            { "Gradually Watermelon", iconicData._GraduallyWatermelon },
+            { "Mastermind Restricted", iconicData._MastermindRestricted },
+            { "Logical Operators", iconicData._LogicalOperators },
+            { "Higher Or Lower", iconicData._HigherOrLower },
+            { "Even Or Odd", iconicData._EvenOrOdd },
+            { "Digital Grid", iconicData._DigitalGrid },
+            { "Reformed Role Reversal", iconicData._ReformedRoleReversal },
+            { "Whiteout", iconicData._Whiteout },
+            { "N&Ns", iconicData._NNs },
+            { "Gettin' Funky", iconicData._GettinFunky },
+            { "Cell Lab", iconicData._CellLab },
+            { "Lights On", iconicData._LightsOn },
+            { "Color Hexagons", iconicData._ColorHexagons },
+            { "Commuting", iconicData._Commuting },
+            { "Symmetries Of A Square", iconicData._SymmetriesOfASquare },
+            { "Look and Say", iconicData._LookAndSay },
+            { "Currents", iconicData._Currents },
+            { "Partitions", iconicData._Partitions },
+            { "Telepathy", iconicData._Telepathy },
+            { "Cruel Stars", iconicData._CruelStars },
+            { "Button Messer", iconicData._ButtonMesser },
+            { "Taco Tuesday", iconicData._TacoTuesday },
+            { "Nomai", iconicData._Nomai },
+            { "Forget Any Color", iconicData._ForgetAnyColor },
+            { "Table Madness", iconicData._TableMadness },
+            { "Melodic Message", iconicData._MelodicMessage },
+            { "Sugar Skulls", iconicData._SugarSkulls },
+            { "Colour Catch", iconicData._ColourCatch },
+            { "Cosmic", iconicData._Cosmic },
+            { "Semabols", iconicData._Semabols },
+            { "Mislocation", iconicData._Mislocation },
+            { "Musher the Batten", iconicData._MusherTheBatten },
+            { "Tribal Council", iconicData._TribalCouncil },
+            { "Simon Smiles", iconicData._SimonSmiles },
+            { "Outrageous", iconicData._Outrageous },
+            { "Faulty Chinese Counting", iconicData._FaultyChineseCounting },
+            { "Press The Shape", iconicData._PressTheShape },
+            { "Baybayin Words", iconicData._BaybayinWords },
+            { "OmegaDestroyer", iconicData._OmegaDestroyer },
+            { "Going Backwards", iconicData._GoingBackwards },
+            { "Atbash Cipher", iconicData._AtbashCipher },
+            { "Venn Diagrams", iconicData._VennDiagrams },
+            { "Numbered Buttons", iconicData._NumberedButtons },
+            { "Colored Hexabuttons", iconicData._ColoredHexabuttons },
+            { "Video Poker", iconicData._VideoPoker },
+            { "White Arrows", iconicData._WhiteArrows },
+            { "Johnson Solids", iconicData._JohnsonSolids },
+            { "Bottom Gear", iconicData._BottomGear },
+            { "Two Persuasive Buttons", iconicData._TwoPersuasiveButtons },
+            { "Keypad Directionality", iconicData._KeypadDirectionality },
+            { "% Grey", iconicData._Grey },
+            { "Towers", iconicData._Towers },
+            { "Letter Layers", iconicData._LetterLayers },
+            { "The Exploding Pen", iconicData._TheExplodingPen },
+            { "Snack Attack", iconicData._SnackAttack },
+            { "ReGrettaBle Relay", iconicData._ReGrettaBleRelay },
+            { "Security Council", iconicData._SecurityCouncil },
+            { "Standard Button Masher", iconicData._StandardButtonMasher },
+            { "Musical Transposition", iconicData._MusicalTransposition },
+            { "Jackbox.TV", iconicData._JackboxTV },
+            { "The Furloid Jukebox", iconicData._TheFurloidJukebox },
+            { "The Close Button", iconicData._TheCloseButton },
+            { "Updog", iconicData._Updog },
+            { "Saimoe Pad", iconicData._SaimoePad },
+            { "B-Machine", iconicData._BMachine },
+            { "Addition", iconicData._Addition },
+            { "What’s on Second", iconicData._WhatsOnSecond },
+            { "Quaver", iconicData._Quaver },
+            { "Another Keypad Module", iconicData._AnotherKeypadModule },
+            { "Think Fast", iconicData._ThinkFast },
+            { "Shoddy Chess", iconicData._ShoddyChess },
+            { "Rhythm Test", iconicData._RhythmTest },
+            { "Validation", iconicData._Validation },
+            { "Floor Lights", iconicData._FloorLights },
+            { "Bad Wording", iconicData._BadWording },
+            { "Etch-A-Sketch", iconicData._EtchASketch },
+            { "Zener Cards", iconicData._ZenerCards },
+            { "Diophantine Equations", iconicData._DiophantineEquations },
+            { "Ternary Tiles", iconicData._TernaryTiles },
+            { "Striped Keys", iconicData._StripedKeys },
+            { "Rullo", iconicData._Rullo },
+            { "Flashing Arrows", iconicData._FlashingArrows },
+            { "Cruello", iconicData._Cruello },
+            { "Coloured Arrows", iconicData._ColouredArrows },
+            { "Black Arrows", iconicData._BlackArrows },
+            { "Tetris Sprint", iconicData._TetrisSprint },
+            { "Forget Maze Not", iconicData._ForgetMazeNot },
+            { "Double Screen", iconicData._DoubleScreen },
+            { "The Sequencyclopedia", iconicData._TheSequencyclopedia },
+            { "eeB gnillepS", iconicData._eeBgnillepS },
+            { "Pandemonium Cipher", iconicData._PandemoniumCipher },
+            { "Mineswapper", iconicData._Minesweeper },
+            { "Phosphorescence", iconicData._Phosphorescence },
+            { "The Klaxon", iconicData._TheKlaxon },
+            { "Valued Keys", iconicData._ValuedKeys },
+            { "Numerical Knight Movement", iconicData._NumericalKnightMovement },
+            { "Bandboozled Again", iconicData._BandboozledAgain },
+            { "SpriteClub Betting Simulation", iconicData._SpriteClubBettingSimulation },
+            { "Ramboozled Again", iconicData._RamboozledAgain },
+            { "Simon Subdivides", iconicData._SimonSubdivides },
+            { "Hole in One", iconicData._HoleInOne },
+            { "Hexiom", iconicData._Hexiom },
+            { "Collapse", iconicData._Collapse },
+            { "Back Buttons", iconicData._BackButtons },
+            { "Audio Keypad", iconicData._AudioKeypad },
+            { "Saimoe Maze", iconicData._SaimoeMaze },
+            { "Kidney Beans", iconicData._KidneyBeans },
+            { "Fake Beans", iconicData._FakeBeans },
+            { "Chilli Beans", iconicData._ChilliBeans },
+            { "Big Bean", iconicData._BigBean },
+            { "Bean Sprouts", iconicData._BeanSprouts },
+            { "Tell Me Why", iconicData._TellMeWhy },
+            { "Quiplash", iconicData._Quiplash },
+            { "Bowling", iconicData._Bowling },
+            { "Sporadic Segments", iconicData._SporadicSegments },
+            { "Linq", iconicData._Linq },
+            { "Entry Number One", iconicData._EntryNumberOne },
+            { "DNA Mutation", iconicData._DNAMutation },
+            { "RGB Hypermaze", iconicData._RGBHypermaze },
+            { "Boob Tube", iconicData._BoobTube },
+            { "Regular Sudoku", iconicData._RegularSudoku },
+            { "AAAAA", iconicData._AAAAA },
+            { "Polyrhythms", iconicData._Polyrhythms },
+            { "Drive-In Window", iconicData._DriveInWindow },
+            { "The 12 Days of Christmas", iconicData._The12DaysOfChristmas },
+            { "X", iconicData._X },
+            { "Y", iconicData._Y },
+            { "The Xenocryst", iconicData._TheXenocryst },
+            { "Rebooting M-OS", iconicData._RebootingMOS },
+            { "Stacked Sequences", iconicData._StackedSequences },
+            { "Complexity", iconicData._Complexity },
+            { "Small Circle", iconicData._SmallCircle },
+            { "Fractal Maze", iconicData._FractalMaze },
+            { "Simon Stumbles", iconicData._SimonStumbles },
+            { "Wild Side", iconicData._WildSide },
+            { "The Octadecayotton", iconicData._TheOctadecayotton },
+            { "Colored Letters", iconicData._ColoredLetters },
+            { "Kahoot!", iconicData._Kahoot },
+            { "Forget's Ultimate Showdown", iconicData._ForgetsUltimateShowdown },
+            { "Bomb Corp. Filing", iconicData._BombCorpFiling },
+            { "Ultra Digital Root", iconicData._UltraDigitalRoot },
+            { "Mii Identification", iconicData._MiiIdentification },
+            { "81", iconicData._81 },
+            { "Simon Swindles", iconicData._SimonSwindles },
+            { "Next In Line", iconicData._NextInLine },
+            { "Functional Mapping", iconicData._FunctionalMapping },
+            { "Stable Time Signatures", iconicData._StableTimeSignatures },
+            { "Keypad Maze", iconicData._KeypadMaze },
+            { "Astrological", iconicData._Astrological },
+            { "XmORse Code", iconicData._XmORseCode },
+            { "Corridors", iconicData._Corridors },
+            { "Decay", iconicData._Decay },
+            { "Crazy Speak", iconicData._CrazySpeak },
+            { "Large Password", iconicData._LargePassword },
+            { "Large Free Password", iconicData._LargeFreePassword },
+            { "Free Password", iconicData._FreePassword },
+            { "Not Timer", iconicData._NotTimer },
+            { "The Burnt", iconicData._TheBurnt },
+            { "Access Codes", iconicData._AccessCodes },
+            { "Cistercian Numbers", iconicData._CistercianNumbers },
+            { "Brown Cipher", iconicData._BrownCipher },
+            { "Code Cracker", iconicData._CodeCracker },
+            { "Indentation", iconicData._Indentation },
+            { "One-Line", iconicData._OneLine },
+            { "The Speaker", iconicData._TheSpeaker },
+            { "Interpunct", iconicData._Interpunct },
+            { "Double Knob", iconicData._DoubleKnob },
+            { "Name Codes", iconicData._NameCodes },
+            { "The 1, 2, 3 Game", iconicData._The123Game },
+            { "Papa's Pizzeria", iconicData._PapasPizzeria },
+            { "Keypad Magnified", iconicData._KeypadMagnified },
+            { "Hold On", iconicData._HoldOn },
+            { "Diffusion", iconicData._Diffusion },
+            { "Soy Beans", iconicData._SoyBeans },
+            { "The Shaker", iconicData._TheShaker },
+            { "Coffee Beans", iconicData._CoffeeBeans },
+            { "Newline", iconicData._Newline },
+            { "Letter Grid", iconicData._LetterGrid },
+            { "Ghost Movement", iconicData._GhostMovement },
+            { "+", iconicData._plus },
+            { "Transmission Transposition", iconicData._TransmissionTransposition },
+            { "Screensaver", iconicData._Screensaver },
+            { "RSA Cipher", iconicData._RSACipher },
+            { "Amusement Parks", iconicData._AmusementParks },
+            { "Literally Something", iconicData._LiterallySomething },
+            { "Icon Reveal", iconicData._IconReveal },
+            { "Solitaire Cipher", iconicData._SolitaireCipher },
+            { "hexOrbits", iconicData._hexOrbits },
+            { "Matchmaker", iconicData._Matchmaker },
+            { "Ladders", iconicData._Ladders },
+            { "Hearthur", iconicData._Hearthur },
+            { "Decimation", iconicData._Decimation },
+            { "Color Punch", iconicData._ColorPunch },
+            { "Count to 69420", iconicData._CountTo69420 },
+            { "Mssngv Wls", iconicData._MssngvWls },
+            { "Netherite", iconicData._Netherite },
+            { "Naming Conventions", iconicData._NamingConventions },
+            { "I'm Not a Robot", iconicData._ImNotARobot },
+            { "Emoticon Math", iconicData._EmoticonMath },
+            { "Coinage", iconicData._Coinage },
+            { "Simon Supports", iconicData._SimonSupports },
+            { "Identifrac", iconicData._Identifrac },
+            { "1D Chess", iconicData._1DChess },
+            { "1-2-3-2-1", iconicData._12321 },
+            { "Not Murder", iconicData._NotMurder },
+            { "Not Morsematics", iconicData._NotMorsematics },
+            { "Not Crazy Talk", iconicData._NotCrazyTalk },
+            { "Not Coordinates", iconicData._NotCoordinates },
+            { "Not Connection Check", iconicData._NotConnectionCheck },
+            { "Not Colour Flash", iconicData._NotColourFlash },
+            { "Cruel Colour Flash", iconicData._CruelColourFlash },
+            { "Numpath", iconicData._Numpath },
+            { "The Logan Parody Jukebox", iconicData._TheLoganParodyJukebox },
+            { "Factoring Maze", iconicData._FactoringMaze },
+            { "Binary Buttons", iconicData._BinaryButtons },
+            { "The Assorted Arrangement", iconicData._TheAssortedArrangement },
+            { "The Alteran Trail", iconicData._TheAlteranTrail },
+            { "Pathfinder", iconicData._Pathfinder },
+            { "Needy Wires", iconicData._NeedyWires },
+            { "Turn Four", iconicData._TurnFour },
+            { "nya~", iconicData._nya },
+            { "Llama, Llama, Alpaca", iconicData._LlamaLlamaAlpaca },
+            { "Voltorb Flip", iconicData._VoltorbFlip },
+            { "Cruel Synesthesia", iconicData._CruelSynesthesia },
+            { "Polygrid", iconicData._Polygrid },
+            { "Dossier Modifier", iconicData._DossierModifier },
+            { "Mischmodul", iconicData._Mischmodul },
+            { "amogus", iconicData._amogus },
+            { "Connect Four", iconicData._ConnectFour },
+            { "Macro Memory", iconicData._MacroMemory },
+            { "Directing Buttons", iconicData._DirectingButtons },
+            { "Colors Maximization", iconicData._ColorsMaximization },
+            { "Anomia", iconicData._Anomia },
+            { "Uncoloured Buttons", iconicData._UncolouredButtons },
+            { "The Impostor", iconicData._TheImpostor },
+            { "Doomsday Button", iconicData._DoomsdayButton },
+            { "Blue Whale", iconicData._BlueWhale },
+            { "Antimatter Dimensions", iconicData._AntimatterDimensions },
+            { "Watching Paint Dry", iconicData._WatchingPaintDry },
+            { "Soulscream", iconicData._Soulscream },
+            { "Dice Cipher", iconicData._DiceCipher },
+            { "Weekdays", iconicData._Weekdays },
+            { "Salts", iconicData._Salts },
+            { "Mazeswapper", iconicData._Mazeswapper },
+            { "Infinite Loop", iconicData._InfiniteLoop },
+            { "Face Recognition", iconicData._FaceRecognition },
+            { "Stoichiometry", iconicData._Stoichiometry },
+            { "Hitman", iconicData._Hitman },
+            { "Alfa-Bravo", iconicData._AlfaBravo },
+            { "Dialtones", iconicData._Dialtones },
+            { "Classical Order", iconicData._ClassicalOrder },
+            { "Needy Hotate", iconicData._NeedyHotate },
+            { "Space Traders", iconicData._SpaceTraders },
+            { "Cube Synchronization", iconicData._CubeSynchronization },
+            { "Cartinese", iconicData._Cartinese },
+            { "Eight", iconicData._Eight },
+            { "Fursona", iconicData._Fursona },
+            { "Notre-Dame Cipher", iconicData._NotreDameCipher },
+            { "Stupid Slots", iconicData._StupidSlots },
+            { "Kawaiitlyn", iconicData._Kawaiitlyn },
+            { "Sysadmin", iconicData._Sysadmin },
+            { "Red Herring", iconicData._RedHerring },
+            { "Binary Shift", iconicData._BinaryShift },
+            { "Rain Hell", iconicData._RainHell },
+            { "Rain", iconicData._Rain },
+            { "Squeeze", iconicData._Squeeze },
+            { "Parliament", iconicData._Parliament },
+            { "Meteor", iconicData._Meteor },
+            { "Pink Arrows", iconicData._PinkArrows },
+            { "Maze Identification", iconicData._MazeIdentification },
+            { "Logging", iconicData._Logging },
+            { "Anagraphy", iconicData._Anagraphy },
+            { "Pawns", iconicData._Pawns },
+            { "SUSadmin", iconicData._SUSadmin },
+            { "Simply Simon", iconicData._SimplySimon },
+            { "Encrypted Maze", iconicData._EncryptedMaze },
+            { "Fire Diamonds", iconicData._FireDiamonds },
+            { "Dimension King", iconicData._DimensionKing },
+            { "Puzzle Identification", iconicData._PuzzleIdentification },
+            { "IKEA Plushies", iconicData._IKEAPlushies },
+            { "Face Perception", iconicData._FacePerception },
+            { "Simon Shapes", iconicData._SimonShapes },
+            { "Breakfast Egg", iconicData._BreakfastEgg },
+            { "Literally Dying", iconicData._LiterallyDying },
+            { "Literally Malding", iconicData._LiterallyMalding },
+            { "Cacti's Conundrum", iconicData._CactisConundrum },
+            { "Simon Shouts", iconicData._SimonShouts },
+            { "Marquee Morse", iconicData._MarqueeMorse },
+            { "Line Equations", iconicData._LineEquations },
+            { "White Hole", iconicData._WhiteHole },
+            { "Starmap Reconstruction", iconicData._StarmapReconstruction },
+            { "2048", iconicData._2048 },
+            { "Pointless Machines", iconicData._PointlessMachines },
+            { "Stability", iconicData._Stability },
+            { "Maritime Semaphore", iconicData._MaritimeSemaphore },
+            { "Warning Signs", iconicData._WarningSigns },
+            { "Mastermind Restricted Cruel", iconicData._MastermindRestrictedCruel },
+            { "Labeled Priorities Plus", iconicData._LabeledPrioritiesPlus },
+            { "Coprime Checker", iconicData._CoprimeChecker },
+            { "Walking Cube", iconicData._WalkingCube },
+            { "Customer Identification", iconicData._CustomerIdentification },
+            { "Out of Time", iconicData._OutOfTime },
+            { "Words", iconicData._Words },
+            { "Skewers", iconicData._Skewers },
+            { "Scratch-Off", iconicData._ScratchOff },
+            { "Phones", iconicData._Phones },
+            { "Mirror", iconicData._Mirror },
+            { "Mind Meld", iconicData._MindMeld },
+            { "Custom Keys", iconicData._CustomKeys },
+            { "The Arena", iconicData._TheArena },
+            { "Insa Ilo", iconicData._InsaIlo },
+            { "Placement Roulette", iconicData._PlacementRoulette },
+            { "Art Pricing", iconicData._ArtPricing },
+            { "Perceptron", iconicData._Perceptron },
+            { "RGB Combination", iconicData._RGBCombination },
+            { "Coverage", iconicData._Coverage },
+            { "Wire Association", iconicData._WireAssociation },
+            { "The Icon Kit", iconicData._TheIconKit },
+            { "The Garnet Thief", iconicData._TheGarnetThief },
+            { "Ten Aliens", iconicData._TenAliens },
+            { "Flyswatting", iconicData._Flyswatting },
+            { "Tetrahedron", iconicData._Tetrahedron },
+            { "Simon Said", iconicData._SimonSaid },
+            { "Nonbinary Puzzle", iconicData._NonbinaryPuzzle },
+            { "SQL - Basic", iconicData._SQLBasic },
+            { "M-Seq", iconicData._MSeq },
+            { "TV", iconicData._TV },
+            { "Touch Transmission", iconicData._TouchTransmission },
+            { "MWISort", iconicData._MWISort },
+            { "Coordination", iconicData._Coordination },
+            { "SQL - Evil", iconicData._SQLEvil },
+            { "Kusa Nihonglish", iconicData._KusaNihonglish },
+            { "LEDs", iconicData._LEDs },
+            { "SQL - Cruel", iconicData._SQLCruel },
+            { "Quizbowl", iconicData._Quizbowl },
+            { "Superparsing", iconicData._Superparsing },
+            { "Tripping Triangles", iconicData._TrippingTriangles },
+            { "Tipping Triangles", iconicData._TippingTriangles },
+            { "Slipping Triangles", iconicData._SlippingTriangles },
+            { "Skipping Triangles", iconicData._SkippingTriangles },
+            { "Flipping Triangles", iconicData._FlippingTriangles },
+            { "Dripping Triangles", iconicData._DrippingTriangles },
+            { "Clipping Triangles", iconicData._ClippingTriangles },
+            { "Uncolour Flash", iconicData._UncolourFlash },
+            { "Simpleton't", iconicData._Simpletont },
+            { "Not X01", iconicData._NotX01 },
+            { "Not Word Search", iconicData._NotWordSearch },
+            { "Not The Bulb", iconicData._NotTheBulb },
+            { "Not Symbolic Coordinates", iconicData._NotSymbolicCoordinates },
+            { "Not Emoji Math", iconicData._NotEmojiMath },
+            { "Go", iconicData._Go },
+            { "Discolour Flash", iconicData._DiscolourFlash },
+            { "The Tile Maze", iconicData._TheTileMaze },
+            { "Shogi Identification", iconicData._ShogiIdentification },
+            { "Boozlesnap", iconicData._Boozlesnap },
+            { "Shashki", iconicData._Shashki },
+            { "hexNull", iconicData._hexNull },
+            { "Shut-the-Box", iconicData._ShutTheBox },
+            { "Logic Chess", iconicData._LogicChess },
+            { "The Hypercolor", iconicData._TheHypercolor },
+            { "Horsey", iconicData._Horsey },
+            { "Termite", iconicData._Termite },
+            { "Sorry Sliders", iconicData._SorrySliders },
+            { "Simon", iconicData._Simon },
+            { "Robit Programming", iconicData._RobitProgramming },
+            { "Purchasing Properties", iconicData._PurchasingProperties },
+            { "Label Priorities", iconicData._LabelPriorities },
+            { "Cruel Candy Land", iconicData._CruelCandyLand },
+            { "Congkak", iconicData._Congkak },
+            { "Candy Land", iconicData._CandyLand },
+            { "The Board Walk", iconicData._TheBoardWalk },
+            { "Melody Memory", iconicData._MelodyMemory },
+            { "CA-RPS", iconicData._CARPS },
+            { "Aquarium", iconicData._Aquarium },
+            { "Eight Tiles Panic", iconicData._EightTilesPanic },
+            { "Inselectables", iconicData._Inselectables },
+            { "Spongebob Birthday Identification", iconicData._SpongebobBirthdayIdentification },
+            { "Not Poker", iconicData._NotPoker },
+            { "4D Maze", iconicData._4DMaze },
+            { "Who's on Morse", iconicData._WhosOnMorse },
+            { "Binary Tango", iconicData._BinaryTango },
+            { "Matching Morse", iconicData._MatchingMorse },
+            { "Antistress", iconicData._Antistress },
+            { "Variety", iconicData._Variety },
+            { "Exploding Mittens", iconicData._ExplodingMittens },
+            { "Not X-Ray", iconicData._NotXRay },
+            { "Gemory", iconicData._Gemory },
+            { "Cursor Maze", iconicData._CursorMaze },
+            { "Wendithap'n", iconicData._Wendithapn },
+            { "Spinning Mazes", iconicData._SpinningMazes },
+            { "Royal Piano Keys", iconicData._RoyalPianoKeys },
+            { "Prankster", iconicData._Prankster },
+            { "Not The Screw", iconicData._NotTheScrew },
+            { "Birthday Cake", iconicData._BirthdayCake },
+            { "Scrabble Scramble", iconicData._ScrabbleScramble },
+            { "Gray Arrows", iconicData._GrayArrows },
+            { "Derivatives", iconicData._Derivatives },
+            { "Base-1", iconicData._Base1 },
+            { "Consonants", iconicData._Consonants },
+            { "Vector Addition", iconicData._VectorAddition },
+            { "Critters", iconicData._Critters },
+            { "Mazeseeker", iconicData._Mazeseeker },
+            { "Voronoi Maze", iconicData._VoronoiMaze },
+            { "Simon's Satire", iconicData._SimonsSatire },
+            { "Colored Hexabuttons 2", iconicData._ColoredHexabuttons2 },
+            { "Duck Konundrum", iconicData._DuckKonundrum },
+            { "IKEA Documents", iconicData._IKEADocuments },
+            { "Game of Colors", iconicData._GameOfColors },
+            { "Concentration", iconicData._Concentration },
+            { "Blaseball", iconicData._Blaseball },
+            { "Spilling Paint", iconicData._SpillingPaint },
+            { "Metapuzzle", iconicData._Metapuzzle },
+            { "Zero, Zero", iconicData._ZeroZero },
+            { "Stellar", iconicData._Stellar },
+            { "Inner Connections", iconicData._InnerConnections },
+            { "Cryptic Keypad", iconicData._CrypticKeypad },
+            { "Metamorse", iconicData._Metamorse },
+            { "Historical Phrases", iconicData._HistoricalPhrases },
+            { "Simon Signals", iconicData._SimonSignals },
+            { "Piragua", iconicData._Piragua },
+            { "UNO!", iconicData._UNO },
+            { "Simon Secures", iconicData._SimonSecures },
+            { "That's The Mole", iconicData._ThatsTheMole },
+            { "That's The Fox", iconicData._ThatsTheFox },
+            { "That's The Beaver", iconicData._ThatsTheBeaver },
+            { "Over Kilo", iconicData._OverKilo },
+            { "XO", iconicData._XO },
+            { "Trick Or Treat", iconicData._TrickOrTreat },
+            { "My Mom", iconicData._MyMom },
+            { "3N+1", iconicData._3Nplus1 },
+            { "Signal Scope", iconicData._SignalScope },
+            { "Order Picking", iconicData._OrderPicking },
+            { "Mayhem", iconicData._Mayhem },
+            { "Barcode Cipher", iconicData._BarcodeCipher },
+            { "Obama Grocery Store", iconicData._ObamaGroceryStore },
+            { "Binary Morse", iconicData._BinaryMorse },
+            { "Sprouts", iconicData._Sprouts },
+            { "Extended Boolean Venn Diagram", iconicData._ExtendedBooleanVennDiagram },
+            { "Cruel Modulo", iconicData._CruelModulo },
+            { "Flipping Squares", iconicData._FlippingSquares },
+            { "Simon Stacks", iconicData._SimonStacks },
+            { "Charge", iconicData._Charge },
+            { "Memory Poker", iconicData._MemoryPoker },
+            { "Masked Morse", iconicData._MaskedMorse },
+            { "Letter Math", iconicData._LetterMath },
+            { "Invisymbol", iconicData._Invisymbol },
+            { "Gendercipher", iconicData._Gendercipher },
+            { "Fishing", iconicData._Fishing },
+            { "Double Digits", iconicData._DoubleDigits },
+            { "The Yellow Button", iconicData._TheYellowButton },
+            { "The White Button", iconicData._TheWhiteButton },
+            { "The Teal Button", iconicData._TheTealButton },
+            { "The Red Button", iconicData._TheRedButton },
+            { "The Purple Button", iconicData._ThePurpleButton },
+            { "The Pink Button", iconicData._ThePinkButton },
+            { "The Orange Button", iconicData._TheOrangeButton },
+            { "The Green Button", iconicData._TheGreenButton },
+            { "The Gray Button", iconicData._TheGrayButton },
+            { "The Glitched Button", iconicData._TheGlitchedButton },
+            { "The Cyan Button", iconicData._TheCyanButton },
+            { "The Blue Button", iconicData._TheBlueButton },
+            { "The Black Button", iconicData._TheBlackButton },
+            { "Simon Shuffles", iconicData._SimonShuffles },
+            { "Faulty Buttons", iconicData._FaultyButtons },
+            { "Dot", iconicData._Dot },
+            { "Nixie Code", iconicData._NixieCode },
+            { "Identification Crisis", iconicData._IdentificationCrisis },
+            { "Digit Sum", iconicData._DigitSum },
+            { "Twister", iconicData._Twister },
+            { "Omni-Man", iconicData._OmniMan },
+            { "Forget Our Voices", iconicData._ForgetOurVoices },
+            { "Yellow Huffman Cipher", iconicData._YellowHuffmanCipher },
+            { "Blue Huffman Cipher", iconicData._BlueHuffmanCipher },
+            { "Lempel-Ziv Cipher", iconicData._LempelZivCipher },
+            { "Extended Button Order", iconicData._ExtendedButtonOrder },
+            { "Soulsong", iconicData._Soulsong },
+            { "Not Kanji", iconicData._NotKanji },
+            { "Shape Cipher", iconicData._ShapeCipher },
+            { "Talking Points", iconicData._TalkingPoints },
+            { "Boolean Network", iconicData._BooleanNetwork },
+            { "Understand", iconicData._Understand },
+            { "Presidential Elections", iconicData._PresidentialElections },
+            { "Maroon Cipher", iconicData._MaroonCipher },
+            { "Tasque Managing", iconicData._TasqueManaging },
+            { "Reversed Boolean Network", iconicData._ReversedBooleanNetwork },
+            { "Quilting", iconicData._Quilting },
+            { "Character Slots", iconicData._CharacterSlots },
+            { "Forget Morse Not", iconicData._ForgetMorseNot },
+            { "Blananas2", iconicData._Blananas2 },
+            { "Math ’em", iconicData._MathEm },
+            { "Money Game", iconicData._MoneyGame },
+            { "Surrounding Buttons", iconicData._SurroundingButtons },
+            { "Imbalance", iconicData._Imbalance },
+            { "Switch Placement", iconicData._SwitchPlacement },
+            { "Cornflower Cipher", iconicData._CornflowerCipher },
+            { "Time Machine", iconicData._TimeMachine },
+            { "Multitracking", iconicData._Multitracking },
+            { "Factory Code", iconicData._FactoryCode },
+            { "Baffling Box", iconicData._BafflingBox },
+            { "Rule of Three", iconicData._RuleOfThree },
+            { "Ro", iconicData._Ro },
+            { "Gyromaze", iconicData._Gyromaze },
+            { "ID Exchange", iconicData._IDExchange },
+            { "Marco Polo", iconicData._MarcoPolo },
+            { "Clumsy Loopover", iconicData._ClumsyLoopover },
+            { "Puzzle Panel", iconicData._PuzzlePanel },
+            { "Not Text Field", iconicData._NotTextField },
+            { "Not Probing", iconicData._NotProbing },
+            { "Not Piano Keys", iconicData._NotPianoKeys },
+            { "Not Number Pad", iconicData._NotNumberPad },
+            { "Forget Me", iconicData._ForgetMe },
+            { "Boomtar the Great", iconicData._BoomtarTheGreat },
+            { "A Square", iconicData._ASquare },
+            { "Tachycardia", iconicData._Tachycardia },
+            { "Trajectory", iconicData._Trajectory },
+            { "Look, Look Away", iconicData._LookLookAway },
+            { "Forest Cipher", iconicData._ForestCipher },
+            { "Untouchable", iconicData._Untouchable },
+            { "Backdoor Hacking", iconicData._BackdoorHacking },
+            { "Abyss", iconicData._Abyss },
+            { "Supermassive Black Hole", iconicData._SupermassiveBlackHole },
+            { "Finite Loop", iconicData._FiniteLoop },
+            { "Steam Selector", iconicData._SteamSelector },
+            { "The Navy Button", iconicData._TheNavyButton },
+            { "The Amber Button", iconicData._TheAmberButton },
+            { "Algorithmia", iconicData._Algorithmia },
+            { "Sign Language", iconicData._SignLanguage },
+            { "Hidden In Plain Sight", iconicData._HiddenInPlainSight },
+            { "Double Defuser", iconicData._DoubleDefuser },
+            { "Parallel Mazes", iconicData._ParallelMazes },
+            { "The Cornflower Button", iconicData._TheCornflowerButton },
+            { "Bakery", iconicData._Bakery },
+            { "Simon Shifts", iconicData._SimonShifts },
+            { "Buttonage", iconicData._Buttonage },
+            { "Unpleasant Squares", iconicData._UnpleasantSquares },
+            { "Shape Fill", iconicData._ShapeFill },
+            { "Blank Card", iconicData._BlankCard },
+            { "3D Tap Code", iconicData._3DTapCode },
+            { "Charms", iconicData._Charms },
+            { "Occult Manuscripts", iconicData._OccultManuscripts },
+            { "Enigma Cycle", iconicData._EnigmaCycle },
+            { "Mister Softee", iconicData._MisterSoftee },
+            { "Not The Plunger Button", iconicData._NotThePlungerButton },
+            { "X-Rotor", iconicData._XRotor },
+            { "Basegate", iconicData._Basegate },
+            { "Bamboozling Directional Button", iconicData._BamboozlingDirectionalButton },
+            { "Face Off", iconicData._FaceOff },
+            { "Prison Break", iconicData._PrisonBreak },
+            { "Military Encryption", iconicData._MilitaryEncryption },
+            { "USA Cycle", iconicData._USACycle },
+            { "Hand Turkey", iconicData._HandTurkey },
+            { "Sensor Maze", iconicData._SensorMaze },
+            { "Not Colored Squares", iconicData._NotColoredSquares },
+            { "The Neutral Button", iconicData._TheNeutralButton },
+            { "Red Light Green Light", iconicData._RedLightGreenLight },
+            { "Faulty 14 Segment Display", iconicData._Faulty14SegmentDisplay },
+            { "4 Buttons", iconicData._4Buttons },
+            { "Whack The Cops", iconicData._WhackTheCops },
+            { "Halli Galli", iconicData._HalliGalli },
+            { "Scramboozled Eggain", iconicData._ScramboozledEggain },
+            { "Doofenshmirtz Evil Inc.", iconicData._DoofenshmirtzEvilInc },
+            { "Z", iconicData._Z },
+            { "Symbstructions", iconicData._Symbstructions },
+            { "Add Nauseam", iconicData._AddNauseam },
+            { "Deceptive Rainbow Arrows", iconicData._DeceptiveRainbowArrows },
+            { "Varicolour Flash", iconicData._VaricolourFlash },
+            { "Recolour Flash", iconicData._RecolourFlash },
+            { "Hypermatch", iconicData._Hypermatch },
+            { "Simon Shines", iconicData._SimonShines },
+            { "Sign Alphabet", iconicData._SignAlphabet },
+            { "Notes", iconicData._Notes },
+            { "Two-Factor Authentication", iconicData._TwoFactorAuthentication },
+            { "Juxtacolour Flash", iconicData._JuxtacolourFlash },
+            { "Faulty Colour Flash", iconicData._FaultyColourFlash },
+            { "Magenta Arrows", iconicData._MagentaArrows },
+            { "8", iconicData._8 },
+            { "X-Ring", iconicData._XRing },
+            { "Simon Swizzles", iconicData._SimonSwizzles },
+            { "Secret Santa", iconicData._SecretSanta },
+            { "Factory Cubes", iconicData._FactoryCubes },
+            { "Encryption Lingo", iconicData._EncryptionLingo },
+            { "Levenshtein Distance", iconicData._LevenshteinDistance },
+            { "Faerie Fires", iconicData._FaerieFires },
+            { "Crimson Cipher", iconicData._CrimsonCipher },
+            { "X-Radar", iconicData._XRadar },
+            { "Tell Me Where", iconicData._TellMeWhere },
+            { "Magenta Cipher", iconicData._MagentaCipher },
+            { "Triple Traversal", iconicData._TripleTraversal },
+            { "Simon Shorts", iconicData._SimonShorts },
+            { "Off-White Cipher", iconicData._OffWhiteCipher },
+            { "Simplified Keypad", iconicData._SimplifiedKeypad },
+            { "Goofier Game", iconicData._GoofierGame },
+            { "Coral Cipher", iconicData._CoralCipher },
+            { "Knot Wires", iconicData._KnotWires },
+            { "LOOK AT ME", iconicData._LOOKATME },
+            { "Cream Cipher", iconicData._CreamCipher },
+            { "Pie Flash", iconicData._PieFlash },
+            { "Magic Square", iconicData._MagicSquare },
+            { "Magic Cube", iconicData._MagicCube },
+            { "Ghost", iconicData._Ghost },
+            { "Quadruple Simpleton", iconicData._QuadrupleSimpleton },
+            { "Atlantis", iconicData._Atlantis },
+            { "Quadruple Simpleton't", iconicData._QuadrupleSimpletont },
+            { "Ultra Custom Night", iconicData._UltraCustomNight },
+            { "Pattern Hypercube", iconicData._PatternHypercube },
+            { "Multi-Buttons", iconicData._MultiButtons },
+            { "Feature Cryptography", iconicData._FeatureCryptography },
+            { "[BIG SHOT]", iconicData._BIGSHOT },
+            { "The Door", iconicData._TheDoor },
+            { "Wordle", iconicData._Wordle },
+            { "Triple Vision", iconicData._TripleVision },
+            { "Double Maze", iconicData._DoubleMaze },
+            { "Pseudocrypt", iconicData._Pseudocrypt },
+            { "Keyed Buttons", iconicData._KeyedButtons },
+            { "Black Screens", iconicData._BlackScreens },
+            { "Not Black Screens", iconicData._NotBlackScreens },
+            { "Logic Plumbing", iconicData._LogicPlumbing },
+            { "Blind Circle", iconicData._BlindCircle },
+            { "Moved", iconicData._Moved },
+            { "Speedrun", iconicData._Speedrun },
+            { "Remember Simple", iconicData._RememberSimple },
+            { "Simon Smothers", iconicData._SimonSmothers },
+            { "JacknJellify", iconicData._JacknJellify },
+            { "The Year", iconicData._TheYear },
+            { "Matching Signs", iconicData._MatchingSigns },
+            { "The Stampycat", iconicData._TheStampycat },
+            { "Eavesdropping", iconicData._Eavesdropping },
+            { "zzz", iconicData._zzz },
+            { "Remembern't Simple", iconicData._RememberntSimple },
+            { "Simon's Statement", iconicData._SimonsStatement },
+            { "The Temple Run", iconicData._TheTempleRun },
+            { "The Grand Prix", iconicData._TheGrandPrix },
+            { "Matrix Mapping", iconicData._MatrixMapping },
+            { "Again", iconicData._Again },
+            { "Not Symbolic Password", iconicData._NotSymbolicPassword },
+            { "Not Perspective Pegs", iconicData._NotPerspectivePegs },
+            { "Not Double-Oh", iconicData._NotDoubleOh },
+            { "Not Colored Switches", iconicData._NotColoredSwitches },
+            { "Not Bitmaps", iconicData._NotBitmaps },
+            { "Maze 'em", iconicData._MazeEm },
+            { "Lolbit", iconicData._Lolbit },
+            { "Pollux", iconicData._Pollux },
+            { "Castor", iconicData._Castor },
+            { "Three-Way Gates", iconicData._ThreeWayGates },
+            { "Missing Sequence", iconicData._MissingSequence },
+            { "Latin Hypercube", iconicData._LatinHypercube },
+            { "UIN(+L)", iconicData._UINpL },
+            { "Inverse", iconicData._Inverse },
+            { "Peek-A-Boo", iconicData._PeekABoo },
+            { "Wave Collapse", iconicData._WaveCollapse },
+            { "Dual Sequences", iconicData._DualSequences },
+            { "Battle of Wits", iconicData._BattleOfWits },
+            { "SI-HTS", iconicData._SIHTS },
+            { "Parity", iconicData._Parity },
+            { "Paperweights", iconicData._Paperweights },
+            { "Anti-Memory", iconicData._AntiMemory },
+            { "Double-On", iconicData._DoubleOn },
+            { "One Item One Meal", iconicData._OneItemOneMeal },
+            { "Forget Me Maybe", iconicData._ForgetMeMaybe },
+            { "Subtract Nauseam", iconicData._SubtractNauseam },
+            { "Timed Out", iconicData._TimedOut },
+            { "Pigfair Cipher", iconicData._PigfairCipher },
+            { "LEAN!!!", iconicData._LEAN },
+            { "Channel Surfing", iconicData._ChannelSurfing },
+            { "Roguelike Game", iconicData._RoguelikeGame },
+            { "Widgetry", iconicData._Widgetry },
+            { "Nifty Number", iconicData._NiftyNumber },
+
+            /*
+            { "Colour Flash ES", iconicData._ColourFlash_ES },
+            { "Adjacent Letters (Russian)", iconicData._AdjacentLetters_RU },
+
+            //from this point on, reflection is required
+
+            { "Big Button Translated", iconicData.BlankModule },
+            { "Who's on First Translated", iconicData.BlankModule },
+            { "Morse Code Translated", iconicData.BlankModule },
+            { "Passwords Translated", iconicData.BlankModule },
+            { "Vent Gas Translated", iconicData.BlankModule },
+            { "Colour Flash Translated", iconicData.BlankModule },
+            */
+
+            { string.Empty, iconicData.BlankModule }
+    };
+    // Due to switching to a Dictionary, we lose the indicies for each module as Dictionaries do not guarantee order.
+    // An OrderedDictionary allows us to index a Dictionary in its intended order, but it has no IndexOf function for matching a name to an index.
+    // By creating the ordered dictionary and then casting the keys, this gives us the list of names we can index for obtaining sprites.
+    // The next version of the Sprite Generator will grab the module names from the repo, so this is the temporary fix until the new system is worked on.
+    private List<string> moduleListNames;
     private string[] CurrentData = { };
     private static Dictionary<string, Sprite> LoadedSprites = new Dictionary<string, Sprite>();
 
@@ -64,6 +1706,7 @@ public class iconicScript : MonoBehaviour {
         TopLeftModule = new int[Modules.Length];
         for (int i = 0; i < Modules.Length; i++)
             TopLeftModule[i] = Modules[i].height - 32;
+        moduleListNames = ModuleList.Keys.Cast<string>().ToList();
     }
 
     // Use this for initialization
@@ -116,29 +1759,29 @@ public class iconicScript : MonoBehaviour {
             if (QueuedUp == false && Queue.Count() > 0) {
                 FoundAModule = false;
                 Array.Clear(CurrentData, 0, CurrentData.Count());
-                for (int i = 0; i < ModuleList.Count(); i++) {
-                    if (ModuleList[i] == Queue[0] && FoundAModule == false) {
-                        CurrentData = NameToData(ModuleList[i]).ToArray();
-                        if (!LoadedSprites.ContainsKey(ModuleList[i]))
-                        {
-                            // It is assumed that the max width and height for each spritesheet is the same,
-                            // so assume we can get the max size by dividing my the width and height of the first master sheet.
-                            // The size is based on icon count as opposed to pixel count, so divide the pixels by the number of pixels in a single icon.
-                            // If the size of the icons are changed, this number will need to be adjusted accordingly.
-                            int maxSize = Modules[0].width * Modules[0].height / 1024;
-                            int index = i / maxSize;
-                            // Since x is modulo'd and the width is (should be) always the same, we don't need to alter it.
-                            int x = (i * 32) % Modules[index].width;
-                            // Since we're dividing the rows by the number in each row, we have to divide by the width here.
-                            // This should give us the row we're on.
-                            int y = TopLeftModule[index] - (i % maxSize) / (Modules[index].width / 32) * 32;
-                            Sprite loadedSprite = Sprite.Create(Modules[index], new Rect(x, y, 32, 32), new Vector2(0.5f, 0.5f));
-                            LoadedSprites.Add(ModuleList[i], loadedSprite);
-                        }
-                        TheIcon.sprite = LoadedSprites[ModuleList[i]];
-                        CurrentModule = ModuleList[i];
-                        FoundAModule = true;
+                if (ModuleList.Contains(Queue[0]) && FoundAModule == false)
+                {
+                    CurrentData = ((string[])ModuleList[Queue[0]]).ToArray();
+                    if (!LoadedSprites.ContainsKey(Queue[0]))
+                    {
+                        int i = moduleListNames.IndexOf(Queue[0]);
+                        // It is assumed that the max width and height for each spritesheet is the same,
+                        // so assume we can get the max size by dividing my the width and height of the first master sheet.
+                        // The size is based on icon count as opposed to pixel count, so divide the pixels by the number of pixels in a single icon.
+                        // If the size of the icons are changed, this number will need to be adjusted accordingly.
+                        int maxSize = Modules[0].width * Modules[0].height / 1024;
+                        int index = i / maxSize;
+                        // Since x is modulo'd and the width is (should be) always the same, we don't need to alter it.
+                        int x = (i * 32) % Modules[index].width;
+                        // Since we're dividing the rows by the number in each row, we have to divide by the width here.
+                        // This should give us the row we're on.
+                        int y = TopLeftModule[index] - (i % maxSize) / (Modules[index].width / 32) * 32;
+                        Sprite loadedSprite = Sprite.Create(Modules[index], new Rect(x, y, 32, 32), new Vector2(0.5f, 0.5f));
+                        LoadedSprites.Add(Queue[0], loadedSprite);
                     }
+                    TheIcon.sprite = LoadedSprites[Queue[0]];
+                    CurrentModule = Queue[0];
+                    FoundAModule = true;
                 }
                 if (FoundAModule == false) {
                     Debug.LogFormat("[Iconic #{0}] Adding blank because I don't recognize the following module: {1}", ModuleId, Queue[0]);
@@ -302,1645 +1945,6 @@ public class iconicScript : MonoBehaviour {
             return index;
         else
             return -1;
-    }
-
-    private string[] NameToData(string s) {
-        switch (s) {
-            case "Wires": return iconicData._Wires;
-            case "The Button": return iconicData._TheButton;
-            case "Keypad": return iconicData._Keypad;
-            case "Simon Says": return iconicData._SimonSays;
-            case "Who's on First": return iconicData._WhosOnFirst;
-            case "Memory": return iconicData._Memory;
-            case "Morse Code": return iconicData._MorseCode;
-            case "Complicated Wires": return iconicData._ComplicatedWires;
-            case "Wire Sequence": return iconicData._WireSequence;
-            case "Maze": return iconicData._Maze;
-            case "Password": return iconicData._Password;
-            case "Needy Vent Gas": return iconicData._VentingGas;
-            case "Needy Capacitor": return iconicData._CapacitorDischarge;
-            case "Needy Knob": return iconicData._Knob;
-            case "Colour Flash": return iconicData._ColourFlash;
-            case "Piano Keys": return iconicData._PianoKeys;
-            case "Semaphore": return iconicData._Semaphore;
-            case "Needy Math": return iconicData._Math;
-            case "Emoji Math": return iconicData._EmojiMath;
-            case "Lights Out": return iconicData._LightsOut;
-            case "Switches": return iconicData._Switches;
-            case "Two Bits": return iconicData._TwoBits;
-            case "Word Scramble": return iconicData._WordScramble;
-            case "Anagrams": return iconicData._Anagrams;
-            case "Combination Lock": return iconicData._CombinationLock;
-            case "Filibuster": return iconicData._Filibuster;
-            case "Motion Sense": return iconicData._MotionSense;
-            case "Square Button": return iconicData._SquareButton;
-            case "Simon States": return iconicData._SimonStates;
-            case "Round Keypad": return iconicData._RoundKeypad;
-            case "Listening": return iconicData._Listening;
-            case "Foreign Exchange Rates": return iconicData._ForeignExchangeRates;
-            case "Needy Quiz": return iconicData._AnsweringQuestions;
-            case "Orientation Cube": return iconicData._OrientationCube;
-            case "Morsematics": return iconicData._Morsematics;
-            case "Connection Check": return iconicData._ConnectionCheck;
-            case "Letter Keys": return iconicData._LetterKeys;
-            case "Forget Me Not": return iconicData._ForgetMeNot;
-            case "Needy Rotary Phone": return iconicData._RotaryPhone;
-            case "Astrology": return iconicData._Astrology;
-            case "Logic": return iconicData._Logic;
-            case "Crazy Talk": return iconicData._CrazyTalk;
-            case "Adventure Game": return iconicData._AdventureGame;
-            case "Turn The Key": return iconicData._TurnTheKey;
-            case "Mystic Square": return iconicData._MysticSquare;
-            case "Plumbing": return iconicData._Plumbing;
-            case "Cruel Piano Keys": return iconicData._CruelPianoKeys;
-            case "Safety Safe": return iconicData._SafetySafe;
-            case "Tetris": return iconicData._Tetris;
-            case "Cryptography": return iconicData._Cryptography;
-            case "Chess": return iconicData._Chess;
-            case "Turn The Keys": return iconicData._TurnTheKeys;
-            case "Mouse In The Maze": return iconicData._MouseInTheMaze;
-            case "3D Maze": return iconicData._3DMaze;
-            case "Silly Slots": return iconicData._SillySlots;
-            case "Number Pad": return iconicData._NumberPad;
-            case "Laundry": return iconicData._Laundry;
-            case "Probing": return iconicData._Probing;
-            case "Resistors": return iconicData._Resistors;
-            case "Skewed Slots": return iconicData._SkewedSlots;
-            case "Caesar Cipher": return iconicData._CaesarCipher;
-            case "Perspective Pegs": return iconicData._PerspectivePegs;
-            case "Microcontroller": return iconicData._Microcontroller;
-            case "Murder": return iconicData._Murder;
-            case "The Gamepad": return iconicData._TheGamepad;
-            case "Tic Tac Toe": return iconicData._TicTacToe;
-            case "Who's That Monsplode?": return iconicData._WhosThatMonsplode;
-            case "Monsplode, Fight!": return iconicData._MonsplodeFight;
-            case "Shape Shift": return iconicData._ShapeShift;
-            case "Follow the Leader": return iconicData._FollowTheLeader;
-            case "Friendship": return iconicData._Friendship;
-            case "The Bulb": return iconicData._TheBulb;
-            case "Alphabet": return iconicData._Alphabet;
-            case "Blind Alley": return iconicData._BlindAlley;
-            case "Sea Shells": return iconicData._SeaShells;
-            case "English Test": return iconicData._EnglishTest;
-            case "Rock-Paper-Scissors-L.-Sp.": return iconicData._RockPaperScissorsLizardSpock;
-            case "Hexamaze": return iconicData._Hexamaze;
-            case "Bitmaps": return iconicData._Bitmaps;
-            case "Colored Squares": return iconicData._ColoredSquares;
-            case "Adjacent Letters": return iconicData._AdjacentLetters;
-            case "Third Base": return iconicData._ThirdBase;
-            case "Souvenir": return iconicData._Souvenir;
-            case "Word Search": return iconicData._WordSearch;
-            case "Broken Buttons": return iconicData._BrokenButtons;
-            case "Simon Screams": return iconicData._SimonScreams;
-            case "Modules Against Humanity": return iconicData._ModulesAgainstHumanity;
-            case "Complicated Buttons": return iconicData._ComplicatedButtons;
-            case "Battleship": return iconicData._Battleship;
-            case "Text Field": return iconicData._TextField;
-            case "Symbolic Password": return iconicData._SymbolicPassword;
-            case "Wire Placement": return iconicData._WirePlacement;
-            case "Double-Oh": return iconicData._DoubleOh;
-            case "Cheap Checkout": return iconicData._CheapCheckout;
-            case "Coordinates": return iconicData._Coordinates;
-            case "Light Cycle": return iconicData._LightCycle;
-            case "HTTP response": return iconicData._HTTPResponse;
-            case "Rhythms": return iconicData._Rhythms;
-            case "Color Math": return iconicData._ColorMath;
-            case "Only Connect": return iconicData._OnlyConnect;
-            case "Neutralization": return iconicData._Neutralization;
-            case "Web Design": return iconicData._WebDesign;
-            case "Chord Qualities": return iconicData._ChordQualities;
-            case "Creation": return iconicData._Creation;
-            case "Rubik's Cube": return iconicData._RubiksCube;
-            case "FizzBuzz": return iconicData._FizzBuzz;
-            case "The Clock": return iconicData._TheClock;
-            case "LED Encryption": return iconicData._LEDEncryption;
-            case "Edgework": return iconicData._Edgework;
-            case "Bitwise Operations": return iconicData._BitwiseOperations;
-            case "Fast Math": return iconicData._FastMath;
-            case "Minesweeper": return iconicData._Minesweeper;
-            case "Zoo": return iconicData._Zoo;
-            case "Binary LEDs": return iconicData._BinaryLEDs;
-            case "Boolean Venn Diagram": return iconicData._BooleanVennDiagram;
-            case "Point of Order": return iconicData._PointOfOrder;
-            case "Ice Cream": return iconicData._IceCream;
-            case "Hex To Decimal": return iconicData._HexToDecimal;
-            case "The Screw": return iconicData._TheScrew;
-            case "Yahtzee": return iconicData._Yahtzee;
-            case "X-Ray": return iconicData._XRay;
-            case "QR Code": return iconicData._QRCode;
-            case "Needy Button Masher": return iconicData._ButtonMasher;
-            case "Random Number Generator": return iconicData._RandomNumberGenerator;
-            case "Color Morse": return iconicData._ColorMorse;
-            case "Mastermind Simple": return iconicData._MastermindSimple;
-            case "Mastermind Cruel": return iconicData._MastermindCruel;
-            case "Gridlock": return iconicData._Gridlock;
-            case "Big Circle": return iconicData._BigCircle;
-            case "Morse-A-Maze": return iconicData._MorseAMaze;
-            case "Colored Switches": return iconicData._ColoredSwitches;
-            case "Perplexing Wires": return iconicData._PerplexingWires;
-            case "Monsplode Trading Cards": return iconicData._MonsplodeTradingCards;
-            case "Game of Life Simple": return iconicData._GameOfLifeSimple;
-            case "Game of Life Cruel": return iconicData._GameOfLifeCruel;
-            case "Nonogram": return iconicData._Nonogram;
-            case "S.E.T.": return iconicData._SET;
-            case "Needy Beer Refill Mod": return iconicData._RefillThatBeer;
-            case "Painting": return iconicData._Painting;
-            case "Color Generator": return iconicData._ColorGenerator;
-            case "Needy Shape Memory": return iconicData._ShapeMemory;
-            case "Symbol Cycle": return iconicData._SymbolCycle;
-            case "Hunting": return iconicData._Hunting;
-            case "Extended Password": return iconicData._ExtendedPassword;
-            case "Curriculum": return iconicData._Curriculum;
-            case "Braille": return iconicData._Braille;
-            case "Mafia": return iconicData._Mafia;
-            case "Festive Piano Keys": return iconicData._FestivePianoKeys;
-            case "Flags": return iconicData._Flags;
-            case "Timezone": return iconicData._Timezone;
-            case "Polyhedral Maze": return iconicData._PolyhedralMaze;
-            case "Symbolic Coordinates": return iconicData._SymbolicCoordinates;
-            case "Poker": return iconicData._Poker;
-            case "Sonic the Hedgehog": return iconicData._SonicTheHedgehog;
-            case "Poetry": return iconicData._Poetry;
-            case "Button Sequence": return iconicData._ButtonSequence;
-            case "Algebra": return iconicData._Algebra;
-            case "Visual Impairment": return iconicData._VisualImpairment;
-            case "The Jukebox": return iconicData._TheJukebox;
-            case "Identity Parade": return iconicData._IdentityParade;
-            case "Maintenance": return iconicData._Maintenance;
-            case "Blind Maze": return iconicData._BlindMaze;
-            case "Backgrounds": return iconicData._Backgrounds;
-            case "Mortal Kombat": return iconicData._MortalKombat;
-            case "Mashematics": return iconicData._Mashematics;
-            case "Faulty Backgrounds": return iconicData._FaultyBackgrounds;
-            case "Radiator": return iconicData._Radiator;
-            case "Modern Cipher": return iconicData._ModernCipher;
-            case "LED Grid": return iconicData._LEDGrid;
-            case "Sink": return iconicData._Sink;
-            case "The iPhone": return iconicData._TheiPhone;
-            case "The Swan": return iconicData._TheSwan;
-            case "Waste Management": return iconicData._WasteManagement;
-            case "Human Resources": return iconicData._HumanResources;
-            case "Skyrim": return iconicData._Skyrim;
-            case "Burglar Alarm": return iconicData._BurglarAlarm;
-            case "Press X": return iconicData._PressX;
-            case "European Travel": return iconicData._EuropeanTravel;
-            case "Error Codes": return iconicData._ErrorCodes;
-            case "Rapid Buttons": return iconicData._RapidButtons;
-            case "LEGOs": return iconicData._LEGOs;
-            case "Rubik’s Clock": return iconicData._RubiksClock;
-            case "Font Select": return iconicData._FontSelect;
-            case "The Stopwatch": return iconicData._TheStopwatch;
-            case "Pie": return iconicData._Pie;
-            case "The Wire": return iconicData._TheWire;
-            case "The London Underground": return iconicData._TheLondonUnderground;
-            case "Logic Gates": return iconicData._LogicGates;
-            case "Forget Everything": return iconicData._ForgetEverything;
-            case "Grid Matching": return iconicData._GridMatching;
-            case "Color Decoding": return iconicData._ColorDecoding;
-            case "The Sun": return iconicData._TheSun;
-            case "Playfair Cipher": return iconicData._PlayfairCipher;
-            case "Tangrams": return iconicData._Tangrams;
-            case "The Number": return iconicData._TheNumber;
-            case "Cooking": return iconicData._Cooking;
-            case "Superlogic": return iconicData._Superlogic;
-            case "The Moon": return iconicData._TheMoon;
-            case "The Cube": return iconicData._TheCube;
-            case "Dr. Doctor": return iconicData._DrDoctor;
-            case "Tax Returns": return iconicData._TaxReturns;
-            case "The Jewel Vault": return iconicData._TheJewelVault;
-            case "Digital Root": return iconicData._DigitalRoot;
-            case "Graffiti Numbers": return iconicData._GraffitiNumbers;
-            case "Marble Tumble": return iconicData._MarbleTumble;
-            case "X01": return iconicData._X01;
-            case "Logical Buttons": return iconicData._LogicalButtons;
-            case "The Code": return iconicData._TheCode;
-            case "Tap Code": return iconicData._TapCode;
-            case "Simon Sings": return iconicData._SimonSings;
-            case "Simon Sends": return iconicData._SimonSends;
-            case "Synonyms": return iconicData._Synonyms;
-            case "Greek Calculus": return iconicData._GreekCalculus;
-            case "Simon Shrieks": return iconicData._SimonShrieks;
-            case "Complex Keypad": return iconicData._ComplexKeypad;
-            case "Subways": return iconicData._Subways;
-            case "Lasers": return iconicData._Lasers;
-            case "Turtle Robot": return iconicData._TurtleRobot;
-            case "Guitar Chords": return iconicData._GuitarChords;
-            case "Calendar": return iconicData._Calendar;
-            case "USA Maze": return iconicData._USAMaze;
-            case "Binary Tree": return iconicData._BinaryTree;
-            case "The Time Keeper": return iconicData._TheTimeKeeper;
-            case "Lightspeed": return iconicData._Lightspeed;
-            case "Black Hole": return iconicData._BlackHole;
-            case "Simon's Star": return iconicData._SimonsStar;
-            case "Morse War": return iconicData._MorseWar;
-            case "The Stock Market": return iconicData._TheStockMarket;
-            case "Mineseeker": return iconicData._Mineseeker;
-            case "Maze Scrambler": return iconicData._MazeScrambler;
-            case "The Number Cipher": return iconicData._TheNumberCipher;
-            case "Alphabet Numbers": return iconicData._AlphabetNumbers;
-            case "British Slang": return iconicData._BritishSlang;
-            case "Double Color": return iconicData._DoubleColor;
-            case "Maritime Flags": return iconicData._MaritimeFlags;
-            case "Equations": return iconicData._Equations;
-            case "Determinants": return iconicData._Determinants;
-            case "Pattern Cube": return iconicData._PatternCube;
-            case "Know Your Way": return iconicData._KnowYourWay;
-            case "Splitting The Loot": return iconicData._SplittingTheLoot;
-            case "Simon Samples": return iconicData._SimonSamples;
-            case "Character Shift": return iconicData._CharacterShift;
-            case "Uncolored Squares": return iconicData._UncoloredSquares;
-            case "Dragon Energy": return iconicData._DragonEnergy;
-            case "Flashing Lights": return iconicData._FlashingLights;
-            case "3D Tunnels": return iconicData._3DTunnels;
-            case "Synchronization": return iconicData._Synchronization;
-            case "The Switch": return iconicData._TheSwitch;
-            case "Reverse Morse": return iconicData._ReverseMorse;
-            case "Manometers": return iconicData._Manometers;
-            case "Shikaku": return iconicData._Shikaku;
-            case "Wire Spaghetti": return iconicData._WireSpaghetti;
-            case "Tennis": return iconicData._Tennis;
-            case "Module Homework": return iconicData._ModuleHomework;
-            case "Benedict Cumberbatch": return iconicData._BenedictCumberbatch;
-            case "Signals": return iconicData._Signals;
-            case "Horrible Memory": return iconicData._HorribleMemory;
-            case "Boggle": return iconicData._Boggle;
-            case "Command Prompt": return iconicData._CommandPrompt;
-            case "Boolean Maze": return iconicData._BooleanMaze;
-            case "Sonic & Knuckles": return iconicData._SonicKnuckles;
-            case "Quintuples": return iconicData._Quintuples;
-            case "The Sphere": return iconicData._TheSphere;
-            case "Coffeebucks": return iconicData._Coffeebucks;
-            case "Colorful Madness": return iconicData._ColorfulMadness;
-            case "Bases": return iconicData._Bases;
-            case "Lion's Share": return iconicData._LionsShare;
-            case "Snooker": return iconicData._Snooker;
-            case "Blackjack": return iconicData._Blackjack;
-            case "Party Time": return iconicData._PartyTime;
-            case "Accumulation": return iconicData._Accumulation;
-            case "The Plunger Button": return iconicData._ThePlungerButton;
-            case "The Digit": return iconicData._TheDigit;
-            case "The Jack-O'-Lantern": return iconicData._TheJackOLantern;
-            case "T-Words": return iconicData._TWords;
-            case "Divided Squares": return iconicData._DividedSquares;
-            case "Connection Device": return iconicData._ConnectionDevice;
-            case "Instructions": return iconicData._Instructions;
-            case "Valves": return iconicData._Valves;
-            case "Encrypted Morse": return iconicData._EncryptedMorse;
-            case "The Crystal Maze": return iconicData._TheCrystalMaze;
-            case "Cruel Countdown": return iconicData._CruelCountdown;
-            case "Countdown": return iconicData._Countdown;
-            case "Catchphrase": return iconicData._Catchphrase;
-            case "Blockbusters": return iconicData._Blockbusters;
-            case "IKEA": return iconicData._IKEA;
-            case "Retirement": return iconicData._Retirement;
-            case "Periodic Table": return iconicData._PeriodicTable;
-            case "101 Dalmatians": return iconicData._101Dalmatians;
-            case "Schlag den Bomb": return iconicData._SchlagDenBomb;
-            case "Mahjong": return iconicData._Mahjong;
-            case "Kudosudoku": return iconicData._Kudosudoku;
-            case "The Radio": return iconicData._TheRadio;
-            case "Modulo": return iconicData._Modulo;
-            case "Number Nimbleness": return iconicData._NumberNimbleness;
-            case "Pay Respects": return iconicData._PayRespects;
-            case "Challenge & Contact": return iconicData._ChallengeContact;
-            case "The Triangle": return iconicData._TheTriangle;
-            case "Sueet Wall": return iconicData._SueetWall;
-            case "Hot Potato": return iconicData._HotPotato;
-            case "Christmas Presents": return iconicData._ChristmasPresents;
-            case "Hieroglyphics": return iconicData._Hieroglyphics;
-            case "Functions": return iconicData._Functions;
-            case "Scripting": return iconicData._Scripting;
-            case "Needy Mrs Bob": return iconicData._NeedyMrsBob;
-            case "Simon Spins": return iconicData._SimonSpins;
-            case "Ten-Button Color Code": return iconicData._TenButtonColorCode;
-            case "Cursed Double-Oh": return iconicData._CursedDoubleOh;
-            case "Crackbox": return iconicData._Crackbox;
-            case "Street Fighter": return iconicData._StreetFighter;
-            case "The Labyrinth": return iconicData._TheLabyrinth;
-            case "Spinning Buttons": return iconicData._SpinningButtons;
-            case "Color Match": return iconicData._ColorMatch;
-            case "The Festive Jukebox": return iconicData._TheFestiveJukebox;
-            case "Skinny Wires": return iconicData._SkinnyWires;
-            case "The Hangover": return iconicData._TheHangover;
-            case "Factory Maze": return iconicData._FactoryMaze;
-            case "Binary Puzzle": return iconicData._BinaryPuzzle;
-            case "Broken Guitar Chords": return iconicData._BrokenGuitarChords;
-            case "Regular Crazy Talk": return iconicData._RegularCrazyTalk;
-            case "Hogwarts": return iconicData._Hogwarts;
-            case "Dominoes": return iconicData._Dominoes;
-            case "Simon Speaks": return iconicData._SimonSpeaks;
-            case "Discolored Squares": return iconicData._DiscoloredSquares;
-            case "Krazy Talk": return iconicData._KrazyTalk;
-            case "Numbers": return iconicData._Numbers;
-            case "Flip the Coin": return iconicData._FlipTheCoin;
-            case "Varicolored Squares": return iconicData._VaricoloredSquares;
-            case "Simon's Stages": return iconicData._SimonsStages;
-            case "Free Parking": return iconicData._FreeParking;
-            case "Cookie Jars": return iconicData._CookieJars;
-            case "Alchemy": return iconicData._Alchemy;
-            case "Zoni": return iconicData._Zoni;
-            case "Simon Squawks": return iconicData._SimonSquawks;
-            case "Unrelated Anagrams": return iconicData._UnrelatedAnagrams;
-            case "Mad Memory": return iconicData._MadMemory;
-            case "Bartending": return iconicData._Bartending;
-            case "Question Mark": return iconicData._QuestionMark;
-            case "Shapes And Bombs": return iconicData._ShapesAndBombs;
-            case "Flavor Text EX": return iconicData._FlavorTextEX;
-            case "Flavor Text": return iconicData._FlavorText;
-            case "Decolored Squares": return iconicData._DecoloredSquares;
-            case "Homophones": return iconicData._Homophones;
-            case "DetoNATO": return iconicData._DetoNATO;
-            case "Air Traffic Controller": return iconicData._AirTrafficController;
-            case "SYNC-125 [3]": return iconicData._SYNC1253;
-            case "Westeros": return iconicData._Westeros;
-            case "Morse Identification": return iconicData._MorseIdentification;
-            case "Pigpen Rotations": return iconicData._PigpenRotations;
-            case "LED Math": return iconicData._LEDMath;
-            case "Alphabetical Order": return iconicData._AlphabeticalOrder;
-            case "Simon Sounds": return iconicData._SimonSounds;
-            case "The Fidget Spinner": return iconicData._TheFidgetSpinner;
-            case "Simon's Sequence": return iconicData._SimonsSequence;
-            case "Simon Scrambles": return iconicData._SimonScrambles;
-            case "Harmony Sequence": return iconicData._HarmonySequence;
-            case "Unfair Cipher": return iconicData._UnfairCipher;
-            case "Melody Sequencer": return iconicData._MelodySequencer;
-            case "Colorful Insanity": return iconicData._ColorfulInsanity;
-            case "Passport Control": return iconicData._PassportControl;
-            case "Left and Right": return iconicData._LeftandRight;
-            case "Gadgetron Vendor": return iconicData._GadgetronVendor;
-            case "Needy Wingdings": return iconicData._Wingdings;
-            case "The Hexabutton": return iconicData._TheHexabutton;
-            case "The Plunger": return iconicData._ThePlunger;
-            case "Genetic Sequence": return iconicData._GeneticSequence;
-            case "Micro-Modules": return iconicData._MicroModules;
-            case "Module Maze": return iconicData._ModuleMaze;
-            case "Elder Futhark": return iconicData._ElderFuthark;
-            case "Tasha Squeals": return iconicData._TashaSqueals;
-            case "Forget This": return iconicData._ForgetThis;
-            case "Digital Cipher": return iconicData._DigitalCipher;
-            case "Subscribe to Pewdiepie": return iconicData._SubscribetoPewdiepie;
-            case "Grocery Store": return iconicData._GroceryStore;
-            case "Draw": return iconicData._Draw;
-            case "Burger Alarm": return iconicData._BurgerAlarm;
-            case "Purgatory": return iconicData._Purgatory;
-            case "Mega Man 2": return iconicData._MegaMan2;
-            case "Lombax Cubes": return iconicData._LombaxCubes;
-            case "The Stare": return iconicData._TheStare;
-            case "Graphic Memory": return iconicData._GraphicMemory;
-            case "Quiz Buzz": return iconicData._QuizBuzz;
-            case "Wavetapping": return iconicData._Wavetapping;
-            case "The Hypercube": return iconicData._TheHypercube;
-            case "Speak English": return iconicData._SpeakEnglish;
-            case "Stack'em": return iconicData._Stackem;
-            case "Seven Wires": return iconicData._SevenWires;
-            case "Colored Keys": return iconicData._ColoredKeys;
-            case "The Troll": return iconicData._TheTroll;
-            case "Planets": return iconicData._Planets;
-            case "The Necronomicon": return iconicData._TheNecronomicon;
-            case "Four-Card Monte": return iconicData._FourCardMonte;
-            case "aa": return iconicData._Aa;
-            case "The Giant's Drink": return iconicData._TheGiantsDrink;
-            case "Digit String": return iconicData._DigitString;
-            case "Alpha": return iconicData._Alpha;
-            case "Snap!": return iconicData._Snap;
-            case "Hidden Colors": return iconicData._HiddenColors;
-            case "Colour Code": return iconicData._ColourCode;
-            case "Vexillology": return iconicData._Vexillology;
-            case "Brush Strokes": return iconicData._BrushStrokes;
-            case "Odd One Out": return iconicData._OddOneOut;
-            case "The Triangle Button": return iconicData._TheTriangleButton;
-            case "Mazematics": return iconicData._Mazematics;
-            case "Equations X": return iconicData._EquationsX;
-            case "Maze³": return iconicData._Maze3;
-            case "Gryphons": return iconicData._Gryphons;
-            case "Arithmelogic": return iconicData._Arithmelogic;
-            case "Roman Art": return iconicData._RomanArt;
-            case "Faulty Sink": return iconicData._FaultySink;
-            case "Simon Stops": return iconicData._SimonStops;
-            case "Morse Buttons": return iconicData._MorseButtons;
-            case "Terraria Quiz": return iconicData._TerrariaQuiz;
-            case "Baba Is Who?": return iconicData._BabaIsWho;
-            case "Triangle Buttons": return iconicData._TriangleButtons;
-            case "Simon Stores": return iconicData._SimonStores;
-            case "Risky Wires": return iconicData._RiskyWires;
-            case "Modulus Manipulation": return iconicData._ModulusManipulation;
-            case "Daylight Directions": return iconicData._DaylightDirections;
-            case "Cryptic Password": return iconicData._CrypticPassword;
-            case "Stained Glass": return iconicData._StainedGlass;
-            case "The Block": return iconicData._TheBlock;
-            case "Bamboozling Button": return iconicData._BamboozlingButton;
-            case "Insane Talk": return iconicData._InsaneTalk;
-            case "Transmitted Morse": return iconicData._TransmittedMorse;
-            case "A Mistake": return iconicData._AMistake;
-            case "Red Arrows": return iconicData._RedArrows;
-            case "Green Arrows": return iconicData._GreenArrows;
-            case "Yellow Arrows": return iconicData._YellowArrows;
-            case "Encrypted Values": return iconicData._EncryptedValues;
-            case "Encrypted Equations": return iconicData._EncryptedEquations;
-            case "Forget Them All": return iconicData._ForgetThemAll;
-            case "Ordered Keys": return iconicData._OrderedKeys;
-            case "Blue Arrows": return iconicData._BlueArrows;
-            case "Sticky Notes": return iconicData._StickyNotes;
-            case "Unordered Keys": return iconicData._UnorderedKeys;
-            case "Orange Arrows": return iconicData._OrangeArrows;
-            case "Hyperactive Numbers": return iconicData._HyperactiveNumbers;
-            case "Reordered Keys": return iconicData._ReorderedKeys;
-            case "Button Grid": return iconicData._ButtonGrid;
-            case "Find The Date": return iconicData._FindTheDate;
-            case "Misordered Keys": return iconicData._MisorderedKeys;
-            case "The Matrix": return iconicData._TheMatrix;
-            case "Purple Arrows": return iconicData._PurpleArrows;
-            case "Bordered Keys": return iconicData._BorderedKeys;
-            case "The Dealmaker": return iconicData._TheDealmaker;
-            case "Seven Deadly Sins": return iconicData._SevenDeadlySins;
-            case "The Ultracube": return iconicData._TheUltracube;
-            case "Symbolic Colouring": return iconicData._SymbolicColouring;
-            case "Recorded Keys": return iconicData._RecordedKeys;
-            case "The Deck of Many Things": return iconicData._TheDeckofManyThings;
-            case "Disordered Keys": return iconicData._DisorderedKeys;
-            case "Character Codes": return iconicData._CharacterCodes;
-            case "Raiding Temples": return iconicData._RaidingTemples;
-            case "Bomb Diffusal": return iconicData._BombDiffusal;
-            case "Tallordered Keys": return iconicData._TallorderedKeys;
-            case "Needy Pong": return iconicData._Pong;
-            case "Ten Seconds": return iconicData._TenSeconds;
-            case "Cruel Ten Seconds": return iconicData._CruelTenSeconds;
-            case "Double Expert": return iconicData._DoubleExpert;
-            case "Calculus": return iconicData._Calculus;
-            case "Boolean Keypad": return iconicData._BooleanKeypad;
-            case "Toon Enough": return iconicData._ToonEnough;
-            case "Pictionary": return iconicData._Pictionary;
-            case "Qwirkle": return iconicData._Qwirkle;
-            case "Antichamber": return iconicData._Antichamber;
-            case "Simon Simons": return iconicData._SimonSimons;
-            case "Lucky Dice": return iconicData._LuckyDice;
-            case "Forget Enigma": return iconicData._ForgetEnigma;
-            case "Constellations": return iconicData._Constellations;
-            case "Prime Checker": return iconicData._PrimeChecker;
-            case "Cruel Digital Root": return iconicData._CruelDigitalRoot;
-            case "Faulty Digital Root": return iconicData._FaultyDigitalRoot;
-            case "Needy Crafting Table": return iconicData._TheCraftingTable;
-            case "Boot Too Big": return iconicData._BootTooBig;
-            case "Vigenère Cipher": return iconicData._VigenereCipher;
-            case "Langton's Ant": return iconicData._LangtonsAnt;
-            case "Old Fogey": return iconicData._OldFogey;
-            case "Insanagrams": return iconicData._Insanagrams;
-            case "Treasure Hunt": return iconicData._TreasureHunt;
-            case "Snakes and Ladders": return iconicData._SnakesandLadders;
-            case "Module Movements": return iconicData._ModuleMovements;
-            case "Bamboozled Again": return iconicData._BamboozledAgain;
-            case "Safety Square": return iconicData._SafetySquare;
-            case "Roman Numerals": return iconicData._RomanNumerals;
-            case "Colo(u)r Talk": return iconicData._ColourTalk;
-            case "Annoying Arrows": return iconicData._AnnoyingArrows;
-            case "Double Arrows": return iconicData._DoubleArrows;
-            case "Boolean Wires": return iconicData._BooleanWires;
-            case "Block Stacks": return iconicData._BlockStacks;
-            case "Vectors": return iconicData._Vectors;
-            case "Partial Derivatives": return iconicData._PartialDerivatives;
-            case "Caesar Cycle": return iconicData._CaesarCycle;
-            case "Needy Piano": return iconicData._NeedyPiano;
-            case "Forget Us Not": return iconicData._ForgetUsNot;
-            case "Affine Cycle": return iconicData._AffineCycle;
-            case "Pigpen Cycle": return iconicData._PigpenCycle;
-            case "Flower Patch": return iconicData._FlowerPatch;
-            case "Playfair Cycle": return iconicData._PlayfairCycle;
-            case "Jumble Cycle": return iconicData._JumbleCycle;
-            case "Organization": return iconicData._Organization;
-            case "Forget Perspective": return iconicData._ForgetPerspective;
-            case "Alpha-Bits": return iconicData._AlphaBits;
-            case "Jack Attack": return iconicData._JackAttack;
-            case "Ultimate Cycle": return iconicData._UltimateCycle;
-            case "Hill Cycle": return iconicData._HillCycle;
-            case "Binary": return iconicData._Binary;
-            case "Chord Progressions": return iconicData._ChordProgressions;
-            case "Matchematics": return iconicData._Matchematics;
-            case "Bob Barks": return iconicData._BobBarks;
-            case "Simon's On First": return iconicData._SimonsOnFirst;
-            case "Weird Al Yankovic": return iconicData._WeirdAlYankovic;
-            case "Forget Me Now": return iconicData._ForgetMeNow;
-            case "Simon Selects": return iconicData._SimonSelects;
-            case "The Witness": return iconicData._TheWitness;
-            case "Simon Literally Says": return iconicData._SimonLiterallySays;
-            case "Cryptic Cycle": return iconicData._CrypticCycle;
-            case "Bone Apple Tea": return iconicData._BoneAppleTea;
-            case "Robot Programming": return iconicData._RobotProgramming;
-            case "Masyu": return iconicData._Masyu;
-            case "Hold Ups": return iconicData._HoldUps;
-            case "Red Cipher": return iconicData._RedCipher;
-            case "Flash Memory": return iconicData._FlashMemory;
-            case "A-maze-ing Buttons": return iconicData._AmazeingButtons;
-            case "Desert Bus": return iconicData._DesertBus;
-            case "Orange Cipher": return iconicData._OrangeCipher;
-            case "Common Sense": return iconicData._CommonSense;
-            case "The Very Annoying Button": return iconicData._TheVeryAnnoyingButton;
-            case "Unown Cipher": return iconicData._UnownCipher;
-            case "Needy Flower Mash": return iconicData._NeedyFlowerMash;
-            case "TetraVex": return iconicData._TetraVex;
-            case "Meter": return iconicData._Meter;
-            case "Timing is Everything": return iconicData._TimingIsEverything;
-            case "The Modkit": return iconicData._TheModkit;
-            case "The Rule": return iconicData._TheRule;
-            case "Fruits": return iconicData._Fruits;
-            case "Bamboozling Button Grid": return iconicData._BamboozlingButtonGrid;
-            case "Footnotes": return iconicData._Footnotes;
-            case "Lousy Chess": return iconicData._LousyChess;
-            case "Module Listening": return iconicData._ModuleListening;
-            case "Garfield Kart": return iconicData._GarfieldKart;
-            case "Yellow Cipher": return iconicData._YellowCipher;
-            case "Kooky Keypad": return iconicData._KookyKeypad;
-            case "Green Cipher": return iconicData._GreenCipher;
-            case "RGB Maze": return iconicData._RGBMaze;
-            case "Blue Cipher": return iconicData._BlueCipher;
-            case "The Legendre Symbol": return iconicData._TheLegendreSymbol;
-            case "Keypad Lock": return iconicData._KeypadLock;
-            case "Forget Me Later": return iconicData._ForgetMeLater;
-            case "Übermodule": return iconicData._Ubermodule;
-            case "Heraldry": return iconicData._Heraldry;
-            case "Faulty RGB Maze": return iconicData._FaultyRGBMaze;
-            case "Indigo Cipher": return iconicData._IndigoCipher;
-            case "Violet Cipher": return iconicData._VioletCipher;
-            case "Encryption Bingo": return iconicData._EncryptionBingo;
-            case "Color Addition": return iconicData._ColorAddition;
-            case "Chinese Counting": return iconicData._ChineseCounting;
-            case "Tower of Hanoi": return iconicData._TowerofHanoi;
-            case "Keypad Combinations": return iconicData._KeypadCombinations;
-            case "UltraStores": return iconicData._UltraStores;
-            case "Kanji": return iconicData._Kanji;
-            case "Geometry Dash": return iconicData._GeometryDash;
-            case "Ternary Converter": return iconicData._TernaryConverter;
-            case "N&Ms": return iconicData._NMs;
-            case "Eight Pages": return iconicData._EightPages;
-            case "The Colored Maze": return iconicData._TheColoredMaze;
-            case "White Cipher": return iconicData._WhiteCipher;
-            case "Gray Cipher": return iconicData._GrayCipher;
-            case "The Hyperlink": return iconicData._TheHyperlink;
-            case "Black Cipher": return iconicData._BlackCipher;
-            case "Loopover": return iconicData._Loopover;
-            case "Divisible Numbers": return iconicData._DivisibleNumbers;
-            case "Corners": return iconicData._Corners;
-            case "The High Score": return iconicData._TheHighScore;
-            case "Ingredients": return iconicData._Ingredients;
-            case "Jenga": return iconicData._Jenga;
-            case "Intervals": return iconicData._Intervals;
-            case "Cruel Boolean Maze": return iconicData._CruelBooleanMaze;
-            case "Cheep Checkout": return iconicData._CheepCheckout;
-            case "Spelling Bee": return iconicData._SpellingBee;
-            case "Memorable Buttons": return iconicData._MemorableButtons;
-            case "Thinking Wires": return iconicData._ThinkingWires;
-            case "Seven Choose Four": return iconicData._SevenChooseFour;
-            case "Object Shows": return iconicData._ObjectShows;
-            case "Lunchtime": return iconicData._Lunchtime;
-            case "Natures": return iconicData._Natures;
-            case "Neutrinos": return iconicData._Neutrinos;
-            case "Scavenger Hunt": return iconicData._ScavengerHunt;
-            case "Polygons": return iconicData._Polygons;
-            case "Ultimate Cipher": return iconicData._UltimateCipher;
-            case "Codenames": return iconicData._Codenames;
-            case "Odd Mod Out": return iconicData._OddModOut;
-            case "Logic Statement": return iconicData._LogicStatement;
-            case "Blinkstop": return iconicData._Blinkstop;
-            case "Ultimate Custom Night": return iconicData._UltimateCustomNight;
-            case "Hinges": return iconicData._Hinges;
-            case "Time Accumulation": return iconicData._TimeAccumulation;
-            case "❖": return iconicData._nonverbalSimon;
-            case "Forget It Not": return iconicData._ForgetItNot;
-            case "egg": return iconicData._egg;
-            case "BuzzFizz": return iconicData._BuzzFizz;
-            case "Answering Can Be Fun": return iconicData._AnsweringCanBeFun;
-            case "3x3 Grid": return iconicData._3x3Grid;
-            case "15 Mystic Lights": return iconicData._15MysticLights;
-            case "14": return iconicData._14;
-            case "Rainbow Arrows": return iconicData._RainbowArrows;
-            case "Time Signatures": return iconicData._TimeSignatures;
-            case "Multicolored Switches": return iconicData._MultiColoredSwitches;
-            case "Digital Dials": return iconicData._DigitalDials;
-            case "Passcodes": return iconicData._Passcodes;
-            case "Hereditary Base Notation": return iconicData._HereditaryBaseNotation;
-            case "Lines of Code": return iconicData._LinesOfCode;
-            case "The cRule": return iconicData._TheCRule;
-            case "Prime Encryption": return iconicData._PrimeEncryption;
-            case "Encrypted Dice": return iconicData._EncryptedDice;
-            case "Colorful Dials": return iconicData._ColorfulDials;
-            case "Naughty or Nice": return iconicData._NaughtyOrNice;
-            case "Following Orders": return iconicData._FollowingOrders;
-            case "Binary Grid": return iconicData._BinaryGrid;
-            case "Matrices": return iconicData._Matrices;
-            case "Cruel Keypads": return iconicData._CruelKeypad;
-            case "The Black Page": return iconicData._TheBlackPage;
-            case "64": return iconicData._64;
-            case "Simon Forgets": return iconicData._SimonForgets;
-            case "Greek Letter Grid": return iconicData._GreekLetterGrid;
-            case "Bamboozling Time Keeper": return iconicData._BamboozlingTimeKeeper;
-            case "Scalar Dials": return iconicData._ScalarDials;
-            case "The World's Largest Button": return iconicData._TheWorldsLargestButton;
-            case "Keywords": return iconicData._Keywords;
-            case "State of Aggregation": return iconicData._StateofAggregation;
-            case "Dreamcipher": return iconicData._Dreamcipher;
-            case "Brainf---": return iconicData._Brainf;
-            case "Rotating Squares": return iconicData._RotatingSquares;
-            case "Patience": return iconicData._Patience;
-            case "Hyperneedy": return iconicData._Hyperneedy;
-            case "Echolocation": return iconicData._Echolocation;
-            case "Boozleglyph Identification": return iconicData._BoozleglyphIdentification;
-            case "Boxing": return iconicData._Boxing;
-            case "Topsy Turvy": return iconicData._TopsyTurvy;
-            case "Railway Cargo Loading": return iconicData._RailwayCargoLoading;
-            case "Conditional Buttons": return iconicData._ConditionalButtons;
-            case "ASCII Art": return iconicData._ASCIIArt;
-            case "Semamorse": return iconicData._Semamorse;
-            case "Hide And Seek": return iconicData._HideandSeek;
-            case "Symbolic Tasha": return iconicData._SymbolicTasha;
-            case "Alphabetical Ruling": return iconicData._AlphabeticalRuling;
-            case "Microphone": return iconicData._Microphone;
-            case "Widdershins": return iconicData._Widdershins;
-            case "Lockpick Maze": return iconicData._LockpickMaze;
-            case "Dimension Disruption": return iconicData._DimensionDisruption;
-            case "V": return iconicData._V;
-            case "Silhouettes": return iconicData._Silhouettes;
-            case "A Message": return iconicData._AMessage;
-            case "Alliances": return iconicData._Alliances;
-            case "Dungeon": return iconicData._Dungeon;
-            case "Unicode": return iconicData._Unicode;
-            case "Password Generator": return iconicData._PasswordGenerator;
-            case "Baccarat": return iconicData._Baccarat;
-            case "Guess Who?": return iconicData._GuessWho;
-            case "Reverse Alphabetize": return iconicData._ReverseAlphabetize;
-            case "Alphabetize": return iconicData._Alphabetize;
-            case "Gatekeeper": return iconicData._Gatekeeper;
-            case "Light Bulbs": return iconicData._LightBulbs;
-            case "1000 Words": return iconicData._1000Words;
-            case "Five Letter Words": return iconicData._FiveLetterWords;
-            case "Settlers of KTaNE": return iconicData._SettlersofKTaNE;
-            case "The Hidden Value": return iconicData._TheHiddenValue;
-            case "Red": return iconicData._Red;
-            case "Blue": return iconicData._Blue;
-            case "Directional Button": return iconicData._DirectionalButton;
-            case "...?": return iconicData._dotDotDotQuestionMark;
-            case "The Simpleton": return iconicData._TheSimpleton;
-            case "Misery Squares": return iconicData._MiserySquares;
-            case "Not Wiresword": return iconicData._NotWiresword;
-            case "Not Wire Sequence": return iconicData._NotWireSequence;
-            case "Not Who's on First": return iconicData._NotWhosOnFirst;
-            case "Not Simaze": return iconicData._NotSimaze;
-            case "Not Password": return iconicData._NotPassword;
-            case "Not Morse Code": return iconicData._NotMorseCode;
-            case "Not Memory": return iconicData._NotMemory;
-            case "Not Maze": return iconicData._NotMaze;
-            case "Not Keypad": return iconicData._NotKeypad;
-            case "Not Complicated Wires": return iconicData._NotComplicatedWires;
-            case "Not Capacitor Discharge": return iconicData._NotCapacitorDischarge;
-            case "Not the Button": return iconicData._NotTheButton;
-            case "Sequences": return iconicData._Sequences;
-            case "Dungeon 2nd Floor": return iconicData._Dungeon2ndFloor;
-            case "Wire Ordering": return iconicData._WireOrdering;
-            case "Vcrcs": return iconicData._Vcrcs;
-            case "Quaternions": return iconicData._Quaternions;
-            case "Abstract Sequences": return iconicData._AbstractSequences;
-            case "osu!": return iconicData._osu;
-            case "Shifting Maze": return iconicData._ShiftingMaze;
-            case "Sorting": return iconicData._Sorting;
-            case "Role Reversal": return iconicData._RoleReversal;
-            case "Placeholder Talk": return iconicData._PlaceholderTalk;
-            case "Art Appreciation": return iconicData._ArtAppreciation;
-            case "Shell Game": return iconicData._ShellGame;
-            case "Pattern Lock": return iconicData._PatternLock;
-            case "Quick Arithmetic": return iconicData._QuickArithmetic;
-            case "Minecraft Cipher": return iconicData._MinecraftCipher;
-            case "Cheat Checkout": return iconicData._CheatCheckout;
-            case "The Samsung": return iconicData._TheSamsung;
-            case "Forget The Colors": return iconicData._ForgetTheColors;
-            case "Etterna": return iconicData._Etterna;
-            case "Recolored Switches": return iconicData._RecoloredSwitches;
-            case "Cruel Garfield Kart": return iconicData._CruelGarfieldKart;
-            case "1D Maze": return iconicData._1DMaze;
-            case "Reverse Polish Notation": return iconicData._ReversePolishNotation;
-            case "Snowflakes": return iconicData._Snowflakes;
-            case "Exoplanets": return iconicData._Exoplanets;
-            case "Simon Stages": return iconicData._SimonStages;
-            case "Not Venting Gas": return iconicData._NotVentingGas;
-            case "Forget Infinity": return iconicData._ForgetInfinity;
-            case "Faulty Seven Segment Displays": return iconicData._FaultySevenSegmentDisplays;
-            case "Stock Images": return iconicData._StockImages;
-            case "Roger": return iconicData._Roger;
-            case "Malfunctions": return iconicData._Malfunctions;
-            case "Minecraft Parody": return iconicData._MinecraftParody;
-            case "Shuffled Strings": return iconicData._ShuffledStrings;
-            case "NumberWang": return iconicData._NumberWang;
-            case "Minecraft Survival": return iconicData._MinecraftSurvival;
-            case "RPS Judging": return iconicData._RPSJudging;
-            case "Fencing": return iconicData._Fencing;
-            case "Strike/Solve": return iconicData._StrikeSolve;
-            case "Uncolored Switches": return iconicData._UncoloredSwitches;
-            case "The Twin": return iconicData._TheTwin;
-            case "Name Changer": return iconicData._NameChanger;
-            case "Just Numbers": return iconicData._JustNumbers;
-            case "Lying Indicators": return iconicData._LyingIndicators;
-            case "Flag Identification": return iconicData._FlagIdentification;
-            case "Training Text": return iconicData._TrainingText;
-            case "Wonder Cipher": return iconicData._WonderCipher;
-            case "Caesar's Maths": return iconicData._CaesarsMaths;
-            case "Triamonds": return iconicData._Triamonds;
-            case "Stars": return iconicData._Stars;
-            case "Button Order": return iconicData._ButtonOrder;
-            case "Elder Password": return iconicData._ElderPassword;
-            case "Switching Maze": return iconicData._SwitchingMaze;
-            case "Iconic": return iconicData._Iconic;
-            case "Mystery Module": return iconicData._MysteryModule;
-            case "Ladder Lottery": return iconicData._LadderLottery;
-            case "Co-op Harmony Sequence": return iconicData._CoopHarmonySequence;
-            case "Standard Crazy Talk": return iconicData._StandardCrazyTalk;
-            case "Quote Crazy Talk End Quote": return iconicData._QuoteCrazyTalkEndQuote;
-            case "Kilo Talk": return iconicData._KiloTalk;
-            case "KayMazey Talk": return iconicData._KayMazeyTalk;
-            case "Jaden Smith Talk": return iconicData._JadenSmithTalk;
-            case "Deck Creating": return iconicData._DeckCreating;
-            case "Crazy Talk With A K": return iconicData._CrazyTalkWithAK;
-            case "BoozleTalk": return iconicData._BoozleTalk;
-            case "Arrow Talk": return iconicData._ArrowTalk;
-            case "Siffron": return iconicData._Siffron;
-            case "Audio Morse": return iconicData._AudioMorse;
-            case "Palindromes": return iconicData._Palindromes;
-            case "Pow": return iconicData._Pow;
-            case "Type Racer": return iconicData._TypeRacer;
-            case "Chicken Nuggets": return iconicData._ChickenNuggets;
-            case "Badugi": return iconicData._Badugi;
-            case "Tetriamonds": return iconicData._Tetriamonds;
-            case "Spot the Difference": return iconicData._SpotTheDifference;
-            case "Negativity": return iconicData._Negativity;
-            case "Masher The Bottun": return iconicData._MasherTheBottun;
-            case "Yes and No": return iconicData._YesAndNo;
-            case "M&Ns": return iconicData._MNs;
-            case "Plant Identification": return iconicData._PlantIdentification;
-            case "Integer Trees": return iconicData._IntegerTrees;
-            case "Goofy's Game": return iconicData._GoofysGame;
-            case "Module Rick": return iconicData._ModuleRick;
-            case "Pickup Identification": return iconicData._PickupIdentification;
-            case "Earthbound": return iconicData._Earthbound;
-            case "3 LEDs": return iconicData._3LEDs;
-            case "Life Iteration": return iconicData._LifeIteration;
-            case "Thread the Needle": return iconicData._ThreadTheNeedle;
-            case "Encrypted Hangman": return iconicData._EncryptedHangman;
-            case "Accelerando": return iconicData._Accelerando;
-            case "Reaction": return iconicData._Reaction;
-            case "The Heart": return iconicData._TheHeart;
-            case "Color Braille": return iconicData._ColorBraille;
-            case "Remote Math": return iconicData._RemoteMath;
-            case "Reflex": return iconicData._Reflex;
-            case "Password Destroyer": return iconicData._PasswordDestroyer;
-            case "Typing Tutor": return iconicData._TypingTutor;
-            case "Multitask": return iconicData._Multitask;
-            case "hexOS": return iconicData._hexOS;
-            case "Simon Stashes": return iconicData._SimonStashes;
-            case "Kyudoku": return iconicData._Kyudoku;
-            case "Brawler Database": return iconicData._BrawlerDatabase;
-            case "Shortcuts": return iconicData._Shortcuts;
-            case "More Code": return iconicData._MoreCode;
-            case "7": return iconicData._7;
-            case "OmegaForget": return iconicData._OmegaForget;
-            case "Needy Game of Life": return iconicData._NeedyGameOfLife;
-            case "Mental Math": return iconicData._MentalMath;
-            case "Kugelblitz": return iconicData._Kugelblitz;
-            case "Dictation": return iconicData._Dictation;
-            case "Bloxx": return iconicData._Bloxx;
-            case "Basic Morse": return iconicData._BasicMorse;
-            case "IPA": return iconicData._IPA;
-            case "Emotiguy Identification": return iconicData._EmotiguyIdentification;
-            case "100 Levels of Defusal": return iconicData._100LevelsOfDefusal;
-            case "NeeDeez Nuts": return iconicData._NeeDeezNuts;
-            case "Jailbreak": return iconicData._Jailbreak;
-            case "Dumb Waiters": return iconicData._DumbWaiters;
-            case "DACH Maze": return iconicData._DACHMaze;
-            case "Birthdays": return iconicData._Birthdays;
-            case "Match 'em": return iconicData._MatchEm;
-            case "Navinums": return iconicData._Navinums;
-            case "Gnomish Puzzle": return iconicData._GnomishPuzzle;
-            case "RGB Logic": return iconicData._RGBLogic;
-            case "Bridges": return iconicData._Bridges;
-            case "A>N<D": return iconicData._ARightNLeftD;
-            case "Shifted Maze": return iconicData._ShiftedMaze;
-            case "Juxtacolored Squares": return iconicData._JuxtacoloredSquares;
-            case "Wolf, Goat, and Cabbage": return iconicData._WolfGoatAndCabbage;
-            case "The Missing Letter": return iconicData._TheMissingLetter;
-            case "Amnesia": return iconicData._Amnesia;
-            case "Plug-Ins": return iconicData._PlugIns;
-            case "Synesthesia": return iconicData._Synesthesia;
-            case "English Entries": return iconicData._EnglishEntries;
-            case "The Duck": return iconicData._TheDuck;
-            case "The Cruel Duck": return iconicData._TheCruelDuck;
-            case "Identifying Soulless": return iconicData._IdentifyingSoulless;
-            case "Ultimate Tic Tac Toe": return iconicData._UltimateTicTacToe;
-            case "Factoring": return iconicData._Factoring;
-            case "Lyrical Nonsense": return iconicData._LyricalNonsense;
-            case "RGB Sequences": return iconicData._RGBSequences;
-            case "Puzzword": return iconicData._Puzzword;
-            case "NOT NOT": return iconicData._NOTNOT;
-            case "Repo Selector": return iconicData._RepoSelector;
-            case "int##": return iconicData._intHashHash;
-            case "Deaf Alley": return iconicData._DeafAlley;
-            case "Blind Arrows": return iconicData._BlindArrows;
-            case "Sound Design": return iconicData._SoundDesign;
-            case "RGB Arithmetic": return iconicData._RGBArithmetic;
-            case "D-CODE": return iconicData._DCODE;
-            case "Rapid Subtraction": return iconicData._RapidSubtraction;
-            case "Fifteen": return iconicData._Fifteen;
-            case "Pixel Cipher": return iconicData._PixelCipher;
-            case "Don't Touch Anything": return iconicData._DontTouchAnything;
-            case "The Great Void": return iconicData._TheGreatVoid;
-            case "21": return iconicData._21;
-            case "Prime Time": return iconicData._PrimeTime;
-            case "Negation": return iconicData._Negation;
-            case "The Calculator": return iconicData._TheCalculator;
-            case "SixTen": return iconicData._SixTen;
-            case "ASCII Maze": return iconicData._ASCIIMaze;
-            case "Ultralogic": return iconicData._Ultralogic;
-            case "Spangled Stars": return iconicData._SpangledStars;
-            case "Busy Beaver": return iconicData._BusyBeaver;
-            case "Cruel Match 'em": return iconicData._CruelMatchEm;
-            case "Assembly Code": return iconicData._AssemblyCode;
-            case "Simon's Ultimate Showdown": return iconicData._SimonsUltimateShowdown;
-            case "Boomdas": return iconicData._Boomdas;
-            case "Needlessly Complicated Button": return iconicData._NeedlesslyComplicatedButton;
-            case "Color Numbers": return iconicData._ColorNumbers;
-            case "Chinese Strokes": return iconicData._ChineseStrokes;
-            case "Chalices": return iconicData._Chalices;
-            case "Reversed Edgework": return iconicData._ReversedEdgework;
-            case "Pixel Art": return iconicData._PixelArt;
-            case "Faulty Accelerando": return iconicData._FaultyAccelerando;
-            case "0": return iconicData._0;
-            case "Pitch Perfect": return iconicData._PitchPerfect;
-            case "Increasing Indices": return iconicData._IncreasingIndices;
-            case "Faulty Binary": return iconicData._FaultyBinary;
-            case "Cruel Binary": return iconicData._CruelBinary;
-            case "Connected Monitors": return iconicData._ConnectedMonitors;
-            case "Broken Binary": return iconicData._BrokenBinary;
-            case "Totally Accurate Minecraft Simulator": return iconicData._TotallyAccurateMinecraftSimulator;
-            case "Tell Me When": return iconicData._TellMeWhen;
-            case "ReGret-B Filtering": return iconicData._ReGretBFiltering;
-            case "D-CRYPT": return iconicData._DCRYPT;
-            case "Color-Cycle Button": return iconicData._ColorCycleButton;
-            case "Alien Filing Colors": return iconicData._AlienFilingColors;
-            case "The Kanye Encounter": return iconicData._TheKanyeEncounter;
-            case "Entry Number Four": return iconicData._EntryNumberFour;
-            case "D-CIPHER": return iconicData._DCIPHER;
-            case "501": return iconicData._501;
-            case "42": return iconicData._42;
-            case "Color One Two": return iconicData._ColorOneTwo;
-            case "Toolmods": return iconicData._Toolmods;
-            case "Spelling Buzzed": return iconicData._SpellingBuzzed;
-            case "Burnout": return iconicData._Burnout;
-            case "Brown Bricks": return iconicData._BrownBricks;
-            case "Mystic Maze": return iconicData._MysticMaze;
-            case "Chinese Zodiac": return iconicData._ChineseZodiac;
-            case "Four Lights": return iconicData._FourLights;
-            case "Duck, Duck, Goose": return iconicData._DuckDuckGoose;
-            case "Not Knob": return iconicData._NotKnob;
-            case "Working Title": return iconicData._WorkingTitle;
-            case "Toolneedy": return iconicData._Toolneedy;
-            case "One Links To All": return iconicData._OneLinksToAll;
-            case "Rules": return iconicData._Rules;
-            case "Tenpins": return iconicData._Tenpins;
-            case "Double Listening": return iconicData._DoubleListening;
-            case "Wack Game of Life": return iconicData._WackGameOfLife;
-            case "Unfair's Revenge": return iconicData._UnfairsRevenge;
-            case "Unfair's Cruel Revenge": return iconicData._UnfairsCruelRevenge;
-            case "Mindlock": return iconicData._Mindlock;
-            case "Golf": return iconicData._Golf;
-            case "Regular Hexpressions": return iconicData._RegularHexpressions;
-            case "Literally Nothing": return iconicData._LiterallyNothing;
-            case "Colored Buttons": return iconicData._ColoredButtons;
-            case "Censorship": return iconicData._Censorship;
-            case "The Pentabutton": return iconicData._ThePentabutton;
-            case "Mechanus Cipher": return iconicData._MechanusCipher;
-            case "Digisibility": return iconicData._Digisibility;
-            case "Breaktime": return iconicData._Breaktime;
-            case "Space Invaders Extreme": return iconicData._SpaceInvadersExtreme;
-            case "Mazery": return iconicData._Mazery;
-            case "Kim's Game": return iconicData._KimsGame;
-            case "Three Cryptic Steps": return iconicData._ThreeCrypticSteps;
-            case "Popufur": return iconicData._Popufur;
-            case "Tech Support": return iconicData._TechSupport;
-            case "Space": return iconicData._Space;
-            case "9-Ball": return iconicData._9Ball;
-            case "Metamem": return iconicData._Metamem;
-            case "M&Ms": return iconicData._MMs;
-            case "The Console": return iconicData._TheConsole;
-            case "Pocket Planes": return iconicData._PocketPlanes;
-            case "Bridge": return iconicData._Bridge;
-            case "Rotten Beans": return iconicData._RottenBeans;
-            case "Long Beans": return iconicData._LongBeans;
-            case "Jellybeans": return iconicData._Jellybeans;
-            case "Cool Beans": return iconicData._CoolBeans;
-            case "Beans": return iconicData._Beans;
-            case "Beanboozled Again": return iconicData._BeanboozledAgain;
-            case "The Dials": return iconicData._TheDials;
-            case "Butterflies": return iconicData._Butterflies;
-            case "Broken Karaoke": return iconicData._BrokenKaraoke;
-            case "Chamber No. 5": return iconicData._ChamberNo5;
-            case "Silenced Simon": return iconicData._SilencedSimon;
-            case "Teal Arrows": return iconicData._TealArrows;
-            case "Keep Clicking": return iconicData._KeepClicking;
-            case "Frankenstein's Indicator": return iconicData._FrankensteinsIndicator;
-            case "16 Coins": return iconicData._16Coins;
-            case "Sea Bear Attacks": return iconicData._SeaBearAttacks;
-            case "Alphabet Tiles": return iconicData._AlphabetTiles;
-            case "Literally Crying": return iconicData._LiterallyCrying;
-            case "Double Pitch": return iconicData._DoublePitch;
-            case "Devilish Eggs": return iconicData._DevilishEggs;
-            case "h": return iconicData._h;
-            case "Rune Match I": return iconicData._RuneMatchI;
-            case "Rune Match II": return iconicData._RuneMatchII;
-            case "Rune Match III": return iconicData._RuneMatchIII;
-            case "Quick Time Events": return iconicData._QuickTimeEvents;
-            case "Iñupiaq Numerals": return iconicData._InupiaqNumerals;
-            case "The Bioscanner": return iconicData._TheBioscanner;
-            case "Ars Goetia Identification": return iconicData._ArsGoetiaIdentification;
-            case "Pixel Number Base": return iconicData._PixelNumberBase;
-            case "Silo Authorization": return iconicData._SiloAuthorization;
-            case "Gradually Watermelon": return iconicData._GraduallyWatermelon;
-            case "Mastermind Restricted": return iconicData._MastermindRestricted;
-            case "Logical Operators": return iconicData._LogicalOperators;
-            case "Higher Or Lower": return iconicData._HigherOrLower;
-            case "Even Or Odd": return iconicData._EvenOrOdd;
-            case "Digital Grid": return iconicData._DigitalGrid;
-            case "Reformed Role Reversal": return iconicData._ReformedRoleReversal;
-            case "Whiteout": return iconicData._Whiteout;
-            case "N&Ns": return iconicData._NNs;
-            case "Gettin' Funky": return iconicData._GettinFunky;
-            case "Cell Lab": return iconicData._CellLab;
-            case "Lights On": return iconicData._LightsOn;
-            case "Color Hexagons": return iconicData._ColorHexagons;
-            case "Commuting": return iconicData._Commuting;
-            case "Symmetries Of A Square": return iconicData._SymmetriesOfASquare;
-            case "Look and Say": return iconicData._LookAndSay;
-            case "Currents": return iconicData._Currents;
-            case "Partitions": return iconicData._Partitions;
-            case "Telepathy": return iconicData._Telepathy;
-            case "Cruel Stars": return iconicData._CruelStars;
-            case "Button Messer": return iconicData._ButtonMesser;
-            case "Taco Tuesday": return iconicData._TacoTuesday;
-            case "Nomai": return iconicData._Nomai;
-            case "Forget Any Color": return iconicData._ForgetAnyColor;
-            case "Table Madness": return iconicData._TableMadness;
-            case "Melodic Message": return iconicData._MelodicMessage;
-            case "Sugar Skulls": return iconicData._SugarSkulls;
-            case "Colour Catch": return iconicData._ColourCatch;
-            case "Cosmic": return iconicData._Cosmic;
-            case "Semabols": return iconicData._Semabols;
-            case "Mislocation": return iconicData._Mislocation;
-            case "Musher the Batten": return iconicData._MusherTheBatten;
-            case "Tribal Council": return iconicData._TribalCouncil;
-            case "Simon Smiles": return iconicData._SimonSmiles;
-            case "Outrageous": return iconicData._Outrageous;
-            case "Faulty Chinese Counting": return iconicData._FaultyChineseCounting;
-            case "Press The Shape": return iconicData._PressTheShape;
-            case "Baybayin Words": return iconicData._BaybayinWords;
-            case "OmegaDestroyer": return iconicData._OmegaDestroyer;
-            case "Going Backwards": return iconicData._GoingBackwards;
-            case "Atbash Cipher": return iconicData._AtbashCipher;
-            case "Venn Diagrams": return iconicData._VennDiagrams;
-            case "Numbered Buttons": return iconicData._NumberedButtons;
-            case "Colored Hexabuttons": return iconicData._ColoredHexabuttons;
-            case "Video Poker": return iconicData._VideoPoker;
-            case "White Arrows": return iconicData._WhiteArrows;
-            case "Johnson Solids": return iconicData._JohnsonSolids;
-            case "Bottom Gear": return iconicData._BottomGear;
-            case "Two Persuasive Buttons": return iconicData._TwoPersuasiveButtons;
-            case "Keypad Directionality": return iconicData._KeypadDirectionality;
-            case "% Grey": return iconicData._Grey;
-            case "Towers": return iconicData._Towers;
-            case "Letter Layers": return iconicData._LetterLayers;
-            case "The Exploding Pen": return iconicData._TheExplodingPen;
-            case "Snack Attack": return iconicData._SnackAttack;
-            case "ReGrettaBle Relay": return iconicData._ReGrettaBleRelay;
-            case "Security Council": return iconicData._SecurityCouncil;
-            case "Standard Button Masher": return iconicData._StandardButtonMasher;
-            case "Musical Transposition": return iconicData._MusicalTransposition;
-            case "Jackbox.TV": return iconicData._JackboxTV;
-            case "The Furloid Jukebox": return iconicData._TheFurloidJukebox;
-            case "The Close Button": return iconicData._TheCloseButton;
-            case "Updog": return iconicData._Updog;
-            case "Saimoe Pad": return iconicData._SaimoePad;
-            case "B-Machine": return iconicData._BMachine;
-            case "Addition": return iconicData._Addition;
-            case "What’s on Second": return iconicData._WhatsOnSecond;
-            case "Quaver": return iconicData._Quaver;
-            case "Another Keypad Module": return iconicData._AnotherKeypadModule;
-            case "Think Fast": return iconicData._ThinkFast;
-            case "Shoddy Chess": return iconicData._ShoddyChess;
-            case "Rhythm Test": return iconicData._RhythmTest;
-            case "Validation": return iconicData._Validation;
-            case "Floor Lights": return iconicData._FloorLights;
-            case "Bad Wording": return iconicData._BadWording;
-            case "Etch-A-Sketch": return iconicData._EtchASketch;
-            case "Zener Cards": return iconicData._ZenerCards;
-            case "Diophantine Equations": return iconicData._DiophantineEquations;
-            case "Ternary Tiles": return iconicData._TernaryTiles;
-            case "Striped Keys": return iconicData._StripedKeys;
-            case "Rullo": return iconicData._Rullo;
-            case "Flashing Arrows": return iconicData._FlashingArrows;
-            case "Cruello": return iconicData._Cruello;
-            case "Coloured Arrows": return iconicData._ColouredArrows;
-            case "Black Arrows": return iconicData._BlackArrows;
-            case "Tetris Sprint": return iconicData._TetrisSprint;
-            case "Forget Maze Not": return iconicData._ForgetMazeNot;
-            case "Double Screen": return iconicData._DoubleScreen;
-            case "The Sequencyclopedia": return iconicData._TheSequencyclopedia;
-            case "eeB gnillepS": return iconicData._eeBgnillepS;
-            case "Pandemonium Cipher": return iconicData._PandemoniumCipher;
-            case "Mineswapper": return iconicData._Minesweeper;
-            case "Phosphorescence": return iconicData._Phosphorescence;
-            case "The Klaxon": return iconicData._TheKlaxon;
-            case "Valued Keys": return iconicData._ValuedKeys;
-            case "Numerical Knight Movement": return iconicData._NumericalKnightMovement;
-            case "Bandboozled Again": return iconicData._BandboozledAgain;
-            case "SpriteClub Betting Simulation": return iconicData._SpriteClubBettingSimulation;
-            case "Ramboozled Again": return iconicData._RamboozledAgain;
-            case "Simon Subdivides": return iconicData._SimonSubdivides;
-            case "Hole in One": return iconicData._HoleInOne;
-            case "Hexiom": return iconicData._Hexiom;
-            case "Collapse": return iconicData._Collapse;
-            case "Back Buttons": return iconicData._BackButtons;
-            case "Audio Keypad": return iconicData._AudioKeypad;
-            case "Saimoe Maze": return iconicData._SaimoeMaze;
-            case "Kidney Beans": return iconicData._KidneyBeans;
-            case "Fake Beans": return iconicData._FakeBeans;
-            case "Chilli Beans": return iconicData._ChilliBeans;
-            case "Big Bean": return iconicData._BigBean;
-            case "Bean Sprouts": return iconicData._BeanSprouts;
-            case "Tell Me Why": return iconicData._TellMeWhy;
-            case "Quiplash": return iconicData._Quiplash;
-            case "Bowling": return iconicData._Bowling;
-            case "Sporadic Segments": return iconicData._SporadicSegments;
-            case "Linq": return iconicData._Linq;
-            case "Entry Number One": return iconicData._EntryNumberOne;
-            case "DNA Mutation": return iconicData._DNAMutation;
-            case "RGB Hypermaze": return iconicData._RGBHypermaze;
-            case "Boob Tube": return iconicData._BoobTube;
-            case "Regular Sudoku": return iconicData._RegularSudoku;
-            case "AAAAA": return iconicData._AAAAA;
-            case "Polyrhythms": return iconicData._Polyrhythms;
-            case "Drive-In Window": return iconicData._DriveInWindow;
-            case "The 12 Days of Christmas": return iconicData._The12DaysOfChristmas;
-            case "X": return iconicData._X;
-            case "Y": return iconicData._Y;
-            case "The Xenocryst": return iconicData._TheXenocryst;
-            case "Rebooting M-OS": return iconicData._RebootingMOS;
-            case "Stacked Sequences": return iconicData._StackedSequences;
-            case "Complexity": return iconicData._Complexity;
-            case "Small Circle": return iconicData._SmallCircle;
-            case "Fractal Maze": return iconicData._FractalMaze;
-            case "Simon Stumbles": return iconicData._SimonStumbles;
-            case "Wild Side": return iconicData._WildSide;
-            case "The Octadecayotton": return iconicData._TheOctadecayotton;
-            case "Colored Letters": return iconicData._ColoredLetters;
-            case "Kahoot!": return iconicData._Kahoot;
-            case "Forget's Ultimate Showdown": return iconicData._ForgetsUltimateShowdown;
-            case "Bomb Corp. Filing": return iconicData._BombCorpFiling;
-            case "Ultra Digital Root": return iconicData._UltraDigitalRoot;
-            case "Mii Identification": return iconicData._MiiIdentification;
-            case "81": return iconicData._81;
-            case "Simon Swindles": return iconicData._SimonSwindles;
-            case "Next In Line": return iconicData._NextInLine;
-            case "Functional Mapping": return iconicData._FunctionalMapping;
-            case "Stable Time Signatures": return iconicData._StableTimeSignatures;
-            case "Keypad Maze": return iconicData._KeypadMaze;
-            case "Astrological": return iconicData._Astrological;
-            case "XmORse Code": return iconicData._XmORseCode;
-            case "Corridors": return iconicData._Corridors;
-            case "Decay": return iconicData._Decay;
-            case "Crazy Speak": return iconicData._CrazySpeak;
-            case "Large Password": return iconicData._LargePassword;
-            case "Large Free Password": return iconicData._LargeFreePassword;
-            case "Free Password": return iconicData._FreePassword;
-            case "Not Timer": return iconicData._NotTimer;
-            case "The Burnt": return iconicData._TheBurnt;
-            case "Access Codes": return iconicData._AccessCodes;
-            case "Cistercian Numbers": return iconicData._CistercianNumbers;
-            case "Brown Cipher": return iconicData._BrownCipher;
-            case "Code Cracker": return iconicData._CodeCracker;
-            case "Indentation": return iconicData._Indentation;
-            case "One-Line": return iconicData._OneLine;
-            case "The Speaker": return iconicData._TheSpeaker;
-            case "Interpunct": return iconicData._Interpunct;
-            case "Double Knob": return iconicData._DoubleKnob;
-            case "Name Codes": return iconicData._NameCodes;
-            case "The 1, 2, 3 Game": return iconicData._The123Game;
-            case "Papa's Pizzeria": return iconicData._PapasPizzeria;
-            case "Keypad Magnified": return iconicData._KeypadMagnified;
-            case "Hold On": return iconicData._HoldOn;
-            case "Diffusion": return iconicData._Diffusion;
-            case "Soy Beans": return iconicData._SoyBeans;
-            case "The Shaker": return iconicData._TheShaker;
-            case "Coffee Beans": return iconicData._CoffeeBeans;
-            case "Newline": return iconicData._Newline;
-            case "Letter Grid": return iconicData._LetterGrid;
-            case "Ghost Movement": return iconicData._GhostMovement;
-            case "+": return iconicData._plus;
-            case "Transmission Transposition": return iconicData._TransmissionTransposition;
-            case "Screensaver": return iconicData._Screensaver;
-            case "RSA Cipher": return iconicData._RSACipher;
-            case "Amusement Parks": return iconicData._AmusementParks;
-            case "Literally Something": return iconicData._LiterallySomething;
-            case "Icon Reveal": return iconicData._IconReveal;
-            case "Solitaire Cipher": return iconicData._SolitaireCipher;
-            case "hexOrbits": return iconicData._hexOrbits;
-            case "Matchmaker": return iconicData._Matchmaker;
-            case "Ladders": return iconicData._Ladders;
-            case "Hearthur": return iconicData._Hearthur;
-            case "Decimation": return iconicData._Decimation;
-            case "Color Punch": return iconicData._ColorPunch;
-            case "Count to 69420": return iconicData._CountTo69420;
-            case "Mssngv Wls": return iconicData._MssngvWls;
-            case "Netherite": return iconicData._Netherite;
-            case "Naming Conventions": return iconicData._NamingConventions;
-            case "I'm Not a Robot": return iconicData._ImNotARobot;
-            case "Emoticon Math": return iconicData._EmoticonMath;
-            case "Coinage": return iconicData._Coinage;
-            case "Simon Supports": return iconicData._SimonSupports;
-            case "Identifrac": return iconicData._Identifrac;
-            case "1D Chess": return iconicData._1DChess;
-            case "1-2-3-2-1": return iconicData._12321;
-            case "Not Murder": return iconicData._NotMurder;
-            case "Not Morsematics": return iconicData._NotMorsematics;
-            case "Not Crazy Talk": return iconicData._NotCrazyTalk;
-            case "Not Coordinates": return iconicData._NotCoordinates;
-            case "Not Connection Check": return iconicData._NotConnectionCheck;
-            case "Not Colour Flash": return iconicData._NotColourFlash;
-            case "Cruel Colour Flash": return iconicData._CruelColourFlash;
-            case "Numpath": return iconicData._Numpath;
-            case "The Logan Parody Jukebox": return iconicData._TheLoganParodyJukebox;
-            case "Factoring Maze": return iconicData._FactoringMaze;
-            case "Binary Buttons": return iconicData._BinaryButtons;
-            case "The Assorted Arrangement": return iconicData._TheAssortedArrangement;
-            case "The Alteran Trail": return iconicData._TheAlteranTrail;
-            case "Pathfinder": return iconicData._Pathfinder;
-            case "Needy Wires": return iconicData._NeedyWires;
-            case "Turn Four": return iconicData._TurnFour;
-            case "nya~": return iconicData._nya;
-            case "Llama, Llama, Alpaca": return iconicData._LlamaLlamaAlpaca;
-            case "Voltorb Flip": return iconicData._VoltorbFlip;
-            case "Cruel Synesthesia": return iconicData._CruelSynesthesia;
-            case "Polygrid": return iconicData._Polygrid;
-            case "Dossier Modifier": return iconicData._DossierModifier;
-            case "Mischmodul": return iconicData._Mischmodul;
-            case "amogus": return iconicData._amogus;
-            case "Connect Four": return iconicData._ConnectFour;
-            case "Macro Memory": return iconicData._MacroMemory;
-            case "Directing Buttons": return iconicData._DirectingButtons;
-            case "Colors Maximization": return iconicData._ColorsMaximization;
-            case "Anomia": return iconicData._Anomia;
-            case "Uncoloured Buttons": return iconicData._UncolouredButtons;
-            case "The Impostor": return iconicData._TheImpostor;
-            case "Doomsday Button": return iconicData._DoomsdayButton;
-            case "Blue Whale": return iconicData._BlueWhale;
-            case "Antimatter Dimensions": return iconicData._AntimatterDimensions;
-            case "Watching Paint Dry": return iconicData._WatchingPaintDry;
-            case "Soulscream": return iconicData._Soulscream;
-            case "Dice Cipher": return iconicData._DiceCipher;
-            case "Weekdays": return iconicData._Weekdays;
-            case "Salts": return iconicData._Salts;
-            case "Mazeswapper": return iconicData._Mazeswapper;
-            case "Infinite Loop": return iconicData._InfiniteLoop;
-            case "Face Recognition": return iconicData._FaceRecognition;
-            case "Stoichiometry": return iconicData._Stoichiometry;
-            case "Hitman": return iconicData._Hitman;
-            case "Alfa-Bravo": return iconicData._AlfaBravo;
-            case "Dialtones": return iconicData._Dialtones;
-            case "Classical Order": return iconicData._ClassicalOrder;
-            case "Needy Hotate": return iconicData._NeedyHotate;
-            case "Space Traders": return iconicData._SpaceTraders;
-            case "Cube Synchronization": return iconicData._CubeSynchronization;
-            case "Cartinese": return iconicData._Cartinese;
-            case "Eight": return iconicData._Eight;
-            case "Fursona": return iconicData._Fursona;
-            case "Notre-Dame Cipher": return iconicData._NotreDameCipher;
-            case "Stupid Slots": return iconicData._StupidSlots;
-            case "Kawaiitlyn": return iconicData._Kawaiitlyn;
-            case "Sysadmin": return iconicData._Sysadmin;
-            case "Red Herring": return iconicData._RedHerring;
-            case "Binary Shift": return iconicData._BinaryShift;
-            case "Rain Hell": return iconicData._RainHell;
-            case "Rain": return iconicData._Rain;
-            case "Squeeze": return iconicData._Squeeze;
-            case "Parliament": return iconicData._Parliament;
-            case "Meteor": return iconicData._Meteor;
-            case "Pink Arrows": return iconicData._PinkArrows;
-            case "Maze Identification": return iconicData._MazeIdentification;
-            case "Logging": return iconicData._Logging;
-            case "Anagraphy": return iconicData._Anagraphy;
-            case "Pawns": return iconicData._Pawns;
-            case "SUSadmin": return iconicData._SUSadmin;
-            case "Simply Simon": return iconicData._SimplySimon;
-            case "Encrypted Maze": return iconicData._EncryptedMaze;
-            case "Fire Diamonds": return iconicData._FireDiamonds;
-            case "Dimension King": return iconicData._DimensionKing;
-            case "Puzzle Identification": return iconicData._PuzzleIdentification;
-            case "IKEA Plushies": return iconicData._IKEAPlushies;
-            case "Face Perception": return iconicData._FacePerception;
-            case "Simon Shapes": return iconicData._SimonShapes;
-            case "Breakfast Egg": return iconicData._BreakfastEgg;
-            case "Literally Dying": return iconicData._LiterallyDying;
-            case "Literally Malding": return iconicData._LiterallyMalding;
-            case "Cacti's Conundrum": return iconicData._CactisConundrum;
-            case "Simon Shouts": return iconicData._SimonShouts;
-            case "Marquee Morse": return iconicData._MarqueeMorse;
-            case "Line Equations": return iconicData._LineEquations;
-            case "White Hole": return iconicData._WhiteHole;
-            case "Starmap Reconstruction": return iconicData._StarmapReconstruction;
-            case "2048": return iconicData._2048;
-            case "Pointless Machines": return iconicData._PointlessMachines;
-            case "Stability": return iconicData._Stability;
-            case "Maritime Semaphore": return iconicData._MaritimeSemaphore;
-            case "Warning Signs": return iconicData._WarningSigns;
-            case "Mastermind Restricted Cruel": return iconicData._MastermindRestrictedCruel;
-            case "Labeled Priorities Plus": return iconicData._LabeledPrioritiesPlus;
-            case "Coprime Checker": return iconicData._CoprimeChecker;
-            case "Walking Cube": return iconicData._WalkingCube;
-            case "Customer Identification": return iconicData._CustomerIdentification;
-            case "Out of Time": return iconicData._OutOfTime;
-            case "Words": return iconicData._Words;
-            case "Skewers": return iconicData._Skewers;
-            case "Scratch-Off": return iconicData._ScratchOff;
-            case "Phones": return iconicData._Phones;
-            case "Mirror": return iconicData._Mirror;
-            case "Mind Meld": return iconicData._MindMeld;
-            case "Custom Keys": return iconicData._CustomKeys;
-            case "The Arena": return iconicData._TheArena;
-            case "Insa Ilo": return iconicData._InsaIlo;
-            case "Placement Roulette": return iconicData._PlacementRoulette;
-            case "Art Pricing": return iconicData._ArtPricing;
-            case "Perceptron": return iconicData._Perceptron;
-            case "RGB Combination": return iconicData._RGBCombination;
-            case "Coverage": return iconicData._Coverage;
-            case "Wire Association": return iconicData._WireAssociation;
-            case "The Icon Kit": return iconicData._TheIconKit;
-            case "The Garnet Thief": return iconicData._TheGarnetThief;
-            case "Ten Aliens": return iconicData._TenAliens;
-            case "Flyswatting": return iconicData._Flyswatting;
-            case "Tetrahedron": return iconicData._Tetrahedron;
-            case "Simon Said": return iconicData._SimonSaid;
-            case "Nonbinary Puzzle": return iconicData._NonbinaryPuzzle;
-            case "SQL - Basic": return iconicData._SQLBasic;
-            case "M-Seq": return iconicData._MSeq;
-            case "TV": return iconicData._TV;
-            case "Touch Transmission": return iconicData._TouchTransmission;
-            case "MWISort": return iconicData._MWISort;
-            case "Coordination": return iconicData._Coordination;
-            case "SQL - Evil": return iconicData._SQLEvil;
-            case "Kusa Nihonglish": return iconicData._KusaNihonglish;
-            case "LEDs": return iconicData._LEDs;
-            case "SQL - Cruel": return iconicData._SQLCruel;
-            case "Quizbowl": return iconicData._Quizbowl;
-            case "Superparsing": return iconicData._Superparsing;
-            case "Tripping Triangles": return iconicData._TrippingTriangles;
-            case "Tipping Triangles": return iconicData._TippingTriangles;
-            case "Slipping Triangles": return iconicData._SlippingTriangles;
-            case "Skipping Triangles": return iconicData._SkippingTriangles;
-            case "Flipping Triangles": return iconicData._FlippingTriangles;
-            case "Dripping Triangles": return iconicData._DrippingTriangles;
-            case "Clipping Triangles": return iconicData._ClippingTriangles;
-            case "Uncolour Flash": return iconicData._UncolourFlash;
-            case "Simpleton't": return iconicData._Simpletont;
-            case "Not X01": return iconicData._NotX01;
-            case "Not Word Search": return iconicData._NotWordSearch;
-            case "Not The Bulb": return iconicData._NotTheBulb;
-            case "Not Symbolic Coordinates": return iconicData._NotSymbolicCoordinates;
-            case "Not Emoji Math": return iconicData._NotEmojiMath;
-            case "Go": return iconicData._Go;
-            case "Discolour Flash": return iconicData._DiscolourFlash;
-            case "The Tile Maze": return iconicData._TheTileMaze;
-            case "Shogi Identification": return iconicData._ShogiIdentification;
-            case "Boozlesnap": return iconicData._Boozlesnap;
-            case "Shashki": return iconicData._Shashki;
-            case "hexNull": return iconicData._hexNull;
-            case "Shut-the-Box": return iconicData._ShutTheBox;
-            case "Logic Chess": return iconicData._LogicChess;
-            case "The Hypercolor": return iconicData._TheHypercolor;
-            case "Horsey": return iconicData._Horsey;
-            case "Termite": return iconicData._Termite;
-            case "Sorry Sliders": return iconicData._SorrySliders;
-            case "Simon": return iconicData._Simon;
-            case "Robit Programming": return iconicData._RobitProgramming;
-            case "Purchasing Properties": return iconicData._PurchasingProperties;
-            case "Label Priorities": return iconicData._LabelPriorities;
-            case "Cruel Candy Land": return iconicData._CruelCandyLand;
-            case "Congkak": return iconicData._Congkak;
-            case "Candy Land": return iconicData._CandyLand;
-            case "The Board Walk": return iconicData._TheBoardWalk;
-            case "Melody Memory": return iconicData._MelodyMemory;
-            case "CA-RPS": return iconicData._CARPS;
-            case "Aquarium": return iconicData._Aquarium;
-            case "Eight Tiles Panic": return iconicData._EightTilesPanic;
-            case "Inselectables": return iconicData._Inselectables;
-            case "Spongebob Birthday Identification": return iconicData._SpongebobBirthdayIdentification;
-            case "Not Poker": return iconicData._NotPoker;
-            case "4D Maze": return iconicData._4DMaze;
-            case "Who's on Morse": return iconicData._WhosOnMorse;
-            case "Binary Tango": return iconicData._BinaryTango;
-            case "Matching Morse": return iconicData._MatchingMorse;
-            case "Antistress": return iconicData._Antistress;
-            case "Variety": return iconicData._Variety;
-            case "Exploding Mittens": return iconicData._ExplodingMittens;
-            case "Not X-Ray": return iconicData._NotXRay;
-            case "Gemory": return iconicData._Gemory;
-            case "Cursor Maze": return iconicData._CursorMaze;
-            case "Wendithap'n": return iconicData._Wendithapn;
-            case "Spinning Mazes": return iconicData._SpinningMazes;
-            case "Royal Piano Keys": return iconicData._RoyalPianoKeys;
-            case "Prankster": return iconicData._Prankster;
-            case "Not The Screw": return iconicData._NotTheScrew;
-            case "Birthday Cake": return iconicData._BirthdayCake;
-            case "Scrabble Scramble": return iconicData._ScrabbleScramble;
-            case "Gray Arrows": return iconicData._GrayArrows;
-            case "Derivatives": return iconicData._Derivatives;
-            case "Base-1": return iconicData._Base1;
-            case "Consonants": return iconicData._Consonants;
-            case "Vector Addition": return iconicData._VectorAddition;
-            case "Critters": return iconicData._Critters;
-            case "Mazeseeker": return iconicData._Mazeseeker;
-            case "Voronoi Maze": return iconicData._VoronoiMaze;
-            case "Simon's Satire": return iconicData._SimonsSatire;
-            case "Colored Hexabuttons 2": return iconicData._ColoredHexabuttons2;
-            case "Duck Konundrum": return iconicData._DuckKonundrum;
-            case "IKEA Documents": return iconicData._IKEADocuments;
-            case "Game of Colors": return iconicData._GameOfColors;
-            case "Concentration": return iconicData._Concentration;
-            case "Blaseball": return iconicData._Blaseball;
-            case "Spilling Paint": return iconicData._SpillingPaint;
-            case "Metapuzzle": return iconicData._Metapuzzle;
-            case "Zero, Zero": return iconicData._ZeroZero;
-            case "Stellar": return iconicData._Stellar;
-            case "Inner Connections": return iconicData._InnerConnections;
-            case "Cryptic Keypad": return iconicData._CrypticKeypad;
-            case "Metamorse": return iconicData._Metamorse;
-            case "Historical Phrases": return iconicData._HistoricalPhrases;
-            case "Simon Signals": return iconicData._SimonSignals;
-            case "Piragua": return iconicData._Piragua;
-            case "UNO!": return iconicData._UNO;
-            case "Simon Secures": return iconicData._SimonSecures;
-            case "That's The Mole": return iconicData._ThatsTheMole;
-            case "That's The Fox": return iconicData._ThatsTheFox;
-            case "That's The Beaver": return iconicData._ThatsTheBeaver;
-            case "Over Kilo": return iconicData._OverKilo;
-            case "XO": return iconicData._XO;
-            case "Trick Or Treat": return iconicData._TrickOrTreat;
-            case "My Mom": return iconicData._MyMom;
-            case "3N+1": return iconicData._3Nplus1;
-            case "Signal Scope": return iconicData._SignalScope;
-            case "Order Picking": return iconicData._OrderPicking;
-            case "Mayhem": return iconicData._Mayhem;
-            case "Barcode Cipher": return iconicData._BarcodeCipher;
-            case "Obama Grocery Store": return iconicData._ObamaGroceryStore;
-            case "Binary Morse": return iconicData._BinaryMorse;
-            case "Sprouts": return iconicData._Sprouts;
-            case "Extended Boolean Venn Diagram": return iconicData._ExtendedBooleanVennDiagram;
-            case "Cruel Modulo": return iconicData._CruelModulo;
-            case "Flipping Squares": return iconicData._FlippingSquares;
-            case "Simon Stacks": return iconicData._SimonStacks;
-            case "Charge": return iconicData._Charge;
-            case "Memory Poker": return iconicData._MemoryPoker;
-            case "Masked Morse": return iconicData._MaskedMorse;
-            case "Letter Math": return iconicData._LetterMath;
-            case "Invisymbol": return iconicData._Invisymbol;
-            case "Gendercipher": return iconicData._Gendercipher;
-            case "Fishing": return iconicData._Fishing;
-            case "Double Digits": return iconicData._DoubleDigits;
-            case "The Yellow Button": return iconicData._TheYellowButton;
-            case "The White Button": return iconicData._TheWhiteButton;
-            case "The Teal Button": return iconicData._TheTealButton;
-            case "The Red Button": return iconicData._TheRedButton;
-            case "The Purple Button": return iconicData._ThePurpleButton;
-            case "The Pink Button": return iconicData._ThePinkButton;
-            case "The Orange Button": return iconicData._TheOrangeButton;
-            case "The Green Button": return iconicData._TheGreenButton;
-            case "The Gray Button": return iconicData._TheGrayButton;
-            case "The Glitched Button": return iconicData._TheGlitchedButton;
-            case "The Cyan Button": return iconicData._TheCyanButton;
-            case "The Blue Button": return iconicData._TheBlueButton;
-            case "The Black Button": return iconicData._TheBlackButton;
-            case "Simon Shuffles": return iconicData._SimonShuffles;
-            case "Faulty Buttons": return iconicData._FaultyButtons;
-            case "Dot": return iconicData._Dot;
-            case "Nixie Code": return iconicData._NixieCode;
-            case "Identification Crisis": return iconicData._IdentificationCrisis;
-            case "Digit Sum": return iconicData._DigitSum;
-            case "Twister": return iconicData._Twister;
-            case "Omni-Man": return iconicData._OmniMan;
-            case "Forget Our Voices": return iconicData._ForgetOurVoices;
-            case "Yellow Huffman Cipher": return iconicData._YellowHuffmanCipher;
-            case "Blue Huffman Cipher": return iconicData._BlueHuffmanCipher;
-            case "Lempel-Ziv Cipher": return iconicData._LempelZivCipher;
-            case "Extended Button Order": return iconicData._ExtendedButtonOrder;
-            case "Soulsong": return iconicData._Soulsong;
-            case "Not Kanji": return iconicData._NotKanji;
-            case "Shape Cipher": return iconicData._ShapeCipher;
-            case "Talking Points": return iconicData._TalkingPoints;
-            case "Boolean Network": return iconicData._BooleanNetwork;
-            case "Understand": return iconicData._Understand;
-            case "Presidential Elections": return iconicData._PresidentialElections;
-            case "Maroon Cipher": return iconicData._MaroonCipher;
-            case "Tasque Managing": return iconicData._TasqueManaging;
-            case "Reversed Boolean Network": return iconicData._ReversedBooleanNetwork;
-            case "Quilting": return iconicData._Quilting;
-            case "Character Slots": return iconicData._CharacterSlots;
-            case "Forget Morse Not": return iconicData._ForgetMorseNot;
-            case "Blananas2": return iconicData._Blananas2;
-            case "Math ’em": return iconicData._MathEm;
-            case "Money Game": return iconicData._MoneyGame;
-            case "Surrounding Buttons": return iconicData._SurroundingButtons;
-            case "Imbalance": return iconicData._Imbalance;
-            case "Switch Placement": return iconicData._SwitchPlacement;
-            case "Cornflower Cipher": return iconicData._CornflowerCipher;
-            case "Time Machine": return iconicData._TimeMachine;
-            case "Multitracking": return iconicData._Multitracking;
-            case "Factory Code": return iconicData._FactoryCode;
-            case "Baffling Box": return iconicData._BafflingBox;
-            case "Rule of Three": return iconicData._RuleOfThree;
-            case "Ro": return iconicData._Ro;
-            case "Gyromaze": return iconicData._Gyromaze;
-            case "ID Exchange": return iconicData._IDExchange;
-            case "Marco Polo": return iconicData._MarcoPolo;
-            case "Clumsy Loopover": return iconicData._ClumsyLoopover;
-            case "Puzzle Panel": return iconicData._PuzzlePanel;
-            case "Not Text Field": return iconicData._NotTextField;
-            case "Not Probing": return iconicData._NotProbing;
-            case "Not Piano Keys": return iconicData._NotPianoKeys;
-            case "Not Number Pad": return iconicData._NotNumberPad;
-            case "Forget Me": return iconicData._ForgetMe;
-            case "Boomtar the Great": return iconicData._BoomtarTheGreat;
-            case "A Square": return iconicData._ASquare;
-            case "Tachycardia": return iconicData._Tachycardia;
-            case "Trajectory": return iconicData._Trajectory;
-            case "Look, Look Away": return iconicData._LookLookAway;
-            case "Forest Cipher": return iconicData._ForestCipher;
-            case "Untouchable": return iconicData._Untouchable;
-            case "Backdoor Hacking": return iconicData._BackdoorHacking;
-            case "Abyss": return iconicData._Abyss;
-            case "Supermassive Black Hole": return iconicData._SupermassiveBlackHole;
-            case "Finite Loop": return iconicData._FiniteLoop;
-            case "Steam Selector": return iconicData._SteamSelector;
-            case "The Navy Button": return iconicData._TheNavyButton;
-            case "The Amber Button": return iconicData._TheAmberButton;
-            case "Algorithmia": return iconicData._Algorithmia;
-            case "Sign Language": return iconicData._SignLanguage;
-            case "Hidden In Plain Sight": return iconicData._HiddenInPlainSight;
-            case "Double Defuser": return iconicData._DoubleDefuser;
-            case "Parallel Mazes": return iconicData._ParallelMazes;
-            case "The Cornflower Button": return iconicData._TheCornflowerButton;
-            case "Bakery": return iconicData._Bakery;
-            case "Simon Shifts": return iconicData._SimonShifts;
-            case "Buttonage": return iconicData._Buttonage;
-            case "Unpleasant Squares": return iconicData._UnpleasantSquares;
-            case "Shape Fill": return iconicData._ShapeFill;
-            case "Blank Card": return iconicData._BlankCard;
-            case "3D Tap Code": return iconicData._3DTapCode;
-            case "Charms": return iconicData._Charms;
-            case "Occult Manuscripts": return iconicData._OccultManuscripts;
-            case "Enigma Cycle": return iconicData._EnigmaCycle;
-            case "Mister Softee": return iconicData._MisterSoftee;
-            case "Not The Plunger Button": return iconicData._NotThePlungerButton;
-            case "X-Rotor": return iconicData._XRotor;
-            case "Basegate": return iconicData._Basegate;
-            case "Bamboozling Directional Button": return iconicData._BamboozlingDirectionalButton;
-            case "Face Off": return iconicData._FaceOff;
-            case "Prison Break": return iconicData._PrisonBreak;
-            case "Military Encryption": return iconicData._MilitaryEncryption;
-            case "USA Cycle": return iconicData._USACycle;
-            case "Hand Turkey": return iconicData._HandTurkey;
-            case "Sensor Maze": return iconicData._SensorMaze;
-            case "Not Colored Squares": return iconicData._NotColoredSquares;
-            case "The Neutral Button": return iconicData._TheNeutralButton;
-            case "Red Light Green Light": return iconicData._RedLightGreenLight;
-            case "Faulty 14 Segment Display": return iconicData._Faulty14SegmentDisplay;
-            case "4 Buttons": return iconicData._4Buttons;
-            case "Whack The Cops": return iconicData._WhackTheCops;
-            case "Halli Galli": return iconicData._HalliGalli;
-            case "Scramboozled Eggain": return iconicData._ScramboozledEggain;
-            case "Doofenshmirtz Evil Inc.": return iconicData._DoofenshmirtzEvilInc;
-            case "Z": return iconicData._Z;
-            case "Symbstructions": return iconicData._Symbstructions;
-            case "Add Nauseam": return iconicData._AddNauseam;
-            case "Deceptive Rainbow Arrows": return iconicData._DeceptiveRainbowArrows;
-            case "Varicolour Flash": return iconicData._VaricolourFlash;
-            case "Recolour Flash": return iconicData._RecolourFlash;
-            case "Hypermatch": return iconicData._Hypermatch;
-            case "Simon Shines": return iconicData._SimonShines;
-            case "Sign Alphabet": return iconicData._SignAlphabet;
-            case "Notes": return iconicData._Notes;
-            case "Two-Factor Authentication": return iconicData._TwoFactorAuthentication;
-            case "Juxtacolour Flash": return iconicData._JuxtacolourFlash;
-            case "Faulty Colour Flash": return iconicData._FaultyColourFlash;
-            case "Magenta Arrows": return iconicData._MagentaArrows;
-            case "8": return iconicData._8;
-            case "X-Ring": return iconicData._XRing;
-            case "Simon Swizzles": return iconicData._SimonSwizzles;
-            case "Secret Santa": return iconicData._SecretSanta;
-            case "Factory Cubes": return iconicData._FactoryCubes;
-            case "Encryption Lingo": return iconicData._EncryptionLingo;
-            case "Levenshtein Distance": return iconicData._LevenshteinDistance;
-            case "Faerie Fires": return iconicData._FaerieFires;
-            case "Crimson Cipher": return iconicData._CrimsonCipher;
-            case "X-Radar": return iconicData._XRadar;
-            case "Tell Me Where": return iconicData._TellMeWhere;
-            case "Magenta Cipher": return iconicData._MagentaCipher;
-            case "Triple Traversal": return iconicData._TripleTraversal;
-            case "Simon Shorts": return iconicData._SimonShorts;
-            case "Off-White Cipher": return iconicData._OffWhiteCipher;
-            case "Simplified Keypad": return iconicData._SimplifiedKeypad;
-            case "Goofier Game": return iconicData._GoofierGame;
-            case "Coral Cipher": return iconicData._CoralCipher;
-            case "Knot Wires": return iconicData._KnotWires;
-            case "LOOK AT ME": return iconicData._LOOKATME;
-            case "Cream Cipher": return iconicData._CreamCipher;
-            case "Pie Flash": return iconicData._PieFlash;
-            case "Magic Square": return iconicData._MagicSquare;
-            case "Magic Cube": return iconicData._MagicCube;
-            case "Ghost": return iconicData._Ghost;
-            case "Quadruple Simpleton": return iconicData._QuadrupleSimpleton;
-            case "Atlantis": return iconicData._Atlantis;
-            case "Quadruple Simpleton't": return iconicData._QuadrupleSimpletont;
-            case "Ultra Custom Night": return iconicData._UltraCustomNight;
-            case "Pattern Hypercube": return iconicData._PatternHypercube;
-            case "Multi-Buttons": return iconicData._MultiButtons;
-            case "Feature Cryptography": return iconicData._FeatureCryptography;
-            case "[BIG SHOT]": return iconicData._BIGSHOT;
-            case "The Door": return iconicData._TheDoor;
-            case "Wordle": return iconicData._Wordle;
-            case "Triple Vision": return iconicData._TripleVision;
-            case "Double Maze": return iconicData._DoubleMaze;
-            case "Pseudocrypt": return iconicData._Pseudocrypt;
-            case "Keyed Buttons": return iconicData._KeyedButtons;
-            case "Black Screens": return iconicData._BlackScreens;
-            case "Not Black Screens": return iconicData._NotBlackScreens;
-            case "Logic Plumbing": return iconicData._LogicPlumbing;
-            case "Blind Circle": return iconicData._BlindCircle;
-            case "Moved": return iconicData._Moved;
-            case "Speedrun": return iconicData._Speedrun;
-            case "Remember Simple": return iconicData._RememberSimple;
-            case "Simon Smothers": return iconicData._SimonSmothers;
-            case "JacknJellify": return iconicData._JacknJellify;
-            case "The Year": return iconicData._TheYear;
-            case "Matching Signs": return iconicData._MatchingSigns;
-            case "The Stampycat": return iconicData._TheStampycat;
-            case "Eavesdropping": return iconicData._Eavesdropping;
-            case "zzz": return iconicData._zzz;
-            case "Remembern't Simple": return iconicData._RememberntSimple;
-            case "Simon's Statement": return iconicData._SimonsStatement;
-            case "The Temple Run": return iconicData._TheTempleRun;
-            case "The Grand Prix": return iconicData._TheGrandPrix;
-            case "Matrix Mapping": return iconicData._MatrixMapping;
-            case "Again": return iconicData._Again;
-            case "Not Symbolic Password": return iconicData._NotSymbolicPassword;
-            case "Not Perspective Pegs": return iconicData._NotPerspectivePegs;
-            case "Not Double-Oh": return iconicData._NotDoubleOh;
-            case "Not Colored Switches": return iconicData._NotColoredSwitches;
-            case "Not Bitmaps": return iconicData._NotBitmaps;
-            case "Maze 'em": return iconicData._MazeEm;
-            case "Lolbit": return iconicData._Lolbit;
-            case "Pollux": return iconicData._Pollux;
-            case "Castor": return iconicData._Castor;
-            case "Three-Way Gates": return iconicData._ThreeWayGates;
-            case "Missing Sequence": return iconicData._MissingSequence;
-            case "Latin Hypercube": return iconicData._LatinHypercube;
-            case "UIN(+L)": return iconicData._UINpL;
-            case "Inverse": return iconicData._Inverse;
-            case "Peek-A-Boo": return iconicData._PeekABoo;
-            case "Wave Collapse": return iconicData._WaveCollapse;
-            case "Dual Sequences": return iconicData._DualSequences;
-            case "Battle of Wits": return iconicData._BattleOfWits;
-            case "SI-HTS": return iconicData._SIHTS;
-            case "Parity": return iconicData._Parity;
-            case "Paperweights": return iconicData._Paperweights;
-            case "Anti-Memory": return iconicData._AntiMemory;
-            case "Double-On": return iconicData._DoubleOn;
-            case "One Item One Meal": return iconicData._OneItemOneMeal;
-            case "Forget Me Maybe": return iconicData._ForgetMeMaybe;
-            case "Subtract Nauseam": return iconicData._SubtractNauseam;
-            case "Timed Out": return iconicData._TimedOut;
-            case "Pigfair Cipher": return iconicData._PigfairCipher;
-            case "LEAN!!!": return iconicData._LEAN;
-            case "Channel Surfing": return iconicData._ChannelSurfing;
-            case "Roguelike Game": return iconicData._RoguelikeGame;
-            case "Widgetry": return iconicData._Widgetry;
-            case "Nifty Number": return iconicData._NiftyNumber;
-
-            /*
-            case "Colour Flash ES": return iconicData._ColourFlash_ES;
-            case "Adjacent Letters (Russian)": return iconicData._AdjacentLetters_RU;
-
-            //from this point on, reflection is required
-
-            case "Big Button Translated": return iconicData.BlankModule;
-            case "Who's on First Translated": return iconicData.BlankModule;
-            case "Morse Code Translated": return iconicData.BlankModule;
-            case "Passwords Translated": return iconicData.BlankModule;
-            case "Vent Gas Translated": return iconicData.BlankModule;
-            case "Colour Flash Translated": return iconicData.BlankModule;
-            */
-
-            default: return iconicData.BlankModule;
-        }
     }
 
     //twitch plays

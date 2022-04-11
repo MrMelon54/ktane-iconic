@@ -27,15 +27,26 @@ public class SpriteObject : Editor
         if (File.Exists(GenerateMasterSprite.ModuleScriptPath))
         {
             string[] Script = File.ReadAllLines(GenerateMasterSprite.ModuleScriptPath);
-            string line = Script.FirstOrDefault(x => x.Contains("List<string> ModuleList = new List<string>{ "));
-            line = line.Substring(line.IndexOf("\""));
-            List<string> ModuleList = line.Split(new[] { "\"," }, System.StringSplitOptions.RemoveEmptyEntries).Select(x => x.StartsWith(" ") ? x.Substring(2) : x.Substring(1)).ToList();
-            string last = ModuleList.Last();
-            int lastIndex = last.IndexOf("\" }");
-            if (lastIndex == -1)
-                lastIndex = last.IndexOf("\"}");
-            ModuleList[ModuleList.Count() - 1] = last.Substring(0, lastIndex);
+            int startingIndex = Array.IndexOf(Script, "    private OrderedDictionary ModuleList = new OrderedDictionary {") + 2;
+            int endingIndex = Array.IndexOf(Script, "            { string.Empty, iconicData.BlankModule }") - 1;
+            var lines = Script.Skip(startingIndex).Take(endingIndex - startingIndex);
+            lines = lines.Select(x => 
+            {
+                if (x.Contains("/*"))
+                    return "/*";
+                if (x.Contains("*/"))
+                    return "*/";
+                if (!x.Contains("\""))
+                    return "";
+                startingIndex = x.IndexOf("\"") + 1;
+                endingIndex = x.IndexOf("\"", startingIndex);
+                return x.Substring(startingIndex, endingIndex - startingIndex);
+            }).Where(x => x != "");
+            if (lines.Contains("/*")) 
+                lines = lines.Take(lines.ToList().IndexOf("/*"));
+            List<string> ModuleList = lines.ToList();
             generateObject.ModuleList = ModuleList;
+            
             var ranges = new List<string>();
             // We want to include object 1024 in the first list.
             for (int i = 0; i < (ModuleList.Count - 1)/ 1024 + 1; i++)
