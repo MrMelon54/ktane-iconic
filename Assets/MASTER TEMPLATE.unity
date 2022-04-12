@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: LEAN!!!
+      value: Meme Review
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -480,7 +480,6 @@ MonoBehaviour:
   - Complicated Wires
   - Wire Sequence
   - Maze
-  - "Maze\xB3"
   - Password
   - Needy Vent Gas
   - Needy Capacitor
@@ -876,6 +875,7 @@ MonoBehaviour:
   - The Triangle Button
   - Mazematics
   - Equations X
+  - "Maze\xB3"
   - Gryphons
   - Arithmelogic
   - Roman Art
@@ -1077,7 +1077,7 @@ MonoBehaviour:
   - 14
   - Rainbow Arrows
   - Time Signatures
-  - Multi-Colored Switches
+  - Multicolored Switches
   - Digital Dials
   - Passcodes
   - Hereditary Base Notation
@@ -1194,7 +1194,7 @@ MonoBehaviour:
   - Minecraft Survival
   - RPS Judging
   - Fencing
-  - Strike Solve
+  - Strike/Solve
   - Uncolored Switches
   - The Twin
   - Name Changer
@@ -1487,7 +1487,7 @@ MonoBehaviour:
   - Saimoe Pad
   - B-Machine
   - Addition
-  - What's on Second
+  - "What\u2019s on Second"
   - Quaver
   - Another Keypad Module
   - Think Fast
@@ -1657,6 +1657,7 @@ MonoBehaviour:
   - Uncoloured Buttons
   - The Impostor
   - Doomsday Button
+  - Bottom Gear 2
   - Blue Whale
   - Antimatter Dimensions
   - Watching Paint Dry
@@ -1910,7 +1911,7 @@ MonoBehaviour:
   - Character Slots
   - Forget Morse Not
   - Blananas2
-  - Math 'em
+  - "Math \u2019em"
   - Money Game
   - Surrounding Buttons
   - Imbalance
@@ -2088,6 +2089,25 @@ MonoBehaviour:
   - Roguelike Game
   - Widgetry
   - Nifty Number
+  - Mahjong Quiz Scrambled
+  - Mahjong Quiz Hard
+  - Mahjong Quiz Easy
+  - Mini
+  - Metalmaking
+  - Distance Cipher
+  - Hertz
+  - Wumbo
+  - Not Identification
+  - Egyptian Fractions
+  - Boozleage
+  - Fitting In
+  - Brown's Shadow
+  - Patterns
+  - Simon Sonundrum
+  - Meme Review
+  - Fillominordle
+  - Color Grid
+  - Arithmetic Cipher
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
