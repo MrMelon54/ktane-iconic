@@ -1484,7 +1484,7 @@ public class iconicScript : MonoBehaviour {
             { "Character Slots", iconicData._CharacterSlots },
             { "Forget Morse Not", iconicData._ForgetMorseNot },
             { "Blananas2", iconicData._Blananas2 },
-            { "Math ’em", iconicData._MathEm },
+            { "Math 'em", iconicData._MathEm },
             { "Money Game", iconicData._MoneyGame },
             { "Surrounding Buttons", iconicData._SurroundingButtons },
             { "Imbalance", iconicData._Imbalance },
@@ -1716,6 +1716,7 @@ public class iconicScript : MonoBehaviour {
             { "WhoOF", iconicData._WhoOF },
             { "Reading Between the Lines", iconicData._ReadingBetweenTheLines },
             { "Damocles Lumber", iconicData._DamoclesLumber },
+            { "Bomb It!", iconicData._BombIt },
 
             /*
             { "Colour Flash ES", iconicData._ColourFlash_ES },

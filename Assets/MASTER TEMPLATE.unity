@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Tesseractivity
+      value: Math 'em
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -1911,7 +1911,7 @@ MonoBehaviour:
   - Character Slots
   - Forget Morse Not
   - Blananas2
-  - "Math \u2019em"
+  - Math 'em
   - Money Game
   - Surrounding Buttons
   - Imbalance
@@ -2143,6 +2143,7 @@ MonoBehaviour:
   - WhoOF
   - Reading Between the Lines
   - Damocles Lumber
+  - Bomb It!
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
