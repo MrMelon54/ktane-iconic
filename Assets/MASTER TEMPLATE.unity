@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Obama Grocery Store
+      value: Saul Goodman Button
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -254,6 +254,10 @@ Prefab:
     - target: {fileID: 100002, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
+      propertyPath: RequiresTimerVisibility
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
@@ -2144,6 +2148,27 @@ MonoBehaviour:
   - Reading Between the Lines
   - Damocles Lumber
   - Bomb It!
+  - XY-Ray
+  - Quantum Ternary Converter
+  - Saul Goodman Button
+  - Cruel Pip-Nado
+  - "Simon\u2019s Swarm"
+  - Manual Codes
+  - Chinese Remainder Theorem
+  - Flashing Circles
+  - That's The Protogen
+  - Top 10 Numbers
+  - Fur Cipher
+  - Module Maneuvers
+  - Memory Character
+  - Scrutiny Squares
+  - Binary Cipher
+  - Squad's Shadow
+  - Undertunneling
+  - Holographic Memory
+  - Mystery Widget
+  - Simon Senses
+  - Memory's Shadow
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
