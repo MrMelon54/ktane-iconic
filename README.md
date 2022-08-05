@@ -7,4 +7,4 @@ Credits:
 - Help with development by River
 - Twitch Plays by eXish
 - Icon to string converter by MrMelon
-- String contributors- TasThing, tandyCake, Deaf, draket333, Nico, MrPeanut1028, Crazycaleb, Timwi, mcd573, xmaster, Kiki, EpicToast
+- String contributors- TasThiluna, tandyCake, Deaf, draket333, Nico, MrPeanut1028, Crazycaleb, Timwi, mcd573, xmaster, Kiki, EpicToast
