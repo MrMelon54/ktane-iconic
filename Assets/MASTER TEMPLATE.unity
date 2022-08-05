@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Saul Goodman Button
+      value: Rambopo
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -1466,9 +1466,15 @@ MonoBehaviour:
   - OmegaDestroyer
   - Going Backwards
   - Atbash Cipher
+  - Yellow Hexabuttons
+  - White Hexabuttons
   - Venn Diagrams
+  - Red Hexabuttons
+  - Purple Hexabuttons
+  - Orange Hexabuttons
   - Numbered Buttons
-  - Colored Hexabuttons
+  - Green Hexabuttons
+  - Blue Hexabuttons
   - Video Poker
   - White Arrows
   - Johnson Solids
@@ -1702,6 +1708,7 @@ MonoBehaviour:
   - SUSadmin
   - Simply Simon
   - Encrypted Maze
+  - Black Hexabuttons
   - Fire Diamonds
   - Dimension King
   - Puzzle Identification
@@ -1738,6 +1745,8 @@ MonoBehaviour:
   - The Arena
   - Insa Ilo
   - Placement Roulette
+  - Gray Hexabuttons
+  - Brown Hexabuttons
   - Art Pricing
   - Perceptron
   - RGB Combination
@@ -1829,8 +1838,17 @@ MonoBehaviour:
   - Critters
   - Mazeseeker
   - Voronoi Maze
+  - Transmitting Hexabuttons
+  - Symbolic Hexabuttons
+  - Simple Hexabuttons
   - Simon's Satire
-  - Colored Hexabuttons 2
+  - Puzzling Hexabuttons
+  - Musical Hexabuttons
+  - Magical Hexabuttons
+  - Logical Hexabuttons
+  - Lettered Hexabuttons
+  - Colorful Hexabuttons
+  - Amazing Hexabuttons
   - Duck Konundrum
   - IKEA Documents
   - Game of Colors
@@ -2169,6 +2187,40 @@ MonoBehaviour:
   - Mystery Widget
   - Simon Senses
   - Memory's Shadow
+  - Chessword
+  - White
+  - Black
+  - Red Button't
+  - Queen's War
+  - Twisty Terminals
+  - Mischboozl
+  - Manual Malady
+  - Captcha The Flag
+  - Wire Terminals
+  - Find The Invisible Cow
+  - "\u018ENA Cipher"
+  - Iron Lung
+  - Taking Sides
+  - Obscurdle
+  - Orange Button't
+  - Forget Fractal
+  - Simon Serves
+  - Crypto Market
+  - Mercury
+  - Venus
+  - Earth
+  - Mars
+  - Jupiter
+  - Saturn
+  - Uranus
+  - Neptune
+  - Pluto
+  - Subbly Jubbly
+  - Zendo
+  - The Number Game
+  - Cucumber
+  - Set Connections
+  - Rambopo
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
