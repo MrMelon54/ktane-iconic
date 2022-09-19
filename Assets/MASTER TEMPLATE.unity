@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Rambopo
+      value: Rust.G.B.
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -1386,7 +1386,6 @@ MonoBehaviour:
   - Mazery
   - Kim's Game
   - Three Cryptic Steps
-  - Popufur
   - Tech Support
   - Space
   - 9-Ball
@@ -1527,9 +1526,7 @@ MonoBehaviour:
   - The Klaxon
   - Valued Keys
   - Numerical Knight Movement
-  - Bandboozled Again
   - SpriteClub Betting Simulation
-  - Ramboozled Again
   - Simon Subdivides
   - Hole in One
   - Hexiom
@@ -1583,7 +1580,6 @@ MonoBehaviour:
   - XmORse Code
   - Corridors
   - Decay
-  - Crazy Speak
   - Large Password
   - Large Free Password
   - Free Password
@@ -1605,7 +1601,6 @@ MonoBehaviour:
   - Hold On
   - Diffusion
   - Soy Beans
-  - The Shaker
   - Coffee Beans
   - Newline
   - Letter Grid
@@ -1674,7 +1669,6 @@ MonoBehaviour:
   - Soulscream
   - Dice Cipher
   - Weekdays
-  - Salts
   - Mazeswapper
   - Infinite Loop
   - Face Recognition
@@ -1688,7 +1682,6 @@ MonoBehaviour:
   - Cube Synchronization
   - Cartinese
   - Eight
-  - Fursona
   - Notre-Dame Cipher
   - Stupid Slots
   - Kawaiitlyn
@@ -1826,7 +1819,6 @@ MonoBehaviour:
   - Wendithap'n
   - Spinning Mazes
   - Royal Piano Keys
-  - Prankster
   - Not The Screw
   - Birthday Cake
   - Scrabble Scramble
@@ -1865,16 +1857,11 @@ MonoBehaviour:
   - Simon Signals
   - Piragua
   - UNO!
-  - Simon Secures
-  - That's The Mole
-  - That's The Fox
-  - That's The Beaver
   - Over Kilo
   - XO
   - Trick Or Treat
   - My Mom
   - 3N+1
-  - Signal Scope
   - Order Picking
   - Mayhem
   - Barcode Cipher
@@ -1931,12 +1918,10 @@ MonoBehaviour:
   - Reversed Boolean Network
   - Quilting
   - Character Slots
-  - Forget Morse Not
   - Blananas2
   - Math 'em
   - Money Game
   - Surrounding Buttons
-  - Imbalance
   - Switch Placement
   - Cornflower Cipher
   - Time Machine
@@ -1957,7 +1942,6 @@ MonoBehaviour:
   - Forget Me
   - Boomtar the Great
   - A Square
-  - Tachycardia
   - Trajectory
   - Look, Look Away
   - Forest Cipher
@@ -1972,7 +1956,6 @@ MonoBehaviour:
   - Algorithmia
   - Sign Language
   - Hidden In Plain Sight
-  - Double Defuser
   - Parallel Mazes
   - The Cornflower Button
   - Bakery
@@ -1989,7 +1972,6 @@ MonoBehaviour:
   - Not The Plunger Button
   - X-Rotor
   - Basegate
-  - Bamboozling Directional Button
   - Face Off
   - Prison Break
   - Military Encryption
@@ -2028,11 +2010,9 @@ MonoBehaviour:
   - Levenshtein Distance
   - Faerie Fires
   - Crimson Cipher
-  - X-Radar
   - Tell Me Where
   - Magenta Cipher
   - Triple Traversal
-  - Simon Shorts
   - Off-White Cipher
   - Simplified Keypad
   - Goofier Game
@@ -2047,11 +2027,9 @@ MonoBehaviour:
   - Quadruple Simpleton
   - Atlantis
   - Quadruple Simpleton't
-  - Ultra Custom Night
   - Pattern Hypercube
   - Multi-Buttons
   - Feature Cryptography
-  - '[BIG SHOT]'
   - The Door
   - Wordle
   - Triple Vision
@@ -2109,7 +2087,6 @@ MonoBehaviour:
   - LEAN!!!
   - Channel Surfing
   - Roguelike Game
-  - Widgetry
   - Nifty Number
   - Mahjong Quiz Scrambled
   - Mahjong Quiz Hard
@@ -2123,9 +2100,7 @@ MonoBehaviour:
   - Egyptian Fractions
   - Boozleage
   - Fitting In
-  - Brown's Shadow
   - Patterns
-  - Simon Sonundrum
   - Meme Review
   - Fillominordle
   - Color Grid
@@ -2174,19 +2149,15 @@ MonoBehaviour:
   - Manual Codes
   - Chinese Remainder Theorem
   - Flashing Circles
-  - That's The Protogen
   - Top 10 Numbers
   - Fur Cipher
   - Module Maneuvers
   - Memory Character
   - Scrutiny Squares
   - Binary Cipher
-  - Squad's Shadow
   - Undertunneling
   - Holographic Memory
-  - Mystery Widget
   - Simon Senses
-  - Memory's Shadow
   - Chessword
   - White
   - Black
@@ -2221,6 +2192,44 @@ MonoBehaviour:
   - Cucumber
   - Set Connections
   - Rambopo
+  - Mission Control
+  - The Mini Game
+  - Generated Maze
+  - perspective eggs
+  - Banana
+  - The Funny Number
+  - The Azure Button
+  - Green Button't
+  - Cyan Arrows
+  - Traffic Board
+  - "Pok\xE9mon Sprite Cipher"
+  - Pointer Pointer
+  - Geometry
+  - Book of Mario
+  - The Sapphire Button
+  - Schulte Table
+  - Cruel Schulte Table
+  - Wordpath
+  - Literally Taunting
+  - Literally Laughing
+  - Literally Deaging
+  - Slight Gibberish Twist
+  - DingBats
+  - Alphabet Buttons
+  - Decolour Flash
+  - Abilities
+  - Old AI
+  - Inside
+  - xobekuJ ehT
+  - Piano Paradox
+  - Number Sequence
+  - Peekaboo
+  - Torment
+  - Tether
+  - Yellow Button't
+  - Tents
+  - "\xC1ngel Hern\xE1ndez"
+  - Rust.G.B.
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}
