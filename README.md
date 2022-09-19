@@ -1,6 +1,6 @@
 # Iconic
 
-All modules up to _Rambopo_ chronologically on the [Repository of Manual Pages](https://ktane.timwi.de/) are supported by Iconic.
+All modules up to _Rust.G.B._ chronologically on the [Repository of Manual Pages](https://ktane.timwi.de/) are supported by Iconic.
 
 Credits:
 - Module by Blananas2
