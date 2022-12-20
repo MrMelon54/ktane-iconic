@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleDisplayName
-      value: Rust.G.B.
+      value: Four Operands
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
@@ -1386,6 +1386,7 @@ MonoBehaviour:
   - Mazery
   - Kim's Game
   - Three Cryptic Steps
+  - Popufur
   - Tech Support
   - Space
   - 9-Ball
@@ -1629,7 +1630,6 @@ MonoBehaviour:
   - Simon Supports
   - Identifrac
   - 1D Chess
-  - 1-2-3-2-1
   - Not Murder
   - Not Morsematics
   - Not Crazy Talk
@@ -1796,7 +1796,6 @@ MonoBehaviour:
   - Purchasing Properties
   - Label Priorities
   - Cruel Candy Land
-  - Congkak
   - Candy Land
   - The Board Walk
   - Melody Memory
@@ -2013,6 +2012,7 @@ MonoBehaviour:
   - Tell Me Where
   - Magenta Cipher
   - Triple Traversal
+  - Simon Shorts
   - Off-White Cipher
   - Simplified Keypad
   - Goofier Game
@@ -2230,6 +2230,44 @@ MonoBehaviour:
   - Tents
   - "\xC1ngel Hern\xE1ndez"
   - Rust.G.B.
+  - Small Talk
+  - Quadrants
+  - Yoshi Egg
+  - Pineapple Pen
+  - Apple Pen
+  - OMISSION
+  - X-RGB
+  - Blue Button't
+  - Shapes and Colors
+  - Activities
+  - Starstruck
+  - Simon Swivels
+  - Remember Me Now
+  - Password Buttons
+  - Morse Complication
+  - Memory Wires
+  - Keypad Sequence
+  - Discharge Maze
+  - "Blindfolded Rubik\u2019s Clock"
+  - Blind Math
+  - Unfair's Forgotten Ciphers
+  - Base Off
+  - Recursive Password
+  - Logic Wheel
+  - Base On
+  - M.A.S.
+  - Subway
+  - Ventilation
+  - Robo-Scanner
+  - Torture
+  - Not Fast Math
+  - Match Refereeing
+  - GTA Cheats
+  - Slow Math
+  - "The Nobody\u2019s Code"
+  - In Order
+  - Rubik's Slide
+  - Four Operands
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}

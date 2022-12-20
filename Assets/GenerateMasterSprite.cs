@@ -129,22 +129,23 @@ public class GenerateMasterSprite : MonoBehaviour
     public iconicScript ModuleScript;
     private static Dictionary<string, string> mismatchedNames = new Dictionary<string, string>
     {
-        { "Needy Vent Gas", "Venting Gas" },
-        { "Needy Capacitor", "Capacitor Discharge" },
-        { "Needy Knob", "Knob" },
-        { "Rock-Paper-Scissors-L.-Sp.", "Rock-Paper-Scissors-Lizard-Spock" },
         { "...?", "...q" },
-        { "Needy Crafting Table", "The Crafting Table" },
+        { "A>N<D", "A_N_D" },
+        { "Alphebtic Order", "Alphabetical Order" },
         { "Needy Beer Refill Mod", "Refill that Beer!" },
+        { "Needy Button Masher", "Button Masher" },
+        { "Needy Capacitor", "Capacitor Discharge" },
+        { "Needy Crafting Table", "The Crafting Table" },
+        { "Needy Knob", "Knob" },
         { "Needy Math", "Math" },
+        { "Needy Pong", "Pong" },
         { "Needy Quiz", "Answering Questions" },
         { "Needy Rotary Phone", "Rotary Phone" },
-        { "Needy Button Masher", "Button Masher" },
         { "Needy Shape Memory", "Shape Memory" },
-        { "Alphebtic Order", "Alphabetical Order" },
+        { "Needy Vent Gas", "Venting Gas" },
         { "Needy Wingdings", "Wingdings" },
-        { "Needy Pong", "Pong" },
-        { "A>N<D", "A_N_D" }
+        { "Rock-Paper-Scissors-L.-Sp.", "Rock-Paper-Scissors-Lizard-Spock" },
+        { "Strike/Solve", "Strike_Solve" },
     };
     private static Regex regex = new Regex("[/<>:\"\\|?*'’]");
     public void Generate()
