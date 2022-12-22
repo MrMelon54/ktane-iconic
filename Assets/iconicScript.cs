@@ -1490,6 +1490,7 @@ public class iconicScript : MonoBehaviour {
             { "Math 'em", iconicData._MathEm },
             { "Money Game", iconicData._MoneyGame },
             { "Surrounding Buttons", iconicData._SurroundingButtons },
+            { "Imbalance", iconicData._Imbalance },
             { "Switch Placement", iconicData._SwitchPlacement },
             { "Cornflower Cipher", iconicData._CornflowerCipher },
             { "Time Machine", iconicData._TimeMachine },

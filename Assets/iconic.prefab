@@ -64921,7 +64921,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a4fbc8edf107ddd4db0b9580d20ebfbc, type: 2}
+  - {fileID: 2100000, guid: 49717e732a79cc743b2aaf4642fb5025, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79428,7 +79428,7 @@ TextMesh:
   m_FontSize: 144
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: cde28ed485be53b4fb60ceae5d2c46ee, type: 3}
+  m_Font: {fileID: 12800000, guid: 49717e732a79cc743b2aaf4642fb5025, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
