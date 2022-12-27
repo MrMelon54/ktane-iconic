@@ -191,10 +191,10 @@ public class GenerateMasterSprite : MonoBehaviour
                 FileStream fs;
                 for (int j = 0; j < cols; j++)
                 {
-                    // Texture2D.SetPixels requires an exact size, so fill the rest of the pixels with white
+                    // Texture2D.SetPixels requires an exact size, so fill the rest of the pixels with empty
                     if (k * maxSize + i * cols + j >= iconFiles.Count)
                     {
-                        eachColors.Add(Enumerable.Repeat(Color.white, w * h * (cols - j)).ToArray());
+                        eachColors.Add(Enumerable.Repeat(Color.clear, w * h * (cols - j)).ToArray());
                         continue;
                     }
                     // Grab the filestream from each fileinfo, and read the filestream to a byte array
@@ -244,6 +244,7 @@ public class GenerateMasterSprite : MonoBehaviour
             importer.isReadable = true;
             importer.filterMode = FilterMode.Point;
             importer.textureType = TextureImporterType.Sprite;
+            importer.textureCompression = TextureImporterCompression.Uncompressed;
             AssetDatabase.ImportAsset(MasterSheetPath, ImportAssetOptions.ForceUpdate);
         }
         // Backwards compatibility (merging two sheets into one)
