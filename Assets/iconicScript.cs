@@ -1988,25 +1988,19 @@ public class iconicScript : MonoBehaviour {
                     string[] messages = new[]
                     {
                         "A part of " + Queue[0] + " cannot be found.",
-                        "The string for " + Queue[0] + "is not 1024 characters long. (It's " + length + "characters long)",
+                        "The string for " + Queue[0] + "is not 1024 characters long. (It's " + length + " characters long)",
                         "The string array for " + Queue[0] + "doesn't have enough arguments. (There's only " + CurrentData.Length +" strings.)" //For some reason this doesn't work...
                     };
                     Debug.LogFormat("[Iconic #{0}] {1} Autosolving the module.", ModuleId, messages[index]);
                     Phrase.text = Queue[0] + " error!";
+                    SquishText(Phrase.text);
                     ModuleSolved = true;
                     Module.HandlePass();
                     return;
                 }
 
                 Phrase.text = ModulePart;
-
-                if (ModulePart.Length > 29) {
-                    Phrase.transform.localScale = new Vector3(0.0002f, 0.001f, 0.01f);
-                } else if (ModulePart.Length > 13) {
-                    Phrase.transform.localScale = new Vector3(0.00025f, 0.001f, 0.01f);
-                } else if (ModulePart.Length > 7) {
-                    Phrase.transform.localScale = new Vector3(0.0005f, 0.001f, 0.01f);
-                }
+                SquishText(ModulePart);
 
             }
             if ((SolveList.Count() - IgnoredSolved == NonBosses && Queue.Count() == 0) && ModuleReady) {
@@ -2081,6 +2075,16 @@ public class iconicScript : MonoBehaviour {
         }
         z = a.ElementAt(0);
         return z;
+    }
+
+    private void SquishText (string disp) {
+        if (disp.Length > 29) {
+            Phrase.transform.localScale = new Vector3(0.0002f, 0.001f, 0.01f);
+        } else if (disp.Length > 13) {
+            Phrase.transform.localScale = new Vector3(0.00025f, 0.001f, 0.01f);
+        } else if (disp.Length > 7) {
+            Phrase.transform.localScale = new Vector3(0.0005f, 0.001f, 0.01f);
+        }
     }
 
     private string ConvertToCoordinate(int p) {
