@@ -1091,7 +1091,7 @@ public class iconicScript : MonoBehaviour {
             { "The Sequencyclopedia", iconicData._TheSequencyclopedia },
             { "eeB gnillepS", iconicData._eeBgnillepS },
             { "Pandemonium Cipher", iconicData._PandemoniumCipher },
-            { "Mineswapper", iconicData._Minesweeper },
+            { "Mineswapper", iconicData._Mineswapper },
             { "Phosphorescence", iconicData._Phosphorescence },
             { "The Klaxon", iconicData._TheKlaxon },
             { "Valued Keys", iconicData._ValuedKeys },
