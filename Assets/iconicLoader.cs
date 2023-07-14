@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
@@ -10,11 +11,13 @@ public class iconicLoader : MonoBehaviour {
 
 		Debug.Log("Starting iconicLoader.cs");
 		TextAsset iconicDataJson = Resources.Load<TextAsset>("iconicData");
-		Debug.Log(iconicDataJson.text);
+		iconicData.ModuleList = LoadJson(iconicDataJson.text);
+	}
 
+	public static OrderedDictionary LoadJson(String text) {
 		OrderedDictionary d = new OrderedDictionary();
 
-		iconicJson.iconicData j = JsonUtility.FromJson<iconicJson.iconicData>(iconicDataJson.text);
+		iconicJson.iconicData j = JsonUtility.FromJson<iconicJson.iconicData>(text);
 		foreach(iconicJson.Module m in j.modules) {
 			List<string> s = new List<string>();
 			s.Add(m.raw);
@@ -25,6 +28,6 @@ public class iconicLoader : MonoBehaviour {
 
 		d.Add(string.Empty, iconicData.BlankModule);
 
-		iconicData.ModuleList = d;
+		return d;
 	}
 }

@@ -1,6 +1,7 @@
 ﻿#if UNITY_EDITOR
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -18,33 +19,20 @@ public class SpriteObject : Editor
     {
         DrawDefaultInspector();
         GenerateMasterSprite generateObject = target as GenerateMasterSprite;
-        MonoScript ms = MonoScript.FromMonoBehaviour(generateObject.ModuleScript);
         GenerateMasterSprite.WorkingDirectory = Directory.GetParent(Application.dataPath).FullName;
-        var scriptDirectory = AssetDatabase.GetAssetPath(ms);
-        if (GenerateMasterSprite.ModuleScriptPath == null)
-            GenerateMasterSprite.ModuleScriptPath = Path.GetFullPath(Path.Combine(GenerateMasterSprite.WorkingDirectory, scriptDirectory));
+        if (GenerateMasterSprite.ModuleJsonPath == null)
+            GenerateMasterSprite.ModuleJsonPath = Path.GetFullPath(Path.Combine(GenerateMasterSprite.WorkingDirectory, "Assets/Resources/iconicData.json"));
+
         // Grab the module list from the file, as using reflection uses cached information
-        if (File.Exists(GenerateMasterSprite.ModuleScriptPath))
+        if (File.Exists(GenerateMasterSprite.ModuleJsonPath))
         {
-            string[] Script = File.ReadAllLines(GenerateMasterSprite.ModuleScriptPath);
-            int startingIndex = Array.IndexOf(Script, "    private OrderedDictionary ModuleList = new OrderedDictionary {") + 2;
-            int endingIndex = Array.IndexOf(Script, "            { string.Empty, iconicData.BlankModule }") - 1;
-            var lines = Script.Skip(startingIndex).Take(endingIndex - startingIndex);
-            lines = lines.Select(x => 
-            {
-                if (x.Contains("/*"))
-                    return "/*";
-                if (x.Contains("*/"))
-                    return "*/";
-                if (!x.Contains("\""))
-                    return "";
-                startingIndex = x.IndexOf("\"") + 1;
-                endingIndex = x.IndexOf("\"", startingIndex);
-                return x.Substring(startingIndex, endingIndex - startingIndex);
-            }).Where(x => x != "");
-            if (lines.Contains("/*")) 
-                lines = lines.Take(lines.ToList().IndexOf("/*"));
-            List<string> ModuleList = lines.ToList();
+            // read json file and extract module keys to ModuleList
+            string lines = File.ReadAllText(GenerateMasterSprite.ModuleJsonPath);
+            OrderedDictionary od = iconicLoader.LoadJson(lines);
+            String[] moduleKeys = new String[od.Count];
+            od.Keys.CopyTo(moduleKeys, 0);
+
+            List<string> ModuleList = moduleKeys.ToList();
             generateObject.ModuleList = ModuleList;
             
             var ranges = new List<string>();
@@ -121,7 +109,7 @@ public class GenerateMasterSprite : MonoBehaviour
     public int ModuleIndex;
     [HideInInspector]
     public List<string> ModuleList;
-    public static string ModuleScriptPath;
+    public static string ModuleJsonPath;
     public static string MasterSheetPath;
     public static string WorkingDirectory;
     public static string iconsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Assets" + Path.DirectorySeparatorChar + "Icons");
