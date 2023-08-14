@@ -15,6 +15,7 @@ namespace iconicJson {
     [System.Serializable]
     public class Module {
         public string key;
+        public string icon;
         public string raw;
         public string[] parts;
     }
