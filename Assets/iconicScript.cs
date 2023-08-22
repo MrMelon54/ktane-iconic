@@ -89,7 +89,7 @@ public class iconicScript : MonoBehaviour {
         }
 
         Module.OnActivate += delegate () {
-            NonBosses = Bomb.GetSolvableModuleNames().Where(a => !IgnoredModules.Contains(a)).ToList().Count;
+            NonBosses = Bomb.GetSolvableModuleIDs().Where(a => !IgnoredModules.Contains(a)).ToList().Count;
         };
 
 		for (int i = 0; i < Bomb.GetModuleNames().Count(); i++) {
@@ -114,9 +114,9 @@ public class iconicScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (ModuleSolved == false) {
-            Solves = Bomb.GetSolvedModuleNames().Count();
+            Solves = Bomb.GetSolvedModuleIDs().Count();
             if (Solves > SolveList.Count()) {
-                MostRecent = GetLatestSolve(Bomb.GetSolvedModuleNames(), SolveList);
+                MostRecent = GetLatestSolve(Bomb.GetSolvedModuleIDs(), SolveList);
                 if (!(IgnoredModules.Contains(MostRecent)))
                 {
                     Queue.Add(MostRecent);
@@ -212,7 +212,7 @@ public class iconicScript : MonoBehaviour {
 
     void AddNeedies () {
         for (int i = 0; i < Bomb.GetModuleNames().Count(); i++) {
-            if (Bomb.GetSolvableModuleNames().Contains(Bomb.GetModuleNames()[i])) {
+            if (Bomb.GetSolvableModuleIDs().Contains(Bomb.GetModuleNames()[i])) {
                 continue;
             } else {
                 Queue.Add(Bomb.GetModuleNames()[i]);
