@@ -46,7 +46,7 @@ public class iconicScript : MonoBehaviour {
     // An OrderedDictionary allows us to index a Dictionary in its intended order, but it has no IndexOf function for matching a name to an index.
     // By creating the ordered dictionary and then casting the keys, this gives us the list of names we can index for obtaining sprites.
     // The next version of the Sprite Generator will grab the module names from the repo, so this is the temporary fix until the new system is worked on.
-    private List<string> moduleListNames;
+    private List<string> moduleListIDs;
     private string[] CurrentData = { };
     private static Dictionary<string, Sprite> LoadedSprites = new Dictionary<string, Sprite>();
 
@@ -77,7 +77,7 @@ public class iconicScript : MonoBehaviour {
         TopLeftModule = new int[Modules.Length];
         for (int i = 0; i < Modules.Length; i++)
             TopLeftModule[i] = Modules[i].height - 32;
-        moduleListNames = ModuleList.Keys.Cast<string>().ToList();
+        moduleListIDs = ModuleList.Keys.Cast<string>().ToList();
     }
 
     // Use this for initialization
@@ -92,8 +92,8 @@ public class iconicScript : MonoBehaviour {
             NonBosses = Bomb.GetSolvableModuleIDs().Where(a => !IgnoredModules.Contains(a)).ToList().Count;
         };
 
-		for (int i = 0; i < Bomb.GetModuleNames().Count(); i++) {
-            if (Bomb.GetModuleNames()[i] == "Iconic") {
+		for (int i = 0; i < Bomb.GetModuleIDs().Count(); i++) {
+            if (Bomb.GetModuleIDs()[i] == "Iconic") {
                 NumberOfIconics += 1;
             } else {
                 continue;
@@ -135,7 +135,7 @@ public class iconicScript : MonoBehaviour {
                     CurrentData = ((string[])ModuleList[Queue[0]]).ToArray();
                     if (!LoadedSprites.ContainsKey(Queue[0]))
                     {
-                        int i = moduleListNames.IndexOf(Queue[0]);
+                        int i = moduleListIDs.IndexOf(Queue[0]);
                         // It is assumed that the max width and height for each spritesheet is the same,
                         // so assume we can get the max size by dividing my the width and height of the first master sheet.
                         // The size is based on icon count as opposed to pixel count, so divide the pixels by the number of pixels in a single icon.
@@ -211,19 +211,19 @@ public class iconicScript : MonoBehaviour {
 	}
 
     void AddNeedies () {
-        for (int i = 0; i < Bomb.GetModuleNames().Count(); i++) {
-            if (Bomb.GetSolvableModuleIDs().Contains(Bomb.GetModuleNames()[i])) {
+        for (int i = 0; i < Bomb.GetModuleIDs().Count(); i++) {
+            if (Bomb.GetSolvableModuleIDs().Contains(Bomb.GetModuleIDs()[i])) {
                 continue;
             } else {
-                Queue.Add(Bomb.GetModuleNames()[i]);
+                Queue.Add(Bomb.GetModuleIDs()[i]);
             }
         }
 	}
 
     void AddIgnoreds () {
-        for (int i = 0; i < Bomb.GetModuleNames().Count(); i++) {
-            if (IgnoredModules.Contains(Bomb.GetModuleNames()[i]) && Bomb.GetModuleNames()[i] != "Iconic") {
-                Queue.Add(Bomb.GetModuleNames()[i]);
+        for (int i = 0; i < Bomb.GetModuleIDs().Count(); i++) {
+            if (IgnoredModules.Contains(Bomb.GetModuleIDs()[i]) && Bomb.GetModuleIDs()[i] != "Iconic") {
+                Queue.Add(Bomb.GetModuleIDs()[i]);
             } else {
                 continue;
             }
