@@ -28,11 +28,8 @@ public class SpriteObject : Editor
         {
             // read json file and extract module keys to ModuleList
             string lines = File.ReadAllText(GenerateMasterSprite.ModuleJsonPath);
-            OrderedDictionary od = iconicLoader.LoadJson(lines);
-            String[] moduleKeys = new String[od.Count];
-            od.Keys.CopyTo(moduleKeys, 0);
-
-            List<string> ModuleList = moduleKeys.ToList();
+            iconicJson.iconicData j = iconicLoader.ParseJson(lines);
+            List<string> ModuleList = j.modules.Select(x => x.icon).ToList();
             generateObject.ModuleList = ModuleList;
             
             var ranges = new List<string>();
@@ -115,27 +112,6 @@ public class GenerateMasterSprite : MonoBehaviour
     public static string iconsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Assets" + Path.DirectorySeparatorChar + "Icons");
     public Texture2D ModuleIcon;
     public iconicScript ModuleScript;
-    private static Dictionary<string, string> mismatchedNames = new Dictionary<string, string>
-    {
-        { "...?", "...q" },
-        { "A>N<D", "A_N_D" },
-        { "Alphebtic Order", "Alphabetical Order" },
-        { "Needy Beer Refill Mod", "Refill that Beer!" },
-        { "Needy Button Masher", "Button Masher" },
-        { "Needy Capacitor", "Capacitor Discharge" },
-        { "Needy Crafting Table", "The Crafting Table" },
-        { "Needy Knob", "Knob" },
-        { "Needy Math", "Math" },
-        { "Needy Pong", "Pong" },
-        { "Needy Quiz", "Answering Questions" },
-        { "Needy Rotary Phone", "Rotary Phone" },
-        { "Needy Shape Memory", "Shape Memory" },
-        { "Needy Vent Gas", "Venting Gas" },
-        { "Needy Wingdings", "Wingdings" },
-        { "Rock-Paper-Scissors-L.-Sp.", "Rock-Paper-Scissors-Lizard-Spock" },
-        { "Strike/Solve", "Strike_Solve" },
-    };
-    private static Regex regex = new Regex("[/<>:\"\\|?*'’]");
     public void Generate()
     {
         // MasterSheetPath will be changed for every sheet, so make sure to always reset it when generation begins.
@@ -149,13 +125,13 @@ public class GenerateMasterSprite : MonoBehaviour
             File.Delete(sheet + ".meta");
         }
         // Switch out mismatched names with ones that will likely match
-        var ModuleNames = ModuleList.Select(x => misMatched(x)).ToList();
+        var ModuleNames = ModuleList.ToList();
 
         // Grab all of the file paths from the icons directories and sort them by the order in ModuleNames.
         // It is important that the names in ModuleNames matches the names of the files.
-        var iconFiles = new DirectoryInfo(iconsDirectory).GetFiles("*.png", SearchOption.TopDirectoryOnly).OrderBy(x => ModuleNames.IndexOf(punct(x.Name))).ToList();
+        var iconFiles = new DirectoryInfo(iconsDirectory).GetFiles("*.png", SearchOption.TopDirectoryOnly).OrderBy(x => ModuleNames.IndexOf(x.Name)).ToList();
         // Remove icons that are not included in ModuleNames
-        iconFiles = iconFiles.Where(x => ModuleNames.Contains(punct(x.Name))).ToList();
+        iconFiles = iconFiles.Where(x => ModuleNames.Contains(x.Name)).ToList();
 
         // Determine the number of rows based on the number of columns
         var rows = new List<int> { (iconFiles.Count + cols - 1) / cols };
@@ -243,22 +219,6 @@ public class GenerateMasterSprite : MonoBehaviour
         // Dirty "Apply" button for updating the spritesheet in the iconic script.
         // Keep in mind that this will save all changes made to the iconic prefab.
         PrefabUtility.ReplacePrefab(ModuleScript.gameObject, AssetDatabase.LoadAssetAtPath<GameObject>("Assets/iconic.prefab"), ReplacePrefabOptions.ConnectToPrefab);
-    }
-
-    // Change Module Names to match their file names
-    static string misMatched(string name)
-    {
-        var newName = name;
-        if (mismatchedNames.ContainsKey(name))
-            newName = mismatchedNames[name];
-        return regex.Replace(newName.ToLowerInvariant(), string.Empty);
-    }
-
-    // Remove file extension and punctuation when comparing file names with module names
-    static string punct(string name)
-    {
-        name = regex.Replace(Path.GetFileNameWithoutExtension(name).ToLowerInvariant(), string.Empty);
-        return name;
     }
 
     [HideInInspector]

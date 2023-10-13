@@ -14,10 +14,15 @@ public class iconicLoader : MonoBehaviour {
 		iconicData.ModuleList = LoadJson(iconicDataJson.text);
 	}
 
+	public static iconicJson.iconicData ParseJson(String text)
+	{
+		return JsonUtility.FromJson<iconicJson.iconicData>(text);
+	}
+
 	public static OrderedDictionary LoadJson(String text) {
 		OrderedDictionary d = new OrderedDictionary();
 
-		iconicJson.iconicData j = JsonUtility.FromJson<iconicJson.iconicData>(text);
+		iconicJson.iconicData j = ParseJson(text);
 		foreach(iconicJson.Module m in j.modules) {
 			List<string> s = new List<string>();
 			s.Add(m.raw);
