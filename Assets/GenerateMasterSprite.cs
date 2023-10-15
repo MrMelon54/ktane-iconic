@@ -131,7 +131,7 @@ public class GenerateMasterSprite : MonoBehaviour
         // It is important that the names in ModuleNames matches the names of the files.
         var iconFiles = new DirectoryInfo(iconsDirectory).GetFiles("*.png", SearchOption.TopDirectoryOnly).OrderBy(x => ModuleNames.IndexOf(x.Name)).ToList();
         // Remove icons that are not included in ModuleNames
-        iconFiles = iconFiles.Where(x => ModuleNames.Contains(x.Name)).ToList();
+        iconFiles = iconFiles.Where(x => ModuleNames.Contains(Path.GetFileNameWithoutExtension(x.Name))).ToList();
 
         // Determine the number of rows based on the number of columns
         var rows = new List<int> { (iconFiles.Count + cols - 1) / cols };
