@@ -245,7 +245,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
-      value: ModuleMaze
+      value: USA
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: m_Name
@@ -474,24 +474,24 @@ MonoBehaviour:
   h: 32
   ModuleIndex: 0
   ModuleList:
-  - Wires
-  - The Button
-  - Keypad
-  - Simon Says
-  - Who's on First
-  - Memory
-  - Morse Code
-  - Complicated Wires
   - Wire Sequence
-  - Maze
+  - Wires
+  - Who's on First
+  - Venting Gas
+  - Simon Says
   - Password
-  - Needy Vent Gas
-  - Needy Capacitor
-  - Needy Knob
+  - Morse Code
+  - Memory
+  - Maze
+  - Knob
+  - Keypad
+  - Complicated Wires
+  - Capacitor Discharge
+  - The Button
   - Colour Flash
   - Piano Keys
   - Semaphore
-  - Needy Math
+  - Math
   - Emoji Math
   - Lights Out
   - Switches
@@ -501,24 +501,22 @@ MonoBehaviour:
   - Combination Lock
   - Filibuster
   - Motion Sense
-  - Square Button
-  - Simon States
   - Round Keypad
   - Listening
   - Foreign Exchange Rates
-  - Needy Quiz
+  - Answering Questions
   - Orientation Cube
   - Morsematics
   - Connection Check
   - Letter Keys
   - Forget Me Not
-  - Needy Rotary Phone
+  - Rotary Phone
   - Astrology
   - Logic
+  - Mystic Square
   - Crazy Talk
   - Adventure Game
   - Turn The Key
-  - Mystic Square
   - Plumbing
   - Cruel Piano Keys
   - Safety Safe
@@ -529,19 +527,20 @@ MonoBehaviour:
   - Mouse In The Maze
   - 3D Maze
   - Silly Slots
+  - Simon States
   - Number Pad
   - Laundry
   - Probing
   - Alphabet
+  - Caesar Cipher
   - Resistors
   - Skewed Slots
-  - Caesar Cipher
   - Perspective Pegs
   - Microcontroller
   - Murder
   - The Gamepad
   - Tic Tac Toe
-  - Who's That Monsplode?
+  - Who's That Monsplode
   - Monsplode, Fight!
   - Shape Shift
   - Follow the Leader
@@ -550,7 +549,8 @@ MonoBehaviour:
   - Blind Alley
   - Sea Shells
   - English Test
-  - Rock-Paper-Scissors-L.-Sp.
+  - Rock-Paper-Scissors-Lizard-Spock
+  - Square Button
   - Hexamaze
   - Bitmaps
   - Colored Squares
@@ -570,7 +570,7 @@ MonoBehaviour:
   - Cheap Checkout
   - Coordinates
   - Light Cycle
-  - HTTP response
+  - HTTP Response
   - Rhythms
   - Color Math
   - Only Connect
@@ -596,7 +596,7 @@ MonoBehaviour:
   - Yahtzee
   - X-Ray
   - QR Code
-  - Needy Button Masher
+  - Button Masher
   - Random Number Generator
   - Color Morse
   - Mastermind Simple
@@ -611,10 +611,10 @@ MonoBehaviour:
   - Game of Life Cruel
   - Nonogram
   - S.E.T.
-  - Needy Beer Refill Mod
+  - Refill that Beer!
   - Painting
   - Color Generator
-  - Needy Shape Memory
+  - Shape Memory
   - Symbol Cycle
   - Hunting
   - Extended Password
@@ -655,7 +655,7 @@ MonoBehaviour:
   - Error Codes
   - Rapid Buttons
   - LEGOs
-  - "Rubik\u2019s Clock"
+  - Rubik's Clock
   - Font Select
   - The Stopwatch
   - Pie
@@ -800,7 +800,7 @@ MonoBehaviour:
   - Discolored Squares
   - Krazy Talk
   - Numbers
-  - Flip the Coin
+  - Flip The Coin
   - Varicolored Squares
   - Simon's Stages
   - Free Parking
@@ -836,7 +836,7 @@ MonoBehaviour:
   - Passport Control
   - Left and Right
   - Gadgetron Vendor
-  - Needy Wingdings
+  - Wingdings
   - The Hexabutton
   - The Plunger
   - Genetic Sequence
@@ -887,7 +887,7 @@ MonoBehaviour:
   - Simon Stops
   - Morse Buttons
   - Terraria Quiz
-  - Baba Is Who?
+  - Baba Is Who
   - Triangle Buttons
   - Simon Stores
   - Risky Wires
@@ -930,7 +930,7 @@ MonoBehaviour:
   - Raiding Temples
   - Bomb Diffusal
   - Tallordered Keys
-  - Needy Pong
+  - Pong
   - Ten Seconds
   - Cruel Ten Seconds
   - Double Expert
@@ -947,7 +947,7 @@ MonoBehaviour:
   - Prime Checker
   - Cruel Digital Root
   - Faulty Digital Root
-  - Needy Crafting Table
+  - The Crafting Table
   - Boot Too Big
   - "Vigen\xE8re Cipher"
   - Langton's Ant
@@ -1071,7 +1071,7 @@ MonoBehaviour:
   - Ultimate Custom Night
   - Hinges
   - Time Accumulation
-  - "\u2756"
+  - Nonverbal Simon
   - Forget It Not
   - egg
   - BuzzFizz
@@ -1117,7 +1117,7 @@ MonoBehaviour:
   - Conditional Buttons
   - ASCII Art
   - Semamorse
-  - Hide And Seek
+  - Hide and Seek
   - Symbolic Tasha
   - Alphabetical Ruling
   - Microphone
@@ -1132,7 +1132,7 @@ MonoBehaviour:
   - Unicode
   - Password Generator
   - Baccarat
-  - Guess Who?
+  - Guess Who
   - Reverse Alphabetize
   - Alphabetize
   - Gatekeeper
@@ -1144,12 +1144,13 @@ MonoBehaviour:
   - Red
   - Blue
   - Directional Button
-  - '...?'
+  - '...Q'
   - The Simpleton
   - Misery Squares
   - Not Wiresword
   - Not Wire Sequence
   - Not Who's on First
+  - Not the Button
   - Not Simaze
   - Not Password
   - Not Morse Code
@@ -1158,7 +1159,6 @@ MonoBehaviour:
   - Not Keypad
   - Not Complicated Wires
   - Not Capacitor Discharge
-  - Not the Button
   - Sequences
   - Dungeon 2nd Floor
   - Wire Ordering
@@ -1198,7 +1198,7 @@ MonoBehaviour:
   - Minecraft Survival
   - RPS Judging
   - Fencing
-  - Strike/Solve
+  - StrikeSolve
   - Uncolored Switches
   - The Twin
   - Name Changer
@@ -1208,6 +1208,7 @@ MonoBehaviour:
   - Training Text
   - Wonder Cipher
   - Caesar's Maths
+  - Random Access Memory
   - Triamonds
   - Stars
   - Button Order
@@ -1285,7 +1286,7 @@ MonoBehaviour:
   - Gnomish Puzzle
   - RGB Logic
   - Bridges
-  - A>N<D
+  - A_N_D
   - Shifted Maze
   - Juxtacolored Squares
   - Wolf, Goat, and Cabbage
@@ -1304,7 +1305,7 @@ MonoBehaviour:
   - Puzzword
   - NOT NOT
   - Repo Selector
-  - int##
+  - intHH
   - Deaf Alley
   - Blind Arrows
   - Sound Design
@@ -1324,6 +1325,7 @@ MonoBehaviour:
   - Ultralogic
   - Spangled Stars
   - Busy Beaver
+  - Digital Clock
   - Cruel Match 'em
   - Assembly Code
   - Simon's Ultimate Showdown
@@ -1416,9 +1418,9 @@ MonoBehaviour:
   - Double Pitch
   - Devilish Eggs
   - h
-  - Rune Match I
-  - Rune Match II
   - Rune Match III
+  - Rune Match II
+  - Rune Match I
   - Quick Time Events
   - "I\xF1upiaq Numerals"
   - The Bioscanner
@@ -1497,7 +1499,7 @@ MonoBehaviour:
   - Saimoe Pad
   - B-Machine
   - Addition
-  - "What\u2019s on Second"
+  - What's on Second
   - Quaver
   - Another Keypad Module
   - Think Fast
@@ -1521,13 +1523,16 @@ MonoBehaviour:
   - Double Screen
   - The Sequencyclopedia
   - eeB gnillepS
+  - Number Checker
   - Pandemonium Cipher
   - Mineswapper
   - Phosphorescence
   - The Klaxon
   - Valued Keys
   - Numerical Knight Movement
+  - Bandboozled Again
   - SpriteClub Betting Simulation
+  - Ramboozled Again
   - Simon Subdivides
   - Hole in One
   - Hexiom
@@ -1554,8 +1559,8 @@ MonoBehaviour:
   - Polyrhythms
   - Drive-In Window
   - The 12 Days of Christmas
-  - X
   - Y
+  - X
   - The Xenocryst
   - Rebooting M-OS
   - Stacked Sequences
@@ -1646,7 +1651,7 @@ MonoBehaviour:
   - Pathfinder
   - Needy Wires
   - Turn Four
-  - nya~
+  - nya-
   - Llama, Llama, Alpaca
   - Voltorb Flip
   - Cruel Synesthesia
@@ -1669,6 +1674,7 @@ MonoBehaviour:
   - Soulscream
   - Dice Cipher
   - Weekdays
+  - Salts
   - Mazeswapper
   - Infinite Loop
   - Face Recognition
@@ -1682,6 +1688,7 @@ MonoBehaviour:
   - Cube Synchronization
   - Cartinese
   - Eight
+  - Fursona
   - Notre-Dame Cipher
   - Stupid Slots
   - Kawaiitlyn
@@ -1709,8 +1716,8 @@ MonoBehaviour:
   - Face Perception
   - Simon Shapes
   - Breakfast Egg
-  - Literally Dying
   - Literally Malding
+  - Literally Dying
   - Cacti's Conundrum
   - Simon Shouts
   - Marquee Morse
@@ -1798,6 +1805,7 @@ MonoBehaviour:
   - Cruel Candy Land
   - Candy Land
   - The Board Walk
+  - Congkak
   - Melody Memory
   - CA-RPS
   - Aquarium
@@ -1820,6 +1828,7 @@ MonoBehaviour:
   - Royal Piano Keys
   - Not The Screw
   - Birthday Cake
+  - Prankster
   - Scrabble Scramble
   - Gray Arrows
   - Derivatives
@@ -1856,6 +1865,7 @@ MonoBehaviour:
   - Simon Signals
   - Piragua
   - UNO!
+  - Simon Secures
   - Over Kilo
   - XO
   - Trick Or Treat
@@ -2011,6 +2021,7 @@ MonoBehaviour:
   - Faerie Fires
   - Crimson Cipher
   - Tell Me Where
+  - X-Radar
   - Magenta Cipher
   - Triple Traversal
   - Simon Shorts
@@ -2045,7 +2056,7 @@ MonoBehaviour:
   - Speedrun
   - Remember Simple
   - Simon Smothers
-  - JacknJellify
+  - Contest IDs
   - The Year
   - Matching Signs
   - The Stampycat
@@ -2056,7 +2067,6 @@ MonoBehaviour:
   - The Temple Run
   - The Grand Prix
   - Matrix Mapping
-  - Again
   - Not Symbolic Password
   - Not Perspective Pegs
   - Not Double-Oh
@@ -2088,6 +2098,7 @@ MonoBehaviour:
   - LEAN!!!
   - Channel Surfing
   - Roguelike Game
+  - Widgetry
   - Nifty Number
   - Mahjong Quiz Scrambled
   - Mahjong Quiz Hard
@@ -2146,7 +2157,7 @@ MonoBehaviour:
   - Quantum Ternary Converter
   - Saul Goodman Button
   - Cruel Pip-Nado
-  - "Simon\u2019s Swarm"
+  - Simon's Swarm
   - Manual Codes
   - Chinese Remainder Theorem
   - Flashing Circles
@@ -2170,7 +2181,7 @@ MonoBehaviour:
   - Captcha The Flag
   - Wire Terminals
   - Find The Invisible Cow
-  - "\u018ENA Cipher"
+  - ENA Cipher
   - Iron Lung
   - Taking Sides
   - Obscurdle
@@ -2178,16 +2189,16 @@ MonoBehaviour:
   - Forget Fractal
   - Simon Serves
   - Crypto Market
-  - Mercury
   - Venus
-  - Earth
+  - Uranus
+  - Subbly Jubbly
+  - Saturn
+  - Pluto
+  - Neptune
+  - Mercury
   - Mars
   - Jupiter
-  - Saturn
-  - Uranus
-  - Neptune
-  - Pluto
-  - Subbly Jubbly
+  - Earth
   - Zendo
   - The Number Game
   - Cucumber
@@ -2214,6 +2225,7 @@ MonoBehaviour:
   - Literally Taunting
   - Literally Laughing
   - Literally Deaging
+  - Epic Shapes
   - Slight Gibberish Twist
   - DingBats
   - Alphabet Buttons
@@ -2241,6 +2253,7 @@ MonoBehaviour:
   - Blue Button't
   - Shapes and Colors
   - Activities
+  - Jerma, Jerma, Dream
   - Starstruck
   - Simon Swivels
   - Remember Me Now
@@ -2249,7 +2262,7 @@ MonoBehaviour:
   - Memory Wires
   - Keypad Sequence
   - Discharge Maze
-  - "Blindfolded Rubik\u2019s Clock"
+  - Blindfolded Rubik's Clock
   - Blind Math
   - Unfair's Forgotten Ciphers
   - Base Off
@@ -2261,14 +2274,207 @@ MonoBehaviour:
   - Ventilation
   - Robo-Scanner
   - Torture
-  - Not Fast Math
   - Match Refereeing
   - GTA Cheats
   - Slow Math
-  - "The Nobody\u2019s Code"
+  - The Nobody's Code
   - In Order
   - Rubik's Slide
   - Four Operands
+  - Turing Machine
+  - 3x3 Yellow Cipher
+  - Decomposed RGB Arithmetic
+  - Red Huffman Cipher
+  - Area Split
+  - Destabilized Numbers
+  - Stroop's Test
+  - Denial Displays
+  - Colour Shuffle
+  - Follow Me
+  - Cruel Simpleton
+  - Quantum Passwords
+  - Cruel Dial Trial
+  - Dial Trial
+  - "\xC9pelle-moi \xC7a"
+  - Color Pong
+  - The Generator
+  - Thermostat
+  - Gameboy Cartridge
+  - Periodic Words
+  - Daniel Dice
+  - Markscript
+  - Ribbit Programming
+  - The Midnight Motorist
+  - Coloured Cubes
+  - Flashing Cube
+  - Nokia
+  - Actual 4x4x4 Sudoku
+  - Multicolored Digits
+  - Puzzle Pandemonium
+  - UraMasyu
+  - WASD
+  - Perspective Stacking
+  - Polybius Square
+  - Two Knobs
+  - Langton's Anteater
+  - Starmessage
+  - SolveStrike
+  - Memory Buster
+  - Twitter.com
+  - Fifty Blessings
+  - Setting Sail
+  - A Massive Amount of Wires
+  - Grand Piano
+  - Needy Fuse Box
+  - Reporting Anomalies
+  - Spiderman 2004
+  - Zip Zap Zop
+  - Bicolored Squares
+  - Colored Cube
+  - Isocolored Squares
+  - Overcolored Squares
+  - Coloured Cylinder
+  - The Sporglers
+  - Clockworks
+  - Samuel Says
+  - Factoring Grid
+  - Forgetle
+  - Raster Prime
+  - Girlfriend
+  - Point Grid
+  - Shy Guy Says
+  - Synapse Cipher
+  - Cruel Ed Balls
+  - Ed Balls
+  - A Letter
+  - BadTV
+  - Maze Swap
+  - Module Sprint
+  - Stain Removal
+  - Ill Logic
+  - Orientation Hypercube
+  - Actions and Consequences
+  - Combination Vault
+  - Cursed Vault
+  - Numbrix
+  - Futuristic Combo Lock
+  - Blank Slate
+  - chip
+  - Fast Boolean Venn Diagram
+  - Seeded Maze
+  - Bottom Gear 3
+  - Skill Stop
+  - Many Poly
+  - RGB Chess
+  - Lengthy Lockdown
+  - Long Words
+  - The Weakest Link
+  - BizzFuzz
+  - Master Tapes
+  - Game of Ants
+  - FizzBoss
+  - Mixed Emotions
+  - 1x1x1 Rubik's Cube
+  - Digit Dilemma
+  - Big Bike Repair
+  - Job Application
+  - Dice Stack
+  - Reflex Factory
+  - Rustic Reversal
+  - Tip Toe
+  - Enchantment Table
+  - Procedural Maze
+  - 24
+  - Cyan Button't
+  - Blinking Notes
+  - Hyperrullo
+  - Zoom
+  - Angles
+  - Overcooked
+  - Function Identification
+  - Instant Insanity
+  - Polymodule
+  - Captain Wheeler
+  - Crazy Hamburger
+  - Wire Testing
+  - Luigi Poker
+  - Pattern Wires
+  - Suit Shuffle
+  - Who's on Gas
+  - Password Mutilator EX
+  - XOR Shift
+  - Maze Rush
+  - Syzygy
+  - Sword of Damocles
+  - Intensity Levels
+  - Watch the Clock
+  - Navigation Determination
+  - Toe Tactics
+  - Frightened Ghost Movement
+  - Haiku
+  - S.E.T. Theory
+  - Unicode Arrows
+  - Four Elements
+  - Green Wires
+  - Keystrokes
+  - Death Note
+  - Solve Shift
+  - The Fuse Box
+  - Who's on Trunic
+  - Ultimate Team
+  - Puzzling Buttons
+  - Rotary Encoder
+  - Swish
+  - Air Strikes
+  - Light Grid
+  - Mask Identification
+  - Perspecticolored Squares
+  - Technical Keypad
+  - The Tea Set
+  - Crazy Maze
+  - Encrypted Timezones
+  - Run-On Sentence
+  - Simultaneous Simons
+  - Crazy
+  - Letters and Numbers
+  - Three Sentence Horror
+  - Blindfolded Yahtzee
+  - Conditional Maze
+  - The Starting Line
+  - Caesar Psycho
+  - Backdoor Keypad
+  - New World
+  - Simon Steps
+  - 3D Chess
+  - Piece Positioning
+  - Needy Pi
+  - Survey Says
+  - Papyrus Tiles
+  - Bad Bones
+  - Classical Sense
+  - Graph Identification
+  - Blackout
+  - Not Blue Arrows
+  - Not Green Arrows
+  - Not Red Arrows
+  - Not Yellow Arrows
+  - Permutations
+  - Nonagon Infinity
+  - Not Not Not
+  - Cruel Qualities
+  - Diamonds
+  - Word Count
+  - Miscommunicated Black Arrows
+  - Canny Maze
+  - ID Verification
+  - Pentris Sprint
+  - Power Button
+  - Soil Classification
+  - ClockCounterclock
+  - Hickory Dickory Dock
+  - Bag Search
+  - Jank Hole
+  - Tangled Wires
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
   givenIcon: {fileID: 0}

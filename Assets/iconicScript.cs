@@ -55,7 +55,8 @@ public class iconicScript : MonoBehaviour {
     int ModuleId;
     private bool ModuleSolved;
 
-    void Awake () {
+    // Use this for initialization
+    void Start () {
         ModuleList = iconicData.ModuleList;
         if (ModuleList == null) {
             ModuleList = new OrderedDictionary {
@@ -78,13 +79,10 @@ public class iconicScript : MonoBehaviour {
         for (int i = 0; i < Modules.Length; i++)
             TopLeftModule[i] = Modules[i].height - 32;
         moduleListIDs = ModuleList.Keys.Cast<string>().ToList();
-    }
 
-    // Use this for initialization
-    void Start () {
         if (IgnoredModules == null) {
-            IgnoredModules = Boss.GetIgnoredModules("Iconic", new string[]{
-                "+", "14", "A>N<D", "Black Arrows", "Brainf---", "Busy Beaver", "Cube Synchronization", "Don't Touch Anything", "Floor Lights", "Forget Everything", "Forget Any Color", "Forget Enigma", "Forget It Not", "Forget Maze Not", "Forget Infinity", "Forget Me Later", "Forget Me Not", "Forget Perspective", "Forget The Colors", "Forget Them All", "Forget This", "Forget Us Not", "Gemory", "Iconic", "Keypad Directionality", "Kugelblitz", "OmegaForget", "Organization", "Out of Time", "Purgatory", "RPS Judging", "Security Council", "Shoddy Chess", "Simon Forgets", "Simon's Stages", "Soulscream", "Souvenir", "Tallordered Keys", "Tetrahedron", "The Board Walk", "The Twin", "The Very Annoying Button", "Ultimate Custom Night", "Whiteout", "Übermodule", "Bamboozling Time Keeper", "Doomsday Button", "OmegaDestroyer", "Password Destroyer", "The Time Keeper", "Timing is Everything", "Turn The Key", "Zener Cards"
+            IgnoredModules = Boss.GetIgnoredModules("iconic", new string[]{
+                "MemoryV2", "TurnTheKey", "SouvenirModule", "HexiEvilFMN", "timeKeeper", "simonsStages", "forgetThis", "PurgatoryModule", "troll", "forgetThemAll", "tallorderedKeys", "forgetEnigma", "forgetUsNot", "organizationModule", "qkForgetPerspective", "veryAnnoyingButton", "timingIsEverything", "forgetMeLater", "ubermodule", "qkUCN", "forgetItNot", "14", "simonForgets", "bamboozlingTimeKeeper", "brainf", "ForgetTheColors", "RPSJudging", "TheTwinModule", "iconic", "pwDestroyer", "omegaForget", "kugelblitz", "ANDmodule", "dontTouchAnything", "busyBeaver", "whiteout", "ForgetAnyColor", "omegaDestroyer", "KeypadDirectionality", "SecurityCouncil", "ShoddyChessModule", "FloorLights", "kataZenerCards", "blackArrowsModule", "forgetMazeNot", "plus", "doomsdayButton", "soulscream", "qkCubeSynchronization", "OutOfTime", "tetrahedron", "BoardWalk", "gemory", "duckKonundrum", "ConcentrationModule", "TwisterModule", "forgetOurVoices", "soulsong", "idExchange", "redLightGreenLight", "GSEight", "SimpleBoss", "SimpleBossNot", "KritGrandPrix", "repeatAgain", "ForgetMeMaybeModule", "HyperForget", "qkBitwiseOblivion", "damoclesLumber", "top10nums", "queensWarModule", "forget_fractal", "pointerPointerModule", "slightGibberishTwistModule", "PianoParadoxModule", "Omission", "nobodysCodeModule", "inOrderModule", "perspectiveStackingModule", "ReportingAnomalies", "forgetle", "ActionsAndConsequences", "fizzBoss", "WatchTheClock", "solveShift", "BlackoutModule", "hickoryDickoryDockModule"
             });
         }
 
@@ -93,7 +91,7 @@ public class iconicScript : MonoBehaviour {
         };
 
 		for (int i = 0; i < Bomb.GetModuleIDs().Count(); i++) {
-            if (Bomb.GetModuleIDs()[i] == "Iconic") {
+            if (Bomb.GetModuleIDs()[i] == "iconic") {
                 NumberOfIconics += 1;
             } else {
                 continue;
@@ -222,7 +220,7 @@ public class iconicScript : MonoBehaviour {
 
     void AddIgnoreds () {
         for (int i = 0; i < Bomb.GetModuleIDs().Count(); i++) {
-            if (IgnoredModules.Contains(Bomb.GetModuleIDs()[i]) && Bomb.GetModuleIDs()[i] != "Iconic") {
+            if (IgnoredModules.Contains(Bomb.GetModuleIDs()[i]) && Bomb.GetModuleIDs()[i] != "iconic") {
                 Queue.Add(Bomb.GetModuleIDs()[i]);
             } else {
                 continue;
@@ -231,7 +229,7 @@ public class iconicScript : MonoBehaviour {
 
         NumberOfIconics -= 1;
         for (int i = 0; i < NumberOfIconics; i++) {
-            Queue.Add("Iconic");
+            Queue.Add("iconic");
         }
 
         IgnoredsAdded = true;
