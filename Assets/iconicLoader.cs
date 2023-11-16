@@ -6,12 +6,15 @@ using UnityEngine;
 using System.IO;
 
 public class iconicLoader : MonoBehaviour { 
+	public static bool ListReady = false;
+
 	void Start () {
 		if(iconicData.ModuleList != null) return;
 
 		Debug.Log("Starting iconicLoader.cs");
 		TextAsset iconicDataJson = Resources.Load<TextAsset>("iconicData");
 		iconicData.ModuleList = LoadJson(iconicDataJson.text);
+		ListReady = true;
 	}
 
 	public static iconicJson.iconicData ParseJson(String text)

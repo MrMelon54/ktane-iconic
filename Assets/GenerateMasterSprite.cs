@@ -129,7 +129,7 @@ public class GenerateMasterSprite : MonoBehaviour
 
         // Grab all of the file paths from the icons directories and sort them by the order in ModuleNames.
         // It is important that the names in ModuleNames matches the names of the files.
-        var iconFiles = new DirectoryInfo(iconsDirectory).GetFiles("*.png", SearchOption.TopDirectoryOnly).OrderBy(x => ModuleNames.IndexOf(x.Name)).ToList();
+        var iconFiles = new DirectoryInfo(iconsDirectory).GetFiles("*.png", SearchOption.TopDirectoryOnly).OrderBy(x => ModuleNames.IndexOf(rmExt(x.Name))).ToList();
         // Remove icons that are not included in ModuleNames
         iconFiles = iconFiles.Where(x => ModuleNames.Contains(Path.GetFileNameWithoutExtension(x.Name))).ToList();
 
@@ -220,6 +220,8 @@ public class GenerateMasterSprite : MonoBehaviour
         // Keep in mind that this will save all changes made to the iconic prefab.
         PrefabUtility.ReplacePrefab(ModuleScript.gameObject, AssetDatabase.LoadAssetAtPath<GameObject>("Assets/iconic.prefab"), ReplacePrefabOptions.ConnectToPrefab);
     }
+
+    Func<string, string> rmExt = s => Path.GetFileNameWithoutExtension(s);
 
     [HideInInspector]
     public GameObject givenIcon;

@@ -104,7 +104,7 @@ public class iconicScript : MonoBehaviour {
 	}
 
     private IEnumerator Delay () {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => iconicLoader.ListReady);
         ModuleReady = true;
 		Debug.LogFormat("[Iconic #{0}] Iconic's starting process complete.", ModuleId);
     }
