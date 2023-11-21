@@ -31,6 +31,7 @@ public class iconicScript : MonoBehaviour {
     private bool QueuedUp = false;
     private bool FoundAModule = false;
     private bool IgnoredsAdded = false;
+    private bool ModuleActivated = false;
     private bool ModuleReady = false;
     private bool TPCorrect = false;
     private int NumberOfIconics = 0;
@@ -73,13 +74,14 @@ public class iconicScript : MonoBehaviour {
             TopLeftModule[i] = Modules[i].height - 32;
 
         if (IgnoredModules == null) {
-            IgnoredModules = Boss.GetIgnoredModules("iconic", new string[]{
+            IgnoredModules = Boss.GetIgnoredModuleIDs(Module, new string[]{
                 "MemoryV2", "TurnTheKey", "SouvenirModule", "HexiEvilFMN", "timeKeeper", "simonsStages", "forgetThis", "PurgatoryModule", "troll", "forgetThemAll", "tallorderedKeys", "forgetEnigma", "forgetUsNot", "organizationModule", "qkForgetPerspective", "veryAnnoyingButton", "timingIsEverything", "forgetMeLater", "ubermodule", "qkUCN", "forgetItNot", "14", "simonForgets", "bamboozlingTimeKeeper", "brainf", "ForgetTheColors", "RPSJudging", "TheTwinModule", "iconic", "pwDestroyer", "omegaForget", "kugelblitz", "ANDmodule", "dontTouchAnything", "busyBeaver", "whiteout", "ForgetAnyColor", "omegaDestroyer", "KeypadDirectionality", "SecurityCouncil", "ShoddyChessModule", "FloorLights", "kataZenerCards", "blackArrowsModule", "forgetMazeNot", "plus", "doomsdayButton", "soulscream", "qkCubeSynchronization", "OutOfTime", "tetrahedron", "BoardWalk", "gemory", "duckKonundrum", "ConcentrationModule", "TwisterModule", "forgetOurVoices", "soulsong", "idExchange", "redLightGreenLight", "GSEight", "SimpleBoss", "SimpleBossNot", "KritGrandPrix", "repeatAgain", "ForgetMeMaybeModule", "HyperForget", "qkBitwiseOblivion", "damoclesLumber", "top10nums", "queensWarModule", "forget_fractal", "pointerPointerModule", "slightGibberishTwistModule", "PianoParadoxModule", "Omission", "nobodysCodeModule", "inOrderModule", "perspectiveStackingModule", "ReportingAnomalies", "forgetle", "ActionsAndConsequences", "fizzBoss", "WatchTheClock", "solveShift", "BlackoutModule", "hickoryDickoryDockModule"
             });
         }
 
         Module.OnActivate += delegate () {
             NonBosses = Bomb.GetSolvableModuleIDs().Where(a => !IgnoredModules.Contains(a)).ToList().Count;
+            ModuleActivated = true;
         };
 
 		for (int i = 0; i < Bomb.GetModuleIDs().Count(); i++) {
@@ -193,15 +195,17 @@ public class iconicScript : MonoBehaviour {
                 SquishText(ModulePart);
 
             }
-            if ((SolveList.Count() - IgnoredSolved == NonBosses && Queue.Count() == 0) && ModuleReady) {
-                Phrase.text = "GG!";
-                Audio.PlaySoundAtTransform("GoodGame", transform);
-                Debug.LogFormat("[Iconic #{0}] All icons shown, Module solved.", ModuleId);
-                TheIcon.sprite = Banana;
-                Module.HandlePass();
-                ModuleSolved = true;
-            } else if (SolveList.Count() - IgnoredSolved == NonBosses && IgnoredsAdded == false) {
-                AddIgnoreds();
+            if (ModuleActivated && ModuleReady) {
+                if (SolveList.Count() - IgnoredSolved == NonBosses && Queue.Count() == 0 && IgnoredsAdded) {
+                    Phrase.text = "GG!";
+                    Audio.PlaySoundAtTransform("GoodGame", transform);
+                    Debug.LogFormat("[Iconic #{0}] All icons shown, Module solved.", ModuleId);
+                    TheIcon.sprite = Banana;
+                    Module.HandlePass();
+                    ModuleSolved = true;
+                } else if (SolveList.Count() - IgnoredSolved == NonBosses && !IgnoredsAdded) {
+                    AddIgnoreds();
+                }
             }
         }
 	}
