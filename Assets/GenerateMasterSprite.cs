@@ -152,8 +152,8 @@ public class GenerateMasterSprite : MonoBehaviour
             File.Delete(sheet);
             File.Delete(sheet + ".meta");
         }
-        // Switch out mismatched names with ones that will likely match
-        var ModuleNames = ModuleList.ToList();
+        // ...q vs ...Q breaks the entire module, gotta make sure everything is lowercase to avoid casing issues.
+        var ModuleNames = ModuleList.Select(x => x.ToLowerInvariant()).ToList();
         // Grab all of the file paths from the icons directories and sort them by the order in ModuleNames.
         // It is important that the names in ModuleNames matches the names of the files.
         var iconFiles = new DirectoryInfo(iconsDirectory).GetFiles("*.png", SearchOption.TopDirectoryOnly).OrderBy(x => ModuleNames.IndexOf(rmExt(x.Name))).ToList();
@@ -170,7 +170,8 @@ public class GenerateMasterSprite : MonoBehaviour
         // Create the Texture we'll use to make the final PNG
         // The size must be predetermined according to Texture2D.SetPixels()
         var fullImages = new List<Texture2D>();
-        var infos = new SpriteData().sprites;
+        var spriteData = new SpriteData();
+        var infos = spriteData.sprites;
         for (int k = 0; k < rows.Count; k++)
         {
             fullImages.Add(new Texture2D(cols * w, rows[k] * h));
@@ -245,7 +246,7 @@ public class GenerateMasterSprite : MonoBehaviour
             importer.textureCompression = TextureImporterCompression.Uncompressed;
             AssetDatabase.ImportAsset(sheetPath, ImportAssetOptions.ForceUpdate);
         }
-        File.WriteAllText(Path.Combine(MasterSheetPath, "spriteData.json"), JsonConvert.SerializeObject(infos, Formatting.Indented));
+        File.WriteAllText(Path.Combine(MasterSheetPath, "spriteData.json"), JsonConvert.SerializeObject(spriteData, Formatting.Indented));
         // Backwards compatibility (merging two sheets into one)
         if (ModuleScript.Modules.Length > rows.Count)
             ModuleScript.Modules = ModuleScript.Modules.Take(rows.Count).ToArray();
