@@ -56,14 +56,7 @@ public class iconicScript : MonoBehaviour {
     private bool ModuleSolved;
 
     // Use this for initialization
-    void Start () {
-        ModuleList = iconicData.ModuleList;
-        if (ModuleList == null) {
-            ModuleList = new OrderedDictionary {
-                {string.Empty, iconicData.BlankModule}
-            };
-        }
-
+    void Awake () {
         ModuleId = ModuleIdCounter++;
         for (int i = 0; i < Rows.Length; i++)
         {
@@ -78,7 +71,6 @@ public class iconicScript : MonoBehaviour {
         TopLeftModule = new int[Modules.Length];
         for (int i = 0; i < Modules.Length; i++)
             TopLeftModule[i] = Modules[i].height - 32;
-        moduleListIDs = ModuleList.Keys.Cast<string>().ToList();
 
         if (IgnoredModules == null) {
             IgnoredModules = Boss.GetIgnoredModules("iconic", new string[]{
@@ -98,13 +90,19 @@ public class iconicScript : MonoBehaviour {
             }
         }
 
-        AddNeedies();
-
         StartCoroutine(Delay());
 	}
 
     private IEnumerator Delay () {
         yield return new WaitUntil(() => iconicLoader.ListReady);
+        ModuleList = iconicData.ModuleList;
+        if (ModuleList == null) {
+            ModuleList = new OrderedDictionary {
+                {string.Empty, iconicData.BlankModule}
+            };
+        }
+        moduleListIDs = ModuleList.Keys.Cast<string>().ToList();
+        AddNeedies();
         ModuleReady = true;
 		Debug.LogFormat("[Iconic #{0}] Iconic's starting process complete.", ModuleId);
     }

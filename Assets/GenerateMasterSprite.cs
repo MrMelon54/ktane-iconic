@@ -1,29 +1,36 @@
 ﻿#if UNITY_EDITOR
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(GenerateMasterSprite))]
 public class SpriteObject : Editor
 {
-    int _moduleChoiceIndex = 0;
+    /*int _moduleChoiceIndex = 0;
     int section = 0;
     int range = 0;
-    int iconChanged;
+    int iconChanged;*/
+    bool hasChecked;
     public override void OnInspectorGUI()
     {
+        if (string.IsNullOrEmpty(Environment.GetEnvironmentVariable("RepoDir")))
+            if (!SetDir(!hasChecked))
+            {
+                if (GUILayout.Button("Select Icon Directory"))
+                    SetDir(true);
+                return;
+            }
         DrawDefaultInspector();
         GenerateMasterSprite generateObject = target as GenerateMasterSprite;
         GenerateMasterSprite.WorkingDirectory = Directory.GetParent(Application.dataPath).FullName;
+        GenerateMasterSprite.iconsDirectory = Environment.GetEnvironmentVariable("RepoDir");
         if (GenerateMasterSprite.ModuleJsonPath == null)
             GenerateMasterSprite.ModuleJsonPath = Path.GetFullPath(Path.Combine(GenerateMasterSprite.WorkingDirectory, "Assets/Resources/iconicData.json"));
 
-        // Grab the module list from the file, as using reflection uses cached information
         if (File.Exists(GenerateMasterSprite.ModuleJsonPath))
         {
             // read json file and extract module keys to ModuleList
@@ -31,8 +38,8 @@ public class SpriteObject : Editor
             iconicJson.iconicData j = iconicLoader.ParseJson(lines);
             List<string> ModuleList = j.modules.Select(x => x.icon).ToList();
             generateObject.ModuleList = ModuleList;
-            
-            var ranges = new List<string>();
+
+            /*var ranges = new List<string>();
             // We want to include object 1024 in the first list.
             for (int i = 0; i < (ModuleList.Count - 1)/ 1024 + 1; i++)
             {
@@ -69,7 +76,7 @@ public class SpriteObject : Editor
                     iconChanged = section * 32 + _moduleChoiceIndex;
                     generateObject.Verify();
                 }
-            }
+            }*/
         }
 
         if (GUILayout.Button("Generate Spritesheet"))
@@ -77,9 +84,15 @@ public class SpriteObject : Editor
             generateObject.Generate();
         }
 
+        if (GUILayout.Button("Change Icon Directory"))
+        {
+            SetDir(true);
+        }
+
+        /* Verifying is no longer possible as the original icons are no longer included in the project.
         if (GUILayout.Button("Verify Sprites"))
         {
-            var MasterSheets = Directory.GetFiles(Path.Combine(GenerateMasterSprite.iconsDirectory, "Extras"), "Master Sheet?.png");
+            var MasterSheets = Directory.GetFiles(GenerateMasterSprite.MasterSheetPath, "Master Sheet?.png");
             if (MasterSheets.Length == 0)
                 throw new Exception("Generated master sheet is/are inaccessible, please try generating it again");
             generateObject.Verify();
@@ -88,7 +101,24 @@ public class SpriteObject : Editor
         if (GUILayout.Button("Destroy Clones"))
         {
             generateObject.DestroyClones();
+        }*/
+    }
+    bool SetDir(bool firstTry)
+    {
+        if (!firstTry)
+            return false;
+        var repoDir = EditorUtility.OpenFolderPanel("Select icon directory", "KtaneContent", "Icons");
+        hasChecked = true;
+        if (string.IsNullOrEmpty(repoDir) || !Directory.Exists(repoDir) || Directory.GetFiles(repoDir, "*.png", SearchOption.TopDirectoryOnly).Length < 1)
+        {
+            Debug.LogError("Invalid icon folder chosen.");
+            return false;
         }
+        // Write it locally so that the original check only gets called once.
+        // Write it to the machine so that when Unity restarts, it still works
+        Environment.SetEnvironmentVariable("RepoDir", repoDir);
+        Environment.SetEnvironmentVariable("RepoDir", repoDir, EnvironmentVariableTarget.User);
+        return true;
     }
 }
 
@@ -107,32 +137,28 @@ public class GenerateMasterSprite : MonoBehaviour
     [HideInInspector]
     public List<string> ModuleList;
     public static string ModuleJsonPath;
-    public static string MasterSheetPath;
+    public static string MasterSheetPath = Path.Combine(Directory.GetCurrentDirectory(), "Assets" + Path.DirectorySeparatorChar + "Sprites");
     public static string WorkingDirectory;
-    public static string iconsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Assets" + Path.DirectorySeparatorChar + "Icons");
+    public static string iconsDirectory;
     public Texture2D ModuleIcon;
     public iconicScript ModuleScript;
     public void Generate()
     {
-        // MasterSheetPath will be changed for every sheet, so make sure to always reset it when generation begins.
-        MasterSheetPath = Path.Combine(iconsDirectory, "Extras");
         // In case there is more than one sheet, use the wildcard to match 0 or 1 times.
-        var extras = Directory.GetFiles(MasterSheetPath, "Master Sheet?.png");
+        var sheets = Directory.GetFiles(MasterSheetPath, "Master Sheet?.png");
         // Unity will keep the image in memory if we change it, so delete the old files
-        foreach (string sheet in extras)
+        foreach (string sheet in sheets)
         {
             File.Delete(sheet);
             File.Delete(sheet + ".meta");
         }
         // Switch out mismatched names with ones that will likely match
         var ModuleNames = ModuleList.ToList();
-
         // Grab all of the file paths from the icons directories and sort them by the order in ModuleNames.
         // It is important that the names in ModuleNames matches the names of the files.
         var iconFiles = new DirectoryInfo(iconsDirectory).GetFiles("*.png", SearchOption.TopDirectoryOnly).OrderBy(x => ModuleNames.IndexOf(rmExt(x.Name))).ToList();
         // Remove icons that are not included in ModuleNames
-        iconFiles = iconFiles.Where(x => ModuleNames.Contains(Path.GetFileNameWithoutExtension(x.Name))).ToList();
-
+        iconFiles = iconFiles.Where(x => ModuleNames.Contains(rmExt(x.Name))).ToList();
         // Determine the number of rows based on the number of columns
         var rows = new List<int> { (iconFiles.Count + cols - 1) / cols };
         while (rows.Last() * cols > maxSize)
@@ -144,6 +170,7 @@ public class GenerateMasterSprite : MonoBehaviour
         // Create the Texture we'll use to make the final PNG
         // The size must be predetermined according to Texture2D.SetPixels()
         var fullImages = new List<Texture2D>();
+        var infos = new SpriteData().sprites;
         for (int k = 0; k < rows.Count; k++)
         {
             fullImages.Add(new Texture2D(cols * w, rows[k] * h));
@@ -166,6 +193,14 @@ public class GenerateMasterSprite : MonoBehaviour
                     // Translate the image into a texture so that the pixels can be loaded from it
                     // eachColors contains the pixels for each icon in a row
                     fs = iconFiles[k * maxSize + i * cols + j].OpenRead();
+                    var info = new SpriteInfo
+                    {
+                        key = rmExt(fs.Name),
+                        x = j,
+                        y = i,
+                        sheet = k
+                    };
+                    infos.Add(info.key, info);
                     var imageBytes = new byte[fs.Length];
                     fs.Read(imageBytes, 0, Convert.ToInt32(fs.Length));
                     fs.Close();
@@ -189,11 +224,10 @@ public class GenerateMasterSprite : MonoBehaviour
             allColors.Reverse();
             fullImages[k].SetPixels(allColors.SelectMany(x => x).ToArray());
             var finalImage = fullImages[k].EncodeToPNG();
-            MasterSheetPath = Path.Combine(iconsDirectory, "Extras");
-            MasterSheetPath = Path.Combine(MasterSheetPath, "Master Sheet" + (k + 1) + ".png");
-            File.WriteAllBytes(MasterSheetPath, finalImage);
-            MasterSheetPath = MasterSheetPath.Replace(WorkingDirectory, "").Substring(1).Replace(Path.DirectorySeparatorChar, '/');
-            Func<Texture2D> tryloadingAsset = () => AssetDatabase.LoadAssetAtPath<Texture2D>(MasterSheetPath);
+            var sheetPath = Path.Combine(MasterSheetPath, "Master Sheet" + (k + 1) + ".png");
+            File.WriteAllBytes(sheetPath, finalImage);
+            sheetPath = sheetPath.Replace(WorkingDirectory, "").Substring(1).Replace(Path.DirectorySeparatorChar, '/');
+            Func<Texture2D> tryloadingAsset = () => AssetDatabase.LoadAssetAtPath<Texture2D>(sheetPath);
             // If we're creating a new file, let Unity know it's been created.
             // (This will also tell unity the old spreadsheet was deleted and that pixels should be reset)
             if (tryloadingAsset() == null)
@@ -203,14 +237,15 @@ public class GenerateMasterSprite : MonoBehaviour
                 ModuleScript.Modules = ModuleScript.Modules.Concat(new[] { loadedAsset }).ToArray();
             else
                 ModuleScript.Modules[k] = loadedAsset;
-            TextureImporter importer = AssetImporter.GetAtPath(MasterSheetPath) as TextureImporter;
+            TextureImporter importer = AssetImporter.GetAtPath(sheetPath) as TextureImporter;
             importer.maxTextureSize = maxSize;
             importer.isReadable = true;
             importer.filterMode = FilterMode.Point;
             importer.textureType = TextureImporterType.Sprite;
             importer.textureCompression = TextureImporterCompression.Uncompressed;
-            AssetDatabase.ImportAsset(MasterSheetPath, ImportAssetOptions.ForceUpdate);
+            AssetDatabase.ImportAsset(sheetPath, ImportAssetOptions.ForceUpdate);
         }
+        File.WriteAllText(Path.Combine(MasterSheetPath, "spriteData.json"), JsonConvert.SerializeObject(infos, Formatting.Indented));
         // Backwards compatibility (merging two sheets into one)
         if (ModuleScript.Modules.Length > rows.Count)
             ModuleScript.Modules = ModuleScript.Modules.Take(rows.Count).ToArray();
@@ -223,7 +258,7 @@ public class GenerateMasterSprite : MonoBehaviour
 
     Func<string, string> rmExt = s => Path.GetFileNameWithoutExtension(s);
 
-    [HideInInspector]
+   /* [HideInInspector]
     public GameObject givenIcon;
     [HideInInspector]
     public GameObject generatedIcon;
@@ -264,6 +299,6 @@ public class GenerateMasterSprite : MonoBehaviour
         DestroyImmediate(givenIcon);
         DestroyImmediate(generatedIcon);
         ModuleIcon = null;
-    }
+    }*/
 }
 #endif

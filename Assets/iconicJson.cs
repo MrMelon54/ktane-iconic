@@ -7,12 +7,10 @@
 //    var iconicData = IconicData.FromJson(jsonString);
 
 namespace iconicJson {
-    [System.Serializable]
     public class iconicData {
         public Module[] modules;
     }
 
-    [System.Serializable]
     public class Module {
         public string key;
         public string icon;
