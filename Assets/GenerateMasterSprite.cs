@@ -257,7 +257,7 @@ public class GenerateMasterSprite : MonoBehaviour
         PrefabUtility.ReplacePrefab(ModuleScript.gameObject, AssetDatabase.LoadAssetAtPath<GameObject>("Assets/iconic.prefab"), ReplacePrefabOptions.ConnectToPrefab);
     }
 
-    Func<string, string> rmExt = s => Path.GetFileNameWithoutExtension(s);
+    Func<string, string> rmExt = s => Path.GetFileNameWithoutExtension(s.ToLowerInvariant());
 
    /* [HideInInspector]
     public GameObject givenIcon;

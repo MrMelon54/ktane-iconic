@@ -245,7 +245,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434540, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: ModuleType
-      value: mercury
+      value: offKeys
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 3c4d546f5cdcf004bb2752130e8dd2ab, type: 2}
       propertyPath: m_Name
@@ -1608,6 +1608,7 @@ MonoBehaviour:
   - Diffusion
   - Soy Beans
   - Coffee Beans
+  - The Shaker
   - Newline
   - Letter Grid
   - Ghost Movement
@@ -2067,6 +2068,7 @@ MonoBehaviour:
   - The Temple Run
   - The Grand Prix
   - Matrix Mapping
+  - Again
   - Not Symbolic Password
   - Not Perspective Pegs
   - Not Double-Oh
@@ -2329,6 +2331,7 @@ MonoBehaviour:
   - Reporting Anomalies
   - Spiderman 2004
   - Zip Zap Zop
+  - RNG Crystal
   - Bicolored Squares
   - Colored Cube
   - Isocolored Squares
@@ -2475,6 +2478,49 @@ MonoBehaviour:
   - Bag Search
   - Jank Hole
   - Tangled Wires
+  - Coincidence
+  - Revision Helper
+  - Spectre Maze
+  - Encrypted Memory
+  - Mega Man Boss Rush
+  - Hiragana
+  - Katakana
+  - TAC
+  - Reflection
+  - Stacked Deck
+  - A-button-ing Mazes
+  - Buttonplicated Wires
+  - Keypass
+  - Maze Code
+  - MorseWoF
+  - Sequential Button
+  - Simon Strands
+  - Synapse Says
+  - Who's Simon
+  - Shiritori
+  - Core Encryption
+  - Monosweeper
+  - Thirty Dollar Module
+  - Catch Me if You Can
+  - Winning Line
+  - The Maroon Button
+  - Withered Foxy
+  - Division
+  - Multiplication
+  - Subtraction
+  - Scrambled Periodic Words
+  - Temporal Sequence
+  - Advanced Shapes and Colors
+  - Module Name
+  - Turing Machine Nightmare
+  - Bronco Trolleys
+  - Main Page
+  - Sbemail Songs
+  - Sid Hoffrenchman
+  - Strong Mad Talker
+  - Blinker
+  - Devilish Calculations
+  - Off Keys
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 203210176}
 --- !u!4 &2146465905
