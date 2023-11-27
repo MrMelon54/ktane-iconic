@@ -15,6 +15,7 @@ public class SpriteObject : Editor
     int range = 0;
     int iconChanged;*/
     bool hasChecked;
+    int selectedIndex;
     public override void OnInspectorGUI()
     {
         if (string.IsNullOrEmpty(Environment.GetEnvironmentVariable("RepoDir")))
@@ -28,8 +29,19 @@ public class SpriteObject : Editor
         GenerateMasterSprite generateObject = target as GenerateMasterSprite;
         GenerateMasterSprite.WorkingDirectory = Directory.GetParent(Application.dataPath).FullName;
         GenerateMasterSprite.iconsDirectory = Environment.GetEnvironmentVariable("RepoDir");
+
         if (GenerateMasterSprite.ModuleJsonPath == null)
             GenerateMasterSprite.ModuleJsonPath = Path.GetFullPath(Path.Combine(GenerateMasterSprite.WorkingDirectory, "Assets/Resources/iconicData.json"));
+        
+        switch (selectedIndex = EditorGUILayout.Popup(selectedIndex, new[] { "Iconic", "Module Maze" }))
+        {
+            case 1:
+                GenerateMasterSprite.ModuleJsonPath = Path.Combine(Path.GetDirectoryName(GenerateMasterSprite.ModuleJsonPath), "ModuleMazeSetup.json");
+                break;
+            default:
+                GenerateMasterSprite.ModuleJsonPath = Path.Combine(Path.GetDirectoryName(GenerateMasterSprite.ModuleJsonPath), "iconicData.json");
+                break;
+        }
 
         if (File.Exists(GenerateMasterSprite.ModuleJsonPath))
         {
@@ -196,7 +208,7 @@ public class GenerateMasterSprite : MonoBehaviour
                     fs = iconFiles[k * maxSize + i * cols + j].OpenRead();
                     var info = new SpriteInfo
                     {
-                        key = rmExt(fs.Name),
+                        key = Path.GetFileNameWithoutExtension(fs.Name),
                         x = j,
                         y = i,
                         sheet = k
