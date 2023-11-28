@@ -1,11 +1,11 @@
-﻿#if UNITY_EDITOR
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CustomEditor(typeof(GenerateMasterSprite))]
 public class SpriteObject : Editor
@@ -93,6 +93,9 @@ public class SpriteObject : Editor
 
         if (GUILayout.Button("Generate Spritesheet"))
         {
+            // Don't generate sprites if we don't have access to the repo.
+            if (Startup.Modules == null)
+                return;
             generateObject.Generate();
         }
 
@@ -134,7 +137,8 @@ public class SpriteObject : Editor
     }
 }
 
-public class GenerateMasterSprite : MonoBehaviour
+[CreateAssetMenu(fileName = "Generate Master Sprite", menuName = "ScriptableObjects/Sprite Generator")]
+public class GenerateMasterSprite : ScriptableObject
 {
     // Allow this to be customizable
     // Lower is more compatible with low end devices (such as mobile)
@@ -154,6 +158,18 @@ public class GenerateMasterSprite : MonoBehaviour
     public static string iconsDirectory;
     public Texture2D ModuleIcon;
     public iconicScript ModuleScript;
+    class GeneratorData
+    {
+        public GeneratorData(Startup.RepoModule data, FileInfo f)
+        {
+            repoData = data;
+            file = f;
+        }
+        public static List<GeneratorData> files = new List<GeneratorData>();
+        public FileInfo file;
+        public Startup.RepoModule repoData;
+        public string name;
+    }
     public void Generate()
     {
         // In case there is more than one sheet, use the wildcard to match 0 or 1 times.
@@ -164,20 +180,18 @@ public class GenerateMasterSprite : MonoBehaviour
             File.Delete(sheet);
             File.Delete(sheet + ".meta");
         }
-        // ...q vs ...Q breaks the entire module, gotta make sure everything is lowercase to avoid casing issues.
-        var ModuleNames = ModuleList.Select(x => x.ToLowerInvariant()).ToList();
-        // Grab all of the file paths from the icons directories and sort them by the order in ModuleNames.
-        // It is important that the names in ModuleNames matches the names of the files.
-        var iconFiles = new DirectoryInfo(iconsDirectory).GetFiles("*.png", SearchOption.TopDirectoryOnly).OrderBy(x => ModuleNames.IndexOf(rmExt(x.Name))).ToList();
-        // Remove icons that are not included in ModuleNames
-        iconFiles = iconFiles.Where(x => ModuleNames.Contains(rmExt(x.Name))).ToList();
+        var ModuleNames = ModuleList.Select(x => Startup.Modules[x]).ToList();
+        // Grab all of the file paths from the icons directory
+        var iconFiles = new DirectoryInfo(iconsDirectory).GetFiles("*.png", SearchOption.TopDirectoryOnly);
+        GeneratorData.files = ModuleNames.Select(x => new GeneratorData(x, iconFiles.First(y => x.filename.Equals(rmExt(y.Name), StringComparison.InvariantCultureIgnoreCase)))).ToList();
+        var files = GeneratorData.files;
         // Determine the number of rows based on the number of columns
-        var rows = new List<int> { (iconFiles.Count + cols - 1) / cols };
+        var rows = new List<int> { (files.Count + cols - 1) / cols };
         while (rows.Last() * cols > maxSize)
         {
             var count = rows.Count;
             rows[count - 1] = cols;
-            rows.Add((iconFiles.Count - (count * maxSize) + cols - 1) / cols);
+            rows.Add((files.Count - (count * maxSize) + cols - 1) / cols);
         }
         // Create the Texture we'll use to make the final PNG
         // The size must be predetermined according to Texture2D.SetPixels()
@@ -196,24 +210,26 @@ public class GenerateMasterSprite : MonoBehaviour
                 for (int j = 0; j < cols; j++)
                 {
                     // Texture2D.SetPixels requires an exact size, so fill the rest of the pixels with empty
-                    if (k * maxSize + i * cols + j >= iconFiles.Count)
+                    if (k * maxSize + i * cols + j >= files.Count)
                     {
                         eachColors.Add(Enumerable.Repeat(Color.clear, w * h * (cols - j)).ToArray());
                         continue;
                     }
+                    var moduleSelected = files[k * maxSize + i * cols + j];
                     // Grab the filestream from each fileinfo, and read the filestream to a byte array
                     // Close the filestream so the file can be used by other programs if needed
                     // Translate the image into a texture so that the pixels can be loaded from it
                     // eachColors contains the pixels for each icon in a row
-                    fs = iconFiles[k * maxSize + i * cols + j].OpenRead();
+                    fs = moduleSelected.file.OpenRead();
                     var info = new SpriteInfo
                     {
-                        key = Path.GetFileNameWithoutExtension(fs.Name),
+                        name = moduleSelected.repoData.name,
+                        sortkey = moduleSelected.repoData.sortkey,
                         x = j,
                         y = i,
                         sheet = k
                     };
-                    infos.Add(info.key, info);
+                    infos.Add(info.name.ToLowerInvariant(), info);
                     var imageBytes = new byte[fs.Length];
                     fs.Read(imageBytes, 0, Convert.ToInt32(fs.Length));
                     fs.Close();
@@ -264,12 +280,18 @@ public class GenerateMasterSprite : MonoBehaviour
             ModuleScript.Modules = ModuleScript.Modules.Take(rows.Count).ToArray();
         // Tell Unity the old spritesheet is deleted and to reset the pixels in memory
         AssetDatabase.Refresh();
+        // Sync the new data to the hierarchy
+        var rootObjects = new List<GameObject>();
+        var scene = SceneManager.GetActiveScene();
+        scene.GetRootGameObjects(rootObjects);
+        var iconicPrefab = rootObjects.First(x => x.name.Contains("iconic"));
+        iconicPrefab.GetComponent<iconicScript>().Modules = ModuleScript.Modules;
         // Dirty "Apply" button for updating the spritesheet in the iconic script.
         // Keep in mind that this will save all changes made to the iconic prefab.
-        PrefabUtility.ReplacePrefab(ModuleScript.gameObject, AssetDatabase.LoadAssetAtPath<GameObject>("Assets/iconic.prefab"), ReplacePrefabOptions.ConnectToPrefab);
+        PrefabUtility.ReplacePrefab(iconicPrefab, AssetDatabase.LoadAssetAtPath<GameObject>("Assets/iconic.prefab"), ReplacePrefabOptions.ConnectToPrefab);
     }
 
-    Func<string, string> rmExt = s => Path.GetFileNameWithoutExtension(s.ToLowerInvariant());
+    Func<string, string> rmExt = s => Path.GetFileNameWithoutExtension(s);
 
    /* [HideInInspector]
     public GameObject givenIcon;
@@ -314,4 +336,3 @@ public class GenerateMasterSprite : MonoBehaviour
         ModuleIcon = null;
     }*/
 }
-#endif

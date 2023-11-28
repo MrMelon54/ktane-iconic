@@ -1,8 +1,4 @@
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using iconicJson;
-using jsonData = iconicJson.iconicData;
 
 public class SpriteData
 {
@@ -12,7 +8,8 @@ public class SpriteData
 
 public class SpriteInfo
 {
-    public string key;
+    public string name;
+    public string sortkey;
     public int x;
     public int y;
     public int sheet;
