@@ -14329,6 +14329,188 @@
       "x": 6,
       "y": 51,
       "sheet": 0
+    },
+    "planet x": {
+      "name": "Planet X",
+      "sortkey": "PLANETX",
+      "x": 7,
+      "y": 51,
+      "sheet": 0
+    },
+    "f": {
+      "name": "F",
+      "sortkey": "F",
+      "x": 8,
+      "y": 51,
+      "sheet": 0
+    },
+    "solar reorder": {
+      "name": "Solar Reorder",
+      "sortkey": "SOLARREORDER",
+      "x": 9,
+      "y": 51,
+      "sheet": 0
+    },
+    "alarming": {
+      "name": "Alarming",
+      "sortkey": "ALARMING",
+      "x": 10,
+      "y": 51,
+      "sheet": 0
+    },
+    "city planning": {
+      "name": "City Planning",
+      "sortkey": "CITYPLANNING",
+      "x": 11,
+      "y": 51,
+      "sheet": 0
+    },
+    "mistranslated venting gas": {
+      "name": "Mistranslated Venting Gas",
+      "sortkey": "MISTRANSLATEDVENTINGGAS",
+      "x": 12,
+      "y": 51,
+      "sheet": 0
+    },
+    "number cruncher": {
+      "name": "Number Cruncher",
+      "sortkey": "NUMBERCRUNCHER",
+      "x": 13,
+      "y": 51,
+      "sheet": 0
+    },
+    "pattern recognition": {
+      "name": "Pattern Recognition",
+      "sortkey": "PATTERNRECOGNITION",
+      "x": 14,
+      "y": 51,
+      "sheet": 0
+    },
+    "serial wires": {
+      "name": "Serial Wires",
+      "sortkey": "SERIALWIRES",
+      "x": 15,
+      "y": 51,
+      "sheet": 0
+    },
+    "game of life 3d": {
+      "name": "Game of Life 3D",
+      "sortkey": "GAMEOFLIFE3D",
+      "x": 16,
+      "y": 51,
+      "sheet": 0
+    },
+    "j": {
+      "name": "J",
+      "sortkey": "J",
+      "x": 17,
+      "y": 51,
+      "sheet": 0
+    },
+    "nim": {
+      "name": "Nim",
+      "sortkey": "NIM",
+      "x": 18,
+      "y": 51,
+      "sheet": 0
+    },
+    "tap fast": {
+      "name": "Tap Fast",
+      "sortkey": "TAPFAST",
+      "x": 19,
+      "y": 51,
+      "sheet": 0
+    },
+    "spectator sport": {
+      "name": "Spectator Sport",
+      "sortkey": "SPECTATORSPORT",
+      "x": 20,
+      "y": 51,
+      "sheet": 0
+    },
+    "clapping music": {
+      "name": "Clapping Music",
+      "sortkey": "CLAPPINGMUSIC",
+      "x": 21,
+      "y": 51,
+      "sheet": 0
+    },
+    "n": {
+      "name": "N",
+      "sortkey": "N",
+      "x": 22,
+      "y": 51,
+      "sheet": 0
+    },
+    "setting charges": {
+      "name": "Setting Charges",
+      "sortkey": "SETTINGCHARGES",
+      "x": 23,
+      "y": 51,
+      "sheet": 0
+    },
+    "vigilant psycho": {
+      "name": "Vigilant Psycho",
+      "sortkey": "VIGILANTPSYCHO",
+      "x": 24,
+      "y": 51,
+      "sheet": 0
+    },
+    "jumbled buttons": {
+      "name": "Jumbled Buttons",
+      "sortkey": "JUMBLEDBUTTONS",
+      "x": 25,
+      "y": 51,
+      "sheet": 0
+    },
+    "switching buttons": {
+      "name": "Switching Buttons",
+      "sortkey": "SWITCHINGBUTTONS",
+      "x": 26,
+      "y": 51,
+      "sheet": 0
+    },
+    "white elephant": {
+      "name": "White Elephant",
+      "sortkey": "WHITEELEPHANT",
+      "x": 27,
+      "y": 51,
+      "sheet": 0
+    },
+    "the teardrop": {
+      "name": "The Teardrop",
+      "sortkey": "TEARDROP",
+      "x": 28,
+      "y": 51,
+      "sheet": 0
+    },
+    "encoloryption": {
+      "name": "Encoloryption",
+      "sortkey": "ENCOLORYPTION",
+      "x": 29,
+      "y": 51,
+      "sheet": 0
+    },
+    "emoji": {
+      "name": "Emoji",
+      "sortkey": "EMOJI",
+      "x": 30,
+      "y": 51,
+      "sheet": 0
+    },
+    "repseq": {
+      "name": "REPSEQ",
+      "sortkey": "REPSEQ",
+      "x": 31,
+      "y": 51,
+      "sheet": 0
+    },
+    "ill morse": {
+      "name": "Ill Morse",
+      "sortkey": "ILLMORSE",
+      "x": 32,
+      "y": 51,
+      "sheet": 0
     }
   }
 }
