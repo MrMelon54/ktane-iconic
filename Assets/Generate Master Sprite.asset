@@ -2064,6 +2064,42 @@ MonoBehaviour:
   - Blinker
   - Devilish Calculations
   - Off Keys
+  - Planet X
+  - F
+  - Solar Reorder
+  - Alarming
+  - City Planning
+  - Mistranslated Venting Gas
+  - Number Cruncher
+  - Pattern Recognition
+  - Serial Wires
+  - Game of Life 3D
+  - J
+  - Nim
+  - Tap Fast
+  - Spectator Sport
+  - Clapping Music
+  - N
+  - Flowchart Madness
+  - Setting Charges
+  - Vigilant Psycho
+  - Jumbled Buttons
+  - Switching Buttons
+  - White Elephant
+  - The Teardrop
+  - Encoloryption
+  - Emoji
+  - Soda
+  - REPSEQ
+  - Ill Morse
+  - Not Adjacent Letters
+  - Mathemetallics
+  - Labyrinth Madness
+  - Chipping Triangles
+  - Ducks
+  - Yippee
+  - Shipping Triangles
+  - The Tissue Box
   ModuleIcon: {fileID: 0}
   ModuleScript: {fileID: 114337975611285086, guid: 85a2c623b85c45f4fbcbd5bedc7a4b15,
     type: 2}
