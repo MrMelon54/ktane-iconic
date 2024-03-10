@@ -14554,31 +14554,115 @@
       "y": 51,
       "sheet": 0
     },
+    "puppet": {
+      "name": "Puppet",
+      "sortkey": "PUPPET",
+      "x": 39,
+      "y": 51,
+      "sheet": 0
+    },
     "ducks": {
       "name": "Ducks",
       "sortkey": "DUCKS",
-      "x": 39,
-      "y": 51,
+      "x": 0,
+      "y": 52,
       "sheet": 0
     },
     "yippee": {
       "name": "Yippee",
       "sortkey": "YIPPEE",
-      "x": 0,
+      "x": 1,
       "y": 52,
       "sheet": 0
     },
     "shipping triangles": {
       "name": "Shipping Triangles",
       "sortkey": "SHIPPINGTRIANGLES",
-      "x": 1,
+      "x": 2,
       "y": 52,
       "sheet": 0
     },
     "the tissue box™": {
       "name": "The Tissue Box™",
       "sortkey": "TISSUEBOX",
-      "x": 2,
+      "x": 3,
+      "y": 52,
+      "sheet": 0
+    },
+    "facets & logic": {
+      "name": "Facets & Logic",
+      "sortkey": "FACETSANDLOGIC",
+      "x": 4,
+      "y": 52,
+      "sheet": 0
+    },
+    "rhythm maze": {
+      "name": "Rhythm Maze",
+      "sortkey": "RHYTHMMAZE",
+      "x": 5,
+      "y": 52,
+      "sheet": 0
+    },
+    "rift roulette": {
+      "name": "Rift Roulette",
+      "sortkey": "RIFTROULETTE",
+      "x": 6,
+      "y": 52,
+      "sheet": 0
+    },
+    "snatcher's map": {
+      "name": "Snatcher's Map",
+      "sortkey": "SNATCHER'SMAP",
+      "x": 7,
+      "y": 52,
+      "sheet": 0
+    },
+    "symmetry shuffle": {
+      "name": "Symmetry Shuffle",
+      "sortkey": "SYMMETRYSHUFFLE",
+      "x": 8,
+      "y": 52,
+      "sheet": 0
+    },
+    "the multiverse hotline": {
+      "name": "The Multiverse Hotline",
+      "sortkey": "MULTIVERSEHOTLINE",
+      "x": 9,
+      "y": 52,
+      "sheet": 0
+    },
+    "limbo keys": {
+      "name": "Limbo Keys",
+      "sortkey": "LIMBOKEYS",
+      "x": 10,
+      "y": 52,
+      "sheet": 0
+    },
+    "supermarket scramble": {
+      "name": "Supermarket Scramble",
+      "sortkey": "SUPERMARKETSCRAMBLE",
+      "x": 11,
+      "y": 52,
+      "sheet": 0
+    },
+    "password hexaterminals": {
+      "name": "Password Hexaterminals",
+      "sortkey": "PASSWORDHEXATERMINALS",
+      "x": 12,
+      "y": 52,
+      "sheet": 0
+    },
+    "setup wizard": {
+      "name": "Setup Wizard",
+      "sortkey": "SETUPWIZARD",
+      "x": 13,
+      "y": 52,
+      "sheet": 0
+    },
+    "binary squares": {
+      "name": "Binary Squares",
+      "sortkey": "BINARYSQUARES",
+      "x": 14,
       "y": 52,
       "sheet": 0
     }
