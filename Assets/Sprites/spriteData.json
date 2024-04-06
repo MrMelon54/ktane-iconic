@@ -14477,192 +14477,262 @@
       "y": 51,
       "sheet": 0
     },
+    "q": {
+      "name": "Q",
+      "sortkey": "Q",
+      "x": 28,
+      "y": 51,
+      "sheet": 0
+    },
     "white elephant": {
       "name": "White Elephant",
       "sortkey": "WHITEELEPHANT",
-      "x": 28,
+      "x": 29,
       "y": 51,
       "sheet": 0
     },
     "the teardrop": {
       "name": "The Teardrop",
       "sortkey": "TEARDROP",
-      "x": 29,
+      "x": 30,
       "y": 51,
       "sheet": 0
     },
     "encoloryption": {
       "name": "Encoloryption",
       "sortkey": "ENCOLORYPTION",
-      "x": 30,
+      "x": 31,
       "y": 51,
       "sheet": 0
     },
     "emoji": {
       "name": "Emoji",
       "sortkey": "EMOJI",
-      "x": 31,
+      "x": 32,
       "y": 51,
       "sheet": 0
     },
     "soda": {
       "name": "Soda",
       "sortkey": "SODA",
-      "x": 32,
+      "x": 33,
       "y": 51,
       "sheet": 0
     },
     "repseq": {
       "name": "REPSEQ",
       "sortkey": "REPSEQ",
-      "x": 33,
+      "x": 34,
       "y": 51,
       "sheet": 0
     },
     "ill morse": {
       "name": "Ill Morse",
       "sortkey": "ILLMORSE",
-      "x": 34,
+      "x": 35,
       "y": 51,
       "sheet": 0
     },
     "not adjacent letters": {
       "name": "Not Adjacent Letters",
       "sortkey": "NOTADJACENTLETTERS",
-      "x": 35,
+      "x": 36,
       "y": 51,
       "sheet": 0
     },
     "mathemetallics": {
       "name": "Mathemetallics",
       "sortkey": "MATHEMETALLICS",
-      "x": 36,
+      "x": 37,
       "y": 51,
       "sheet": 0
     },
     "labyrinth madness": {
       "name": "Labyrinth Madness",
       "sortkey": "LABYRINTHMADNESS",
-      "x": 37,
+      "x": 38,
       "y": 51,
       "sheet": 0
     },
     "chipping triangles": {
       "name": "Chipping Triangles",
       "sortkey": "CHIPPINGTRIANGLES",
-      "x": 38,
+      "x": 39,
       "y": 51,
       "sheet": 0
     },
     "puppet": {
       "name": "Puppet",
       "sortkey": "PUPPET",
-      "x": 39,
-      "y": 51,
+      "x": 0,
+      "y": 52,
       "sheet": 0
     },
     "ducks": {
       "name": "Ducks",
       "sortkey": "DUCKS",
-      "x": 0,
+      "x": 1,
+      "y": 52,
+      "sheet": 0
+    },
+    "cryptid": {
+      "name": "Cryptid",
+      "sortkey": "CRYPTID",
+      "x": 2,
       "y": 52,
       "sheet": 0
     },
     "yippee": {
       "name": "Yippee",
       "sortkey": "YIPPEE",
-      "x": 1,
+      "x": 3,
       "y": 52,
       "sheet": 0
     },
     "shipping triangles": {
       "name": "Shipping Triangles",
       "sortkey": "SHIPPINGTRIANGLES",
-      "x": 2,
+      "x": 4,
       "y": 52,
       "sheet": 0
     },
     "the tissue box™": {
       "name": "The Tissue Box™",
       "sortkey": "TISSUEBOX",
-      "x": 3,
+      "x": 5,
       "y": 52,
       "sheet": 0
     },
     "facets & logic": {
       "name": "Facets & Logic",
       "sortkey": "FACETSANDLOGIC",
-      "x": 4,
+      "x": 6,
       "y": 52,
       "sheet": 0
     },
     "rhythm maze": {
       "name": "Rhythm Maze",
       "sortkey": "RHYTHMMAZE",
-      "x": 5,
+      "x": 7,
       "y": 52,
       "sheet": 0
     },
     "rift roulette": {
       "name": "Rift Roulette",
       "sortkey": "RIFTROULETTE",
-      "x": 6,
+      "x": 8,
       "y": 52,
       "sheet": 0
     },
     "snatcher's map": {
       "name": "Snatcher's Map",
       "sortkey": "SNATCHER'SMAP",
-      "x": 7,
+      "x": 9,
       "y": 52,
       "sheet": 0
     },
     "symmetry shuffle": {
       "name": "Symmetry Shuffle",
       "sortkey": "SYMMETRYSHUFFLE",
-      "x": 8,
+      "x": 10,
       "y": 52,
       "sheet": 0
     },
     "the multiverse hotline": {
       "name": "The Multiverse Hotline",
       "sortkey": "MULTIVERSEHOTLINE",
-      "x": 9,
+      "x": 11,
       "y": 52,
       "sheet": 0
     },
     "limbo keys": {
       "name": "Limbo Keys",
       "sortkey": "LIMBOKEYS",
-      "x": 10,
+      "x": 12,
       "y": 52,
       "sheet": 0
     },
     "supermarket scramble": {
       "name": "Supermarket Scramble",
       "sortkey": "SUPERMARKETSCRAMBLE",
-      "x": 11,
+      "x": 13,
       "y": 52,
       "sheet": 0
     },
     "password hexaterminals": {
       "name": "Password Hexaterminals",
       "sortkey": "PASSWORDHEXATERMINALS",
-      "x": 12,
+      "x": 14,
       "y": 52,
       "sheet": 0
     },
     "setup wizard": {
       "name": "Setup Wizard",
       "sortkey": "SETUPWIZARD",
-      "x": 13,
+      "x": 15,
       "y": 52,
       "sheet": 0
     },
     "binary squares": {
       "name": "Binary Squares",
       "sortkey": "BINARYSQUARES",
-      "x": 14,
+      "x": 16,
+      "y": 52,
+      "sheet": 0
+    },
+    "normal probability": {
+      "name": "Normal Probability",
+      "sortkey": "NORMALPROBABILITY",
+      "x": 17,
+      "y": 52,
+      "sheet": 0
+    },
+    "karnaugh map": {
+      "name": "Karnaugh Map",
+      "sortkey": "KARNAUGHMAP",
+      "x": 18,
+      "y": 52,
+      "sheet": 0
+    },
+    "cursed": {
+      "name": "Cursed",
+      "sortkey": "CURSED",
+      "x": 19,
+      "y": 52,
+      "sheet": 0
+    },
+    "gourmet hamburger": {
+      "name": "Gourmet Hamburger",
+      "sortkey": "GOURMETHAMBURGER",
+      "x": 20,
+      "y": 52,
+      "sheet": 0
+    },
+    "sat nav": {
+      "name": "Sat Nav",
+      "sortkey": "SATNAV",
+      "x": 21,
+      "y": 52,
+      "sheet": 0
+    },
+    "worse code": {
+      "name": "Worse Code",
+      "sortkey": "WORSECODE",
+      "x": 22,
+      "y": 52,
+      "sheet": 0
+    },
+    "yellow face": {
+      "name": "Yellow Face",
+      "sortkey": "YELLOWFACE",
+      "x": 23,
+      "y": 52,
+      "sheet": 0
+    },
+    "flamin' finger": {
+      "name": "Flamin' Finger",
+      "sortkey": "FLAMINFINGER",
+      "x": 24,
       "y": 52,
       "sheet": 0
     }
