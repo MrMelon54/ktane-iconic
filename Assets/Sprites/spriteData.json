@@ -14735,6 +14735,69 @@
       "x": 24,
       "y": 52,
       "sheet": 0
+    },
+    "foxed freshly": {
+      "name": "Foxed Freshly",
+      "sortkey": "FOXEDFRESHLY",
+      "x": 25,
+      "y": 52,
+      "sheet": 0
+    },
+    "color-symbolic interpretation module": {
+      "name": "Color-Symbolic Interpretation Module",
+      "sortkey": "COLORSYMBOLICINTERPRETATIONMODULE",
+      "x": 26,
+      "y": 52,
+      "sheet": 0
+    },
+    "not saimoe maze": {
+      "name": "Not Saimoe Maze",
+      "sortkey": "NOTSAIMOEMAZE",
+      "x": 27,
+      "y": 52,
+      "sheet": 0
+    },
+    "lying buttons": {
+      "name": "Lying Buttons",
+      "sortkey": "LYINGBUTTONS",
+      "x": 28,
+      "y": 52,
+      "sheet": 0
+    },
+    "polynomial solver": {
+      "name": "Polynomial Solver",
+      "sortkey": "POLYNOMIALSOLVER",
+      "x": 29,
+      "y": 52,
+      "sheet": 0
+    },
+    "cartiac arrest": {
+      "name": "Cartiac Arrest",
+      "sortkey": "CARTIACARREST",
+      "x": 30,
+      "y": 52,
+      "sheet": 0
+    },
+    "swippy swappy": {
+      "name": "Swippy Swappy",
+      "sortkey": "SWIPPYSWAPPY",
+      "x": 31,
+      "y": 52,
+      "sheet": 0
+    },
+    "clearance code": {
+      "name": "Clearance Code",
+      "sortkey": "CLEARANCECODE",
+      "x": 32,
+      "y": 52,
+      "sheet": 0
+    },
+    "dyscalculator": {
+      "name": "Dyscalculator",
+      "sortkey": "DYSCALCULATOR",
+      "x": 33,
+      "y": 52,
+      "sheet": 0
     }
   }
 }
