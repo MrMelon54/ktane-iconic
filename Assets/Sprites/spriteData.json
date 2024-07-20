@@ -13574,100 +13574,100 @@
       "y": 48,
       "sheet": 0
     },
+    "rotary encoder": {
+      "name": "Rotary Encoder",
+      "sortkey": "ROTARYENCODER",
+      "x": 19,
+      "y": 48,
+      "sheet": 0
+    },
     "frightened ghost movement": {
       "name": "Frightened Ghost Movement",
       "sortkey": "FRIGHTENEDGHOSTMOVEMENT",
-      "x": 19,
+      "x": 20,
       "y": 48,
       "sheet": 0
     },
     "haiku": {
       "name": "Haiku",
       "sortkey": "HAIKU",
-      "x": 20,
+      "x": 21,
       "y": 48,
       "sheet": 0
     },
     "s.e.t. theory": {
       "name": "S.E.T. Theory",
       "sortkey": "SETTHEORY",
-      "x": 21,
+      "x": 22,
       "y": 48,
       "sheet": 0
     },
     "unicode arrows": {
       "name": "Unicode Arrows",
       "sortkey": "UNICODEARROWS",
-      "x": 22,
+      "x": 23,
       "y": 48,
       "sheet": 0
     },
     "four elements": {
       "name": "Four Elements",
       "sortkey": "FOURELEMENTS",
-      "x": 23,
-      "y": 48,
-      "sheet": 0
-    },
-    "green wires": {
-      "name": "Green Wires",
-      "sortkey": "GREENWIRES",
       "x": 24,
-      "y": 48,
-      "sheet": 0
-    },
-    "keystrokes": {
-      "name": "Keystrokes",
-      "sortkey": "KEYSTROKES",
-      "x": 25,
-      "y": 48,
-      "sheet": 0
-    },
-    "death note": {
-      "name": "Death Note",
-      "sortkey": "DEATHNOTE",
-      "x": 26,
-      "y": 48,
-      "sheet": 0
-    },
-    "solve shift": {
-      "name": "Solve Shift",
-      "sortkey": "SOLVESHIFT",
-      "x": 27,
-      "y": 48,
-      "sheet": 0
-    },
-    "the fuse box": {
-      "name": "The Fuse Box",
-      "sortkey": "FUSEBOX",
-      "x": 28,
-      "y": 48,
-      "sheet": 0
-    },
-    "who's on trunic": {
-      "name": "Who's on Trunic",
-      "sortkey": "WHOSONTRUNIC",
-      "x": 29,
-      "y": 48,
-      "sheet": 0
-    },
-    "ultimate team": {
-      "name": "Ultimate Team",
-      "sortkey": "ULTIMATETEAM",
-      "x": 30,
       "y": 48,
       "sheet": 0
     },
     "puzzling buttons": {
       "name": "Puzzling Buttons",
       "sortkey": "PUZZLINGBUTTONS",
+      "x": 25,
+      "y": 48,
+      "sheet": 0
+    },
+    "green wires": {
+      "name": "Green Wires",
+      "sortkey": "GREENWIRES",
+      "x": 26,
+      "y": 48,
+      "sheet": 0
+    },
+    "keystrokes": {
+      "name": "Keystrokes",
+      "sortkey": "KEYSTROKES",
+      "x": 27,
+      "y": 48,
+      "sheet": 0
+    },
+    "death note": {
+      "name": "Death Note",
+      "sortkey": "DEATHNOTE",
+      "x": 28,
+      "y": 48,
+      "sheet": 0
+    },
+    "solve shift": {
+      "name": "Solve Shift",
+      "sortkey": "SOLVESHIFT",
+      "x": 29,
+      "y": 48,
+      "sheet": 0
+    },
+    "the fuse box": {
+      "name": "The Fuse Box",
+      "sortkey": "FUSEBOX",
+      "x": 30,
+      "y": 48,
+      "sheet": 0
+    },
+    "who's on trunic": {
+      "name": "Who's on Trunic",
+      "sortkey": "WHOSONTRUNIC",
       "x": 31,
       "y": 48,
       "sheet": 0
     },
-    "rotary encoder": {
-      "name": "Rotary Encoder",
-      "sortkey": "ROTARYENCODER",
+    "ultimate team": {
+      "name": "Ultimate Team",
+      "sortkey": "ULTIMATETEAM",
       "x": 32,
       "y": 48,
       "sheet": 0
@@ -15013,6 +15013,111 @@
       "name": "Scattershot",
       "sortkey": "SCATTERSHOT",
       "x": 24,
+      "y": 53,
+      "sheet": 0
+    },
+    "withered bonnie": {
+      "name": "Withered Bonnie",
+      "sortkey": "WITHEREDBONNIE",
+      "x": 25,
+      "y": 53,
+      "sheet": 0
+    },
+    "busted password": {
+      "name": "Busted Password",
+      "sortkey": "BUSTEDPASSWORD",
+      "x": 26,
+      "y": 53,
+      "sheet": 0
+    },
+    "copper-9": {
+      "name": "Copper-9",
+      "sortkey": "COPPER9",
+      "x": 27,
+      "y": 53,
+      "sheet": 0
+    },
+    "triskaideka": {
+      "name": "Triskaideka",
+      "sortkey": "TRISKAIDEKA",
+      "x": 28,
+      "y": 53,
+      "sheet": 0
+    },
+    "cutting order": {
+      "name": "Cutting Order",
+      "sortkey": "CUTTINGORDER",
+      "x": 29,
+      "y": 53,
+      "sheet": 0
+    },
+    "meet your maker": {
+      "name": "Meet Your Maker",
+      "sortkey": "MEETYOURMAKER",
+      "x": 30,
+      "y": 53,
+      "sheet": 0
+    },
+    "grimm": {
+      "name": "Grimm",
+      "sortkey": "GRIMM",
+      "x": 31,
+      "y": 53,
+      "sheet": 0
+    },
+    "marmite": {
+      "name": "Marmite",
+      "sortkey": "MARMITE",
+      "x": 32,
+      "y": 53,
+      "sheet": 0
+    },
+    "purgatory's name list": {
+      "name": "Purgatory's Name List",
+      "sortkey": "PURGATORYSNAMELIST",
+      "x": 33,
+      "y": 53,
+      "sheet": 0
+    },
+    "voltaic morse": {
+      "name": "Voltaic Morse",
+      "sortkey": "VOLTAICMORSE",
+      "x": 34,
+      "y": 53,
+      "sheet": 0
+    },
+    "uncanny maze": {
+      "name": "Uncanny Maze",
+      "sortkey": "UNCANNYMAZE",
+      "x": 35,
+      "y": 53,
+      "sheet": 0
+    },
+    "rgb mixing": {
+      "name": "RGB Mixing",
+      "sortkey": "RGBMIXING",
+      "x": 36,
+      "y": 53,
+      "sheet": 0
+    },
+    "delumination": {
+      "name": "Delumination",
+      "sortkey": "DELUMINATION",
+      "x": 37,
+      "y": 53,
+      "sheet": 0
+    },
+    "mixometer": {
+      "name": "Mixometer",
+      "sortkey": "MIXOMETER",
+      "x": 38,
+      "y": 53,
+      "sheet": 0
+    },
+    "war": {
+      "name": "WAR",
+      "sortkey": "WAR",
+      "x": 39,
       "y": 53,
       "sheet": 0
     }
