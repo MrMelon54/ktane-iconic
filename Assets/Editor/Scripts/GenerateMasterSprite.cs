@@ -33,6 +33,7 @@ public class SpriteObject : Editor
         if (GenerateMasterSprite.ModuleJsonPath == null)
             GenerateMasterSprite.ModuleJsonPath = Path.GetFullPath(Path.Combine(GenerateMasterSprite.WorkingDirectory, "Assets/Resources/iconicData.json"));
         
+        selectedIndex = generateObject._selectionCache;
         EditorGUI.BeginChangeCheck();
         switch (selectedIndex = EditorGUILayout.Popup(selectedIndex, new[] { "Iconic", "Module Maze" }))
         {
@@ -42,11 +43,16 @@ public class SpriteObject : Editor
                 {
                     generateObject._colsCache = generateObject.cols;
                     generateObject.cols = 20;
+                    generateObject._selectionCache = selectedIndex;
                 }
                 break;
             default:
                 GenerateMasterSprite.ModuleJsonPath = Path.Combine(Path.GetDirectoryName(GenerateMasterSprite.ModuleJsonPath), "iconicData.json");
-                if (EditorGUI.EndChangeCheck() && generateObject._colsCache != 0) generateObject.cols = generateObject._colsCache;
+                if (EditorGUI.EndChangeCheck() && generateObject._colsCache != 0) 
+                {
+                    generateObject.cols = generateObject._colsCache;
+                    generateObject._selectionCache = selectedIndex;
+                }
                 break;
         }
 
@@ -158,7 +164,7 @@ public class GenerateMasterSprite : ScriptableObject
     public int w = 32;
     public int h = 32;
     [HideInInspector]
-    public int ModuleIndex;
+    public int _selectionCache;
     [HideInInspector]
     public List<string> ModuleList;
     public static string ModuleJsonPath;
