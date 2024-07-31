@@ -33,13 +33,20 @@ public class SpriteObject : Editor
         if (GenerateMasterSprite.ModuleJsonPath == null)
             GenerateMasterSprite.ModuleJsonPath = Path.GetFullPath(Path.Combine(GenerateMasterSprite.WorkingDirectory, "Assets/Resources/iconicData.json"));
         
+        EditorGUI.BeginChangeCheck();
         switch (selectedIndex = EditorGUILayout.Popup(selectedIndex, new[] { "Iconic", "Module Maze" }))
         {
             case 1:
                 GenerateMasterSprite.ModuleJsonPath = Path.Combine(Path.GetDirectoryName(GenerateMasterSprite.ModuleJsonPath), "ModuleMazeSetup.json");
+                if (EditorGUI.EndChangeCheck())
+                {
+                    generateObject._colsCache = generateObject.cols;
+                    generateObject.cols = 20;
+                }
                 break;
             default:
                 GenerateMasterSprite.ModuleJsonPath = Path.Combine(Path.GetDirectoryName(GenerateMasterSprite.ModuleJsonPath), "iconicData.json");
+                if (EditorGUI.EndChangeCheck() && generateObject._colsCache != 0) generateObject.cols = generateObject._colsCache;
                 break;
         }
 
@@ -146,6 +153,8 @@ public class GenerateMasterSprite : ScriptableObject
     // Make sure this value matches one of the possible values for the max size or else it will default to 4096.
     public int maxSize = 4096;
     public int cols = 21;
+    [HideInInspector]
+    public int _colsCache;
     public int w = 32;
     public int h = 32;
     [HideInInspector]
